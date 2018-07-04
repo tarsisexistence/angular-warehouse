@@ -13,9 +13,9 @@ import {
 } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { Apparels } from './shared/apparels.interface';
 import { categories } from './shared/apparels.constants';
 import { ApparelService } from '../apollo/services/apparel.service';
+import { Apparel } from './shared/apparel.interface';
 
 @Component({
   selector: 'shop-feat',
@@ -24,8 +24,7 @@ import { ApparelService } from '../apollo/services/apparel.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ShopComponent implements OnInit, OnDestroy {
-  public apparels: Apparels;
-  public apparels$: Observable<Apparels>;
+  public apparels: Apparel[];
   public category: string;
   public categories: string[];
   public loading: boolean;
@@ -40,16 +39,25 @@ export class ShopComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit() {
-    this.apparels$ = this.apparelService.getAllApparel('');
-    this.apparels$.subscribe(data => console.log(data));
-    // this.route.data
-    //     .pipe(takeUntil(this.ngUnsubscribe))
-    //     .subscribe((data: { category: string }) => {
-    //       this.loading = this.apparels === undefined;
-    //       this.category = data.category === undefined ? 'all' : data.category;
-    //     });
+    this.categories = categories;
+
+    this.route.data
+        .pipe(takeUntil(this.ngUnsubscribe))
+        .subscribe((data: { category: string }) => {
+          this.loading = this.apparels === undefined;
+          this.category = data.category === undefined ? 'all' : data.category;
+        });
+
+    this.apparelService.getAllApparel('')
+        .pipe(takeUntil(this.ngUnsubscribe))
+        .subscribe((apparels: Apparel[]) => {
+          this.apparels = apparels;
+          console.log(apparels);
+          this.loading = false;
+          this.cdr.detectChanges();
+        });
+
     //
-    // this.categories = categories;
     //
     // this.apparels$
     //     .pipe(takeUntil(this.ngUnsubscribe))

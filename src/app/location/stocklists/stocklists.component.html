@@ -1,0 +1,20 @@
+<div class="stocklists">
+  <div class="stocklists__country"
+       *ngFor="let stocklist of stocklists">
+    <p class="stocklists__country-name">{{stocklist.country }}</p>
+
+    <div class="stocklists__city"
+         *ngFor="let cityStocks of stocklist.cityStocks">
+      <p class="stocklists__city-name">{{ cityStocks.city }}</p>
+
+      <div class="stocklists__stock"
+           *ngFor="let stock of cityStocks.stocks">
+        <p class="stocklists__stock-name">{{ stock.name }}</p>
+        <p class="stocklists__stock-address">{{ stock.address }}</p>
+        <p>{{ stock?.email }}</p>
+        <p>{{ stock?.site }}</p>
+        <p>{{ stock.phone }}</p>
+      </div>
+    </div>
+  </div>
+</div>

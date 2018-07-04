@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="shop">
+    <shop-bar class="shop__bar" [categories]="categories"></shop-bar>
+
+    <shop-apparels class="shop__apparels"
+                   *ngIf="apparels"
+                   [apparels]="apparels[category]">
+    </shop-apparels>
+
+    <div *ngIf="loading">
+      <p class="shop__loading">Loading...</p>
+    </div>
+  </div>
+
+  <app-footer></app-footer>
+</div>
+

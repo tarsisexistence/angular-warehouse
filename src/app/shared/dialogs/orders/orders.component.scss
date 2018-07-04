@@ -1,0 +1,32 @@
+.orders {
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+    margin-bottom: 20px;
+  }
+
+  &__description {
+    margin-top: 20px;
+    text-align: justify;
+  }
+
+  &__description-type {
+    margin-bottom: 10px;
+    font-size: 21px;
+  }
+
+  &__description-rule {
+    margin: 5px 0;
+  }
+}
+
+:host {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+}

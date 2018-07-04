@@ -1,0 +1,23 @@
+.auth {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 5% 15%;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+
+  &__logo {
+    width: 50%;
+    align-self: center;
+
+    &-wrapper {
+      min-height: 110px;
+    }
+  }
+
+  &__method {
+    margin: 15px 0;
+  }
+}

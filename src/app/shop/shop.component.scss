@@ -1,0 +1,27 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  padding: 200px 0 0 20px;
+  min-height: 100vh;
+  height: 100%;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.shop {
+  display: flex;
+  width: 100%;
+  margin-bottom: 150px;
+
+  &__bar {
+    width: 15%;
+  }
+
+  &__apparels {
+    width: 85%;
+  }
+
+  &__loading {
+    font-size: 20px;
+  }
+}

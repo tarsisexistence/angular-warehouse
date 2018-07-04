@@ -1,0 +1,26 @@
+<div class="payment">
+  <header>
+    <p class="payment__header">Please, fill the contacts form</p>
+  </header>
+
+  <form class="payment__form" [formGroup]="form" (ngSubmit)="payment(form)">
+    <div class="payment__form-controls">
+      <mat-form-field>
+        <input matInput placeholder="Name" formControlName="name" onlyStrings>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Phone number" formControlName="phone" onlyNumbers>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="E-Mail" type="email" formControlName="email">
+      </mat-form-field>
+    </div>
+
+    <button mat-raised-button class="payment__submit" color="primary">
+      Order
+    </button>
+  </form>
+  <p class="payment__information">Total payment: {{ data.toFixed(2) }}$</p>
+</div>
+
+

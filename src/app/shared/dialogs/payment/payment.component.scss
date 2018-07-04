@@ -1,0 +1,35 @@
+.payment {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  height: 90%;
+  padding: 20px;
+
+  &__header {
+    font-size: 22px;
+    color: #3f51b5;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+  }
+
+  &__form-controls {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+  }
+
+  &__submit {
+    font-size: 21px;
+  }
+
+  &__information {
+    font-size: 15px;
+    text-align: right;
+    color: #1d0f60;
+  }
+}

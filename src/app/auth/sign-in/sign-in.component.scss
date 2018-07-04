@@ -1,0 +1,62 @@
+.sign-in {
+
+  &__title {
+    font-size: 23px;
+    font-weight: bold;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    margin: 15px 0;
+  }
+
+  &__submit {
+    line-height: 0.2;
+    padding: 15px;
+    font-size: 16px;
+    background: black;
+    color: white;
+  }
+
+  &__sign-up-link {
+    margin-top: 5px;
+    font-size: 15px;
+    text-align: left;
+    text-decoration: underline;
+    letter-spacing: 1px;
+    color: #7c7777;
+    cursor: pointer;
+  }
+}
+
+/deep/ .mat-dialog-container {
+  padding: 0;
+  border: 2px solid white;
+  border-radius: 15%;
+}
+
+/deep/ .mat-form-field.mat-focused .mat-form-field-ripple {
+  background: black;
+}
+
+/deep/ .mat-form-field.mat-focused.mat-form-field-invalid .mat-form-field-ripple {
+  background: red;
+}
+
+/deep/ .mat-form-field.mat-focused .mat-form-field-label {
+  color: black;
+}
+
+/deep/ .mat-form-field.mat-focused.mat-form-field-invalid .mat-form-field-label,
+.mat-form-field-invalid .mat-input-element {
+  color: red;
+}
+
+/deep/ .mat-form-field.mat-focused .mat-input-element {
+  caret-color: black;
+}
+
+/deep/ .mat-form-field.mat-focused.mat-form-field-invalid .mat-input-element {
+  caret-color: red;
+}

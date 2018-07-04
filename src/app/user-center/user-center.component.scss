@@ -1,0 +1,10 @@
+.user-center {
+  margin: 150px;
+
+  &__sign-out {
+    margin: 15px auto;
+    background: black;
+    color: white;
+    font-weight: bold;
+  }
+}

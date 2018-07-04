@@ -7,6 +7,10 @@
 
 # dependencies
 /node_modules
+/functions/node_modules
+
+# video_content
+/video
 
 # IDEs and editors
 /.idea
@@ -30,9 +34,12 @@
 /coverage
 /libpeerconnection.log
 npm-debug.log
-yarn-error.log
 testem.log
 /typings
+
+# e2e
+/e2e/*.js
+/e2e/*.map
 
 # System Files
 .DS_Store

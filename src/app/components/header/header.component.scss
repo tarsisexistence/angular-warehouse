@@ -1,0 +1,80 @@
+.header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  color: #ebebeb;
+
+  &__brandline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    //background: #0a052c;
+    //border-bottom: 1px solid #d2cbea;
+    background: #0a0a0a;
+    //border-bottom: 1px solid #ebebeb;
+    padding: 0 20px;
+  }
+
+  &__brandname {
+    font-weight: 700;
+    font-size: 23px;
+    text-transform: uppercase;
+    letter-spacing: 20px;
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px 20px;
+    font-size: 20px;
+    text-transform: uppercase;
+    background: rgba(14, 7, 59, 0.35);
+    //background: #0e073b;
+    color: white;
+    box-shadow: 0 0 16px 7px rgba(14, 7, 59, .75);
+  }
+
+  &__nav-main a {
+    margin: 0 10px;
+    display: inline-block;
+    vertical-align: middle;
+
+    &:first-of-type {
+      margin-left: 0;
+    }
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+  }
+
+  &__icon {
+    cursor: pointer;
+
+    &-profile {
+      padding: 10px;
+      font-size: 32px;
+    }
+
+    &-cart {
+      font-size: 28px;
+    }
+  }
+}
+
+.logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  z-index: 1;
+}

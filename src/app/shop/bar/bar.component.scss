@@ -1,0 +1,22 @@
+.bar__categories {
+  display: flex;
+  flex-direction: column;
+  font-size: 19px;
+}
+
+.bar__category {
+  padding: 7px 0;
+  cursor: pointer;
+
+  &:hover {
+    font-weight: 700;
+  }
+
+  &:first-of-type {
+    padding-top: 0;
+  }
+
+  &:last-of-type {
+    padding-bottom: 0;
+  }
+}

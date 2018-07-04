@@ -1,0 +1,7 @@
+<nav class="bar__categories">
+  <a class="bar__category"
+     *ngFor="let category of categories"
+     [routerLink]="['/shop', category.toLowerCase()]">
+    {{ category }}
+  </a>
+</nav>

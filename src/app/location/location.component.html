@@ -1,0 +1,51 @@
+<main class="location">
+  <!--these properties are required: center, zoom-->
+  <location-google-map [center]="center"
+                       [zoom]="zoom"
+                       [disableDefaultUI]="disableDefaultUI"
+                       [disableDoubleClickZoom]="disableDoubleClickZoom"
+                       [mapTypeId]="mapTypeId"
+                       [maxZoom]="maxZoom" [minZoom]="minZoom" [styles]="styles"
+                       class="location__gmap">
+    <!--this property is required: position-->
+    <div googleMapMarker
+         [position]="position"
+         [title]="title"
+         [content]="content">
+    </div>
+  </location-google-map>
+
+  <div class="location__navigation">
+    <div class="location__navigation-search">
+      <mat-form-field class="location__navigation search-input">
+        <input matInput placeholder="Address" id="input-search" [(ngModel)]="address"
+               (keyup.enter)="search(address)">
+      </mat-form-field>
+
+      <button class="location__navigation search-button" mat-raised-button color="primary" (click)="search(address)">
+        Search
+      </button>
+    </div>
+    <div>
+      <button class="location__navigation position-button" mat-raised-button color="primary" (click)="storeLocation()">
+        REIGNARR
+      </button>
+    </div>
+    <div>
+      <button class="location__navigation position-button" mat-raised-button color="primary"
+              (click)="getCurrentPosition()">
+        Current place
+      </button>
+    </div>
+
+  </div>
+
+
+  <div class="alert alert-warning alert-dismissible" role="alert" *ngIf="warning">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <strong>Warning!</strong>
+    {{ message }}
+  </div>
+</main>

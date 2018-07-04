@@ -1,5 +1,5 @@
-# REIGNARR CONCEPT SHOP
+# CONCEPT STORE PLATFORM "REIGNARR"
 
 ## Currently is MVP
 
-### The documentation will be written in June
+### The documentation will be written soon

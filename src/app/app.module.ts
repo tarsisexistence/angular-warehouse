@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
 import { SharedModule } from './shared';
+import { ApolloModule } from './apollo';
 import { appRouting } from './app.routes';
 
 import { AppComponent } from './app.component';
@@ -22,6 +23,7 @@ import { AuthModule } from './auth/auth.module';
     RouterModule,
     appRouting,
     SharedModule,
+    ApolloModule,
     AuthModule
   ],
   declarations: [
@@ -33,4 +35,5 @@ import { AuthModule } from './auth/auth.module';
   providers: []
 })
 export class AppModule {
+
 }

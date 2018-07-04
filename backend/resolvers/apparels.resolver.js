@@ -4,7 +4,7 @@ export const apparelResolver = {
   Query: {
     allApparel: (root, { searchTerm }) => {
       return searchTerm === ''
-          ? apparelModel
+          ? apparelModel.find()
           : apparelModel.find({ $text: { $search: searchTerm } });
     },
     apparel: (root, { id }) => apparelModel.findOne({ id })

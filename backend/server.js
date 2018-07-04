@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
-import schema from './schema';
+import schema from './src/schema';
 import { graphqlExpress, graphiqlExpress } from 'apollo-server-express';
 
 const app = express();

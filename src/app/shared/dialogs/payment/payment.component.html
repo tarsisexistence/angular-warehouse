@@ -6,14 +6,17 @@
   <form class="payment__form" [formGroup]="form" (ngSubmit)="payment(form)">
     <div class="payment__form-controls">
       <mat-form-field>
-        <input matInput placeholder="Name" formControlName="name" onlyStrings>
+        <input matInput placeholder="Full name" formControlName="name" onlyStrings>
       </mat-form-field>
       <mat-form-field>
         <input matInput placeholder="Phone number" formControlName="phone" onlyNumbers>
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="E-Mail" type="email" formControlName="email">
+        <input matInput placeholder="Address" formControlName="address">
       </mat-form-field>
+      <!--<mat-form-field>-->
+        <!--<input matInput placeholder="E-Mail" type="email" formControlName="email">-->
+      <!--</mat-form-field>-->
     </div>
 
     <button mat-raised-button class="payment__submit" color="primary">

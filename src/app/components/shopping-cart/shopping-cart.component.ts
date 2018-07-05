@@ -4,12 +4,16 @@ import {
   OnDestroy,
   OnInit
 } from '@angular/core';
+import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material';
+
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+
 import { CartService } from '../../shared/cart.service';
 import { Apparel } from '../../shop/shared/apparel.interface';
-import { MatDialog } from '@angular/material';
 import { PaymentComponent } from '../../shared/dialogs/payment/payment.component';
 import { Contact } from '../../shared/interfaces/contact.interface';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -20,7 +24,7 @@ import { Router } from '@angular/router';
 export class ShoppingCartComponent implements OnInit, OnDestroy {
   public cartApparels: Apparel[];
   public subtotal: number;
-  private subscription: any;
+  private ngUnsubscribe: Subject<boolean> = new Subject();
   private contact: Contact;
 
   private static calcSubtotal(apparels: Apparel[]): number {
@@ -35,10 +39,12 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit(): void {
-    this.subscription = this.cartService.cartApparels$.subscribe((apparels: Apparel[]) => {
-      this.cartApparels = apparels;
-      this.subtotal = ShoppingCartComponent.calcSubtotal(apparels);
-    });
+    this.cartService.cartApparels$
+        .pipe(takeUntil(this.ngUnsubscribe))
+        .subscribe((apparels: Apparel[]) => {
+          this.cartApparels = apparels;
+          this.subtotal = ShoppingCartComponent.calcSubtotal(apparels);
+        });
   }
 
   public deleteCartApparel(apparel: Apparel): void {
@@ -53,15 +59,18 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
     });
 
     dialogRef.afterClosed().subscribe((contact: Contact) => {
-      if (contact) {
-        this.contact = contact;
-        alert('Your order is confirmed. We will contact you soon');
-        this.router.navigate(['']);
+      if (!contact) {
+        return;
       }
+
+      this.contact = contact;
+      alert('Your order is confirmed. We will contact you soon');
+      this.router.navigate(['']);
     });
   }
 
   public ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
   }
 }

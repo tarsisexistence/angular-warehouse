@@ -43,13 +43,18 @@ export class PaymentComponent implements OnInit {
           Validators.maxLength(15)
         ]
       ],
-      email: [
-        '',
-        [
-          Validators.required,
-          Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
+      address: [
+        '', [
+          Validators.required
         ]
       ]
+      // email: [
+      //   '',
+      //   [
+      //     Validators.required,
+      //     Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
+      //   ]
+      // ]
     });
   }
 

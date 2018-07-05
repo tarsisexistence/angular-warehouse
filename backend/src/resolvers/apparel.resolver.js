@@ -1,4 +1,4 @@
-import { apparelModel } from '../models/apparel.model';
+import { apparelModel } from '../model';
 
 export const apparelResolver = {
   Query: {
@@ -15,6 +15,7 @@ export const apparelResolver = {
         title,
         attribute,
         color,
+
         description,
         price,
         image,

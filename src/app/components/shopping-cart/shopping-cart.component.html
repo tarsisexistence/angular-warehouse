@@ -5,7 +5,7 @@
 
   <ng-container *ngIf="cartApparels.length > 0; else empty">
     <div class="shopping-cart__apparel" *ngFor="let apparel of cartApparels">
-      <p>{{ apparel.name }}</p>
+      <p>{{ apparel.title }}</p>
       <div>
         <span>{{ apparel.price }}$</span>
         <a (click)="deleteCartApparel(apparel)">

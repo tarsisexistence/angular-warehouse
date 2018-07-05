@@ -1,6 +1,7 @@
 {
   "name": "concept-store-platform",
-  "version": "0.0.0",
+  "author": "Mak Tarsis",
+  "version": "0.1.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

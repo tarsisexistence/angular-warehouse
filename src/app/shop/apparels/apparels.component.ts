@@ -21,8 +21,4 @@ export class ApparelsComponent {
   public addToCart(apparel: Apparel): void {
     this.cartService.addCartApparel(apparel);
   }
-
-  public add() {
-    console.log(this.apparels);
-  };
 }

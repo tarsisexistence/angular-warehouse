@@ -1,8 +1,14 @@
 import { Apparel } from './apparel.interface';
 
-export interface Apparels {
-	all?: Apparel[];
-	accessories: Apparel[];
-	sneakers: Apparel[];
-	't-shirts': Apparel[];
+export class Apparels {
+  all?: Apparel[];
+  accessories: Apparel[];
+  sneakers: Apparel[];
+  't-shirts': Apparel[];
+
+  constructor() {
+    this.accessories = [];
+    this.sneakers = [];
+    this['t-shirts'] = [];
+  }
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
-import { Apollo } from 'apollo-angular';
 import gql from 'graphql-tag';
+import { Apollo } from 'apollo-angular';
 import { map } from 'rxjs/operators';
 
 @Injectable({
@@ -33,6 +33,9 @@ export class ApparelService {
         searchTerm
       }
     })
-    .valueChanges.pipe(map((res: any) => res.data.allApparel));
+    .valueChanges
+    .pipe(
+        map((res: any) => res.data.allApparel)
+    );
   }
 }

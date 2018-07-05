@@ -7,15 +7,13 @@ import {
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import {
-  Observable,
-  Subject
-} from 'rxjs';
+import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 import { categories } from './shared/apparels.constants';
 import { ApparelService } from '../apollo/services/apparel.service';
 import { Apparel } from './shared/apparel.interface';
+import { Apparels } from './shared/apparels.interface';
 
 @Component({
   selector: 'shop-feat',
@@ -24,7 +22,7 @@ import { Apparel } from './shared/apparel.interface';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ShopComponent implements OnInit, OnDestroy {
-  public apparels: Apparel[];
+  public apparels: Apparels;
   public category: string;
   public categories: string[];
   public loading: boolean;
@@ -39,6 +37,7 @@ export class ShopComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit() {
+    this.apparels = new Apparels();
     this.categories = categories;
 
     this.route.data
@@ -51,23 +50,15 @@ export class ShopComponent implements OnInit, OnDestroy {
     this.apparelService.getAllApparel('')
         .pipe(takeUntil(this.ngUnsubscribe))
         .subscribe((apparels: Apparel[]) => {
-          this.apparels = apparels;
-          console.log(apparels);
+          this.apparels.all = apparels;
+
+          this.apparels.all.forEach((apparel: Apparel) => {
+            this.apparels[apparel.type].push(apparel);
+          });
+
           this.loading = false;
           this.cdr.detectChanges();
         });
-
-    //
-    //
-    // this.apparels$
-    //     .pipe(takeUntil(this.ngUnsubscribe))
-    //     .subscribe((allApparels: Apparels) => {
-    //       this.apparels = allApparels;
-    //       const flattenApparels = Object.values(allApparels).map(apparels => apparels);
-    //       this.apparels.all = [].concat.apply([], flattenApparels);
-    //       this.loading = false;
-    //       this.cdr.detectChanges();
-    //     });
   }
 
   public ngOnDestroy(): void {

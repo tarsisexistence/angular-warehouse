@@ -1,10 +1,13 @@
 <div class="container">
   <div class="shop">
-    <shop-bar class="shop__bar" [categories]="categories"></shop-bar>
 
-    <shop-apparels class="shop__apparels"
-                   *ngIf="apparels"
-                   [apparels]="apparels">
+    <shop-bar class="shop__bar"
+              [categories]="categories">
+    </shop-bar>
+
+    <shop-apparels *ngIf="apparels"
+                   class="shop__apparels"
+                   [apparels]="apparels[category]">
     </shop-apparels>
 
     <div *ngIf="loading">

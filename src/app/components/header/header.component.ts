@@ -27,16 +27,16 @@ export class HeaderComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    // this.authService.user$.subscribe((user: User) => this.user = user);
+    this.authService.user$.subscribe((user: User) => this.user = user);
   }
 
   public auth(): void {
-    if (!this.user || this.user.catchPhrase === undefined) {
-      this.authPopUp();
+    if (this.user && this.user.catchPhrase !== undefined) {
+      this.router.navigate(['user-center', this.user.id]).catch((err: Error) => console.error(err));
       return;
     }
 
-    this.router.navigate(['user-center', this.user.uid]).catch((err: Error) => console.error(err));
+    this.authPopUp();
   }
 
   private authPopUp(): void {
@@ -45,12 +45,8 @@ export class HeaderComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe((res: any) => {
-      if (res === undefined) {
-        return;
-      }
-
       if (res.signedUp) {
-        this.router.navigate(['user-center', this.user.uid]).catch((err: Error) => console.error(err));
+        this.router.navigate(['user-center', this.user.id]).catch((err: Error) => console.error(err));
       }
     });
   }

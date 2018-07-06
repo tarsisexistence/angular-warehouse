@@ -8,8 +8,11 @@ const query = `
   type Query {
       allOrders(searchTerm: String): [Order]
       order(id: String!): Order
+      
       allApparel(searchTerm: String): [Apparel]
       apparel(id: String!): Apparel
+      
+      user(id: String!): User
     }
 `;
 

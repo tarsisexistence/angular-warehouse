@@ -2,7 +2,7 @@
   <p class="sign-up__title" *ngIf="!user?.catchPhrase">Sign up for free</p>
 
 
-  <form class="sign-up__form" *ngIf="!user?.uid" [formGroup]="signUpForm" (ngSubmit)="signUp(signUpForm)">
+  <form class="sign-up__form" *ngIf="!user?.id" [formGroup]="signUpForm" (ngSubmit)="signUp(signUpForm)">
     <mat-form-field>
       <input matInput type="email" placeholder="E-Mail" formControlName="email">
     </mat-form-field>

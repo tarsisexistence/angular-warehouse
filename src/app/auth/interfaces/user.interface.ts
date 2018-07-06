@@ -1,5 +1,5 @@
 export interface User extends Access {
-  uid: string;
+  id: string;
   catchPhrase?: string;
 }
 

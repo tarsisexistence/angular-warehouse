@@ -1,17 +1,19 @@
 import { Injectable } from '@angular/core';
 
-import { Observable } from 'rxjs';
-
 import {
   Access,
   User
 } from './interfaces/user.interface';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class AuthService {
-  public user$: Observable<User>;
+  public user$: BehaviorSubject<User> = new BehaviorSubject<User>(null);
 
   constructor() {
+    if (localStorage.getItem('csp_li')) {
+      this.user$.next(JSON.parse(localStorage.getItem('csp_li')));
+    }
   }
 
   public emailSignUp({ email, password }: Access): any {

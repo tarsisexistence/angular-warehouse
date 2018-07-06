@@ -10,10 +10,10 @@ import { ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { categories } from './shared/apparels.constants';
-import { ApparelService } from '../apollo/services/apparel.service';
 import { Apparel } from './shared/apparel.interface';
 import { Apparels } from './shared/apparels.interface';
+import { ApolloService } from '../apollo';
+import { categories } from './shared/apparels.constants';
 
 @Component({
   selector: 'shop-feat',
@@ -29,7 +29,7 @@ export class ShopComponent implements OnInit, OnDestroy {
   private ngUnsubscribe: Subject<boolean> = new Subject();
 
   constructor(
-      private apparelService: ApparelService,
+      private apolloService: ApolloService,
       private route: ActivatedRoute,
       private cdr: ChangeDetectorRef
   ) {
@@ -47,7 +47,7 @@ export class ShopComponent implements OnInit, OnDestroy {
           this.category = data.category === undefined ? 'all' : data.category;
         });
 
-    this.apparelService.getAllApparel('')
+    this.apolloService.getAllApparel('')
         .pipe(takeUntil(this.ngUnsubscribe))
         .subscribe((apparels: Apparel[]) => {
           this.apparels.all = apparels;

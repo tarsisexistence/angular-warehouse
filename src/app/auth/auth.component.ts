@@ -8,8 +8,10 @@ import {
 import { MatDialogRef } from '@angular/material';
 
 import { AuthService } from './auth.service';
-import { Credentials } from './interfaces/credentials.interface';
-import { User } from './interfaces/user.interface';
+import {
+  Access,
+  User
+} from './interfaces/user.interface';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
@@ -47,11 +49,11 @@ export class AuthComponent implements OnInit, OnDestroy {
         });
   }
 
-  public signIn(credentials: Credentials): void {
+  public signIn(credentials: Access): void {
     this.authService.signIn(credentials);
   }
 
-  public signUp(credentials: Credentials): void {
+  public signUp(credentials: Access): void {
     this.authService.emailSignUp(credentials);
   }
 

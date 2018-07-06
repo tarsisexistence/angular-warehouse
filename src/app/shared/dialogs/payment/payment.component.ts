@@ -13,7 +13,7 @@ import {
   MAT_DIALOG_DATA,
   MatDialogRef
 } from '@angular/material';
-import { Contact } from '../../interfaces/contact.interface';
+import { Order } from '../../interfaces/order.interface';
 
 type subtotal = number;
 
@@ -63,7 +63,7 @@ export class PaymentComponent implements OnInit {
       return;
     }
 
-    const contact: Contact = form.value;
+    const contact: Order = form.value;
     this.dialogRef.close(contact);
   }
 }

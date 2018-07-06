@@ -10,5 +10,3 @@ export const orderSchema = new Schema({
 });
 
 orderSchema.index({ '$**': 'text' });
-
-// export const orderModel = mongoose.model('apparel', orderSchema);

@@ -11,16 +11,11 @@ import {
 } from 'apollo-angular-link-http';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 
-import { ApparelService } from './services/apparel.service';
-
 @NgModule({
   imports: [
     CommonModule,
     HttpLinkModule,
     ApolloModule
-  ],
-  providers: [
-    ApparelService
   ]
 })
 export class MyApolloModule {

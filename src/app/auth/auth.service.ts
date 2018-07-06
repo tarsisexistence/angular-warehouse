@@ -1,26 +1,20 @@
 import { Injectable } from '@angular/core';
 
-import {
-  Observable,
-  of
-} from 'rxjs';
-import {
-  switchMap,
-  share
-} from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
-import { User } from './interfaces/user.interface';
-import { Credentials } from './interfaces/credentials.interface';
+import {
+  Access,
+  User
+} from './interfaces/user.interface';
 
 @Injectable()
 export class AuthService {
   public user$: Observable<User>;
 
-  constructor(
-  ) {
+  constructor() {
   }
 
-  public emailSignUp({ email, password }: Credentials): any {
+  public emailSignUp({ email, password }: Access): any {
 
   }
 
@@ -30,7 +24,7 @@ export class AuthService {
   public signOut(): void {
   }
 
-  public signIn({ email, password }: Credentials): void {
+  public signIn({ email, password }: Access): void {
   }
 
   private setUserDoc(user: any): any {

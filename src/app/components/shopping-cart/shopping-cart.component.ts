@@ -13,7 +13,8 @@ import { takeUntil } from 'rxjs/operators';
 import { CartService } from '../../shared/cart.service';
 import { Apparel } from '../../shop/shared/apparel.interface';
 import { PaymentComponent } from '../../shared/dialogs/payment/payment.component';
-import { Contact } from '../../shared/interfaces/contact.interface';
+import { Order } from '../../shared/interfaces/order.interface';
+import { ApolloService } from '../../apollo';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -25,7 +26,6 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
   public cartApparels: Apparel[];
   public subtotal: number;
   private ngUnsubscribe: Subject<boolean> = new Subject();
-  private contact: Contact;
 
   private static calcSubtotal(apparels: Apparel[]): number {
     return apparels.reduce((result: number, apparel: Apparel) => result + apparel.price, 0);
@@ -34,7 +34,8 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
   constructor(
       private cartService: CartService,
       private dialog: MatDialog,
-      private router: Router
+      private router: Router,
+      private apolloService: ApolloService
   ) {
   }
 
@@ -58,12 +59,12 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
       data: subtotal
     });
 
-    dialogRef.afterClosed().subscribe((contact: Contact) => {
-      if (!contact) {
+    dialogRef.afterClosed().subscribe((order: Order) => {
+      if (!order) {
         return;
       }
 
-      this.contact = contact;
+      this.apolloService.addOrder(order).subscribe();
       alert('Your order is confirmed. We will contact you soon');
       this.router.navigate(['']);
     });

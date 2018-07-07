@@ -3,14 +3,15 @@
 
 import { Order } from '../types/order.type';
 import { Apparel } from '../types/apparel.type';
+import { User } from '../types/user.type';
 
 const query = `
   type Query {
-      allOrders(searchTerm: String): [Order]
-      order(id: String!): Order
-      
       allApparel(searchTerm: String): [Apparel]
       apparel(id: String!): Apparel
+  
+      allOrders(searchTerm: String): [Order]
+      order(id: String!): Order
       
       user(id: String!): User
     }
@@ -18,6 +19,7 @@ const query = `
 
 export const Query = () => [
   query,
+  Apparel,
   Order,
-  Apparel
+  User
 ];

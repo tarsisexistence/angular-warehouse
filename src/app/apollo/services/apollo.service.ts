@@ -1,16 +1,23 @@
 import { Injectable } from '@angular/core';
+import { MyApolloModule } from '../apollo.module';
 
 import { Apollo } from 'apollo-angular';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+
 import { Order } from '../../shared/interfaces/order.interface';
-import { allApparel } from '../queries/apparel.query';
 import { Apparel } from '../../shop/shared/apparel.interface';
 import {
+  Access,
+  User
+} from '../../auth/interfaces/user.interface';
+import {
+  allApparel,
   addOrder,
-  allOrders
-} from '../queries/order.query';
-import { MyApolloModule } from '../apollo.module';
+  allOrders,
+  signUp,
+  setCatchPhrase
+} from '../queries';
 
 @Injectable({ providedIn: MyApolloModule })
 export class ApolloService {
@@ -54,5 +61,29 @@ export class ApolloService {
           }
         })
         .pipe(map((res: any) => res.data.addOrder));
+  }
+
+  public signUp({ email, password }: Access): Observable<User> {
+    return this.apollo
+        .mutate({
+          mutation: signUp,
+          variables: {
+            email,
+            password
+          }
+        })
+        .pipe(map((res: any) => res.data.signUp));
+  }
+
+  public setCatchPhrase({ id, catchPhrase }: { id: string, catchPhrase: string }): Observable<User> {
+    return this.apollo
+        .mutate({
+          mutation: setCatchPhrase,
+          variables: {
+            id,
+            catchPhrase
+          }
+        })
+        .pipe(map((res: any) => res.data.catchPhrase));
   }
 }

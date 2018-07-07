@@ -8,12 +8,14 @@ import {
 import { MatDialogRef } from '@angular/material';
 
 import { AuthService } from './auth.service';
+
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { ApolloService } from '../apollo/services/apollo.service';
 import {
   Access,
   User
 } from './interfaces/user.interface';
-import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'auth-root',
@@ -27,6 +29,7 @@ export class AuthComponent implements OnInit, OnDestroy {
   private ngUnsubscribe: Subject<void> = new Subject<void>();
 
   constructor(
+      private apolloService: ApolloService,
       private authService: AuthService,
       private cdr: ChangeDetectorRef,
       private dialogRef: MatDialogRef<AuthComponent>
@@ -54,19 +57,16 @@ export class AuthComponent implements OnInit, OnDestroy {
   }
 
   public signUp(credentials: Access): void {
-    this.authService.emailSignUp(credentials);
+    this.apolloService.signUp(credentials)
+        .subscribe((user: User) => this.authService.getUser(user));
   }
 
   public setCatchPhrase(catchPhrase: string): void {
-    this.authService.updateUser(this.user, { catchPhrase })
-        .then((res) => {
-          // TODO: succ notification about successful set catchPhrase
-        })
-        .catch((err: Error) => {
-          console.error(err);
-          // TODO: err notification about unsuccessful set catchPhrase
-        });
-
+    const config = {
+      id: this.user.id,
+      catchPhrase
+    };
+    this.apolloService.setCatchPhrase(config).subscribe(data => console.log(data));
     this.dialogRef.close({ signedUp: true });
   }
 

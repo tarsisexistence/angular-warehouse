@@ -12,8 +12,10 @@ import {
   Validators
 } from '@angular/forms';
 
-import { Credentials } from '../interfaces/credentials.interface';
-import { User } from '../interfaces/user.interface';
+import {
+  Access,
+  User
+} from '../interfaces/user.interface';
 
 @Component({
   selector: 'auth-sign-in',
@@ -28,7 +30,7 @@ export class SignInComponent implements OnInit {
   @Input()
   public user: User;
   @Output()
-  public signInEmitter: EventEmitter<Credentials> = new EventEmitter<Credentials>();
+  public signInEmitter: EventEmitter<Access> = new EventEmitter<Access>();
   @Output()
   public toggleAuthMethodEmitter: EventEmitter<void> = new EventEmitter<void>();
 
@@ -69,7 +71,7 @@ export class SignInComponent implements OnInit {
       return;
     }
 
-    const credentials: Credentials = {
+    const credentials: Access = {
       email: form.value.email,
       password: form.value.password
     };

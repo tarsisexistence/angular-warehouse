@@ -6,13 +6,17 @@ import {
 } from './interfaces/user.interface';
 import { BehaviorSubject } from 'rxjs';
 
+const storageKey = 'cspr';
+
 @Injectable()
 export class AuthService {
   public user$: BehaviorSubject<User> = new BehaviorSubject<User>(null);
 
   constructor() {
-    if (localStorage.getItem('csp_li')) {
-      this.user$.next(JSON.parse(localStorage.getItem('csp_li')));
+    const user: User = JSON.parse(localStorage.getItem(storageKey));
+
+    if (user) {
+      this.user$.next(user);
     }
   }
 
@@ -21,6 +25,7 @@ export class AuthService {
   }
 
   public updateUser(user: User, data: { catchPhrase: string }): any {
+
   }
 
   public signOut(): void {
@@ -29,7 +34,8 @@ export class AuthService {
   public signIn({ email, password }: Access): void {
   }
 
-  private setUserDoc(user: any): any {
-
+  public getUser(user: User): void {
+    localStorage.setItem(storageKey, JSON.stringify(user.id));
+    this.user$.next(user);
   }
 }

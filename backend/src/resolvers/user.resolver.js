@@ -26,7 +26,7 @@ export const userResolver = {
   }
 };
 
-const KEY = 'cspkey';
+const KEY = 'csprkey';
 
 function encryption(password) {
   const cipher = crypto.createCipher('aes192', KEY);

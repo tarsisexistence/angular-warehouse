@@ -14,6 +14,7 @@ const query = `
       order(id: String!): Order
       
       user(id: String!): User
+      signIn(email: String!, password: String!): User
     }
 `;
 

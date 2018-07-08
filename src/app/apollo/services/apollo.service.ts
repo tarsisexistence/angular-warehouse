@@ -18,6 +18,7 @@ import {
   signUp,
   setCatchPhrase
 } from '../queries';
+import { signIn } from '../queries/user.query';
 
 @Injectable({ providedIn: MyApolloModule })
 export class ApolloService {
@@ -85,5 +86,17 @@ export class ApolloService {
           }
         })
         .pipe(map((res: any) => res.data.setCatchPhrase));
+  }
+
+  public signIn({ email, password }: Access): Observable<User> {
+    return this.apollo
+        .query({
+          query: signIn,
+          variables: {
+            email,
+            password
+          }
+        })
+        .pipe(map((res: any) => res.data.signIn));
   }
 }

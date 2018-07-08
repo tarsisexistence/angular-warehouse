@@ -10,6 +10,17 @@ export const user = gql`
     }
 `;
 
+export const signIn = gql`
+    query signIn ($email: String!, $password: String!) {
+        signIn(
+            email: $email
+            password: $password
+        ) {
+            id
+        }
+    }
+`;
+
 export const signUp = gql`
     mutation signUp ($email: String!, $password: String!) {
         signUp(
@@ -17,8 +28,6 @@ export const signUp = gql`
             password: $password
         ) {
             id
-            email
-            password
         }
     }
 `;
@@ -30,8 +39,6 @@ export const setCatchPhrase = gql`
             catchPhrase: $catchPhrase
         ) {
             id
-            email
-            catchPhrase
         }
     }
 `;

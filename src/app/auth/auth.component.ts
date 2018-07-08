@@ -55,7 +55,17 @@ export class AuthComponent implements OnInit, OnDestroy {
   }
 
   public signIn(credentials: Access): void {
-    this.authService.signIn(credentials);
+    this.apolloService.signIn(credentials)
+        .subscribe((user: User) => {
+          const storageUser: StorageUser = {
+            token: user.id,
+            active: true
+          };
+
+          this.authService.updateUserStorage(storageUser);
+          this.dialogRef.close(true);
+        });
+
   }
 
   public signUp(credentials: Access): void {
@@ -72,9 +82,9 @@ export class AuthComponent implements OnInit, OnDestroy {
       catchPhrase
     };
     this.apolloService.setCatchPhrase(config)
-        .subscribe(() => {
+        .subscribe((user: User) => {
           const storageUser: StorageUser = {
-            token: this.user.token,
+            token: user.id,
             active: true
           };
 

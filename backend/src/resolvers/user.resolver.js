@@ -4,7 +4,10 @@ const crypto = require('crypto');
 
 export const userResolver = {
   Query: {
-    user: (root, { id }) => userModel.findOne({ id })
+    user: (root, { id }) => userModel.findOne({ id }),
+    signIn: (root, { email, password }) => {
+      return userModel.findOne({ email, password: encryption(password) });
+    }
   },
   Mutation: {
     signUp: (root, { email, password }) => {
@@ -47,7 +50,6 @@ function encryption(password) {
 
 function decryption(encrypted) {
   const decipher = crypto.createDecipher('aes192', KEY);
-
   let decrypted = decipher.update(encrypted, 'hex', 'utf8');
   decrypted += decipher.final('utf8');
 

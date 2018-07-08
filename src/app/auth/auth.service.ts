@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import {
   Access,
-  User
+  StorageUser
 } from './interfaces/user.interface';
 import { BehaviorSubject } from 'rxjs';
 
@@ -10,32 +10,34 @@ const storageKey = 'cspr';
 
 @Injectable()
 export class AuthService {
-  public user$: BehaviorSubject<User> = new BehaviorSubject<User>(null);
+  public user$: BehaviorSubject<StorageUser> = new BehaviorSubject<StorageUser>(null);
 
   constructor() {
-    const user: User = JSON.parse(localStorage.getItem(storageKey));
+    const user: StorageUser = this.getUser();
 
     if (user) {
       this.user$.next(user);
     }
   }
 
-  public emailSignUp({ email, password }: Access): any {
-
-  }
-
-  public updateUser(user: User, data: { catchPhrase: string }): any {
-
-  }
-
-  public signOut(): void {
-  }
-
   public signIn({ email, password }: Access): void {
   }
 
-  public getUser(user: User): void {
-    localStorage.setItem(storageKey, JSON.stringify(user.id));
-    this.user$.next(user);
+  public clearUser(): void {
+    localStorage.removeItem(storageKey);
+    this.user$.next(null);
+  }
+
+  public updateUserStorage({ token, active = false }: StorageUser): void {
+    const storageUser: StorageUser = {
+      token,
+      active
+    };
+    localStorage.setItem(storageKey, JSON.stringify(storageUser));
+    this.user$.next(storageUser);
+  }
+
+  public getUser(): StorageUser {
+    return JSON.parse(localStorage.getItem(storageKey));
   }
 }

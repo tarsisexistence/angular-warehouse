@@ -8,7 +8,7 @@ import { MatDialog } from '@angular/material';
 
 import { AuthComponent } from '../../auth/auth.component';
 import { AuthService } from '../../auth/auth.service';
-import { User } from '../../auth/interfaces/user.interface';
+import { StorageUser } from '../../auth/interfaces/user.interface';
 
 @Component({
   selector: 'app-header',
@@ -17,7 +17,7 @@ import { User } from '../../auth/interfaces/user.interface';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent implements OnInit {
-  private user: User;
+  private user: StorageUser;
 
   constructor(
       public router: Router,
@@ -27,12 +27,12 @@ export class HeaderComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    this.authService.user$.subscribe((user: User) => this.user = user);
+    this.authService.user$.subscribe((user: StorageUser) => this.user = user);
   }
 
   public auth(): void {
-    if (this.user && this.user.catchPhrase !== undefined) {
-      this.router.navigate(['user-center', this.user.id]).catch((err: Error) => console.error(err));
+    if (this.user && this.user.active) {
+      this.router.navigate(['user-center', this.user.token]).catch((err: Error) => console.error(err));
       return;
     }
 
@@ -44,10 +44,12 @@ export class HeaderComponent implements OnInit {
       width: '30%'
     });
 
-    dialogRef.afterClosed().subscribe((res: any) => {
-      if (res.signedUp) {
-        this.router.navigate(['user-center', this.user.id]).catch((err: Error) => console.error(err));
+    dialogRef.afterClosed().subscribe((res: boolean) => {
+      if (!res) {
+        return;
       }
+
+      this.router.navigate(['user-center', this.user.token]).catch((err: Error) => console.error(err));
     });
   }
 }

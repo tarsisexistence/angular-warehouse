@@ -7,7 +7,7 @@ import {
 import { AuthService } from '../auth/auth.service';
 import {} from '@angular/core';
 import { Router } from '@angular/router';
-import { User } from '../auth/interfaces/user.interface';
+import { StorageUser } from '../auth/interfaces/user.interface';
 import { Subject } from 'rxjs';
 
 @Component({
@@ -17,7 +17,7 @@ import { Subject } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserCenterComponent implements OnInit, OnDestroy {
-  private user: User;
+  private user: StorageUser;
   private ngUnsubscribe: Subject<void> = new Subject<void>();
 
   constructor(
@@ -27,11 +27,11 @@ export class UserCenterComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit(): void {
-    this.authService.user$.subscribe((user: User) => this.user = user);
+    this.authService.user$.subscribe((user: StorageUser) => this.user = user);
   }
 
   public signOut(): void {
-    this.authService.signOut();
+    this.authService.clearUser();
     this.router.navigate(['']).catch((err: Error) => console.error(err));
   }
 

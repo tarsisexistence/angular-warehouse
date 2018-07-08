@@ -84,6 +84,6 @@ export class ApolloService {
             catchPhrase
           }
         })
-        .pipe(map((res: any) => res.data.catchPhrase));
+        .pipe(map((res: any) => res.data.setCatchPhrase));
   }
 }

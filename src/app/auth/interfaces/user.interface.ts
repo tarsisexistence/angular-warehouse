@@ -7,3 +7,8 @@ export interface Access {
   email: string;
   password: string;
 }
+
+export interface StorageUser {
+  token?: string;
+  active?: boolean;
+}

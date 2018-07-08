@@ -16,12 +16,7 @@ export const userResolver = {
       return user.save();
     },
     setCatchPhrase: (root, { id, catchPhrase }) => {
-      const user = userModel({
-        id,
-        catchPhrase
-      });
-
-      return user.save();
+      return userModel.findOneAndUpdate({ id }, { catchPhrase });
     }
   }
 };

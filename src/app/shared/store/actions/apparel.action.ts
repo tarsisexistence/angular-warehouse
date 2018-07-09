@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { Apparel } from '../../shared/apparel.interface';
+import { Apparel } from '../../../shop/shared/apparel.interface';
 
 export const LOAD_APPAREL = '[Shop] Load Apparel';
 export const LOAD_APPAREL_FAIL = '[Shop] Load Apparel Fail';
@@ -13,7 +13,6 @@ export class LoadApparelFail implements Action {
   readonly type = LOAD_APPAREL_FAIL;
 
   constructor(public payload: any) {
-
   }
 }
 

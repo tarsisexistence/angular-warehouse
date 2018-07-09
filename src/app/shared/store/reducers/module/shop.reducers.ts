@@ -1,19 +1,15 @@
 import {
-  ActionReducerMap,
   createSelector,
   createFeatureSelector
 } from '@ngrx/store';
-import * as fromApparelReducer from './apparel.reducer';
+import * as fromApparelReducer from '../plain/apparel.reducer';
+import { shopState } from '../../states';
 
 export interface ShopState {
   apparels: fromApparelReducer.ApparelState
 }
 
-export const reducers: ActionReducerMap<ShopState> = {
-  apparels: fromApparelReducer.reducer
-};
-
-export const getShopState = createFeatureSelector<ShopState>('shop');
+export const getShopState = createFeatureSelector<ShopState>(shopState);
 
 export const getApparelState = createSelector(
     getShopState,

@@ -7,17 +7,13 @@ import {
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import {
-  Observable,
-  Subject
-} from 'rxjs';
+import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
-import * as fromStore from './store';
+import * as fromStore from '../shared/store';
 
 import { Apparel } from './shared/apparel.interface';
 import { Apparels } from './shared/apparels.interface';
-import { ApolloService } from '../apollo';
 import { categories } from './shared/apparels.constants';
 
 @Component({
@@ -28,19 +24,16 @@ import { categories } from './shared/apparels.constants';
 })
 export class ShopComponent implements OnInit, OnDestroy {
   public apparels: Apparels;
-  public apparels$: Observable<Apparels>;
   public category: string;
   public categories: string[];
   public loading: boolean;
   private ngUnsubscribe: Subject<boolean> = new Subject();
 
   constructor(
-      private apolloService: ApolloService,
       private route: ActivatedRoute,
       private cdr: ChangeDetectorRef,
       private store: Store<fromStore.ShopState>
   ) {
-
   }
 
   public ngOnInit() {
@@ -57,6 +50,7 @@ export class ShopComponent implements OnInit, OnDestroy {
     this.store.select(fromStore.getAllApparel)
         .pipe(takeUntil(this.ngUnsubscribe))
         .subscribe((apparels: Apparel[]) => {
+          console.log(apparels);
           this.apparels.all = apparels;
 
           this.apparels.all.forEach((apparel: Apparel) => {

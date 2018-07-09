@@ -5,9 +5,10 @@ import { RouterModule } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import {
-  reducers,
-  effects
-} from './store';
+  shopReducers,
+  shopEffects,
+  shopState
+} from '../shared/store';
 
 import { shopRouting } from './shop.routes';
 import { ShopResolver } from './shop.resolver';
@@ -23,8 +24,8 @@ import { FooterComponent } from '../components/footer/footer.component';
     RouterModule,
     shopRouting,
     MaterialModule,
-    StoreModule.forFeature('shop', reducers),
-    EffectsModule.forFeature(effects)
+    StoreModule.forFeature(shopState, shopReducers),
+    EffectsModule.forFeature(shopEffects)
   ],
   declarations: [
     ShopComponent,

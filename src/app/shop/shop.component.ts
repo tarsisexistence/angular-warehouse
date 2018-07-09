@@ -7,8 +7,13 @@ import {
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { Subject } from 'rxjs';
+import {
+  Observable,
+  Subject
+} from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { Store } from '@ngrx/store';
+import * as fromStore from './store';
 
 import { Apparel } from './shared/apparel.interface';
 import { Apparels } from './shared/apparels.interface';
@@ -23,6 +28,7 @@ import { categories } from './shared/apparels.constants';
 })
 export class ShopComponent implements OnInit, OnDestroy {
   public apparels: Apparels;
+  public apparels$: Observable<Apparels>;
   public category: string;
   public categories: string[];
   public loading: boolean;
@@ -31,7 +37,8 @@ export class ShopComponent implements OnInit, OnDestroy {
   constructor(
       private apolloService: ApolloService,
       private route: ActivatedRoute,
-      private cdr: ChangeDetectorRef
+      private cdr: ChangeDetectorRef,
+      private store: Store<fromStore.ShopState>
   ) {
 
   }
@@ -47,7 +54,7 @@ export class ShopComponent implements OnInit, OnDestroy {
           this.category = data.category === undefined ? 'all' : data.category;
         });
 
-    this.apolloService.getAllApparel('')
+    this.store.select(fromStore.getAllApparel)
         .pipe(takeUntil(this.ngUnsubscribe))
         .subscribe((apparels: Apparel[]) => {
           this.apparels.all = apparels;
@@ -59,6 +66,8 @@ export class ShopComponent implements OnInit, OnDestroy {
           this.loading = false;
           this.cdr.detectChanges();
         });
+    this.store.dispatch(new fromStore.LoadApparel());
+
   }
 
   public ngOnDestroy(): void {

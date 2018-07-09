@@ -28,7 +28,7 @@ export class ApparelEffect {
   public loadApparels$ = this.actions$
       .ofType(ApparelActions.LOAD_APPAREL)
       .pipe(
-          switchMap(() => this.apolloService.getAllApparel('')
+          switchMap(() => this.apolloService.getAllApparel()
               .pipe(
                   map((apparel: Apparel[]) => new ApparelActions.LoadApparelSuccess(apparel)),
                   catchError(error => of(new ApparelActions.LoadApparelFail(error)))

@@ -1,8 +1,8 @@
 import gql from 'graphql-tag';
 
 export const allApparel = gql`
-    query allApparel($searchTerm: String) {
-        allApparel(searchTerm: $searchTerm) {
+    query allApparel {
+        allApparel {
             id
             title
             attribute

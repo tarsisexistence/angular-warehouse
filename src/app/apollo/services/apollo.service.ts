@@ -25,27 +25,21 @@ export class ApolloService {
   constructor(private apollo: Apollo) {
   }
 
-  public getAllApparel(searchTerm: string): Observable<Apparel[]> {
+  public getAllApparel(): Observable<Apparel[]> {
     return this.apollo
         .watchQuery({
           pollInterval: 500,
-          query: allApparel,
-          variables: {
-            searchTerm
-          }
+          query: allApparel
         })
         .valueChanges
         .pipe(map((res: any) => res.data.allApparel));
   }
 
-  public getAllOrders(searchTerm: string = ''): Observable<Order[]> {
+  public getAllOrders(): Observable<Order[]> {
     return this.apollo
         .watchQuery({
           pollInterval: 500,
-          query: allOrders,
-          variables: {
-            searchTerm
-          }
+          query: allOrders
         })
         .valueChanges
         .pipe(map((res: any) => res.data.allOrders));

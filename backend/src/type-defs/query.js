@@ -7,10 +7,10 @@ import { User } from '../types/user.type';
 
 const query = `
   type Query {
-      allApparel(searchTerm: String): [Apparel]
+      allApparel: [Apparel]
       apparel(id: String!): Apparel
   
-      allOrders(searchTerm: String): [Order]
+      allOrders: [Order]
       order(id: String!): Order
       
       user(id: String!): User

@@ -2,7 +2,7 @@ import { orderModel } from '../model';
 
 export const orderResolver = {
   Query: {
-    allOrders: (root, { searchTerm }) => orderModel.find(),
+    allOrders: () => orderModel.find(),
     order: (root, { id }) => orderModel.findOne({ id })
   },
   Mutation: {

@@ -24,9 +24,9 @@ import { appRouting } from './app.routes';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
-import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { AuthModule } from './auth/auth.module';
 import { environment } from '../environments/environment';
+import { CartModule } from './cart/cart.module';
 
 @NgModule({
   imports: [
@@ -38,18 +38,18 @@ import { environment } from '../environments/environment';
     SharedModule,
     ApolloModule,
     AuthModule,
+    CartModule,
     StoreModule.forRoot({}, { metaReducers }),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({
-      name: 'ngrx devtools',
-      logOnly: environment.production
+      name: 'concept store platform',
+      logOnly: !environment.production
     })
 
   ],
   declarations: [
     AppComponent,
-    HeaderComponent,
-    ShoppingCartComponent
+    HeaderComponent
   ],
   bootstrap: [AppComponent],
   providers: []

@@ -9,20 +9,22 @@ import { MatDialog } from '@angular/material';
 
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { Store } from '@ngrx/store';
+import * as fromStore from '../shared/store';
 
-import { CartService } from '../../shared/cart.service';
-import { Apparel } from '../../shop/shared/apparel.interface';
-import { PaymentComponent } from '../../shared/dialogs/payment/payment.component';
-import { Order } from '../../shared/interfaces/order.interface';
-import { ApolloService } from '../../apollo';
+import { CartService } from '../shared/cart.service';
+import { Apparel } from '../shop/shared/apparel.interface';
+import { PaymentComponent } from '../shared/dialogs/payment/payment.component';
+import { Order } from '../shared/interfaces/order.interface';
+import { ApolloService } from '../apollo';
 
 @Component({
-  selector: 'app-shopping-cart',
-  templateUrl: './shopping-cart.component.html',
-  styleUrls: ['./shopping-cart.component.scss'],
+  selector: 'cart-feat',
+  templateUrl: './cart.component.html',
+  styleUrls: ['./cart.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ShoppingCartComponent implements OnInit, OnDestroy {
+export class CartComponent implements OnInit, OnDestroy {
   public cartApparels: Apparel[];
   public subtotal: number;
   private ngUnsubscribe: Subject<boolean> = new Subject();
@@ -32,24 +34,26 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
   }
 
   constructor(
+      private apolloService: ApolloService,
       private cartService: CartService,
       private dialog: MatDialog,
       private router: Router,
-      private apolloService: ApolloService
+      private store: Store<fromStore.CartState>
   ) {
   }
 
   public ngOnInit(): void {
-    this.cartService.cartApparels$
+    this.store.dispatch(new fromStore.FetchApparel());
+    this.store.select(fromStore.getAllCartApparels)
         .pipe(takeUntil(this.ngUnsubscribe))
         .subscribe((apparels: Apparel[]) => {
-          this.cartApparels = apparels;
-          this.subtotal = ShoppingCartComponent.calcSubtotal(apparels);
+          this.cartApparels = apparels ? apparels : [];
+          this.subtotal = CartComponent.calcSubtotal(apparels);
         });
   }
 
-  public deleteCartApparel(apparel: Apparel): void {
-    this.cartService.deleteCartApparel(apparel);
+  public removeCartApparel(sequenceNumber: number): void {
+    this.store.dispatch(new fromStore.RemoveApparel(sequenceNumber));
   }
 
   public checkout(subtotal: number): void {
@@ -64,8 +68,10 @@ export class ShoppingCartComponent implements OnInit, OnDestroy {
         return;
       }
 
-      this.apolloService.addOrder(order).subscribe();
-      alert('Your order is confirmed. We will contact you soon');
+      this.apolloService.addOrder(order).subscribe(() => {
+        alert('Your order is confirmed. We will contact you soon');
+        this.cartService.clearCart();
+      });
       this.router.navigate(['']);
     });
   }

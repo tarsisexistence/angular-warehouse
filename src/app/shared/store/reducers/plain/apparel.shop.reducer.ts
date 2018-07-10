@@ -1,5 +1,5 @@
-import * as fromApparel from '../../actions/apparel.action';
 import { Apparel } from '../../../../shop/shared/apparel.interface';
+import * as ApparelShopActions from '../../actions/apparel.shop.actions';
 
 export interface ApparelState {
   data: Apparel[];
@@ -15,17 +15,17 @@ export const initialState: ApparelState = {
 
 export function reducer(
     state = initialState,
-    action: fromApparel.ApparelAction
+    action: ApparelShopActions.ApparelShopAction
 ): ApparelState {
   switch (action.type) {
-    case fromApparel.LOAD_APPAREL: {
+    case ApparelShopActions.ApparelShopActionTypes.LoadApparel: {
       return {
         ...state,
         loading: true
       };
     }
 
-    case fromApparel.LOAD_APPAREL_SUCCESS: {
+    case ApparelShopActions.ApparelShopActionTypes.LoadApparelSuccess: {
       return {
         ...state,
         loading: false,
@@ -34,10 +34,10 @@ export function reducer(
       };
     }
 
-    case fromApparel.LOAD_APPAREL_FAIL: {
+    case ApparelShopActions.ApparelShopActionTypes.LoadApparelFail: {
       return {
-        ...state,
         loading: false,
+        ...state,
         loaded: false
       };
     }

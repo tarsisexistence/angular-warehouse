@@ -1,9 +1,14 @@
 import { ActionReducerMap } from '@ngrx/store';
-import { ShopState } from './module/shop.reducers';
-import { reducer as apparelReducer } from './plain/apparel.reducer';
+import { reducer as apparelShopReducer } from './plain/apparel.shop.reducer';
+import { reducer as apparelCartReducer } from './plain/apparel.cart.reducer';
+import * as fromStates from './states';
 
-export * from './module';
+export * from './states';
 
-export const shopReducers: ActionReducerMap<ShopState> = {
-  apparels: apparelReducer
+export const cartReducers: ActionReducerMap<fromStates.CartState> = {
+  apparels: apparelCartReducer
+};
+
+export const shopReducers: ActionReducerMap<fromStates.ShopState> = {
+  apparels: apparelShopReducer
 };

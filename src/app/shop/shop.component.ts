@@ -8,7 +8,10 @@ import {
 import { ActivatedRoute } from '@angular/router';
 
 import { Subject } from 'rxjs';
-import { takeUntil } from 'rxjs/operators';
+import {
+  takeUntil,
+  take
+} from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import * as fromStore from '../shared/store';
 
@@ -47,10 +50,9 @@ export class ShopComponent implements OnInit, OnDestroy {
           this.category = data.category === undefined ? 'all' : data.category;
         });
 
-    this.store.select(fromStore.getAllApparel)
-        .pipe(takeUntil(this.ngUnsubscribe))
+    this.store.select(fromStore.getAllShopApparels)
+        .pipe(take(2))
         .subscribe((apparels: Apparel[]) => {
-          console.log(apparels);
           this.apparels.all = apparels;
 
           this.apparels.all.forEach((apparel: Apparel) => {
@@ -61,7 +63,10 @@ export class ShopComponent implements OnInit, OnDestroy {
           this.cdr.detectChanges();
         });
     this.store.dispatch(new fromStore.LoadApparel());
+  }
 
+  public addToCart(apparel: Apparel): void {
+    this.store.dispatch(new fromStore.AddApparel(apparel));
   }
 
   public ngOnDestroy(): void {

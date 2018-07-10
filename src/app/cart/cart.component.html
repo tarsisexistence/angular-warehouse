@@ -1,0 +1,29 @@
+<div class="cart">
+  <h2 class="cart__header">Shopping cart</h2>
+
+  <hr class="cart__line">
+
+  <ng-container *ngIf="cartApparels && cartApparels.length > 0; else empty">
+    <div class="cart__apparel" *ngFor="let apparel of cartApparels; let sequenceNumber = index">
+      <p>{{ apparel.title }}</p>
+      <div>
+        <span>{{ apparel.price }}$</span>
+        <a (click)="removeCartApparel(sequenceNumber)">
+          <mat-icon class="icon">delete</mat-icon>
+        </a>
+      </div>
+    </div>
+
+    <p class="cart__subtotal">Subtotal: {{subtotal.toFixed(2)}} $</p>
+
+    <button mat-button class="cart__checkout"
+            (click)="checkout(subtotal)">
+      Checkout
+    </button>
+  </ng-container>
+
+  <ng-template #empty>
+    <span class="cart__empty">YOU HAVE NOTHING IN YOUR SHOPPING CART. CONTINUE SHOPPING</span>
+  </ng-template>
+
+</div>

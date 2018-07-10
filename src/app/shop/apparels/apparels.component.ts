@@ -1,10 +1,12 @@
 import {
   Component,
   Input,
-  ChangeDetectionStrategy
+  Output,
+  ChangeDetectionStrategy,
+  EventEmitter
 } from '@angular/core';
+
 import { Apparel } from '../shared/apparel.interface';
-import { CartService } from '../../shared/cart.service';
 
 @Component({
   selector: 'shop-apparels',
@@ -14,11 +16,12 @@ import { CartService } from '../../shared/cart.service';
 })
 export class ApparelsComponent {
   @Input() public apparels: Apparel[];
+  @Output() public addToCartEmitter: EventEmitter<Apparel> = new EventEmitter<Apparel>();
 
-  constructor(private cartService: CartService) {
+  constructor() {
   }
 
   public addToCart(apparel: Apparel): void {
-    this.cartService.addCartApparel(apparel);
+    this.addToCartEmitter.emit(apparel);
   }
 }

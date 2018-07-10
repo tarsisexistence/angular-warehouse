@@ -11,9 +11,9 @@ import {
   catchError
 } from 'rxjs/operators';
 
-import * as ApparelActions from '../actions/apparel.action';
 import { ApolloService } from '../../../apollo/services/apollo.service';
 import { Apparel } from '../../../shop/shared/apparel.interface';
+import * as ApparelShopActions from '../actions/apparel.shop.actions';
 
 @Injectable()
 export class ApparelEffect {
@@ -26,13 +26,13 @@ export class ApparelEffect {
 
   @Effect({ dispatch: true })
   public loadApparels$ = this.actions$
-      .ofType(ApparelActions.LOAD_APPAREL)
+      .ofType(ApparelShopActions.ApparelShopActionTypes.LoadApparel)
       .pipe(
           switchMap(() => {
                 return this.apolloService.getAllApparel()
                     .pipe(
-                        map((apparel: Apparel[]) => new ApparelActions.LoadApparelSuccess(apparel)),
-                        catchError(error => of(new ApparelActions.LoadApparelFail(error)))
+                        map((apparel: Apparel[]) => new ApparelShopActions.LoadApparelSuccess(apparel)),
+                        catchError(error => of(new ApparelShopActions.LoadApparelFail(error)))
                     );
               }
           )

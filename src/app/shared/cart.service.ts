@@ -1,38 +1,43 @@
-import { share } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+
 import { Apparel } from '../shop/shared/apparel.interface';
+
+const storageKey = 'cspcart';
 
 @Injectable()
 export class CartService {
-	public cartApparels$: BehaviorSubject<Apparel[]> = new BehaviorSubject<Apparel[]>([]);
-	public cartApparelsCast$ = this.cartApparels$.asObservable().pipe(share());
 
-	constructor() {
-		this.updateLS();
-	}
+  constructor() {
+  }
 
-	public addCartApparel(apparel: Apparel): void {
-		const cartApparels = this.cartApparels$.getValue();
-		cartApparels.push(apparel);
-		this.cartApparels$.next(cartApparels);
-	}
+  public addApparelToCart(apparel: Apparel): Apparel {
+    const cartApparels = this.fetchApparelFromLS();
+    this.updateLS([...cartApparels, apparel]);
 
-	public deleteCartApparel(apparel: Apparel): void {
-		const cartApparels = this.cartApparels$.getValue()
-			.filter((cartApparel: Apparel) => cartApparel !== apparel);
-		this.cartApparels$.next(cartApparels);
-	}
+    return apparel;
+  }
 
-	private updateLS(): void {
-		const apparelsInLS: Apparel[] = JSON.parse(localStorage.getItem('cart'));
+  public removeApparelFromCart(sequenceNumber: number): number {
+    const apparelsInLS = this.fetchApparelFromLS();
+    const cartApparels: Apparel[] = apparelsInLS.filter((
+        cartApparel: Apparel,
+        index: number
+    ) => index !== sequenceNumber);
+    this.updateLS(cartApparels);
 
-		if (apparelsInLS !== undefined && apparelsInLS !== null && apparelsInLS.length > 0) {
-			this.cartApparels$.next(apparelsInLS);
-		}
+    return sequenceNumber;
+  }
 
-		this.cartApparelsCast$.subscribe((apparels: Apparel[]) => {
-			localStorage.setItem('cart', JSON.stringify(apparels));
-		});
-	}
+  public clearCart(): void {
+    localStorage.removeItem(storageKey);
+  }
+
+  public fetchApparelFromLS(): Apparel[] {
+    const apparelInLS: Apparel[] = JSON.parse(localStorage.getItem(storageKey));
+    return apparelInLS ? apparelInLS : [];
+  }
+
+  private updateLS(apparel: Apparel[]): void {
+    localStorage.setItem(storageKey, JSON.stringify(apparel));
+  }
 }

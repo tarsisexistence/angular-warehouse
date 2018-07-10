@@ -9,16 +9,16 @@ import {
 } from '@angular/material';
 import { RouterTestingModule } from '@angular/router/testing';
 
-import { ShoppingCartComponent } from './shopping-cart.component';
-import { CartService } from '../../shared/cart.service';
+import { CartComponent } from './cart.component';
+import { CartService } from '../shared/cart.service';
 
-describe('ShoppingCartComponent', () => {
-  let component: ShoppingCartComponent;
-  let fixture: ComponentFixture<ShoppingCartComponent>;
+describe('CartComponent', () => {
+  let component: CartComponent;
+  let fixture: ComponentFixture<CartComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-          declarations: [ShoppingCartComponent],
+          declarations: [CartComponent],
           imports: [MatIconModule, MatDialogModule, RouterTestingModule],
           providers: [CartService]
         })
@@ -26,12 +26,12 @@ describe('ShoppingCartComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ShoppingCartComponent);
+    fixture = TestBed.createComponent(CartComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should init shopping cart component', () => {
+  it('should init cart component', () => {
     expect(component).toBeTruthy();
   });
 });

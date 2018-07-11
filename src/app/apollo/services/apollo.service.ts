@@ -9,16 +9,18 @@ import { Order } from '../../shared/interfaces/order.interface';
 import { Apparel } from '../../shop/shared/apparel.interface';
 import {
   Access,
+  CatchPhraseConfig,
   User
 } from '../../auth/interfaces/user.interface';
 import {
   allApparel,
   addOrder,
   allOrders,
+  signIn,
   signUp,
-  setCatchPhrase
+  setCatchPhrase,
+  user
 } from '../queries';
-import { signIn } from '../queries/user.query';
 
 @Injectable({ providedIn: MyApolloModule })
 export class ApolloService {
@@ -70,7 +72,7 @@ export class ApolloService {
         .pipe(map((res: any) => res.data.signUp));
   }
 
-  public setCatchPhrase({ id, catchPhrase }: { id: string, catchPhrase: string }): Observable<User> {
+  public setCatchPhrase({ id, catchPhrase }: CatchPhraseConfig): Observable<User> {
     return this.apollo
         .mutate({
           mutation: setCatchPhrase,
@@ -92,5 +94,16 @@ export class ApolloService {
           }
         })
         .pipe(map((res: any) => res.data.signIn));
+  }
+
+  public getUser(id: string): Observable<User> {
+    return this.apollo
+        .query({
+          query: user,
+          variables: {
+            id
+          }
+        })
+        .pipe(map((res: any) => res.data.user));
   }
 }

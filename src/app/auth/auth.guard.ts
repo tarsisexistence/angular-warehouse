@@ -12,7 +12,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 
 @Injectable()
-export class AuthGuard implements CanActivate {
+export class AuthGuard  {
   constructor(
       private authService: AuthService,
       private router: Router
@@ -20,20 +20,20 @@ export class AuthGuard implements CanActivate {
 
   }
 
-  public canActivate(
-      next: ActivatedRouteSnapshot,
-      state: RouterStateSnapshot
-  ): Observable<boolean> {
-    return this.authService.user$
-        .take(1)
-        .map((user: any) => Boolean(user && user.catchPhrase))
-        .do((loggedIn: any) => {
-          if (loggedIn) {
-            return;
-          }
-
-          alert('You must be logged in and have a catch phrase');
-          // this.router.navigate(['']);
-        });
-  }
+  // public canActivate(
+  //     next: ActivatedRouteSnapshot,
+  //     state: RouterStateSnapshot
+  // ): Observable<boolean> {
+  //   return this.authService.user$
+  //       .take(1)
+  //       .map((user: any) => Boolean(user && user.catchPhrase))
+  //       .do((loggedIn: any) => {
+  //         if (loggedIn) {
+  //           return;
+  //         }
+  //
+  //         alert('You must be logged in and have a catch phrase');
+  //         // this.router.navigate(['']);
+  //       });
+  // }
 }

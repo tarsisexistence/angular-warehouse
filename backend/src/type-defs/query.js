@@ -13,7 +13,7 @@ const query = `
       allOrders: [Order]
       order(id: String!): Order
       
-      user(id: String!): User
+      user(id: String): User
       signIn(email: String!, password: String!): User
     }
 `;

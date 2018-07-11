@@ -1,5 +1,6 @@
-export interface User extends Access {
+export interface User {
   id: string;
+  email: string;
   catchPhrase?: string;
 }
 
@@ -9,6 +10,10 @@ export interface Access {
 }
 
 export interface StorageUser {
-  token?: string;
-  active?: boolean;
+  token: string;
+}
+
+export interface CatchPhraseConfig {
+  id: string;
+  catchPhrase: string;
 }

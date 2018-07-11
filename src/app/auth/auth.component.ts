@@ -9,12 +9,13 @@ import { MatDialogRef } from '@angular/material';
 
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
+import { Store } from '@ngrx/store';
+import * as fromStore from '../shared/store';
 
 import { AuthService } from './auth.service';
-import { ApolloService } from '../apollo/services/apollo.service';
 import {
   Access,
-  StorageUser,
+  CatchPhraseConfig,
   User
 } from './interfaces/user.interface';
 
@@ -25,25 +26,22 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AuthComponent implements OnInit, OnDestroy {
-  public user: StorageUser;
+  public user: User;
   public signUpScreen: boolean;
   private ngUnsubscribe: Subject<void> = new Subject<void>();
 
   constructor(
-      private apolloService: ApolloService,
       private authService: AuthService,
       private cdr: ChangeDetectorRef,
-      private dialogRef: MatDialogRef<AuthComponent>
+      private dialogRef: MatDialogRef<AuthComponent>,
+      private store: Store<fromStore.AuthState>
   ) {
   }
 
   public ngOnInit(): void {
-    const user = this.authService.getUser();
-    this.signUpScreen = !(user && user.active);
-
-    this.authService.user$
+    this.store.select(fromStore.getUserAuth)
         .pipe(takeUntil(this.ngUnsubscribe))
-        .subscribe((user: StorageUser) => {
+        .subscribe((user: User) => {
           this.user = user;
 
           if (user === null) {
@@ -52,45 +50,26 @@ export class AuthComponent implements OnInit, OnDestroy {
 
           this.cdr.detectChanges();
         });
+
+    this.signUpScreen = !this.user;
   }
 
   public signIn(credentials: Access): void {
-    this.apolloService.signIn(credentials)
-        .subscribe((user: User) => {
-          const storageUser: StorageUser = {
-            token: user.id,
-            active: true
-          };
-
-          this.authService.updateUserStorage(storageUser);
-          this.dialogRef.close(true);
-        });
-
+    this.store.dispatch(new fromStore.SignIn(credentials));
+    this.dialogRef.close();
   }
 
   public signUp(credentials: Access): void {
-    this.apolloService.signUp(credentials)
-        .subscribe((user: User) => {
-          const storageUser: StorageUser = { token: user.id };
-          this.authService.updateUserStorage(storageUser);
-        });
+    this.store.dispatch(new fromStore.SignUp(credentials));
   }
 
   public setCatchPhrase(catchPhrase: string): void {
-    const config = {
-      id: this.user.token,
+    const config: CatchPhraseConfig = {
+      id: this.user.id,
       catchPhrase
     };
-    this.apolloService.setCatchPhrase(config)
-        .subscribe((user: User) => {
-          const storageUser: StorageUser = {
-            token: user.id,
-            active: true
-          };
-
-          this.authService.updateUserStorage(storageUser);
-        });
-    this.dialogRef.close(true);
+    this.store.dispatch(new fromStore.SignUpCatchPhrase(config));
+    this.dialogRef.close();
   }
 
   public toggleAuthMethod(): void {

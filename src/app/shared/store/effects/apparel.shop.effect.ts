@@ -8,7 +8,8 @@ import { of } from 'rxjs';
 import {
   switchMap,
   map,
-  catchError
+  catchError,
+  take
 } from 'rxjs/operators';
 
 import { ApolloService } from '../../../apollo/services/apollo.service';
@@ -24,15 +25,16 @@ export class ApparelEffect {
 
   }
 
-  @Effect({ dispatch: true })
+  @Effect()
   public loadApparels$ = this.actions$
       .ofType(ApparelShopActions.ApparelShopActionTypes.LoadApparel)
       .pipe(
           switchMap(() => {
                 return this.apolloService.getAllApparel()
                     .pipe(
+                        take(1),
                         map((apparel: Apparel[]) => new ApparelShopActions.LoadApparelSuccess(apparel)),
-                        catchError(error => of(new ApparelShopActions.LoadApparelFail(error)))
+                        catchError((error: Error) => of(new ApparelShopActions.LoadApparelFail(error)))
                     );
               }
           )

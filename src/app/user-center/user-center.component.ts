@@ -4,11 +4,13 @@ import {
   OnInit,
   OnDestroy
 } from '@angular/core';
-import { AuthService } from '../auth/auth.service';
-import {} from '@angular/core';
-import { Router } from '@angular/router';
-import { StorageUser } from '../auth/interfaces/user.interface';
+
 import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
+import { Store } from '@ngrx/store';
+import * as fromStore from '../shared/store';
+
+import { User } from '../auth/interfaces/user.interface';
 
 @Component({
   selector: 'user-center-root',
@@ -17,22 +19,20 @@ import { Subject } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UserCenterComponent implements OnInit, OnDestroy {
-  private user: StorageUser;
+  private user: User;
   private ngUnsubscribe: Subject<void> = new Subject<void>();
 
-  constructor(
-      private authService: AuthService,
-      private router: Router
-  ) {
+  constructor(private store: Store<fromStore.AuthState>) {
   }
 
   public ngOnInit(): void {
-    this.authService.user$.subscribe((user: StorageUser) => this.user = user);
+    this.store.select(fromStore.getUserAuth)
+        .pipe(takeUntil(this.ngUnsubscribe))
+        .subscribe((user: User) => this.user = user);
   }
 
   public signOut(): void {
-    this.authService.clearUser();
-    this.router.navigate(['']).catch((err: Error) => console.error(err));
+    this.store.dispatch(new fromStore.SignOut());
   }
 
   public ngOnDestroy(): void {

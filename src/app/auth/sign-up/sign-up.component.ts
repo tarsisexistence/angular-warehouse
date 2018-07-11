@@ -14,7 +14,7 @@ import {
 
 import {
   Access,
-  StorageUser
+  User
 } from '../interfaces/user.interface';
 
 @Component({
@@ -28,7 +28,7 @@ export class SignUpComponent implements OnInit {
   public detailForm: FormGroup;
 
   @Input()
-  public user: StorageUser;
+  public user: User;
   @Output()
   public signUpEmitter: EventEmitter<Access> = new EventEmitter<Access>();
   @Output()

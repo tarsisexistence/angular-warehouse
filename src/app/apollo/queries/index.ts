@@ -6,6 +6,7 @@ export {
 
 export {
   user,
+  signIn,
   signUp,
   setCatchPhrase
 } from './user.query';

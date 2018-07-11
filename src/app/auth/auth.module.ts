@@ -2,6 +2,14 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import {
+  authReducers,
+  authEffects,
+  authState
+} from '../shared/store';
+
 import { MaterialModule } from '../shared/material/material.module';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './auth.guard';
@@ -13,7 +21,9 @@ import { AuthComponent } from './auth.component';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    StoreModule.forFeature(authState, authReducers),
+    EffectsModule.forFeature(authEffects)
   ],
   declarations: [
     AuthComponent,

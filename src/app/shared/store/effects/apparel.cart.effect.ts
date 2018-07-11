@@ -8,8 +8,7 @@ import { of } from 'rxjs';
 import {
   switchMap,
   map,
-  catchError,
-  tap
+  catchError
 } from 'rxjs/operators';
 
 import * as ApparelCartActions from '../actions/apparel.cart.actions';
@@ -26,7 +25,7 @@ export class CartEffect {
 
   @Effect()
   public fetchApparel$ = this.actions$
-      .ofType(ApparelCartActions.ApparelCartActionTypes.FetchApparel)
+      .ofType<ApparelCartActions.FetchApparel>(ApparelCartActions.ApparelCartActionTypes.FetchApparel)
       .pipe(
           switchMap(() => {
                 return of(this.cartService.fetchApparelFromLS())
@@ -34,7 +33,7 @@ export class CartEffect {
                         map((apparel: Apparel[]) => {
                           return new ApparelCartActions.FetchApparelSuccess(apparel);
                         }),
-                        catchError(error => of(new ApparelCartActions.FetchApparelFail(error)))
+                        catchError((error: Error) => of(new ApparelCartActions.FetchApparelFail(error)))
                     );
               }
           )
@@ -42,13 +41,13 @@ export class CartEffect {
 
   @Effect()
   public addApparel$ = this.actions$
-      .ofType(ApparelCartActions.ApparelCartActionTypes.AddApparel)
+      .ofType<ApparelCartActions.AddApparel>(ApparelCartActions.ApparelCartActionTypes.AddApparel)
       .pipe(
           switchMap((action: ApparelCartActions.AddApparel) => {
                 return of(this.cartService.addApparelToCart(action.payload))
                     .pipe(
                         map((apparel: Apparel) => new ApparelCartActions.AddApparelSuccess(apparel)),
-                        catchError(error => of(new ApparelCartActions.AddApparelFail(error)))
+                        catchError((error: Error) => of(new ApparelCartActions.AddApparelFail(error)))
                     );
               }
           )
@@ -56,10 +55,10 @@ export class CartEffect {
 
   @Effect()
   public removeApparel$ = this.actions$
-      .ofType(ApparelCartActions.ApparelCartActionTypes.RemoveApparel)
+      .ofType<ApparelCartActions.RemoveApparel>(ApparelCartActions.ApparelCartActionTypes.RemoveApparel)
       .pipe(
-          switchMap((apparel: ApparelCartActions.RemoveApparel) => {
-                return of(this.cartService.removeApparelFromCart(apparel.payload))
+          switchMap((action: ApparelCartActions.RemoveApparel) => {
+                return of(this.cartService.removeApparelFromCart(action.payload))
                     .pipe(
                         map((sequenceNumber: number) => new ApparelCartActions.RemoveApparelSuccess(sequenceNumber)),
                         catchError((error: Error) => of(new ApparelCartActions.RemoveApparelFail(error)))

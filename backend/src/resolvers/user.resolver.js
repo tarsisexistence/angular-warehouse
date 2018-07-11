@@ -5,9 +5,7 @@ const crypto = require('crypto');
 export const userResolver = {
   Query: {
     user: (root, { id }) => userModel.findOne({ id }),
-    signIn: (root, { email, password }) => {
-      return userModel.findOne({ email, password: encryption(password) });
-    }
+    signIn: (root, { email, password }) => userModel.findOne({ email, password: encryption(password) })
   },
   Mutation: {
     signUp: (root, { email, password }) => {

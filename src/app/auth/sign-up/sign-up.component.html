@@ -1,8 +1,8 @@
 <div class="sign-up">
-  <p class="sign-up__title" *ngIf="!user?.active">Sign up for free</p>
+  <p class="sign-up__title" *ngIf="!user">Sign up for free</p>
 
 
-  <form class="sign-up__form" *ngIf="!user?.token" [formGroup]="signUpForm" (ngSubmit)="signUp(signUpForm)">
+  <form class="sign-up__form" *ngIf="!user?.id" [formGroup]="signUpForm" (ngSubmit)="signUp(signUpForm)">
     <mat-form-field>
       <input matInput type="email" placeholder="E-Mail" formControlName="email">
     </mat-form-field>
@@ -26,7 +26,7 @@
     </button>
   </form>
 
-  <form class="sign-up__form" *ngIf="user && !user.active" [formGroup]="detailForm"
+  <form class="sign-up__form" *ngIf="user && !user.catchPhrase" [formGroup]="detailForm"
         (ngSubmit)="setCatchPhrase(detailForm.value.catchPhrase)">
     <mat-form-field>
       <input matInput type="text" placeholder="Catch phrase" formControlName="catchPhrase">

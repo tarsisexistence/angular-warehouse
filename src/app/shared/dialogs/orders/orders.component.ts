@@ -17,4 +17,8 @@ export class OrdersComponent {
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: ShopRules) {
   }
+
+  public identify(index: number, item: any): number {
+    return index;
+  }
 }

@@ -15,7 +15,11 @@ import { stocklists } from '@shared/constants/stocklists.constant';
 export class StocklistsComponent implements OnInit {
   public stocklists: Stocklist[];
 
-  ngOnInit() {
+  public ngOnInit(): void {
     this.stocklists = stocklists;
+  }
+
+  public identify(index: number, item: any): number {
+    return index;
   }
 }

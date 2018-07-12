@@ -1,5 +1,5 @@
 <section class="apparels">
-  <div class="apparels__apparel" *ngFor="let apparel of apparels">
+  <div class="apparels__apparel" *ngFor="let apparel of apparels; trackBy: identify">
     <p class="apparels__name">{{apparel.title}}</p>
     <img class="apparels__image" [src]="apparel.image" [alt]="apparel.title">
     <div class="apparels__price">

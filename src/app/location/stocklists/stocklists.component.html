@@ -1,14 +1,14 @@
 <div class="stocklists">
   <div class="stocklists__country"
-       *ngFor="let stocklist of stocklists">
+       *ngFor="let stocklist of stocklists; trackBy: identify">
     <p class="stocklists__country-name">{{stocklist.country }}</p>
 
     <div class="stocklists__city"
-         *ngFor="let cityStocks of stocklist.cityStocks">
+         *ngFor="let cityStocks of stocklist.cityStocks; trackBy: identify">
       <p class="stocklists__city-name">{{ cityStocks.city }}</p>
 
       <div class="stocklists__stock"
-           *ngFor="let stock of cityStocks.stocks">
+           *ngFor="let stock of cityStocks.stocks; trackBy: identify">
         <p class="stocklists__stock-name">{{ stock.name }}</p>
         <p class="stocklists__stock-address">{{ stock.address }}</p>
         <p>{{ stock?.email }}</p>

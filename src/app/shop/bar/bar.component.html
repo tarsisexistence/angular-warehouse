@@ -1,6 +1,6 @@
 <nav class="bar__categories">
   <a class="bar__category"
-     *ngFor="let category of categories"
+     *ngFor="let category of categories; trackBy: identify"
      [routerLink]="['/shop', category.toLowerCase()]">
     {{ category }}
   </a>

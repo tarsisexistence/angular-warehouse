@@ -24,4 +24,8 @@ export class ApparelsComponent {
   public addToCart(apparel: Apparel): void {
     this.addToCartEmitter.emit(apparel);
   }
+
+  public identify(index: number, apparel: Apparel): string {
+    return apparel.id;
+  }
 }

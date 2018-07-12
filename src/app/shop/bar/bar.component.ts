@@ -12,4 +12,8 @@ import {
 })
 export class BarComponent {
   @Input() public categories: string[];
+
+  public identify(index: number, category: string): number {
+    return index;
+  }
 }

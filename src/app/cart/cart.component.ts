@@ -75,6 +75,10 @@ export class CartComponent implements OnInit, OnDestroy {
     });
   }
 
+  public identify(index: number, apparel: Apparel): string {
+    return apparel.id;
+  }
+
   public ngOnDestroy(): void {
     this.ngUnsubscribe.next();
     this.ngUnsubscribe.complete();

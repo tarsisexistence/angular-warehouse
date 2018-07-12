@@ -4,7 +4,7 @@
   <hr class="cart__line">
 
   <ng-container *ngIf="cartApparels && cartApparels.length > 0; else empty">
-    <div class="cart__apparel" *ngFor="let apparel of cartApparels; let sequenceNumber = index">
+    <div class="cart__apparel" *ngFor="let apparel of cartApparels; let sequenceNumber = index; trackBy:identify">
       <p>{{ apparel.title }}</p>
       <div>
         <span>{{ apparel.price }}$</span>

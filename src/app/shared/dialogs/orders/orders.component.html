@@ -1,6 +1,7 @@
 <div class="orders">
   <p class="orders__title">{{ data.title }}</p>
-  <div *ngFor="let description of data.content" class="orders__description">
+  <div class="orders__description"
+       *ngFor="let description of data.content; trackBy: identify">
     <h4 class="orders__description-type">{{ description.type }}</h4>
     <p class="orders__description-rule" *ngFor="let rule of description.rules">
       {{ rule }}

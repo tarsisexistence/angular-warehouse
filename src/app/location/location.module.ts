@@ -8,7 +8,6 @@ import { MapService } from './shared/map.service';
 import { GeolocationService } from './shared/geolocation.service';
 import { GeocodingService } from './shared/geocoding.service';
 import { LocationComponent } from './location.component';
-import { LocationResolver } from './location.resolver';
 import { StocklistsComponent } from './stocklists/stocklists.component';
 import { MaterialModule } from '../shared/material/material.module';
 
@@ -28,8 +27,7 @@ import { MaterialModule } from '../shared/material/material.module';
   providers: [
     MapService,
     GeolocationService,
-    GeocodingService,
-    LocationResolver
+    GeocodingService
   ]
 })
 export class LocationModule {

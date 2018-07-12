@@ -12,7 +12,6 @@ import {
 
 import { MaterialModule } from '../shared/material/material.module';
 import { AuthService } from './auth.service';
-import { AuthGuard } from './auth.guard';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { AuthComponent } from './auth.component';
@@ -32,8 +31,7 @@ import { AuthComponent } from './auth.component';
   ],
   entryComponents: [AuthComponent],
   providers: [
-    AuthService,
-    AuthGuard
+    AuthService
   ]
 })
 export class AuthModule {

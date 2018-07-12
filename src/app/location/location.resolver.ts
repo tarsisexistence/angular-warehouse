@@ -4,8 +4,9 @@ import {
   Resolve,
   RouterStateSnapshot
 } from '@angular/router';
+import { LocationModule } from './location.module';
 
-@Injectable()
+@Injectable({ providedIn: LocationModule })
 export class LocationResolver implements Resolve<boolean> {
 
   resolve(

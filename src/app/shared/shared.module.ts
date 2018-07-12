@@ -37,9 +37,6 @@ const sharedModules = [
   entryComponents: [
     OrdersComponent,
     PaymentComponent
-  ],
-  providers: [
-    CartService
   ]
 })
 export class SharedModule {

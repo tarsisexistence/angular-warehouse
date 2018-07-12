@@ -15,7 +15,6 @@ import * as fromStore from '../shared/store';
 import { Apparel } from './shared/apparel.interface';
 import { Apparels } from './shared/apparels.interface';
 import { categories } from './shared/apparels.constants';
-import { ViewRef_ } from '@angular/core/src/view';
 
 @Component({
   selector: 'shop-feat',

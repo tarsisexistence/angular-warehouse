@@ -16,7 +16,7 @@ import { MaterialModule } from '../shared/material/material.module';
 import { ShopComponent } from './shop.component';
 import { BarComponent } from './bar/bar.component';
 import { ApparelsComponent } from './apparels/apparels.component';
-import { FooterComponent } from '../components/footer/footer.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   imports: [

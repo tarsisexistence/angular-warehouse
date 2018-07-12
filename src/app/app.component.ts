@@ -13,7 +13,7 @@ import { AuthService } from './auth/auth.service';
 @Component({
   selector: 'app-root',
   template: `
-    <app-header></app-header>
+    <core-header></core-header>
     <router-outlet></router-outlet>
   `,
   changeDetection: ChangeDetectionStrategy.OnPush

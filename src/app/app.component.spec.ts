@@ -6,7 +6,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { MatIconModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
+import { HeaderComponent } from './core/components/header/header.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {

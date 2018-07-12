@@ -16,7 +16,7 @@ import { AuthComponent } from '@auth/auth.component';
 import { User } from '@auth/interfaces/user.interface';
 
 @Component({
-  selector: 'app-header',
+  selector: 'core-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush

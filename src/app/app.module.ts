@@ -3,17 +3,11 @@ import {
   BrowserModule,
   BrowserTransferStateModule
 } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
 
+import { CoreModule } from '@app/core/core.module';
 import { environment } from '@env/environment';
 import { appRouting } from './app.routes';
-import { AuthModule } from '@auth/auth.module';
-import { CartModule } from '@cart/cart.module';
-import { SharedModule } from '@shared/shared.module';
-import { MyApolloModule } from '@apollo/apollo.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
 
 import {
   MetaReducer,
@@ -31,13 +25,8 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
   imports: [
     BrowserModule.withServerTransition({ appId: 'app-root' }),
     BrowserTransferStateModule,
-    HttpClientModule,
-    RouterModule,
     appRouting,
-    AuthModule,
-    CartModule,
-    SharedModule,
-    MyApolloModule,
+    CoreModule,
     StoreModule.forRoot({}, { metaReducers }),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({
@@ -46,13 +35,8 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
     })
 
   ],
-  declarations: [
-    AppComponent,
-    HeaderComponent
-  ],
-  bootstrap: [AppComponent],
-  providers: []
+  declarations: [AppComponent],
+  bootstrap: [AppComponent]
 })
 export class AppModule {
-
 }

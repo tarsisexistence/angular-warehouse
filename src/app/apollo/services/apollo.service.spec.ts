@@ -1,4 +1,7 @@
-import { TestBed, inject } from '@angular/core/testing';
+import {
+  TestBed,
+  inject
+} from '@angular/core/testing';
 
 import { ApolloService } from './apollo.service';
 

@@ -16,6 +16,6 @@ export const getUserAuthState = createSelector(
     (state: AuthState) => state.user
 );
 
-export const getUserAuth = createSelector(getUserAuthState, fromUserReducer.getUser);
-export const getUserAuthLoading = createSelector(getUserAuthState, fromUserReducer.getUserLoading);
-export const getUserAuthLoaded = createSelector(getUserAuthState, fromUserReducer.getUserLoaded);
+export const getUser = createSelector(getUserAuthState, fromUserReducer.getUser);
+export const getUserLoading = createSelector(getUserAuthState, fromUserReducer.getUserLoading);
+export const getUserLoaded = createSelector(getUserAuthState, fromUserReducer.getUserLoaded);

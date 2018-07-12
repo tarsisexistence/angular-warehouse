@@ -12,95 +12,94 @@ import {
   exhaustMap,
   map,
   catchError,
-  take,
-  tap
+  tap,
+  finalize
 } from 'rxjs/operators';
 
 import { ApolloService } from '../../../apollo/services/apollo.service';
 import { AuthService } from '../../../auth/auth.service';
 
-import * as UserAuthActions from '../actions/user.auth.actions';
 import {
   Access,
-  StorageUser,
+  CatchPhraseConfig,
   User
 } from '../../../auth/interfaces/user.interface';
+import {
+  AuthActionTypes,
+  FetchUser,
+  FetchUserFailure,
+  FetchUserSuccess,
+  SignIn,
+  SignInFailure,
+  SignInSuccess,
+  SignUp,
+  SignUpCatchPhrase,
+  SignUpCatchPhraseFailure,
+  SignUpCatchPhraseSuccess,
+  SignUpFailure,
+  SignUpSuccess
+} from '../actions/user.auth.actions';
 
 @Injectable()
 export class UserEffect {
 
   @Effect()
-  public signUp$ = this.actions$
-      .ofType(UserAuthActions.AuthActionTypes.SignUp)
-      .pipe(
-          switchMap((action: UserAuthActions.SignUp) => {
-                return this.apolloService.signUp(action.payload)
-                    .pipe(
-                        take(1),
-                        map((user: User) => {
-                          const storageUser: StorageUser = { token: user.id };
-                          this.authService.updateUserStorage(storageUser);
-                          return new UserAuthActions.SignUpSuccess(user);
-                        }),
-                        catchError((error: Error) => of(new UserAuthActions.SignUpFailure(error)))
-                    );
-              }
-          )
-      );
-
-  @Effect()
-  public signUpCatchPhrase$ = this.actions$
-      .ofType(UserAuthActions.AuthActionTypes.SignUpCatchPhrase)
-      .pipe(
-          switchMap((action: UserAuthActions.SignUpCatchPhrase) => {
-                return this.apolloService.setCatchPhrase(action.payload)
-                    .pipe(
-                        take(1),
-                        map((user: User) => {
-                          const storageUser: StorageUser = { token: user.id };
-                          this.authService.updateUserStorage(storageUser);
-                          return new UserAuthActions.SignUpCatchPhraseSuccess(user);
-                        }),
-                        catchError((error: Error) => of(new UserAuthActions.SignUpCatchPhraseFailure(error)))
-                    );
-              }
-          )
-      );
-
-  @Effect()
-  public signIn$ = this.actions$.pipe(
-      ofType(UserAuthActions.AuthActionTypes.SignIn),
-      map((action: UserAuthActions.SignIn) => action.payload),
-      exhaustMap((credentials: Access) => this.apolloService.signIn(credentials)
-          .pipe(
-              tap((user: User) => this.router.navigate(['user-center', user.id])),
-              take(1),
-              map((user: User) => {
-                const storageUser: StorageUser = { token: user.id };
-                this.authService.updateUserStorage(storageUser);
-                return new UserAuthActions.SignInSuccess(user);
-              }),
-              catchError((error: Error) => of(new UserAuthActions.SignInFailure(error)))
+  public signUp$ = this.actions$.pipe(
+      ofType<SignUp>(AuthActionTypes.SignUp),
+      map((action: SignUp) => action.payload),
+      switchMap((credentials: Access) => this.apolloService.signUp(credentials).pipe(
+          tap((user: User) => {
+            this.authService.updateUserStorage({ token: user.id });
+          }),
+          map((user: User) => new SignUpSuccess(user)),
+          catchError((error: Error) => of(new SignUpFailure(error))),
+          finalize(() => console.log('finalize signUp$'))
           )
       )
   );
 
   @Effect()
-  public getUser$ = this.actions$.pipe(
-      ofType(UserAuthActions.AuthActionTypes.GetUser),
-      map((action: UserAuthActions.GetUser) => action.payload),
-      exhaustMap((id: string) => this.apolloService.getUser(id)
-          .pipe(
-              take(1),
-              map((user: User) => new UserAuthActions.GetUserSuccess(user)),
-              catchError((error: Error) => of(new UserAuthActions.GetUserFailure(error)))
+  public signUpCatchPhrase$ = this.actions$.pipe(
+      ofType<SignUpCatchPhrase>(AuthActionTypes.SignUpCatchPhrase),
+      map((action: SignUpCatchPhrase) => action.payload),
+      switchMap((config: CatchPhraseConfig) => this.apolloService.setCatchPhrase(config).pipe(
+          tap((user: User) => this.router.navigate(['user-center', user.id])),
+          map((user: User) => new SignUpCatchPhraseSuccess(user)),
+          catchError((error: Error) => of(new SignUpCatchPhraseFailure(error))),
+          finalize(() => console.log('finalize signUpCatchPhrase$'))
+          )
+      )
+  );
+
+  @Effect()
+  public signIn$ = this.actions$.pipe(
+      ofType<SignIn>(AuthActionTypes.SignIn),
+      map((action: SignIn) => action.payload),
+      exhaustMap((credentials: Access) => this.apolloService.signIn(credentials).pipe(
+          tap((user: User) => this.router.navigate(['user-center', user.id])),
+          tap((user: User) => this.authService.updateUserStorage({ token: user.id })),
+          map((user: User) => new SignInSuccess(user)),
+          catchError((error: Error) => of(new SignInFailure(error))),
+          finalize(() => console.log('finalize signIn$'))
+          )
+      )
+  );
+
+  @Effect()
+  public fetchUser$ = this.actions$.pipe(
+      ofType<FetchUser>(AuthActionTypes.FetchUser),
+      map((action: FetchUser) => action.payload),
+      exhaustMap((id: string) => this.apolloService.fetchUser(id).pipe(
+          map((user: User) => new FetchUserSuccess(user)),
+          catchError((error: Error) => of(new FetchUserFailure(error))),
+          finalize(() => console.log('finalize fetchUser$'))
           )
       )
   );
 
   @Effect({ dispatch: false })
   public signOut$ = this.actions$.pipe(
-      ofType(UserAuthActions.AuthActionTypes.SignOut),
+      ofType(AuthActionTypes.SignOut, AuthActionTypes.Redirect),
       tap(() => this.authService.clearUser()),
       tap(() => this.router.navigate(['']))
   );

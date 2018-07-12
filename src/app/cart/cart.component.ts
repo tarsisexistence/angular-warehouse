@@ -43,7 +43,6 @@ export class CartComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit(): void {
-    this.store.dispatch(new fromStore.FetchApparel());
     this.store.select(fromStore.getAllCartApparels)
         .pipe(takeUntil(this.ngUnsubscribe))
         .subscribe((apparels: Apparel[]) => {

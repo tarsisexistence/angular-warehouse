@@ -6,6 +6,9 @@ import {
 } from '../../../auth/interfaces/user.interface';
 
 export enum AuthActionTypes {
+  FetchUser = '[Auth] Fetch User',
+  FetchUserSuccess = '[Auth] Fetch User Success',
+  FetchUserFailure = '[Auth] Fetch User Failure',
   SignIn = '[Auth] SignIn',
   SignInSuccess = '[Auth] SignIn Success',
   SignInFailure = '[Auth] SignIn Failure',
@@ -16,10 +19,28 @@ export enum AuthActionTypes {
   SignUpCatchPhraseSuccess = '[Auth] SignUp CatchPhrase Success',
   SignUpCatchPhraseFailure = '[Auth] SignUp CatchPhrase Failure',
   SignOut = '[Auth] SignOut',
-  GetUser = '[Auth] Get User',
-  GetUserSuccess = '[Auth] Get User Success',
-  GetUserFailure = '[Auth] Get User Failure'
+  Redirect = '[Auth] Redirect'
+}
 
+export class FetchUser implements Action {
+  readonly type = AuthActionTypes.FetchUser;
+
+  constructor(public payload: string) {
+  }
+}
+
+export class FetchUserSuccess implements Action {
+  readonly type = AuthActionTypes.FetchUserSuccess;
+
+  constructor(public payload: User) {
+  }
+}
+
+export class FetchUserFailure implements Action {
+  readonly type = AuthActionTypes.FetchUserFailure;
+
+  constructor(public payload: Error) {
+  }
 }
 
 export class SignIn implements Action {
@@ -33,7 +54,6 @@ export class SignInSuccess implements Action {
   readonly type = AuthActionTypes.SignInSuccess;
 
   constructor(public payload: User) {
-    debugger;
   }
 }
 
@@ -90,28 +110,14 @@ export class SignOut implements Action {
   readonly type = AuthActionTypes.SignOut;
 }
 
-export class GetUser implements Action {
-  readonly type = AuthActionTypes.GetUser;
-
-  constructor(public payload: string) {
-  }
-}
-
-export class GetUserSuccess implements Action {
-  readonly type = AuthActionTypes.GetUserSuccess;
-
-  constructor(public payload: User) {
-  }
-}
-
-export class GetUserFailure implements Action {
-  readonly type = AuthActionTypes.GetUserFailure;
-
-  constructor(public payload: Error) {
-  }
+export class Redirect implements Action {
+  readonly type = AuthActionTypes.Redirect;
 }
 
 export type AuthActionsUnion =
+    | FetchUser
+    | FetchUserSuccess
+    | FetchUserFailure
     | SignIn
     | SignInSuccess
     | SignInFailure
@@ -122,6 +128,4 @@ export type AuthActionsUnion =
     | SignUpCatchPhraseSuccess
     | SignUpCatchPhraseFailure
     | SignOut
-    | GetUser
-    | GetUserSuccess
-    | GetUserFailure;
+    | Redirect;

@@ -3,7 +3,7 @@
     <img class="auth__logo" src="/assets/Reignarr.png" alt="logo">
   </div>
 
-  <div class="auth__method" *ngIf="signUpScreen && (!user || !user.active)">
+  <div class="auth__method" *ngIf="signUpScreen">
     <auth-sign-up
         [user]="user"
         (signUpEmitter)="signUp($event)"
@@ -12,7 +12,7 @@
     </auth-sign-up>
   </div>
 
-  <div class="auth__method" *ngIf="!signUpScreen && !user">
+  <div class="auth__method" *ngIf="!signUpScreen">
     <auth-sign-in
         [user]="user"
         (signInEmitter)="signIn($event)"

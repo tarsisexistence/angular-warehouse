@@ -12,7 +12,6 @@ import { takeUntil } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import * as fromStore from '../shared/store';
 
-import { AuthService } from './auth.service';
 import {
   Access,
   CatchPhraseConfig,
@@ -31,7 +30,6 @@ export class AuthComponent implements OnInit, OnDestroy {
   private ngUnsubscribe: Subject<void> = new Subject<void>();
 
   constructor(
-      private authService: AuthService,
       private cdr: ChangeDetectorRef,
       private dialogRef: MatDialogRef<AuthComponent>,
       private store: Store<fromStore.AuthState>
@@ -39,7 +37,7 @@ export class AuthComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit(): void {
-    this.store.select(fromStore.getUserAuth)
+    this.store.select(fromStore.getUser)
         .pipe(takeUntil(this.ngUnsubscribe))
         .subscribe((user: User) => {
           this.user = user;
@@ -51,7 +49,7 @@ export class AuthComponent implements OnInit, OnDestroy {
           this.cdr.detectChanges();
         });
 
-    this.signUpScreen = !this.user;
+    this.signUpScreen = !(this.user && this.user.catchPhrase);
   }
 
   public signIn(credentials: Access): void {
@@ -74,7 +72,6 @@ export class AuthComponent implements OnInit, OnDestroy {
 
   public toggleAuthMethod(): void {
     this.signUpScreen = !this.signUpScreen;
-    this.authService.clearUser();
   }
 
   public ngOnDestroy(): void {

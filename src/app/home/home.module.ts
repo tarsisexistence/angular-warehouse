@@ -6,9 +6,9 @@ import { EntranceComponent } from './entrance/entrance.component';
 import { homeRouting } from './home.routes';
 
 @NgModule({
-	imports: [CommonModule, homeRouting],
-	declarations: [HomeComponent, EntranceComponent],
-	exports: [HomeComponent, EntranceComponent]
+  imports: [CommonModule, homeRouting],
+  declarations: [HomeComponent, EntranceComponent],
+  exports: [HomeComponent, EntranceComponent]
 })
 export class HomeModule {
 }

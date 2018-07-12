@@ -10,8 +10,6 @@ import {
 
 import { MapService } from '../shared/map.service';
 
-
-
 @Component({
   selector: 'location-google-map',
   templateUrl: 'google-map.component.html',

@@ -96,7 +96,7 @@ export class ApolloService {
         .pipe(map((res: any) => res.data.signIn));
   }
 
-  public getUser(id: string): Observable<User> {
+  public fetchUser(id: string): Observable<User> {
     return this.apollo
         .query({
           query: user,

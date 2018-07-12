@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 
 import {
+  Actions,
   Effect,
-  Actions
+  ofType
 } from '@ngrx/effects';
 import { of } from 'rxjs';
 import {
-  switchMap,
+  exhaustMap,
   map,
   catchError,
   take
@@ -14,29 +15,29 @@ import {
 
 import { ApolloService } from '../../../apollo/services/apollo.service';
 import { Apparel } from '../../../shop/shared/apparel.interface';
-import * as ApparelShopActions from '../actions/apparel.shop.actions';
+import {
+  ApparelShopActionTypes,
+  LoadApparel,
+  LoadApparelFail,
+  LoadApparelSuccess
+} from '../actions/apparel.shop.actions';
 
 @Injectable()
 export class ApparelEffect {
+  @Effect()
+  public loadApparels$ = this.actions$.pipe(
+      ofType<LoadApparel>(ApparelShopActionTypes.LoadApparel),
+      exhaustMap(() => this.apolloService.getAllApparel()
+          .pipe(
+              take(1),
+              map((apparel: Apparel[]) => new LoadApparelSuccess(apparel)),
+              catchError((error: Error) => of(new LoadApparelFail(error)))
+          ))
+  );
+
   constructor(
       private actions$: Actions,
       private apolloService: ApolloService
   ) {
-
   }
-
-  @Effect()
-  public loadApparels$ = this.actions$
-      .ofType(ApparelShopActions.ApparelShopActionTypes.LoadApparel)
-      .pipe(
-          switchMap(() => {
-                return this.apolloService.getAllApparel()
-                    .pipe(
-                        take(1),
-                        map((apparel: Apparel[]) => new ApparelShopActions.LoadApparelSuccess(apparel)),
-                        catchError((error: Error) => of(new ApparelShopActions.LoadApparelFail(error)))
-                    );
-              }
-          )
-      );
 }

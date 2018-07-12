@@ -20,6 +20,27 @@ export function reducer(
     action: UserAuthActions.AuthActionsUnion
 ): UserState {
   switch (action.type) {
+    case UserAuthActions.AuthActionTypes.FetchUser: {
+      return {
+        ...state,
+        loading: true
+      };
+    }
+
+    case UserAuthActions.AuthActionTypes.FetchUserSuccess: {
+      return {
+        ...state,
+        loading: false,
+        loaded: true,
+        loggedIn: true,
+        user: action.payload
+      };
+    }
+
+    case UserAuthActions.AuthActionTypes.FetchUserFailure: {
+      return initialState;
+    }
+
     case UserAuthActions.AuthActionTypes.SignIn: {
       return {
         ...state,
@@ -106,27 +127,6 @@ export function reducer(
     }
 
     case UserAuthActions.AuthActionTypes.SignOut: {
-      return initialState;
-    }
-
-    case UserAuthActions.AuthActionTypes.GetUser: {
-      return {
-        ...state,
-        loading: true
-      };
-    }
-
-    case UserAuthActions.AuthActionTypes.GetUserSuccess: {
-      return {
-        ...state,
-        loading: false,
-        loaded: true,
-        loggedIn: true,
-        user: action.payload
-      };
-    }
-
-    case UserAuthActions.AuthActionTypes.GetUserFailure: {
       return initialState;
     }
   }

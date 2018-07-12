@@ -26,7 +26,7 @@ export class UserCenterComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit(): void {
-    this.store.select(fromStore.getUserAuth)
+    this.store.select(fromStore.getUser)
         .pipe(takeUntil(this.ngUnsubscribe))
         .subscribe((user: User) => this.user = user);
   }

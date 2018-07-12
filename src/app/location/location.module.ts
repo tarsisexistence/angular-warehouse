@@ -13,24 +13,24 @@ import { StocklistsComponent } from './stocklists/stocklists.component';
 import { MaterialModule } from '../shared/material/material.module';
 
 @NgModule({
-	imports: [
-		CommonModule,
-		FormsModule,
-		locationRouting,
-		MaterialModule
-	],
-	declarations: [
-		GoogleMapComponent,
-		MarkerDirective,
-		LocationComponent,
-		StocklistsComponent
-	],
-	providers: [
-		MapService,
-		GeolocationService,
-		GeocodingService,
-		LocationResolver
-	]
+  imports: [
+    CommonModule,
+    FormsModule,
+    locationRouting,
+    MaterialModule
+  ],
+  declarations: [
+    GoogleMapComponent,
+    MarkerDirective,
+    LocationComponent,
+    StocklistsComponent
+  ],
+  providers: [
+    MapService,
+    GeolocationService,
+    GeocodingService,
+    LocationResolver
+  ]
 })
 export class LocationModule {
 }

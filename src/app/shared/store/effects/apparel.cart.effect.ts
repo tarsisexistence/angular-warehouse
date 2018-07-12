@@ -1,69 +1,74 @@
 import { Injectable } from '@angular/core';
 
 import {
+  Actions,
   Effect,
-  Actions
+  ofType
 } from '@ngrx/effects';
 import { of } from 'rxjs';
 import {
   switchMap,
   map,
-  catchError
+  catchError,
+  finalize
 } from 'rxjs/operators';
 
-import * as ApparelCartActions from '../actions/apparel.cart.actions';
 import { Apparel } from '../../../shop/shared/apparel.interface';
 import { CartService } from '../../cart.service';
+import {
+  AddApparel,
+  AddApparelFail,
+  AddApparelSuccess,
+  ApparelCartActionTypes,
+  FetchApparel,
+  FetchApparelFail,
+  FetchApparelSuccess,
+  RemoveApparel,
+  RemoveApparelFail,
+  RemoveApparelSuccess
+} from '../actions/apparel.cart.actions';
 
 @Injectable()
 export class CartEffect {
+
+  @Effect()
+  public fetchApparel$ = this.actions$.pipe(
+      ofType<FetchApparel>(ApparelCartActionTypes.FetchApparel),
+      switchMap(() => of(this.cartService.fetchApparelFromLS()).pipe(
+          map((apparel: Apparel[]) => new FetchApparelSuccess(apparel)),
+          catchError((error: Error) => of(new FetchApparelFail(error))),
+          finalize(() => console.log('finalize fetchApparel$'))
+          )
+      )
+  );
+
+  @Effect()
+  public addApparel$ = this.actions$.pipe(
+      ofType<AddApparel>(ApparelCartActionTypes.AddApparel),
+      map((action: AddApparel) => action.payload),
+      switchMap((apparel: Apparel) => of(this.cartService.addApparelToCart(apparel)).pipe(
+          map((apparel: Apparel) => new AddApparelSuccess(apparel)),
+          catchError((error: Error) => of(new AddApparelFail(error))),
+          finalize(() => console.log('finalize addApparel$'))
+          )
+      )
+  );
+
+  @Effect()
+  public removeApparel$ = this.actions$.pipe(
+      ofType<RemoveApparel>(ApparelCartActionTypes.RemoveApparel),
+      map((action: RemoveApparel) => action.payload),
+      switchMap((sequenceNumber: number) => of(this.cartService.removeApparelFromCart(sequenceNumber)).pipe(
+          map((sequenceNumber: number) => new RemoveApparelSuccess(sequenceNumber)),
+          catchError((error: Error) => of(new RemoveApparelFail(error))),
+          finalize(() => console.log('finalize removeApparel$'))
+          )
+      )
+  );
+
   constructor(
       private actions$: Actions,
       private cartService: CartService
   ) {
   }
-
-  @Effect()
-  public fetchApparel$ = this.actions$
-      .ofType<ApparelCartActions.FetchApparel>(ApparelCartActions.ApparelCartActionTypes.FetchApparel)
-      .pipe(
-          switchMap(() => {
-                return of(this.cartService.fetchApparelFromLS())
-                    .pipe(
-                        map((apparel: Apparel[]) => {
-                          return new ApparelCartActions.FetchApparelSuccess(apparel);
-                        }),
-                        catchError((error: Error) => of(new ApparelCartActions.FetchApparelFail(error)))
-                    );
-              }
-          )
-      );
-
-  @Effect()
-  public addApparel$ = this.actions$
-      .ofType<ApparelCartActions.AddApparel>(ApparelCartActions.ApparelCartActionTypes.AddApparel)
-      .pipe(
-          switchMap((action: ApparelCartActions.AddApparel) => {
-                return of(this.cartService.addApparelToCart(action.payload))
-                    .pipe(
-                        map((apparel: Apparel) => new ApparelCartActions.AddApparelSuccess(apparel)),
-                        catchError((error: Error) => of(new ApparelCartActions.AddApparelFail(error)))
-                    );
-              }
-          )
-      );
-
-  @Effect()
-  public removeApparel$ = this.actions$
-      .ofType<ApparelCartActions.RemoveApparel>(ApparelCartActions.ApparelCartActionTypes.RemoveApparel)
-      .pipe(
-          switchMap((action: ApparelCartActions.RemoveApparel) => {
-                return of(this.cartService.removeApparelFromCart(action.payload))
-                    .pipe(
-                        map((sequenceNumber: number) => new ApparelCartActions.RemoveApparelSuccess(sequenceNumber)),
-                        catchError((error: Error) => of(new ApparelCartActions.RemoveApparelFail(error)))
-                    );
-              }
-          )
-      );
 }

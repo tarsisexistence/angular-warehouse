@@ -27,9 +27,9 @@ describe('LocationComponent', () => {
             MatFormFieldModule
           ],
           providers: [
-              MapService,
-              GeolocationService,
-              GeocodingService
+            MapService,
+            GeolocationService,
+            GeocodingService
           ]
         })
         .compileComponents();

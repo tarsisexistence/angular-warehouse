@@ -13,11 +13,7 @@ import { Store } from '@ngrx/store';
 import * as fromStore from '../../shared/store';
 
 import { AuthComponent } from '../../auth/auth.component';
-import { AuthService } from '../../auth/auth.service';
-import {
-  StorageUser,
-  User
-} from '../../auth/interfaces/user.interface';
+import { User } from '../../auth/interfaces/user.interface';
 
 @Component({
   selector: 'app-header',
@@ -31,26 +27,19 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   constructor(
       public router: Router,
-      private authService: AuthService,
       private dialog: MatDialog,
       private store: Store<fromStore.AuthState>
   ) {
   }
 
   public ngOnInit(): void {
-    const user: StorageUser = this.authService.getUserFromLS();
-
-    if (user !== null) {
-      this.store.dispatch(new fromStore.GetUser(user.token));
-    }
-
-    this.store.select(fromStore.getUserAuth)
+    this.store.select(fromStore.getUser)
         .pipe(takeUntil(this.ngUnsubscribe))
         .subscribe((user: User) => this.user = user);
   }
 
   public auth(): void {
-    if (this.user) {
+    if (this.user && this.user.catchPhrase) {
       this.router.navigate(['user-center', this.user.id]).catch((err: Error) => console.error(err));
       return;
     }

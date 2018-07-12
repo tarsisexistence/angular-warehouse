@@ -9,7 +9,7 @@ export class AuthService {
   constructor() {
   }
 
-  public getUserFromLS(): StorageUser {
+  public fetchUserFromLS(): StorageUser {
     return JSON.parse(localStorage.getItem(storageKey));
   }
 

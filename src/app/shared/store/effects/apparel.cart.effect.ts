@@ -13,8 +13,8 @@ import {
   finalize
 } from 'rxjs/operators';
 
-import { Apparel } from '../../../shop/shared/apparel.interface';
-import { CartService } from '../../cart.service';
+import { Apparel } from '@shop/shared/apparel.interface';
+import { CartService } from '@shared/cart.service';
 import {
   AddApparel,
   AddApparelFail,
@@ -26,7 +26,7 @@ import {
   RemoveApparel,
   RemoveApparelFail,
   RemoveApparelSuccess
-} from '../actions/apparel.cart.actions';
+} from '@shared/store/actions/apparel.cart.actions';
 
 @Injectable()
 export class CartEffect {

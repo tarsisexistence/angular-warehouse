@@ -1,5 +1,5 @@
-import * as UserAuthActions from './../../actions/user.auth.actions';
-import { User } from '../../../../auth/interfaces/user.interface';
+import * as UserAuthActions from '@shared/store/actions/user.auth.actions';
+import { User } from '@auth/interfaces/user.interface';
 
 export interface UserState {
   user: User | null;

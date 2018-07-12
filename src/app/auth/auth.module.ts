@@ -8,9 +8,9 @@ import {
   authReducers,
   authEffects,
   authState
-} from '../shared/store';
+} from '@shared/store';
 
-import { MaterialModule } from '../shared/material/material.module';
+import { MaterialModule } from '@material/material.module';
 import { AuthService } from './auth.service';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { SignInComponent } from './sign-in/sign-in.component';

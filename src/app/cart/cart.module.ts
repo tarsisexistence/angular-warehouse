@@ -7,10 +7,10 @@ import {
   cartReducers,
   cartEffects,
   cartState
-} from '../shared/store';
+} from '@shared/store';
 
 import { CartComponent } from './cart.component';
-import { MaterialModule } from '../shared/material/material.module';
+import { MaterialModule } from '@shared/material/material.module';
 
 @NgModule({
   imports: [

@@ -8,9 +8,9 @@ import {
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
-import * as fromStore from '../shared/store';
+import * as fromStore from '@shared/store';
 
-import { User } from '../auth/interfaces/user.interface';
+import { User } from '@auth/interfaces/user.interface';
 
 @Component({
   selector: 'user-center-root',

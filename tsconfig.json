@@ -1,7 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": "src",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
@@ -16,6 +16,41 @@
       "es2017",
       "dom",
       "esnext.asynciterable"
-    ]
+    ],
+    "paths": {
+      "@app/*": [
+        "app/*"
+      ],
+      "@env/*": [
+        "environments/*"
+      ],
+      "@apollo/*": [
+        "app/apollo/*"
+      ],
+      "@shared/*": [
+        "app/shared/*"
+      ],
+      "@material/*": [
+        "app/shared/material/*"
+      ],
+      "@store/*": [
+        "app/shared/store/*"
+      ],
+      "@auth/*": [
+        "app/auth/*"
+      ],
+      "@shop/*": [
+        "app/shop/*"
+      ],
+      "@home/*": [
+        "app/home/*"
+      ],
+      "@location/*": [
+        "app/location/*"
+      ],
+      "@cart/*": [
+        "app/cart/*"
+      ]
+    }
   }
 }

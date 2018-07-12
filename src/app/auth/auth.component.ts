@@ -10,7 +10,7 @@ import { MatDialogRef } from '@angular/material';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
-import * as fromStore from '../shared/store';
+import * as fromStore from '@shared/store';
 
 import {
   Access,

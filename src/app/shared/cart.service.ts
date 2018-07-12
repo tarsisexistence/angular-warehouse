@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { SharedModule } from './shared.module';
-import { Apparel } from '../shop/shared/apparel.interface';
+import { Apparel } from '@shop/shared/apparel.interface';
 
 const storageKey = 'cspcart';
 

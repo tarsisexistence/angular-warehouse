@@ -6,6 +6,15 @@ import {
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
+import { environment } from '@env/environment';
+import { appRouting } from './app.routes';
+import { AuthModule } from '@auth/auth.module';
+import { CartModule } from '@cart/cart.module';
+import { SharedModule } from '@shared/shared.module';
+import { MyApolloModule } from '@apollo/apollo.module';
+import { AppComponent } from './app.component';
+import { HeaderComponent } from './components/header/header.component';
+
 import {
   MetaReducer,
   StoreModule
@@ -18,16 +27,6 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
     ? [storeFreeze]
     : [];
 
-import { SharedModule } from './shared';
-import { ApolloModule } from './apollo';
-import { appRouting } from './app.routes';
-
-import { AppComponent } from './app.component';
-import { HeaderComponent } from './components/header/header.component';
-import { AuthModule } from './auth/auth.module';
-import { environment } from '../environments/environment';
-import { CartModule } from './cart/cart.module';
-
 @NgModule({
   imports: [
     BrowserModule.withServerTransition({ appId: 'app-root' }),
@@ -35,10 +34,10 @@ import { CartModule } from './cart/cart.module';
     HttpClientModule,
     RouterModule,
     appRouting,
-    SharedModule,
-    ApolloModule,
     AuthModule,
     CartModule,
+    SharedModule,
+    MyApolloModule,
     StoreModule.forRoot({}, { metaReducers }),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({

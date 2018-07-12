@@ -15,7 +15,7 @@ import {
 import {
   Access,
   User
-} from '../interfaces/user.interface';
+} from '@auth/interfaces/user.interface';
 
 @Component({
   selector: 'auth-sign-up',

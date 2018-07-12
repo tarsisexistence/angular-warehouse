@@ -1,5 +1,5 @@
-import * as ApparelCartActions from './../../actions/apparel.cart.actions';
-import { Apparel } from '../../../../shop/shared/apparel.interface';
+import * as ApparelCartActions from '@shared/store/actions/apparel.cart.actions';
+import { Apparel } from '@shop/shared/apparel.interface';
 
 export interface ApparelState {
   data: Apparel[];

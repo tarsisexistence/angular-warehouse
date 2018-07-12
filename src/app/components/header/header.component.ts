@@ -10,10 +10,10 @@ import { MatDialog } from '@angular/material';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
-import * as fromStore from '../../shared/store';
+import * as fromStore from '@shared/store';
 
-import { AuthComponent } from '../../auth/auth.component';
-import { User } from '../../auth/interfaces/user.interface';
+import { AuthComponent } from '@auth/auth.component';
+import { User } from '@auth/interfaces/user.interface';
 
 @Component({
   selector: 'app-header',

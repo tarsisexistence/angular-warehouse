@@ -6,9 +6,8 @@ import {
 } from '@angular/forms';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MaterialModule } from './material/material.module';
+import { MaterialModule } from '@material/material.module';
 import { OrdersComponent } from './dialogs/orders/orders.component';
-import { CartService } from './cart.service';
 import { PaymentComponent } from './dialogs/payment/payment.component';
 import { OnlyNumbersDirective } from './directives/only-numbers.directive';
 import { OnlyStringsDirective } from './directives/only-strings.directive';

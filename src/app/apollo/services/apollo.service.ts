@@ -11,7 +11,7 @@ import {
   Access,
   CatchPhraseConfig,
   User
-} from '../../auth/interfaces/user.interface';
+} from '@auth/interfaces/user.interface';
 import {
   allApparel,
   addOrder,

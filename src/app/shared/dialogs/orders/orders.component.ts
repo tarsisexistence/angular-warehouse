@@ -4,7 +4,8 @@ import {
   Inject
 } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material';
-import { ShopRules } from '../../interfaces/shop-rules.interface';
+
+import { ShopRules } from '@shared/interfaces/shop-rules.interface';
 
 @Component({
   selector: 'app-orders-dialog',

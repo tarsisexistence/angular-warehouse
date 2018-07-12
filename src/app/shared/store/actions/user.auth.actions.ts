@@ -3,7 +3,7 @@ import {
   User,
   Access,
   CatchPhraseConfig
-} from '../../../auth/interfaces/user.interface';
+} from '@auth/interfaces/user.interface';
 
 export enum AuthActionTypes {
   FetchUser = '[Auth] Fetch User',

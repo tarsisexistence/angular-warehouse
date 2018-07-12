@@ -3,8 +3,8 @@ import {
   Component,
   OnInit
 } from '@angular/core';
-import { Stocklist } from '../../shared/interfaces/stocklist.interface';
-import { stocklists } from '../../shared/constants/stocklists.constant';
+import { Stocklist } from '@shared/interfaces/stocklist.interface';
+import { stocklists } from '@shared/constants/stocklists.constant';
 
 @Component({
   selector: 'app-stocklists',

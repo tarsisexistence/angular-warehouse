@@ -13,7 +13,8 @@ import {
   MAT_DIALOG_DATA,
   MatDialogRef
 } from '@angular/material';
-import { Order } from '../../interfaces/order.interface';
+
+import { Order } from '@shared/interfaces/order.interface';
 
 type subtotal = number;
 

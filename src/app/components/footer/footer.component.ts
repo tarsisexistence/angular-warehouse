@@ -3,11 +3,11 @@ import {
   Component
 } from '@angular/core';
 import { MatDialog } from '@angular/material';
-import { OrdersComponent } from '../../shared/dialogs/orders/orders.component';
+import { OrdersComponent } from '@shared/dialogs/orders/orders.component';
 import {
   returnPolicy,
   shippingHandling
-} from '../../shared/constants/shop-rules.constants';
+} from '@shared/constants/shop-rules.constants';
 
 @Component({
   selector: 'app-footer',

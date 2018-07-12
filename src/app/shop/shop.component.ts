@@ -8,16 +8,14 @@ import {
 import { ActivatedRoute } from '@angular/router';
 
 import { Subject } from 'rxjs';
-import {
-  takeUntil,
-  take
-} from 'rxjs/operators';
+import { takeUntil } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import * as fromStore from '../shared/store';
 
 import { Apparel } from './shared/apparel.interface';
 import { Apparels } from './shared/apparels.interface';
 import { categories } from './shared/apparels.constants';
+import { ViewRef_ } from '@angular/core/src/view';
 
 @Component({
   selector: 'shop-feat',
@@ -39,7 +37,7 @@ export class ShopComponent implements OnInit, OnDestroy {
   ) {
   }
 
-  public ngOnInit() {
+  public ngOnInit(): void {
     this.apparels = new Apparels();
     this.categories = categories;
 
@@ -51,8 +49,9 @@ export class ShopComponent implements OnInit, OnDestroy {
         });
 
     this.store.select(fromStore.getAllShopApparels)
-        .pipe(take(2))
+        .pipe(takeUntil(this.ngUnsubscribe))
         .subscribe((apparels: Apparel[]) => {
+          this.apparels = new Apparels();
           this.apparels.all = apparels;
 
           this.apparels.all.forEach((apparel: Apparel) => {
@@ -70,6 +69,7 @@ export class ShopComponent implements OnInit, OnDestroy {
   }
 
   public ngOnDestroy(): void {
+    this.cdr.detach();
     this.ngUnsubscribe.next();
     this.ngUnsubscribe.complete();
   }

@@ -26,7 +26,7 @@ import {
   RemoveApparel,
   RemoveApparelFail,
   RemoveApparelSuccess
-} from '@shared/store/actions/apparel.cart.actions';
+} from '@shared/store/actions/apparel.cart.action';
 
 @Injectable()
 export class CartEffect {

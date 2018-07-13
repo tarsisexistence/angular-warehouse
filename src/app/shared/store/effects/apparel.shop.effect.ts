@@ -20,7 +20,7 @@ import {
   LoadApparel,
   LoadApparelFail,
   LoadApparelSuccess
-} from '@shared/store/actions/apparel.shop.actions';
+} from '@shared/store/actions/apparel.shop.action';
 
 @Injectable()
 export class ApparelEffect {

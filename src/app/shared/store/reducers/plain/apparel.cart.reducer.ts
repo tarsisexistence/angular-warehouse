@@ -1,4 +1,4 @@
-import * as ApparelCartActions from '@shared/store/actions/apparel.cart.actions';
+import * as ApparelCartActions from '@shared/store/actions/apparel.cart.action';
 import { Apparel } from '@shop/shared/apparel.interface';
 
 export interface ApparelState {

@@ -12,7 +12,7 @@ import {
   tap
 } from 'rxjs/operators';
 
-import * as routerActions from './../actions/router.actions';
+import * as routerActions from '../actions/router.action';
 
 @Injectable()
 export class RouterEffect {

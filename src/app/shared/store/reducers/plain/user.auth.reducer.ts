@@ -1,4 +1,4 @@
-import * as UserAuthActions from '@shared/store/actions/user.auth.actions';
+import * as UserAuthActions from '@shared/store/actions/user.auth.action';
 import { User } from '@auth/interfaces/user.interface';
 
 export interface UserState {

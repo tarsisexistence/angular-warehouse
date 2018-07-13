@@ -37,8 +37,8 @@ import {
   SignUpCatchPhraseSuccess,
   SignUpFailure,
   SignUpSuccess
-} from '@shared/store/actions/user.auth.actions';
-import { Go } from '@shared/store/actions/router.actions';
+} from '@shared/store/actions/user.auth.action';
+import { Go } from '@shared/store/actions/router.action';
 
 @Injectable()
 export class UserEffect {
@@ -85,7 +85,10 @@ export class UserEffect {
 
   @Effect()
   public loginSuccess$ = this.actions$.pipe(
-      ofType(AuthActionTypes.SignUpCatchPhraseSuccess, AuthActionTypes.SignInSuccess),
+      ofType(
+          AuthActionTypes.SignUpCatchPhraseSuccess,
+          AuthActionTypes.SignInSuccess
+      ),
       map((action: SignUpCatchPhraseSuccess) => action.payload),
       map((user: User) => new Go({ path: ['user-center', user.id] })
       )

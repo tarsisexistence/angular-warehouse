@@ -1,5 +1,5 @@
 import { Apparel } from '@shop/shared/apparel.interface';
-import * as ApparelShopActions from '@shared/store/actions/apparel.shop.actions';
+import * as ApparelShopActions from '@shared/store/actions/apparel.shop.action';
 
 export interface ApparelState {
   entities: { [id: string]: Apparel };

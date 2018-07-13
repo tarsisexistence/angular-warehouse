@@ -5,12 +5,14 @@ import {
 } from '@angular/router';
 
 import { UserCenterComponent } from './user-center.component';
+import { UserCenterGuard } from '@app/user-center/user-center.guards';
 
 export const routes: Routes = [
   {
     path: ':id',
     pathMatch: 'full',
-    component: UserCenterComponent
+    component: UserCenterComponent,
+    canActivate: [UserCenterGuard]
   }
 ];
 

@@ -14,7 +14,7 @@ export class LoadApparel implements Action {
 export class LoadApparelFail implements Action {
   readonly type = ApparelShopActionTypes.LoadApparelFail;
 
-  constructor(public payload: Error) {
+  constructor(public payload: any) {
   }
 }
 

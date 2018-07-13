@@ -38,6 +38,7 @@ import {
   SignUpFailure,
   SignUpSuccess
 } from '@shared/store/actions/user.auth.actions';
+import { Go } from '@shared/store/actions/router.actions';
 
 @Injectable()
 export class UserEffect {
@@ -62,7 +63,6 @@ export class UserEffect {
       ofType<SignUpCatchPhrase>(AuthActionTypes.SignUpCatchPhrase),
       map((action: SignUpCatchPhrase) => action.payload),
       switchMap((config: CatchPhraseConfig) => this.apolloService.setCatchPhrase(config).pipe(
-          tap((user: User) => this.router.navigate(['user-center', user.id])),
           map((user: User) => new SignUpCatchPhraseSuccess(user)),
           catchError((error: Error) => of(new SignUpCatchPhraseFailure(error))),
           finalize(() => console.log('finalize signUpCatchPhrase$'))
@@ -75,12 +75,19 @@ export class UserEffect {
       ofType<SignIn>(AuthActionTypes.SignIn),
       map((action: SignIn) => action.payload),
       exhaustMap((credentials: Access) => this.apolloService.signIn(credentials).pipe(
-          tap((user: User) => this.router.navigate(['user-center', user.id])),
           tap((user: User) => this.authService.updateUserStorage({ token: user.id })),
           map((user: User) => new SignInSuccess(user)),
           catchError((error: Error) => of(new SignInFailure(error))),
           finalize(() => console.log('finalize signIn$'))
           )
+      )
+  );
+
+  @Effect()
+  public loginSuccess$ = this.actions$.pipe(
+      ofType(AuthActionTypes.SignUpCatchPhraseSuccess, AuthActionTypes.SignInSuccess),
+      map((action: SignUpCatchPhraseSuccess) => action.payload),
+      map((user: User) => new Go({ path: ['user-center', user.id] })
       )
   );
 

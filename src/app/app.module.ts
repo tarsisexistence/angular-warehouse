@@ -24,6 +24,7 @@ import {
   reducers,
   CustomSerializer
 } from '@shared/store/reducers/states/router.reducers';
+import { routerEffects } from '@shared/store';
 
 export const metaReducers: MetaReducer<any>[] = !environment.production
     ? [storeFreeze]
@@ -36,7 +37,7 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
     appRouting,
     CoreModule,
     StoreModule.forRoot(reducers, { metaReducers }),
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot(routerEffects),
     StoreRouterConnectingModule,
     StoreDevtoolsModule.instrument({
       name: 'concept store platform',

@@ -2,13 +2,13 @@ import { Apparel } from '@shop/shared/apparel.interface';
 import * as ApparelShopActions from '@shared/store/actions/apparel.shop.actions';
 
 export interface ApparelState {
-  data: Apparel[];
+  entities: { [id: string]: Apparel };
   loaded: boolean;
   loading: boolean;
 }
 
 export const initialState: ApparelState = {
-  data: [],
+  entities: {},
   loaded: false,
   loading: false
 };
@@ -26,11 +26,20 @@ export function reducer(
     }
 
     case ApparelShopActions.ApparelShopActionTypes.LoadApparelSuccess: {
+      const entities = action.payload.reduce(
+          (entities: { [id: number]: Apparel }, apparel: Apparel) => (
+              {
+                ...entities,
+                [apparel.id]: apparel
+              }
+          ),
+          { ...state.entities }
+      );
       return {
         ...state,
         loading: false,
         loaded: true,
-        data: action.payload
+        entities
       };
     }
 
@@ -45,6 +54,6 @@ export function reducer(
   return state;
 }
 
+export const getApparelEntities = (state: ApparelState) => state.entities;
 export const getApparelLoading = (state: ApparelState) => state.loading;
 export const getApparelLoaded = (state: ApparelState) => state.loaded;
-export const getApparel = (state: ApparelState) => state.data;

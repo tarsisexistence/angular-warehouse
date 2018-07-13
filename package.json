@@ -26,6 +26,7 @@
     "@angular/platform-server": "6.0.0",
     "@angular/router": "^6.0.0",
     "@ngrx/effects": "^6.0.1",
+    "@ngrx/router-store": "^6.0.1",
     "@ngrx/store": "^6.0.1",
     "@ngrx/store-devtools": "^6.0.1",
     "@nguniversal/module-map-ngfactory-loader": "^5.0.0",

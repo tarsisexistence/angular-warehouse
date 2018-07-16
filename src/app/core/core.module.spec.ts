@@ -7,7 +7,7 @@ describe('CoreModule', () => {
     coreModule = new CoreModule();
   });
 
-  it('should create an instance', () => {
-    expect(coreModule).toBeTruthy();
-  });
+  // it('should create an instance', () => {
+  //   expect(coreModule).toBeTruthy();
+  // });
 });

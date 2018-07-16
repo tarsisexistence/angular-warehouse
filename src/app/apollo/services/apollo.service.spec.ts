@@ -4,11 +4,12 @@ import {
 } from '@angular/core/testing';
 
 import { ApolloService } from './apollo.service';
+import { Apollo } from 'apollo-angular';
 
 describe('ApolloService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [ApolloService]
+      providers: [Apollo, ApolloService]
     });
   });
 

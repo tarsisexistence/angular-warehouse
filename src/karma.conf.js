@@ -24,6 +24,9 @@ module.exports = function (config) {
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
+    files: [
+      'google.mock.js'
+    ],
     autoWatch: true,
     browsers: ['Chrome'],
     singleRun: false

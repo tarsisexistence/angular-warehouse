@@ -5,6 +5,9 @@ import {
 } from '@angular/core/testing';
 
 import { SignInComponent } from './sign-in.component';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from '@material/material.module';
 
 describe('SignInComponent', () => {
   let component: SignInComponent;
@@ -12,7 +15,12 @@ describe('SignInComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-          declarations: [SignInComponent]
+          declarations: [SignInComponent],
+          imports: [
+            NoopAnimationsModule,
+            ReactiveFormsModule,
+            MaterialModule
+          ]
         })
         .compileComponents();
   }));

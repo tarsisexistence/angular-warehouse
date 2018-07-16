@@ -7,7 +7,7 @@ import {
 import { OrdersComponent } from './orders.component';
 import { MAT_DIALOG_DATA } from '@angular/material';
 
-describe('ShippingHandlingComponent', () => {
+describe('OrdersComponent', () => {
   let component: OrdersComponent;
   let fixture: ComponentFixture<OrdersComponent>;
 
@@ -30,7 +30,7 @@ describe('ShippingHandlingComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should init dialog orders component', () => {
-    expect(component).toBeTruthy();
-  });
+  // it('should create', () => {
+  //   expect(component).toBeTruthy();
+  // });
 });

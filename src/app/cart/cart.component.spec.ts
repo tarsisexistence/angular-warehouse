@@ -13,7 +13,7 @@ import {
 import * as fromStore from '@shared/store';
 import * as fromAuth from '@shared/store/reducers';
 
-import { CartComponent } from './cart.component';
+import { CartComponent } from '@cart/cart.component';
 import { CartService } from '@shared/cart.service';
 import { ApolloService } from '@app/apollo';
 import { Apollo } from 'apollo-angular';

@@ -1,2 +1,2 @@
-export { MyApolloModule as ApolloModule } from './apollo.module';
-export { ApolloService } from './services/apollo.service';
+export { MyApolloModule as ApolloModule } from '@apollo/apollo.module';
+export { ApolloService } from '@apollo/services/apollo.service';

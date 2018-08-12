@@ -9,8 +9,8 @@ import {
   cartState
 } from '@shared/store';
 
-import { CartComponent } from './cart.component';
 import { MaterialModule } from '@shared/material/material.module';
+import { CartComponent } from '@cart/cart.component';
 
 @NgModule({
   imports: [

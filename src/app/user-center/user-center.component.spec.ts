@@ -3,6 +3,7 @@ import {
   ComponentFixture,
   TestBed
 } from '@angular/core/testing';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 import {
   combineReducers,
@@ -12,8 +13,7 @@ import {
 import * as fromStore from '@shared/store';
 import * as fromAuth from '@shared/store/reducers';
 
-import { UserCenterComponent } from './user-center.component';
-import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { UserCenterComponent } from '@user-center/user-center.component';
 
 describe('UserCenterComponent', () => {
   let component: UserCenterComponent;

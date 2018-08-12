@@ -9,19 +9,19 @@ import { CartComponent } from '@cart/cart.component';
 export const routes: Routes = [
   {
     path: '',
-    loadChildren: 'app/home/home.module#HomeModule'
+    loadChildren: '@home/home.module#HomeModule'
   },
   {
     path: 'shop',
-    loadChildren: 'app/shop/shop.module#ShopModule'
+    loadChildren: '@shop/shop.module#ShopModule'
   },
   {
     path: 'location',
-    loadChildren: 'app/location/location.module#LocationModule'
+    loadChildren: '@location/location.module#LocationModule'
   },
   {
     path: 'user-center',
-    loadChildren: 'app/user-center/user-center.module#UserCenterModule'
+    loadChildren: '@user-center/user-center.module#UserCenterModule'
   },
   {
     path: 'cart',

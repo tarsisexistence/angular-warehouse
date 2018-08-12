@@ -1,16 +1,12 @@
 import { Injectable } from '@angular/core';
 
-import { SharedModule } from './shared.module';
+import { SharedModule } from '@shared/shared.module';
 import { Apparel } from '@shop/shared/apparel.interface';
 
 const storageKey = 'cspcart';
 
 @Injectable({ providedIn: SharedModule })
 export class CartService {
-
-  constructor() {
-  }
-
   public addApparelToCart(apparel: Apparel): Apparel {
     const cartApparels = this.fetchApparelFromLS();
     this.updateLS([...cartApparels, apparel]);

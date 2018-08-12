@@ -5,10 +5,12 @@ import {
   ElementRef,
   OnInit
 } from '@angular/core';
-import { MapService } from './shared/map.service';
-import { GeolocationService } from './shared/geolocation.service';
-import { GeocodingService } from './shared/geocoding.service';
+
 import {} from '@types/googlemaps';
+
+import { MapService } from '@location/shared/map.service';
+import { GeolocationService } from '@location/shared/geolocation.service';
+import { GeocodingService } from '@location/shared/geocoding.service';
 
 @Component({
   selector: 'location-feat',
@@ -62,7 +64,6 @@ export class LocationComponent implements OnInit {
 
     // Initially the marker isn't set.
     this.address = '';
-
     this.warning = false;
     this.message = '';
   }

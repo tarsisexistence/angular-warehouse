@@ -16,10 +16,10 @@ import {
   Access,
   CatchPhraseConfig,
   User
-} from './interfaces/user.interface';
+} from '@auth/interfaces/user.interface';
 
 @Component({
-  selector: 'auth-root',
+  selector: 'auth-feat',
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
@@ -42,7 +42,7 @@ export class AuthComponent implements OnInit, OnDestroy {
         .subscribe((user: User) => {
           this.user = user;
 
-          if (user === null) {
+          if (this.user === null) {
             return;
           }
 

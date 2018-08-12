@@ -5,11 +5,7 @@ export class MapService {
   private map: google.maps.Map;
   private markers: google.maps.Marker[] = [];
 
-  /**
-   * Creates a new map inside of the given HTML container.
-   * @param el DIV element
-   * @param mapOptions MapOptions object specification
-   */
+  // Creates a new map inside of the given HTML container.
   public initMap(el: HTMLElement, mapOptions: any): void {
     this.map = new google.maps.Map(el, mapOptions);
     this.resize();
@@ -30,12 +26,6 @@ export class MapService {
     }
   }
 
-  /**
-   * Adds a marker.
-   * @param latLng Marker position
-   * @param title Tooltip
-   * @param contentString InfoWindow' content
-   */
   public addMarker(latLng: google.maps.LatLng, title?: string, contentString?: string): void {
     if (this.map != null && latLng != null) {
       // Creates the marker.

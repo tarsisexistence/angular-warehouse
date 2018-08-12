@@ -3,8 +3,9 @@ import {
   inject
 } from '@angular/core/testing';
 
-import { ApolloService } from './apollo.service';
 import { Apollo } from 'apollo-angular';
+
+import { ApolloService } from '@apollo/services/apollo.service';
 
 describe('ApolloService', () => {
   beforeEach(() => {

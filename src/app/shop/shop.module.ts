@@ -8,15 +8,15 @@ import {
   shopReducers,
   shopEffects,
   shopState
-} from '../shared/store';
+} from '@shared/store';
 
-import { shopRouting } from './shop.routes';
-import { ShopResolver } from './shop.resolver';
-import { MaterialModule } from '../shared/material/material.module';
-import { ShopComponent } from './shop.component';
-import { BarComponent } from './bar/bar.component';
-import { ApparelsComponent } from './apparels/apparels.component';
-import { FooterComponent } from './footer/footer.component';
+import { MaterialModule } from '@material/material.module';
+import { shopRouting } from '@shop/shop.routes';
+import { ShopResolver } from '@shop/shop.resolver';
+import { ShopComponent } from '@shop/shop.component';
+import { BarComponent } from '@shop/bar/bar.component';
+import { ApparelsComponent } from '@shop/apparels/apparels.component';
+import { FooterComponent } from '@shop/footer/footer.component';
 
 @NgModule({
   imports: [

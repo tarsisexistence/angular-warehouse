@@ -8,7 +8,7 @@ import {
   ChangeDetectionStrategy
 } from '@angular/core';
 
-import { MapService } from '../shared/map.service';
+import { MapService } from '@location/shared/map.service';
 
 @Component({
   selector: 'location-google-map',
@@ -38,6 +38,7 @@ export class GoogleMapComponent implements OnInit, OnChanges {
     if (changes['center']) {
       this.map.setCenter(this.center);
     }
+
     if (changes['zoom']) {
       this.map.setZoom(this.zoom);
     }
@@ -49,10 +50,10 @@ export class GoogleMapComponent implements OnInit, OnChanges {
       disableDefaultUI: this.disableDefaultUI,
       disableDoubleClickZoom: this.disableDoubleClickZoom,
       mapTypeId: this.mapTypeId,
-      maxZoom: this.maxZoom as number,
-      minZoom: this.minZoom as number,
+      maxZoom: this.maxZoom,
+      minZoom: this.minZoom,
       styles: this.styles,
-      zoom: this.zoom as number
+      zoom: this.zoom
     });
   }
 }

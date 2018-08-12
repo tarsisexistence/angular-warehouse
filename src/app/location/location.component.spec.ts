@@ -9,11 +9,11 @@ import {
 } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material';
 
-import { LocationComponent } from './location.component';
-import { GoogleMapComponent } from './google-map/google-map.component';
-import { MapService } from './shared/map.service';
-import { GeolocationService } from './shared/geolocation.service';
-import { GeocodingService } from './shared/geocoding.service';
+import { LocationComponent } from '@location/location.component';
+import { GoogleMapComponent } from '@location/google-map/google-map.component';
+import { MapService } from '@location/shared/map.service';
+import { GeolocationService } from '@location/shared/geolocation.service';
+import { GeocodingService } from '@location/shared/geocoding.service';
 
 describe('LocationComponent', () => {
   let component: LocationComponent;

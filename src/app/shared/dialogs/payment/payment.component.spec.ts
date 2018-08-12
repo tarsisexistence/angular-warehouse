@@ -8,15 +8,14 @@ import {
   ReactiveFormsModule
 } from '@angular/forms';
 import {
-  MAT_DIALOG_DATA,
   MatDialogRef,
   MatFormFieldModule,
   MatInputModule
 } from '@angular/material';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { PaymentComponent } from './payment.component';
-import { CartService } from '../../cart.service';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { CartService } from '@shared/cart.service';
 
 describe('PaymentComponent', () => {
   let component: PaymentComponent;

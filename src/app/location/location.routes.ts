@@ -4,8 +4,8 @@ import {
   Routes
 } from '@angular/router';
 
-import { LocationComponent } from './location.component';
-import { StocklistsComponent } from './stocklists/stocklists.component';
+import { LocationComponent } from '@location/location.component';
+import { StocklistsComponent } from '@location/stocklists/stocklists.component';
 
 export const routes: Routes = [
   {

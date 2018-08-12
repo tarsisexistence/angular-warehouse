@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { MyApolloModule } from '../apollo.module';
+import { MyApolloModule } from '@apollo/apollo.module';
 
 import { Apollo } from 'apollo-angular';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
-import { Order } from '../../shared/interfaces/order.interface';
-import { Apparel } from '../../shop/shared/apparel.interface';
+import { Order } from '@shared/interfaces/order.interface';
+import { Apparel } from '@shop/shared/apparel.interface';
 import {
   Access,
   CatchPhraseConfig,
@@ -20,7 +20,7 @@ import {
   signUp,
   setCatchPhrase,
   user
-} from '../queries';
+} from '@apollo/queries';
 
 @Injectable({ providedIn: MyApolloModule })
 export class ApolloService {

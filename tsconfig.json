@@ -18,38 +18,44 @@
       "esnext.asynciterable"
     ],
     "paths": {
-      "@app/*": [
-        "app/*"
-      ],
       "@env/*": [
         "environments/*"
+      ],
+      "@app/*": [
+        "app/*"
       ],
       "@apollo/*": [
         "app/apollo/*"
       ],
-      "@shared/*": [
-        "app/shared/*"
-      ],
-      "@material/*": [
-        "app/shared/material/*"
-      ],
-      "@store/*": [
-        "app/shared/store/*"
-      ],
       "@auth/*": [
         "app/auth/*"
       ],
-      "@shop/*": [
-        "app/shop/*"
+      "@cart/*": [
+        "app/cart/*"
+      ],
+      "@core/*": [
+        "app/core/*"
       ],
       "@home/*": [
         "app/home/*"
       ],
+      "@shared/*": [
+        "app/shared/*"
+      ],
+      "@shop/*": [
+        "app/shop/*"
+      ],
+      "@store/*": [
+        "app/shared/store/*"
+      ],
+      "@material/*": [
+        "app/shared/material/*"
+      ],
       "@location/*": [
         "app/location/*"
       ],
-      "@cart/*": [
-        "app/cart/*"
+      "@user-center/*": [
+        "app/user-center/*"
       ]
     }
   }

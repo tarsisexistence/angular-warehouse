@@ -7,8 +7,8 @@ import { ModuleMapLoaderModule } from '@nguniversal/module-map-ngfactory-loader'
 
 import { FlexLayoutServerModule } from '@angular/flex-layout/server';
 
-import { AppModule } from './app.module';
-import { AppComponent } from './app.component';
+import { AppModule } from '@app/app.module';
+import { AppComponent } from '@app/app.component';
 
 @NgModule({
   imports: [

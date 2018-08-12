@@ -4,10 +4,11 @@ import {
   BrowserTransferStateModule
 } from '@angular/platform-browser';
 
-import { CoreModule } from '@app/core/core.module';
 import { environment } from '@env/environment';
-import { appRouting } from './app.routes';
-import { AppComponent } from './app.component';
+import { CoreModule } from '@app/core/core.module';
+import { SharedModule } from '@app/shared';
+import { appRouting } from '@app/app.routes';
+import { AppComponent } from '@app/app.component';
 
 import {
   MetaReducer,
@@ -36,6 +37,7 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
     BrowserTransferStateModule,
     appRouting,
     CoreModule,
+    SharedModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     EffectsModule.forRoot(routerEffects),
     StoreRouterConnectingModule,

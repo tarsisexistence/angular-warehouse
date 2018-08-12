@@ -13,7 +13,7 @@ import * as fromStore from '@shared/store';
 import { User } from '@auth/interfaces/user.interface';
 
 @Component({
-  selector: 'user-center-root',
+  selector: 'user-center-feat',
   templateUrl: './user-center.component.html',
   styleUrls: ['./user-center.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush

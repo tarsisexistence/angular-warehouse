@@ -5,10 +5,9 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AuthModule } from '@auth/auth.module';
 import { CartModule } from '@cart/cart.module';
-import { SharedModule } from '@shared/shared.module';
 import { MyApolloModule } from '@apollo/apollo.module';
 import { MaterialModule } from '@material/material.module';
-import { HeaderComponent } from './components/header/header.component';
+import { HeaderComponent } from '@core/components/header/header.component';
 
 @NgModule({
   imports: [
@@ -18,7 +17,6 @@ import { HeaderComponent } from './components/header/header.component';
     HttpClientModule,
     AuthModule,
     CartModule,
-    SharedModule,
     MyApolloModule
   ],
   declarations: [HeaderComponent],

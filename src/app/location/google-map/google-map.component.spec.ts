@@ -5,7 +5,7 @@ import {
 } from '@angular/core/testing';
 
 import { GoogleMapComponent } from './google-map.component';
-import { MapService } from '../shared/map.service';
+import { MapService } from '@location/shared/map.service';
 
 describe('GoogleMapComponent', () => {
   let component: GoogleMapComponent;

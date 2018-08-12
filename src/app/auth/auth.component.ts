@@ -16,10 +16,10 @@ import {
   Access,
   CatchPhraseConfig,
   User
-} from './interfaces/user.interface';
+} from '@auth/interfaces/user.interface';
 
 @Component({
-  selector: 'auth-root',
+  selector: 'auth-feat',
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush

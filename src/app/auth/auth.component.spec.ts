@@ -3,6 +3,9 @@ import {
   ComponentFixture,
   TestBed
 } from '@angular/core/testing';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogRef } from '@angular/material';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import {
   combineReducers,
@@ -12,13 +15,10 @@ import {
 import * as fromStore from '@shared/store';
 import * as fromAuth from '@shared/store/reducers';
 
-import { AuthComponent } from './auth.component';
+import { MaterialModule } from '@material/material.module';
+import { AuthComponent } from '@auth/auth.component';
 import { SignUpComponent } from '@auth/sign-up/sign-up.component';
 import { SignInComponent } from '@auth/sign-in/sign-in.component';
-import { ReactiveFormsModule } from '@angular/forms';
-import { MaterialModule } from '@material/material.module';
-import { MatDialogRef } from '@angular/material';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('AuthComponent', () => {
   let component: AuthComponent;

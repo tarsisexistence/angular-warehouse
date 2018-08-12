@@ -1,4 +1,4 @@
-import { UserCenterModule } from './user-center.module';
+import { UserCenterModule } from '@user-center/user-center.module';
 
 describe('UserCenterModule', () => {
   let userCenterModule: UserCenterModule;

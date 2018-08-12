@@ -13,8 +13,8 @@ import {
 import * as fromStore from '@shared/store';
 import * as fromAuth from '@shared/store/reducers';
 
-import { AppComponent } from './app.component';
-import { HeaderComponent } from './core/components/header/header.component';
+import { AppComponent } from '@app/app.component';
+import { HeaderComponent } from '@core/components/header/header.component';
 import { AuthService } from '@auth/auth.service';
 import { MaterialModule } from '@material/material.module';
 

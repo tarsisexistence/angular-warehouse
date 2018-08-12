@@ -5,7 +5,7 @@ import {
 } from '@angular/core';
 
 import { Store } from '@ngrx/store';
-import * as fromStore from './shared/store';
+import * as fromStore from '@shared/store';
 
 import { StorageUser } from '@auth/interfaces/user.interface';
 import { AuthService } from '@auth/auth.service';

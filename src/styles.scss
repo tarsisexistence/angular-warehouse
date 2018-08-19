@@ -63,4 +63,11 @@ table {
 a {
   color: inherit;
   text-decoration: inherit;
+
+  &:active, &:focus, &:visited, &:hover {
+    color: inherit;
+    text-decoration: inherit;
+  }
+
+
 }

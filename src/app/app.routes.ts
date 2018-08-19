@@ -13,7 +13,8 @@ export const routes: Routes = [
   },
   {
     path: 'shop',
-    loadChildren: '@shop/shop.module#ShopModule'
+    loadChildren: '@shop/shop.module#ShopModule',
+    runGuardsAndResolvers: 'paramsOrQueryParamsChange'
   },
   {
     path: 'location',
@@ -32,5 +33,6 @@ export const routes: Routes = [
 
 export const appRouting: ModuleWithProviders = RouterModule.forRoot(routes, {
   initialNavigation: 'enabled',
+  onSameUrlNavigation: 'reload',
   enableTracing: false
 });

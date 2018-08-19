@@ -5,7 +5,11 @@ import {
   ChangeDetectorRef,
   ChangeDetectionStrategy
 } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {
+  ActivatedRoute,
+  NavigationEnd,
+  Router
+} from '@angular/router';
 
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -30,6 +34,7 @@ export class ShopComponent implements OnInit, OnDestroy {
   private ngUnsubscribe: Subject<boolean> = new Subject();
 
   constructor(
+      private router: Router,
       private route: ActivatedRoute,
       private cdr: ChangeDetectorRef,
       private store: Store<fromStore.ShopState>
@@ -37,6 +42,14 @@ export class ShopComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit(): void {
+    this.router.events
+        .pipe(takeUntil(this.ngUnsubscribe))
+        .subscribe((e: any) => {
+          if (e instanceof NavigationEnd) {
+            console.log('data');
+          }
+        });
+
     this.apparels = new Apparels();
     this.categories = categories;
 

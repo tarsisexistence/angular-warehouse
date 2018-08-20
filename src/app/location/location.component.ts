@@ -6,8 +6,6 @@ import {
   OnInit
 } from '@angular/core';
 
-import {} from '@types/googlemaps';
-
 import { MapService } from '@location/shared/map.service';
 import { GeolocationService } from '@location/shared/geolocation.service';
 import { GeocodingService } from '@location/shared/geocoding.service';

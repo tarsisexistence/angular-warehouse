@@ -12,8 +12,8 @@ import {
 
 import { MaterialModule } from '@material/material.module';
 import { AuthService } from '@auth/auth.service';
-import { SignUpComponent } from '@auth/sign-up/sign-up.component';
-import { SignInComponent } from '@auth/sign-in/sign-in.component';
+import { SignUpComponent } from '@auth/components/sign-up/sign-up.component';
+import { SignInComponent } from '@auth/components/sign-in/sign-in.component';
 import { AuthComponent } from '@auth/auth.component';
 
 @NgModule({

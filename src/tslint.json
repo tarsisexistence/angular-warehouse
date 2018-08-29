@@ -10,7 +10,15 @@
         "component-selector": [
             true,
             "element",
-            "app",
+            [
+              "app",
+              "auth",
+              "cart",
+              "core",
+              "user-center",
+              "shop",
+              "location"
+            ],
             "kebab-case"
         ]
     }

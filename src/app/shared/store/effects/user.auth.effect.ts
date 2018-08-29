@@ -22,7 +22,7 @@ import {
   Access,
   CatchPhraseConfig,
   User
-} from '@auth/interfaces/user.interface';
+} from '@auth/shared/interfaces/user.interface';
 import {
   AuthActionTypes,
   FetchUser,

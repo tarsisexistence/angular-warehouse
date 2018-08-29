@@ -13,7 +13,7 @@ import { Store } from '@ngrx/store';
 import * as fromStore from '@shared/store';
 
 import { AuthComponent } from '@auth/auth.component';
-import { User } from '@auth/interfaces/user.interface';
+import { User } from '@auth/shared/interfaces/user.interface';
 
 @Component({
   selector: 'core-header',

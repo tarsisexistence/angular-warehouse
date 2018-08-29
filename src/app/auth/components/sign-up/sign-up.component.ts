@@ -15,7 +15,7 @@ import {
 import {
   Access,
   User
-} from '@auth/interfaces/user.interface';
+} from '@auth/shared/interfaces/user.interface';
 
 @Component({
   selector: 'auth-sign-up',
@@ -24,17 +24,13 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SignUpComponent implements OnInit {
+  @Input() public user: User;
+  @Output() public signUpEmitter: EventEmitter<Access> = new EventEmitter<Access>();
+  @Output() public setCatchPhraseEmitter: EventEmitter<string> = new EventEmitter<string>();
+  @Output() public toggleAuthMethodEmitter: EventEmitter<void> = new EventEmitter<void>();
+
   public signUpForm: FormGroup;
   public detailForm: FormGroup;
-
-  @Input()
-  public user: User;
-  @Output()
-  public signUpEmitter: EventEmitter<Access> = new EventEmitter<Access>();
-  @Output()
-  public setCatchPhraseEmitter: EventEmitter<string> = new EventEmitter<string>();
-  @Output()
-  public toggleAuthMethodEmitter: EventEmitter<void> = new EventEmitter<void>();
 
   constructor(private fb: FormBuilder) {
   }

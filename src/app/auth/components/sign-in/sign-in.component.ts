@@ -15,7 +15,7 @@ import {
 import {
   Access,
   User
-} from '@auth/interfaces/user.interface';
+} from '@auth/shared/interfaces/user.interface';
 
 @Component({
   selector: 'auth-sign-in',

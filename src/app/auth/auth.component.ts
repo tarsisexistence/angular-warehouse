@@ -16,7 +16,7 @@ import {
   Access,
   CatchPhraseConfig,
   User
-} from '@auth/interfaces/user.interface';
+} from '@auth/shared/interfaces/user.interface';
 
 @Component({
   selector: 'auth-feat',
@@ -46,7 +46,7 @@ export class AuthComponent implements OnInit, OnDestroy {
             return;
           }
 
-          this.cdr.detectChanges();
+          this.cdr.markForCheck();
         });
 
     this.signUpScreen = !(this.user && this.user.catchPhrase);
@@ -62,10 +62,8 @@ export class AuthComponent implements OnInit, OnDestroy {
   }
 
   public setCatchPhrase(catchPhrase: string): void {
-    const config: CatchPhraseConfig = {
-      id: this.user.id,
-      catchPhrase
-    };
+    const { id } = this.user;
+    const config: CatchPhraseConfig = { id, catchPhrase };
     this.store.dispatch(new fromStore.SignUpCatchPhrase(config));
     this.dialogRef.close();
   }

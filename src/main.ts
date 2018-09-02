@@ -1,14 +1,14 @@
 import 'hammerjs';
 import {
-  ApplicationRef,
-  enableProdMode
+  enableProdMode,
+  NgModuleRef
 } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { enableDebugTools } from '@angular/platform-browser';
 
-import { hmrBootstrap } from './main.hmr';
 import { AppModule } from '@app/app.module';
 import { environment } from '@env/environment';
+import { hmrBootstrap } from './main.hmr';
+import { setupNgProfiler } from './profiler';
 
 if (environment.production) {
   window.console.log = () => {
@@ -17,28 +17,16 @@ if (environment.production) {
   enableProdMode();
 }
 
-const bootstrap = () => platformBrowserDynamic().bootstrapModule(AppModule);
+const bootstrap: () => Promise<NgModuleRef<any>> = () => {
+  return platformBrowserDynamic().bootstrapModule(AppModule);
+};
 
-if (!environment.hmr) {
-  bootstrap()
-      .then(ref => {
-        if (environment.production) {
-          return;
-        }
-
-        const applicationRef = ref.injector.get(ApplicationRef);
-        const appComponent = applicationRef.components[0];
-        enableDebugTools(appComponent);
-      })
-      .catch(err => console.log(err));
+if (environment.hmr && module['hot']) {
+  hmrBootstrap(module, bootstrap);
 } else {
-  if (module['hot']) {
-    hmrBootstrap(module, bootstrap);
-    console.log('hmr is on');
-  } else {
-    console.error('HMR is not enabled for webpack-dev-server!');
-    console.log('Are you using the --hmr flag for ng serve?');
-  }
+  bootstrap()
+      .then((reference) => setupNgProfiler(reference))
+      .catch(err => console.log(err));
 }
 
 // TODO: bootstrap on the server

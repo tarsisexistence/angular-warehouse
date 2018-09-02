@@ -33,12 +33,20 @@
             "scripts": []
           },
           "configurations": {
+            "hmr": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.hmr.ts"
+                }
+              ]
+            },
             "production": {
               "budgets": [
                 {
                   "type": "bundle",
-                  "name": "vendor",
-                  "baseline": "750kb",
+                  "name": "main",
+                  "baseline": "900kb",
                   "warning": "100kb",
                   "error": "200kb"
                 }
@@ -64,19 +72,15 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "concept-store-platform:build"
+            "browserTarget": "concept-store-platform:build",
+            "hmrWarning": false
           },
           "configurations": {
+            "hmr": {
+              "hmr": true,
+              "browserTarget": "concept-store-platform:build:hmr"
+            },
             "production": {
-              "budgets": [
-                {
-                  "type": "bundle",
-                  "name": "vendor",
-                  "baseline": "750kb",
-                  "warning": "100kb",
-                  "error": "200kb"
-                }
-              ],
               "browserTarget": "concept-store-platform:build:production"
             }
           }

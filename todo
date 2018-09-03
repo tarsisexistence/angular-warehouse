@@ -2,5 +2,5 @@
 - update new apollo approach https://medium.com/the-guild/apollo-angular-code-generation-7903da1f8559
 - animation https://netbasal.com/how-to-create-stunning-hover-animations-in-angular-733d142e82bc
 - ngrx facade https://medium.com/@thomasburleson_11450/ngrx-facades-better-state-management-82a04b9a1e39
-- trackjs https://medium.com/andromedallc/installing-trackjs-in-angular-5-90a96e3f48c8
 - nest backend
+- error tracking: https://rollbar.com x https://sentry.io

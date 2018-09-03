@@ -5,11 +5,7 @@ import {
   ChangeDetectorRef,
   ChangeDetectionStrategy
 } from '@angular/core';
-import {
-  ActivatedRoute,
-  NavigationEnd,
-  Router
-} from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -34,7 +30,6 @@ export class ShopComponent implements OnInit, OnDestroy {
   private ngUnsubscribe: Subject<boolean> = new Subject();
 
   constructor(
-      private router: Router,
       private route: ActivatedRoute,
       private cdr: ChangeDetectorRef,
       private store: Store<fromStore.ShopState>
@@ -42,13 +37,14 @@ export class ShopComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit(): void {
-    this.router.events
-        .pipe(takeUntil(this.ngUnsubscribe))
-        .subscribe((e: any) => {
-          if (e instanceof NavigationEnd) {
-            console.log('data');
-          }
-        });
+    // TODO: find application
+    // this.router.events
+    //     .pipe(takeUntil(this.ngUnsubscribe))
+    //     .subscribe((e: any) => {
+    //       if (e instanceof NavigationEnd) {
+    //         console.log('data');
+    //       }
+    //     });
 
     this.apparels = new Apparels();
     this.categories = categories;
@@ -71,7 +67,7 @@ export class ShopComponent implements OnInit, OnDestroy {
           });
 
           this.loading = false;
-          this.cdr.detectChanges();
+          this.cdr.markForCheck();
         });
     this.store.dispatch(new fromStore.LoadApparel());
   }
@@ -81,7 +77,6 @@ export class ShopComponent implements OnInit, OnDestroy {
   }
 
   public ngOnDestroy(): void {
-    this.cdr.detach();
     this.ngUnsubscribe.next();
     this.ngUnsubscribe.complete();
   }

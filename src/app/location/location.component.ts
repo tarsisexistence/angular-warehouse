@@ -81,7 +81,7 @@ export class LocationComponent implements OnInit {
       this.center = new google.maps.LatLng(place.geometry.location.lat(), place.geometry.location.lng());
       this.zoom = 17;
       this.setMarker(this.center, 'search result', place.formatted_address);
-      this.cdr.detectChanges(); // TODO: FIGURE OUT!
+      this.cdr.markForCheck();
     });
 
     this.storeLocation();

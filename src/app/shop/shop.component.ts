@@ -13,7 +13,7 @@ import { Store } from '@ngrx/store';
 import * as fromStore from '@shared/store';
 
 import { Apparel } from '@shop/shared/apparel.interface';
-import { Apparels } from '@shop/shared/apparels.interface';
+import { Apparels } from '@shop/shared/apparels';
 import { categories } from '@shop/shared/apparels.constants';
 
 @Component({
@@ -46,7 +46,6 @@ export class ShopComponent implements OnInit, OnDestroy {
     //       }
     //     });
 
-    this.apparels = new Apparels();
     this.categories = categories;
 
     this.route.data
@@ -59,8 +58,7 @@ export class ShopComponent implements OnInit, OnDestroy {
     this.store.select(fromStore.getShopApparels)
         .pipe(takeUntil(this.ngUnsubscribe))
         .subscribe((apparels: Apparel[]) => {
-          this.apparels = new Apparels();
-          this.apparels.all = apparels;
+          this.apparels = new Apparels(apparels);
 
           this.apparels.all.forEach((apparel: Apparel) => {
             this.apparels[apparel.type].push(apparel);

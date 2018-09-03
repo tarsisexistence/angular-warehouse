@@ -3,6 +3,7 @@ import {
   BrowserModule,
   BrowserTransferStateModule
 } from '@angular/platform-browser';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { environment } from '@env/environment';
 import { CoreModule } from '@app/core/core.module';
@@ -34,6 +35,7 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
 @NgModule({
   imports: [
     BrowserModule.withServerTransition({ appId: 'app-root' }),
+    NoopAnimationsModule,
     BrowserTransferStateModule,
     appRouting,
     CoreModule,

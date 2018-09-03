@@ -1,11 +1,15 @@
 import {
+  ErrorHandler,
   NgModule,
   Optional,
   SkipSelf
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
+import {
+  HTTP_INTERCEPTORS,
+  HttpClientModule
+} from '@angular/common/http';
 
 import {
   MetaReducer,
@@ -30,6 +34,8 @@ import { MyApolloModule } from '@apollo/apollo.module';
 import { AuthModule } from '@auth/auth.module';
 import { CartModule } from '@cart/cart.module';
 import { HeaderComponent } from '@core/components/header/header.component';
+import { ErrorHandlerInterceptor } from '@core/interceptors/error-handler.interceptor';
+import { ServerErrorInterceptor } from '@core/interceptors/server-error.interceptor';
 
 export const metaReducers: MetaReducer<any>[] = !environment.production
     ? [storeFreeze]
@@ -55,6 +61,15 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
   declarations: [HeaderComponent],
   exports: [HeaderComponent],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ServerErrorInterceptor,
+      multi: true
+    },
+    {
+      provide: ErrorHandler,
+      useClass: ErrorHandlerInterceptor
+    },
     {
       provide: RouterStateSerializer,
       useClass: CustomSerializer

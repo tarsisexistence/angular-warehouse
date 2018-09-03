@@ -34,8 +34,8 @@ import { MyApolloModule } from '@apollo/apollo.module';
 import { AuthModule } from '@auth/auth.module';
 import { CartModule } from '@cart/cart.module';
 import { HeaderComponent } from '@core/components/header/header.component';
-import { ErrorHandlerInterceptor } from '@core/interceptors/error-handler.interceptor';
 import { ServerErrorInterceptor } from '@core/interceptors/server-error.interceptor';
+import { CustomErrorHandler } from '@core/error-handlers/custom.error-handler';
 
 export const metaReducers: MetaReducer<any>[] = !environment.production
     ? [storeFreeze]
@@ -68,7 +68,7 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
     },
     {
       provide: ErrorHandler,
-      useClass: ErrorHandlerInterceptor
+      useClass: CustomErrorHandler
     },
     {
       provide: RouterStateSerializer,

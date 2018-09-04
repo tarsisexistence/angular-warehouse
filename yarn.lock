@@ -666,9 +666,29 @@ apache-md5@1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/apache-md5/-/apache-md5-1.0.6.tgz#470239d40c54e7c32dd9d6eb11bc3578ecc903c2"
 
+apollo-angular-boost@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/apollo-angular-boost/-/apollo-angular-boost-1.1.0.tgz#093f24dcfe5fb67f84360157af72782f0f9b9be9"
+  dependencies:
+    apollo-angular "~1.3.0"
+    apollo-angular-link-http "~1.2.0"
+    apollo-cache-inmemory "~1.2.5"
+    apollo-client "^2.3.1"
+    apollo-link "~1.2.2"
+    apollo-link-error "~1.1.0"
+    apollo-link-state "~0.4.1"
+    graphql-tag "~2.9.2"
+    tslib "^1.9.0"
+
 apollo-angular-link-http-common@~1.1.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/apollo-angular-link-http-common/-/apollo-angular-link-http-common-1.1.1.tgz#fee337e6e30c71699982097b150bfb64877d5614"
+
+apollo-angular-link-http-common@~1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/apollo-angular-link-http-common/-/apollo-angular-link-http-common-1.2.0.tgz#76be0d02478b266dc99d44b54483418e356bd410"
+  dependencies:
+    tslib "^1.9.0"
 
 apollo-angular-link-http@^1.1.1:
   version "1.1.1"
@@ -676,9 +696,23 @@ apollo-angular-link-http@^1.1.1:
   dependencies:
     apollo-angular-link-http-common "~1.1.0"
 
+apollo-angular-link-http@~1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/apollo-angular-link-http/-/apollo-angular-link-http-1.2.0.tgz#5eb243e45561032022b5bb9cb2953fc3afaa5418"
+  dependencies:
+    apollo-angular-link-http-common "~1.2.0"
+    tslib "^1.9.0"
+
 apollo-angular@^1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/apollo-angular/-/apollo-angular-1.1.2.tgz#7aaad1c996d26b538eea043b825c0ab59fdfe8e5"
+
+apollo-angular@~1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/apollo-angular/-/apollo-angular-1.3.0.tgz#313ebeb9c2d27a6a88ff1dec128eac975fefe7bf"
+  dependencies:
+    semver "^5.5.1"
+    tslib "^1.9.0"
 
 apollo-cache-inmemory@^1.2.5:
   version "1.2.8"
@@ -688,11 +722,39 @@ apollo-cache-inmemory@^1.2.5:
     apollo-utilities "^1.0.19"
     graphql-anywhere "^4.1.17"
 
+apollo-cache-inmemory@~1.2.5:
+  version "1.2.9"
+  resolved "https://registry.yarnpkg.com/apollo-cache-inmemory/-/apollo-cache-inmemory-1.2.9.tgz#26e0c8c6a6c865bf9987d741114388cdbc3fae23"
+  dependencies:
+    apollo-cache "^1.1.16"
+    apollo-utilities "^1.0.20"
+    graphql-anywhere "^4.1.18"
+
+apollo-cache@1.1.16, apollo-cache@^1.1.16:
+  version "1.1.16"
+  resolved "https://registry.yarnpkg.com/apollo-cache/-/apollo-cache-1.1.16.tgz#0c7460ee8eff1898462979143b4e922aaba73cf8"
+  dependencies:
+    apollo-utilities "^1.0.20"
+
 apollo-cache@^1.1.15:
   version "1.1.15"
   resolved "https://registry.yarnpkg.com/apollo-cache/-/apollo-cache-1.1.15.tgz#48d3a366047fc4b876c2036a79b0e070dee74cc1"
   dependencies:
     apollo-utilities "^1.0.19"
+
+apollo-client@^2.3.1:
+  version "2.4.1"
+  resolved "https://registry.yarnpkg.com/apollo-client/-/apollo-client-2.4.1.tgz#d2ebaac1831fa170f7d0070bb9d581cccb5f64e3"
+  dependencies:
+    "@types/zen-observable" "^0.8.0"
+    apollo-cache "1.1.16"
+    apollo-link "^1.0.0"
+    apollo-link-dedup "^1.0.0"
+    apollo-utilities "1.0.20"
+    symbol-observable "^1.0.2"
+    zen-observable "^0.8.0"
+  optionalDependencies:
+    "@types/async" "2.0.49"
 
 apollo-client@^2.3.5:
   version "2.4.0"
@@ -714,13 +776,32 @@ apollo-link-dedup@^1.0.0:
   dependencies:
     apollo-link "^1.2.2"
 
-apollo-link@^1.0.0, apollo-link@^1.2.2:
+apollo-link-error@~1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/apollo-link-error/-/apollo-link-error-1.1.0.tgz#ef8a64411361314364db40c1d4023b987a84860f"
+  dependencies:
+    apollo-link "^1.2.2"
+
+apollo-link-state@~0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/apollo-link-state/-/apollo-link-state-0.4.1.tgz#65e9e0e12c67936b8c4b12b8438434f393104579"
+  dependencies:
+    apollo-utilities "^1.0.8"
+    graphql-anywhere "^4.1.0-alpha.0"
+
+apollo-link@^1.0.0, apollo-link@^1.2.2, apollo-link@~1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/apollo-link/-/apollo-link-1.2.2.tgz#54c84199b18ac1af8d63553a68ca389c05217a03"
   dependencies:
     "@types/graphql" "0.12.6"
     apollo-utilities "^1.0.0"
     zen-observable-ts "^0.8.9"
+
+apollo-utilities@1.0.20, apollo-utilities@^1.0.20, apollo-utilities@^1.0.8:
+  version "1.0.20"
+  resolved "https://registry.yarnpkg.com/apollo-utilities/-/apollo-utilities-1.0.20.tgz#b14318686cb67838279fb5f009cca0ec97a4d140"
+  dependencies:
+    fast-json-stable-stringify "^2.0.0"
 
 apollo-utilities@^1.0.0, apollo-utilities@^1.0.19:
   version "1.0.19"
@@ -3008,21 +3089,27 @@ graceful-fs@*, graceful-fs@^4.1.11, graceful-fs@^4.1.2, graceful-fs@^4.1.4, grac
   version "4.1.11"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.11.tgz#0e8bdfe4d1ddb8854d64e04ea7c00e2a026e5658"
 
+graphql-anywhere@^4.1.0-alpha.0, graphql-anywhere@^4.1.18:
+  version "4.1.18"
+  resolved "https://registry.yarnpkg.com/graphql-anywhere/-/graphql-anywhere-4.1.18.tgz#29bfc5d42bf8ee1f5cdc9a9857c98c3eb4b7fab4"
+  dependencies:
+    apollo-utilities "^1.0.20"
+
 graphql-anywhere@^4.1.17:
   version "4.1.17"
   resolved "https://registry.yarnpkg.com/graphql-anywhere/-/graphql-anywhere-4.1.17.tgz#5c9128d0c5c1623dc46ecbdf0916845061f1965a"
   dependencies:
     apollo-utilities "^1.0.19"
 
-graphql-tag@^2.9.2:
+graphql-tag@^2.9.2, graphql-tag@~2.9.2:
   version "2.9.2"
   resolved "https://registry.yarnpkg.com/graphql-tag/-/graphql-tag-2.9.2.tgz#2f60a5a981375f430bf1e6e95992427dc18af686"
 
-graphql@^0.13.2:
-  version "0.13.2"
-  resolved "https://registry.yarnpkg.com/graphql/-/graphql-0.13.2.tgz#4c740ae3c222823e7004096f832e7b93b2108270"
+graphql@^14.0.0:
+  version "14.0.0"
+  resolved "https://registry.yarnpkg.com/graphql/-/graphql-14.0.0.tgz#4ee771c5266d08cb75df2d3ac41e8dd51ce3d599"
   dependencies:
-    iterall "^1.2.1"
+    iterall "^1.2.2"
 
 gzip-size@^4.1.0:
   version "4.1.0"
@@ -3791,7 +3878,7 @@ istanbul@^0.4.5:
     which "^1.1.1"
     wordwrap "^1.0.0"
 
-iterall@^1.2.1:
+iterall@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/iterall/-/iterall-1.2.2.tgz#92d70deb8028e0c39ff3164fdbf4d8b088130cd7"
 
@@ -5816,7 +5903,7 @@ semver-intersect@^1.1.2:
   dependencies:
     semver "^5.0.0"
 
-"semver@2 >=2.2.1 || 3.x || 4 || 5", "semver@2 || 3 || 4 || 5", semver@^5.0.0, semver@^5.0.1, semver@^5.1.0, semver@^5.3.0, semver@^5.5.0:
+"semver@2 >=2.2.1 || 3.x || 4 || 5", "semver@2 || 3 || 4 || 5", semver@^5.0.0, semver@^5.0.1, semver@^5.1.0, semver@^5.3.0, semver@^5.5.0, semver@^5.5.1:
   version "5.5.1"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.5.1.tgz#7dfdd8814bdb7cabc7be0fb1d734cfb66c940477"
 

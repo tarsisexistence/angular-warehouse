@@ -1,28 +1,28 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 import {
-  Apollo,
-  ApolloModule
-} from 'apollo-angular';
-import {
-  HttpLink,
-  HttpLinkModule
-} from 'apollo-angular-link-http';
-import { InMemoryCache } from 'apollo-cache-inmemory';
+  ApolloBoostModule,
+  APOLLO_BOOST_CONFIG
+} from 'apollo-angular-boost';
+
+const uri = 'http://localhost:4000/graphql';
 
 @NgModule({
   imports: [
     CommonModule,
-    HttpLinkModule,
-    ApolloModule
+    HttpClientModule,
+    ApolloBoostModule
+  ],
+  providers: [
+    {
+      provide: APOLLO_BOOST_CONFIG,
+      useValue: {
+        uri
+      }
+    }
   ]
 })
 export class MyApolloModule {
-  constructor(apollo: Apollo, httpLink: HttpLink) {
-    apollo.create({
-      link: httpLink.create({ uri: 'http://localhost:4000/graphql' }),
-      cache: new InMemoryCache()
-    });
-  }
 }

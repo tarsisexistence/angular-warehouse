@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { MyApolloModule } from '@apollo/apollo.module';
 
 import { Apollo } from 'apollo-angular';
-import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 import { Order } from '@shared/interfaces/order.interface';
 import { Apparel } from '@shop/shared/apparel.interface';
@@ -24,6 +24,7 @@ import {
 
 @Injectable({ providedIn: MyApolloModule })
 export class ApolloService {
+
   constructor(private apollo: Apollo) {
   }
 

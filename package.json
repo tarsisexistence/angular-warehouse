@@ -12,6 +12,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "backend:serve": "cd backend && npm run dev",
     "//...ANALYZER & EXPLORER": "SECTION of build analyzer and explorer",
     "build:analyze:dev": "ng build --stats-json && npx webpack-bundle-analyzer dist/concept-store-platform/stats.json",
     "build:analyze:prod": "ng build --prod --stats-json && npx webpack-bundle-analyzer dist/concept-store-platform/stats.json",

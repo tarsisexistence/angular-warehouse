@@ -27,6 +27,7 @@ import { Order } from '@shared/interfaces/order.interface';
 export class CartComponent implements OnInit, OnDestroy {
   public cartApparels: Apparel[];
   public subtotal: number;
+  public identify = (index: number, apparel: Apparel): string => apparel.id;
   private ngUnsubscribe: Subject<boolean> = new Subject();
 
   private static calcSubtotal(apparels: Apparel[]): number {
@@ -43,7 +44,7 @@ export class CartComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit(): void {
-    this.store.select(fromStore.getAllCartApparels)
+    this.store.select(fromStore.getCartApparel)
         .pipe(takeUntil(this.ngUnsubscribe))
         .subscribe((apparels: Apparel[]) => {
           this.cartApparels = apparels ? apparels : [];
@@ -67,16 +68,13 @@ export class CartComponent implements OnInit, OnDestroy {
         return;
       }
 
-      this.apolloService.addOrder(order).subscribe(() => {
-        alert('Your order is confirmed. We will contact you soon');
-        this.cartService.clearCart();
-      });
-      this.router.navigate(['']);
+      this.apolloService.addOrder(order)
+          .subscribe(() => {
+            alert('Your order is confirmed. We will contact you soon');
+            this.cartService.clearCart();
+            this.router.navigate(['']);
+          });
     });
-  }
-
-  public identify(index: number, apparel: Apparel): string {
-    return apparel.id;
   }
 
   public ngOnDestroy(): void {

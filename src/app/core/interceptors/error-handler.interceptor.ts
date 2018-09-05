@@ -38,6 +38,6 @@ export class ErrorHandlerInterceptor implements ErrorHandler {
     //     .subscribe((error: ErrorRequest) => {
     //       router.navigate(['/error'], { queryParams: { error } });
     //     });
-    console.log('it happens', error);
+    console.error(error);
   }
 }

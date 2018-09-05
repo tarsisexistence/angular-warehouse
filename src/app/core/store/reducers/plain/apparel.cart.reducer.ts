@@ -2,13 +2,13 @@ import * as ApparelCartActions from '@store/actions/apparel.cart.action';
 import { Apparel } from '@shop/shared/apparel.interface';
 
 export interface ApparelState {
-  data: Apparel[];
+  entities: { [id: number]: Apparel }
   loaded: boolean;
   loading: boolean;
 }
 
 export const initialState: ApparelState = {
-  data: [],
+  entities: {},
   loaded: false,
   loading: false
 };
@@ -26,12 +26,15 @@ export function reducer(
     }
 
     case ApparelCartActions.ApparelCartActionTypes.AddApparelSuccess: {
-      const data = [...state.data, action.payload];
+      const entities = {
+        ...state.entities,
+        [action.payload.id]: action.payload
+      };
       return {
         ...state,
         loading: false,
         loaded: true,
-        data
+        entities
       };
     }
 
@@ -51,11 +54,22 @@ export function reducer(
     }
 
     case ApparelCartActions.ApparelCartActionTypes.FetchApparelSuccess: {
+      const apparels: Apparel[] = action.payload;
+      const entities = apparels.reduce(
+          (entities: { [id: number]: Apparel }, apparel: Apparel) => (
+              {
+                ...entities,
+                [apparel.id]: apparel
+              }
+          ),
+          {
+            ...state.entities
+          });
       return {
         ...state,
         loading: false,
         loaded: true,
-        data: action.payload
+        entities
       };
     }
 
@@ -75,12 +89,14 @@ export function reducer(
     }
 
     case ApparelCartActions.ApparelCartActionTypes.RemoveApparelSuccess: {
-      const data: Apparel[] = state.data.filter((apparel: Apparel, index: number) => index !== action.payload);
+      const id = action.payload;
+      const entities: Apparel[] = Object.values(state.entities).filter((value: Apparel) => value.id !== String(id));
+
       return {
         ...state,
         loading: false,
         loaded: true,
-        data
+        entities
       };
     }
 
@@ -95,6 +111,6 @@ export function reducer(
   return state;
 }
 
+export const getCartEntities = (state: ApparelState) => state.entities;
 export const getCartLoading = (state: ApparelState) => state.loading;
 export const getCartLoaded = (state: ApparelState) => state.loaded;
-export const getCart = (state: ApparelState) => state.data;

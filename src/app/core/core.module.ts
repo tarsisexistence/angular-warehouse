@@ -25,17 +25,17 @@ import { storeFreeze } from 'ngrx-store-freeze';
 import {
   reducers,
   CustomSerializer
-} from '@shared/store/reducers/states/router.reducers';
-import { routerEffects } from '@shared/store';
+} from '@store/reducers/states/router.reducers';
+import { routerEffects } from '@core/store';
 
 import { environment } from '@env/environment';
-import { MaterialModule } from '@material/material.module';
 import { MyApolloModule } from '@apollo/apollo.module';
+import { MaterialModule } from '@material/material.module';
 import { AuthModule } from '@auth/auth.module';
 import { CartModule } from '@cart/cart.module';
-import { HeaderComponent } from '@core/components/header/header.component';
+import { HeaderComponent } from '@core/views/components/header/header.component';
 import { ServerErrorInterceptor } from '@core/interceptors/server-error.interceptor';
-import { CustomErrorHandler } from '@core/error-handlers/custom.error-handler';
+import { ErrorHandlerInterceptor } from '@core/interceptors/error-handler.interceptor';
 
 export const metaReducers: MetaReducer<any>[] = !environment.production
     ? [storeFreeze]
@@ -68,7 +68,7 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
     },
     {
       provide: ErrorHandler,
-      useClass: CustomErrorHandler
+      useClass: ErrorHandlerInterceptor
     },
     {
       provide: RouterStateSerializer,

@@ -10,11 +10,11 @@ import {
   Store,
   StoreModule
 } from '@ngrx/store';
-import * as fromStore from '@shared/store';
-import * as fromAuth from '@shared/store/reducers';
+import * as fromStore from '@core/store';
+import * as fromAuth from '@store/reducers';
 
-import { AppComponent } from '@app/app.component';
-import { HeaderComponent } from '@core/components/header/header.component';
+import { AppComponent } from './app.component';
+import { HeaderComponent } from '@core/views/components/header/header.component';
 import { AuthService } from '@auth/auth.service';
 import { MaterialModule } from '@material/material.module';
 

@@ -25,37 +25,37 @@
         "app/*"
       ],
       "@apollo/*": [
-        "app/apollo/*"
+        "app/core/apollo/*"
       ],
       "@auth/*": [
-        "app/auth/*"
+        "app/core/views/modules/auth/*"
       ],
       "@cart/*": [
-        "app/cart/*"
+        "app/core/views/modules/cart/*"
       ],
       "@core/*": [
         "app/core/*"
       ],
       "@home/*": [
-        "app/home/*"
+        "app/views/home/*"
       ],
       "@shared/*": [
         "app/shared/*"
       ],
       "@shop/*": [
-        "app/shop/*"
+        "app/views/shop/*"
       ],
       "@store/*": [
-        "app/shared/store/*"
+        "app/core/store/*"
       ],
       "@material/*": [
         "app/shared/material/*"
       ],
       "@location/*": [
-        "app/location/*"
+        "app/views/location/*"
       ],
       "@user-center/*": [
-        "app/user-center/*"
+        "app/views/user-center/*"
       ]
     }
   }

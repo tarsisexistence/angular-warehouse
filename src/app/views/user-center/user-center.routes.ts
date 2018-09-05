@@ -4,8 +4,8 @@ import {
   Routes
 } from '@angular/router';
 
-import { UserCenterComponent } from '@user-center/user-center.component';
-import { UserCenterGuard } from '@user-center/user-center.guards';
+import { UserCenterComponent } from '@user-center/containers/user-center/user-center.component';
+import { UserCenterGuard } from '@user-center/shared/user-center.guards';
 
 export const routes: Routes = [
   {

@@ -10,12 +10,12 @@ import {
 } from '@shared/constants/shop-rules.constants';
 
 @Component({
-  selector: 'app-footer',
-  templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.scss'],
+  selector: 'shop-footer',
+  templateUrl: './shop-footer.component.html',
+  styleUrls: ['./shop-footer.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class FooterComponent {
+export class ShopFooterComponent {
 
   constructor(private dialog: MatDialog) {
   }

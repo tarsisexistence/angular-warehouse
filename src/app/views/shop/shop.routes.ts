@@ -4,8 +4,8 @@ import {
 	Routes
 } from '@angular/router';
 
-import { ShopComponent } from '@shop/shop.component';
-import { ShopResolver } from '@shop/shop.resolver';
+import { ShopComponent } from '@shop/containers/shop/shop.component';
+import { ShopResolver } from '@shop/shared/shop.resolver';
 
 export const routes: Routes = [
 	{

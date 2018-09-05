@@ -6,15 +6,15 @@ import {
   EventEmitter
 } from '@angular/core';
 
-import { Apparel } from '../shared/apparel.interface';
+import { Apparel } from '@shop/shared/apparel.interface';
 
 @Component({
   selector: 'shop-apparels',
-  templateUrl: './apparels.component.html',
-  styleUrls: ['./apparels.component.scss'],
+  templateUrl: './shop-apparels.component.html',
+  styleUrls: ['./shop-apparels.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ApparelsComponent {
+export class ShopApparelsComponent {
   @Input() public apparels: Apparel[];
   @Output() public addToCartEmitter: EventEmitter<Apparel> = new EventEmitter<Apparel>();
 

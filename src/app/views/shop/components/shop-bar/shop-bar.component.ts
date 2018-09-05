@@ -6,11 +6,11 @@ import {
 
 @Component({
   selector: 'shop-bar',
-  templateUrl: './bar.component.html',
-  styleUrls: ['./bar.component.scss'],
+  templateUrl: './shop-bar.component.html',
+  styleUrls: ['./shop-bar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class BarComponent {
+export class ShopBarComponent {
   @Input() public categories: string[];
 
   public identify(index: number, category: string): number {

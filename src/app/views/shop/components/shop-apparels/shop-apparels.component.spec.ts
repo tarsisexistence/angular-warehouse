@@ -5,16 +5,16 @@ import {
 } from '@angular/core/testing';
 import { MatIconModule } from '@angular/material';
 
-import { ApparelsComponent } from './apparels.component';
-import { CartService } from '../../shared/services/cart.service';
+import { ShopApparelsComponent } from './shop-apparels.component';
+import { CartService } from '@shared/services/cart.service';
 
-describe('ApparelsComponent', () => {
-  let component: ApparelsComponent;
-  let fixture: ComponentFixture<ApparelsComponent>;
+describe('ShopApparelsComponent', () => {
+  let component: ShopApparelsComponent;
+  let fixture: ComponentFixture<ShopApparelsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-          declarations: [ApparelsComponent],
+          declarations: [ShopApparelsComponent],
           imports: [MatIconModule],
           providers: [CartService]
         })
@@ -22,12 +22,12 @@ describe('ApparelsComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ApparelsComponent);
+    fixture = TestBed.createComponent(ShopApparelsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should init apparels component', () => {
+  it('should init shop-apparels component', () => {
     expect(component).toBeTruthy();
   });
 });

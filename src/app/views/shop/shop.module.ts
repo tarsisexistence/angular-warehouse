@@ -12,11 +12,11 @@ import {
 
 import { MaterialModule } from '@material/material.module';
 import { shopRouting } from '@shop/shop.routes';
-import { ShopResolver } from '@shop/shop.resolver';
-import { ShopComponent } from '@shop/shop.component';
-import { BarComponent } from '@shop/bar/bar.component';
-import { ApparelsComponent } from '@shop/apparels/apparels.component';
-import { FooterComponent } from '@shop/footer/footer.component';
+import { ShopResolver } from '@shop/shared/shop.resolver';
+import { ShopComponent } from '@shop/containers/shop/shop.component';
+import { ShopBarComponent } from '@shop/components/shop-bar/shop-bar.component';
+import { ShopApparelsComponent } from '@shop/components/shop-apparels/shop-apparels.component';
+import { ShopFooterComponent } from '@shop/components/shop-footer/shop-footer.component';
 
 @NgModule({
   imports: [
@@ -29,9 +29,9 @@ import { FooterComponent } from '@shop/footer/footer.component';
   ],
   declarations: [
     ShopComponent,
-    BarComponent,
-    ApparelsComponent,
-    FooterComponent
+    ShopBarComponent,
+    ShopApparelsComponent,
+    ShopFooterComponent
   ],
   providers: [
     ShopResolver

@@ -1,0 +1,23 @@
+<div class="stocklist">
+  <ng-container *ngFor="let stock of stocklist; trackBy: identify">
+    <div class="stocklist__country">
+      <p class="stocklist__country-name">{{stock.country }}</p>
+
+      <ng-container *ngFor="let cityStocks of stock.cityStocks; trackBy: identify">
+        <div class="stocklist__city">
+          <p class="stocklist__city-name">{{ cityStocks.city }}</p>
+
+          <ng-container *ngFor="let stock of cityStocks.stocks; trackBy: identify">
+            <div class="stocklist__stock">
+              <p class="stocklist__stock-name">{{ stock.name }}</p>
+              <p class="stocklist__stock-address">{{ stock.address }}</p>
+              <p>{{ stock?.email }}</p>
+              <p>{{ stock?.site }}</p>
+              <p>{{ stock.phone }}</p>
+            </div>
+          </ng-container>
+        </div>
+      </ng-container>
+    </div>
+  </ng-container>
+</div>

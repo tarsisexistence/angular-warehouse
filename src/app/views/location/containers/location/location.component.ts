@@ -6,9 +6,9 @@ import {
   OnInit
 } from '@angular/core';
 
-import { MapService } from '@location/shared/map.service';
-import { GeolocationService } from '@location/shared/geolocation.service';
 import { GeocodingService } from '@location/shared/geocoding.service';
+import { GeolocationService } from '@location/shared/geolocation.service';
+import { MapService } from '@location/shared/map.service';
 
 @Component({
   selector: 'location-feat',
@@ -17,9 +17,9 @@ import { GeocodingService } from '@location/shared/geocoding.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LocationComponent implements OnInit {
-  public center: google.maps.LatLng; // Center map. Required.
+  public center: google.maps.LatLng; // Center location-map. Required.
   // MapOptions object specification.
-  // The initial map zoom level. Required.
+  // The initial location-map zoom level. Required.
   public zoom: number;
   public disableDefaultUI: boolean;
   public disableDoubleClickZoom: boolean;

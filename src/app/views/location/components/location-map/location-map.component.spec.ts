@@ -4,23 +4,23 @@ import {
   TestBed
 } from '@angular/core/testing';
 
-import { GoogleMapComponent } from './google-map.component';
+import { LocationMapComponent } from './location-map.component';
 import { MapService } from '@location/shared/map.service';
 
-describe('GoogleMapComponent', () => {
-  let component: GoogleMapComponent;
-  let fixture: ComponentFixture<GoogleMapComponent>;
+describe('LocationMapComponent', () => {
+  let component: LocationMapComponent;
+  let fixture: ComponentFixture<LocationMapComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-          declarations: [GoogleMapComponent],
+          declarations: [LocationMapComponent],
           providers: [MapService]
         })
         .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GoogleMapComponent);
+    fixture = TestBed.createComponent(LocationMapComponent);
     component = fixture.componentInstance;
     // fixture.detectChanges();
   });

@@ -13,7 +13,7 @@ import { MapService } from '@location/shared/map.service';
 export class MarkerDirective implements OnChanges {
   @Input() position: google.maps.LatLng; // Marker position. Required.
   @Input() title: string; // The marker's title will appear as a tooltip.
-  @Input() content: string; // An InfoWindow's content is displayed in a popup window above the map, at a given
+  @Input() content: string; // An InfoWindow's content is displayed in a popup window above the location-map, at a given
                             // location.
 
   constructor(public map: MapService) {

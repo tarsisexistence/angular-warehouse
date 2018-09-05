@@ -4,9 +4,10 @@ import {
   Routes
 } from '@angular/router';
 
-import { LocationComponent } from '@location/location.component';
-import { StocklistsComponent } from '@location/stocklists/stocklists.component';
+import { LocationComponent } from '@location/containers/location/location.component';
+import { LocationStocklistComponent } from '@location/components/location-stocklist/location-stocklist.component';
 
+// TODO: make states as enum v's
 export const routes: Routes = [
   {
     path: 'map',
@@ -14,9 +15,9 @@ export const routes: Routes = [
     component: LocationComponent
   },
   {
-    path: 'stocklists',
+    path: 'stocklist',
     pathMatch: 'full',
-    component: StocklistsComponent
+    component: LocationStocklistComponent
   }
 ];
 

@@ -2,15 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { GoogleMapComponent } from './google-map/google-map.component';
-import { locationRouting } from './location.routes';
-import { MarkerDirective } from './shared/marker.directive';
-import { MapService } from './shared/map.service';
-import { GeolocationService } from './shared/geolocation.service';
-import { GeocodingService } from './shared/geocoding.service';
-import { LocationComponent } from './location.component';
-import { StocklistsComponent } from './stocklists/stocklists.component';
 import { MaterialModule } from '@shared/material/material.module';
+import { locationRouting } from '@location/location.routes';
+import { GeocodingService } from '@location/shared/geocoding.service';
+import { GeolocationService } from '@location/shared/geolocation.service';
+import { MapService } from '@location/shared/map.service';
+import { MarkerDirective } from '@location/shared/marker.directive';
+import { LocationComponent } from '@location/containers/location/location.component';
+import { LocationMapComponent } from '@location/components/location-map/location-map.component';
+import { LocationStocklistComponent } from '@location/components/location-stocklist/location-stocklist.component';
 
 @NgModule({
   imports: [
@@ -20,15 +20,15 @@ import { MaterialModule } from '@shared/material/material.module';
     MaterialModule
   ],
   declarations: [
-    GoogleMapComponent,
+    LocationMapComponent,
     MarkerDirective,
     LocationComponent,
-    StocklistsComponent
+    LocationStocklistComponent
   ],
   providers: [
-    MapService,
+    GeocodingService,
     GeolocationService,
-    GeocodingService
+    MapService
   ]
 })
 export class LocationModule {

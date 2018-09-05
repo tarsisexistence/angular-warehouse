@@ -1,6 +1,6 @@
 import { Stocklist } from '@shared/interfaces/stocklist.interface';
 
-export const stocklists: Stocklist[] = [
+export const stocklist: Stocklist[] = [
 	{
 		country: 'Ukraine',
 		cityStocks: [

@@ -4,21 +4,21 @@ import {
   TestBed
 } from '@angular/core/testing';
 
-import { StocklistsComponent } from './stocklists.component';
+import { LocationStocklistComponent } from './location-stocklist.component';
 
-describe('StocklistsComponent', () => {
-  let component: StocklistsComponent;
-  let fixture: ComponentFixture<StocklistsComponent>;
+describe('LocationStocklistComponent', () => {
+  let component: LocationStocklistComponent;
+  let fixture: ComponentFixture<LocationStocklistComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-          declarations: [StocklistsComponent]
+          declarations: [LocationStocklistComponent]
         })
         .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(StocklistsComponent);
+    fixture = TestBed.createComponent(LocationStocklistComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

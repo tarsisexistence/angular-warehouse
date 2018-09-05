@@ -9,8 +9,8 @@ import {
 } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material';
 
-import { LocationComponent } from '@location/location.component';
-import { GoogleMapComponent } from '@location/google-map/google-map.component';
+import { LocationComponent } from '@location/containers/location/location.component';
+import { LocationMapComponent } from '@location/components/location-map/location-map.component';
 import { MapService } from '@location/shared/map.service';
 import { GeolocationService } from '@location/shared/geolocation.service';
 import { GeocodingService } from '@location/shared/geocoding.service';
@@ -28,7 +28,7 @@ describe('LocationComponent', () => {
           ],
           declarations: [
             LocationComponent,
-            GoogleMapComponent
+            LocationMapComponent
           ],
           providers: [
             MapService,

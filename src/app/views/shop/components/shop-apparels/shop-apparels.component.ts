@@ -18,9 +18,6 @@ export class ShopApparelsComponent {
   @Input() public apparels: Apparel[];
   @Output() public addToCartEmitter: EventEmitter<Apparel> = new EventEmitter<Apparel>();
 
-  constructor() {
-  }
-
   public addToCart(apparel: Apparel): void {
     this.addToCartEmitter.emit(apparel);
   }

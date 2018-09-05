@@ -16,8 +16,10 @@ export const getApparelsState = createSelector(
     (state: ShopState) => state.apparels
 );
 
-export const getShopApparelEntities = createSelector(getApparelsState, fromApparelReducer.getApparelEntities);
-export const getShopApparels = createSelector(getShopApparelEntities,
-    (entities) => Object.keys(entities).map((id: string) => entities[id]));
 export const getShopApparelsLoading = createSelector(getApparelsState, fromApparelReducer.getApparelLoading);
 export const getShopApparelsLoaded = createSelector(getApparelsState, fromApparelReducer.getApparelLoaded);
+export const getShopApparelEntities = createSelector(getApparelsState, fromApparelReducer.getApparelEntities);
+export const getShopApparels = createSelector(
+    getShopApparelEntities,
+    (entities) => Object.keys(entities).map((id: string) => entities[id])
+);

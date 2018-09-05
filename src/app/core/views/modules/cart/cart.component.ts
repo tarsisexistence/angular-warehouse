@@ -27,7 +27,6 @@ import { Order } from '@shared/interfaces/order.interface';
 export class CartComponent implements OnInit, OnDestroy {
   public cartApparels: Apparel[];
   public subtotal: number;
-  public identify = (index: number, apparel: Apparel): string => apparel.id;
   private ngUnsubscribe: Subject<boolean> = new Subject();
 
   private static calcSubtotal(apparels: Apparel[]): number {
@@ -75,6 +74,10 @@ export class CartComponent implements OnInit, OnDestroy {
             this.router.navigate(['']);
           });
     });
+  }
+
+  public identify(index: number, apparel: Apparel): string {
+    return apparel.id;
   }
 
   public ngOnDestroy(): void {

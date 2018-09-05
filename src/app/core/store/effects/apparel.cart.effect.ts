@@ -34,7 +34,7 @@ export class CartEffect {
   @Effect()
   public fetchApparel$ = this.actions$.pipe(
       ofType<FetchApparel>(ApparelCartActionTypes.FetchApparel),
-      switchMap(() => of(this.cartService.fetchApparelFromLS()).pipe(
+      switchMap(() => of(this.cartService.fetchStorageApparel()).pipe(
           map((apparel: Apparel[]) => new FetchApparelSuccess(apparel)),
           catchError((error: Error) => of(new FetchApparelFail(error))),
           finalize(() => console.log('finalize fetchApparel$'))

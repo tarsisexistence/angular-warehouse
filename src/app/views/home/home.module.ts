@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { homeRouting } from '@home/home.routes';
-import { HomeComponent } from '@home/home.component';
-import { EntranceComponent } from '@home/entrance/entrance.component';
+import { HomeComponent } from '@home/containers/home/home.component';
+import { HomeEntranceComponent } from '@home/components/home-entrance/home-entrance.component';
 
 @NgModule({
   imports: [
@@ -12,11 +12,11 @@ import { EntranceComponent } from '@home/entrance/entrance.component';
   ],
   declarations: [
     HomeComponent,
-    EntranceComponent
+    HomeEntranceComponent
   ],
   exports: [
     HomeComponent,
-    EntranceComponent
+    HomeEntranceComponent
   ]
 })
 export class HomeModule {

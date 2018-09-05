@@ -5,9 +5,9 @@ import {
 
 @Component({
   selector: 'home-entrance',
-  templateUrl: './entrance.component.html',
-  styleUrls: ['./entrance.component.scss'],
+  templateUrl: './home-entrance.component.html',
+  styleUrls: ['./home-entrance.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class EntranceComponent {
+export class HomeEntranceComponent {
 }

@@ -5,21 +5,21 @@ import {
 } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
-import { EntranceComponent } from './entrance.component';
+import { HomeEntranceComponent } from './home-entrance.component';
 
-describe('EntranceComponent', () => {
-  let component: EntranceComponent;
-  let fixture: ComponentFixture<EntranceComponent>;
+describe('HomeEntranceComponent', () => {
+  let component: HomeEntranceComponent;
+  let fixture: ComponentFixture<HomeEntranceComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [EntranceComponent],
+      declarations: [HomeEntranceComponent],
       imports: [RouterTestingModule]
     }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EntranceComponent);
+    fixture = TestBed.createComponent(HomeEntranceComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

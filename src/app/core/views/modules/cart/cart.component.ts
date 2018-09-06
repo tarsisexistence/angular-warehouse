@@ -51,8 +51,8 @@ export class CartComponent implements OnInit, OnDestroy {
         });
   }
 
-  public removeCartApparel(sequenceNumber: number): void {
-    this.store.dispatch(new fromStore.RemoveApparel(sequenceNumber));
+  public removeCartApparel(id: string): void {
+    this.store.dispatch(new fromStore.RemoveApparel(id));
   }
 
   public checkout(subtotal: number): void {
@@ -70,7 +70,7 @@ export class CartComponent implements OnInit, OnDestroy {
       this.apolloService.addOrder(order)
           .subscribe(() => {
             alert('Your order is confirmed. We will contact you soon');
-            this.cartService.clearCart();
+            this.cartService.emptyCart();
             this.router.navigate(['']);
           });
     });

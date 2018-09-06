@@ -8,24 +8,21 @@ const storageKey = 'cspcart';
 @Injectable({ providedIn: SharedModule })
 export class CartService {
   public addApparelToCart(apparel: Apparel): Apparel {
-    const cartApparels = this.fetchStorageApparel();
-    this.updateStorage([...cartApparels, apparel]);
+    const apparels = this.fetchStorageApparel();
+    this.updateStorage([...apparels, apparel]);
 
     return apparel;
   }
 
-  public removeApparelFromCart(sequenceNumber: number): number {
-    const apparelsInLS = this.fetchStorageApparel();
-    const cartApparels: Apparel[] = apparelsInLS.filter((
-        cartApparel: Apparel,
-        index: number
-    ) => index !== sequenceNumber);
+  public removeApparelFromCart(id: string): string {
+    const apparels = this.fetchStorageApparel();
+    const cartApparels: Apparel[] = apparels.filter((apparel: Apparel) => apparel.id !== id);
     this.updateStorage(cartApparels);
 
-    return sequenceNumber;
+    return id;
   }
 
-  public clearCart(): void {
+  public emptyCart(): void {
     localStorage.removeItem(storageKey);
   }
 

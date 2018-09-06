@@ -55,7 +55,7 @@ export class AddApparelSuccess implements Action {
 export class RemoveApparel implements Action {
   readonly type = ApparelCartActionTypes.RemoveApparel;
 
-  constructor(public payload: number) {
+  constructor(public payload: string) {
   }
 }
 

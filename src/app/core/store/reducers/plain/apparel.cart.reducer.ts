@@ -30,6 +30,7 @@ export function reducer(
         ...state.entities,
         [action.payload.id]: action.payload
       };
+
       return {
         ...state,
         loading: false,
@@ -65,6 +66,7 @@ export function reducer(
           {
             ...state.entities
           });
+
       return {
         ...state,
         loading: false,
@@ -90,7 +92,19 @@ export function reducer(
 
     case ApparelCartActions.ApparelCartActionTypes.RemoveApparelSuccess: {
       const id = action.payload;
-      const entities: Apparel[] = Object.values(state.entities).filter((value: Apparel) => value.id !== String(id));
+      const entities = Object.keys(state.entities).reduce(
+          (entities: { [id: number]: Apparel }, entitiyId: string) => {
+            if (entitiyId === String(id)) {
+              return entities;
+            }
+
+            return {
+              ...entities,
+              [entitiyId]: state.entities[entitiyId]
+            };
+          },
+          {}
+      );
 
       return {
         ...state,

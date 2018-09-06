@@ -4,11 +4,11 @@
   <hr class="cart__line">
 
   <ng-container *ngIf="cartApparels && cartApparels.length > 0; else empty">
-    <div class="cart__apparel" *ngFor="let apparel of cartApparels; let sequenceNumber = index; trackBy:identify">
+    <div class="cart__apparel" *ngFor="let apparel of cartApparels; trackBy:identify">
       <p>{{ apparel.title }}</p>
       <div>
         <span>{{ apparel.price }}$</span>
-        <a (click)="removeCartApparel(sequenceNumber)">
+        <a (click)="removeCartApparel(apparel.id)">
           <mat-icon class="icon">delete</mat-icon>
         </a>
       </div>

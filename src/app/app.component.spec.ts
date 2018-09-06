@@ -16,8 +16,9 @@ import * as fromAuth from '@store/reducers';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from '@core/views/components/header/header.component';
 import { AuthService } from '@auth/auth.service';
-import { MaterialModule } from '@material/material.module';
+import { SharedModule } from '@shared/shared.module';
 
+// TODO: create shared testing module
 describe('AppComponent', () => {
   let component: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
@@ -31,7 +32,7 @@ describe('AppComponent', () => {
       ],
       imports: [
         RouterTestingModule,
-        MaterialModule,
+        SharedModule,
         StoreModule.forRoot({
           shop: combineReducers(fromAuth.reducers)
         })

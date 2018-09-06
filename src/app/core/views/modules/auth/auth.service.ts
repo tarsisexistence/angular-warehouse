@@ -4,20 +4,18 @@ import { StorageUser } from '@auth/shared/interfaces/user.interface';
 
 const storageKey = 'cspr';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class AuthService {
-  constructor() {
-  }
 
-  public fetchUserFromLS(): StorageUser {
+  public fetchStorageUser(): StorageUser {
     return JSON.parse(localStorage.getItem(storageKey));
   }
 
-  public clearUser(): void {
+  public removeStorageUser(): void {
     localStorage.removeItem(storageKey);
   }
 
-  public updateUserStorage(token: StorageUser): void {
+  public updateStorageUser(token: StorageUser): void {
     localStorage.setItem(storageKey, JSON.stringify(token));
   }
 }

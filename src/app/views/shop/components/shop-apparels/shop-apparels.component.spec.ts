@@ -6,7 +6,7 @@ import {
 import { MatIconModule } from '@angular/material';
 
 import { ShopApparelsComponent } from './shop-apparels.component';
-import { CartService } from '@shared/services/cart.service';
+import { CartService } from '@core/services/cart.service';
 
 describe('ShopApparelsComponent', () => {
   let component: ShopApparelsComponent;

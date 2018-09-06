@@ -49,7 +49,7 @@ export class UserEffect {
       map((action: SignUp) => action.payload),
       switchMap((credentials: Access) => this.apolloService.signUp(credentials).pipe(
           tap((user: User) => {
-            this.authService.updateUserStorage({ token: user.id });
+            this.authService.updateStorageUser({ token: user.id });
           }),
           map((user: User) => new SignUpSuccess(user)),
           catchError((error: Error) => of(new SignUpFailure(error))),
@@ -75,7 +75,7 @@ export class UserEffect {
       ofType<SignIn>(AuthActionTypes.SignIn),
       map((action: SignIn) => action.payload),
       exhaustMap((credentials: Access) => this.apolloService.signIn(credentials).pipe(
-          tap((user: User) => this.authService.updateUserStorage({ token: user.id })),
+          tap((user: User) => this.authService.updateStorageUser({ token: user.id })),
           map((user: User) => new SignInSuccess(user)),
           catchError((error: Error) => of(new SignInFailure(error))),
           finalize(() => console.log('finalize signIn$'))
@@ -109,7 +109,7 @@ export class UserEffect {
   @Effect({ dispatch: false })
   public signOut$ = this.actions$.pipe(
       ofType(AuthActionTypes.SignOut, AuthActionTypes.Redirect),
-      tap(() => this.authService.clearUser()),
+      tap(() => this.authService.removeStorageUser()),
       tap(() => this.router.navigate(['']))
   );
 

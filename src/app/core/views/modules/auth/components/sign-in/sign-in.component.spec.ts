@@ -3,11 +3,10 @@ import {
   ComponentFixture,
   TestBed
 } from '@angular/core/testing';
-
-import { SignInComponent } from './sign-in.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { ReactiveFormsModule } from '@angular/forms';
-import { MaterialModule } from '@material/material.module';
+
+import { SharedModule } from '@shared/shared.module';
+import { SignInComponent } from './sign-in.component';
 
 describe('SignInComponent', () => {
   let component: SignInComponent;
@@ -18,8 +17,7 @@ describe('SignInComponent', () => {
           declarations: [SignInComponent],
           imports: [
             NoopAnimationsModule,
-            ReactiveFormsModule,
-            MaterialModule
+            SharedModule
           ]
         })
         .compileComponents();

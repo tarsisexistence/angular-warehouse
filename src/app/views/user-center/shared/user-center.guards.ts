@@ -32,7 +32,7 @@ export class UserCenterGuard implements CanActivate {
         catchError(() => of(false))
     );
 
-    return of(Boolean(this.authService.fetchUserFromLS()));
+    return of(Boolean(this.authService.fetchStorageUser()));
   }
 
   public checkStore(): Observable<boolean> {

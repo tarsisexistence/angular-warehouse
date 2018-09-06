@@ -15,7 +15,7 @@ import {
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { PaymentComponent } from './payment.component';
-import { CartService } from '@shared/services/cart.service';
+import { CartService } from '@core/services/cart.service';
 
 describe('PaymentComponent', () => {
   let component: PaymentComponent;

@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    const user: StorageUser = this.authService.fetchUserFromLS();
+    const user: StorageUser = this.authService.fetchStorageUser();
 
     if (user !== null) {
       this.store.dispatch(new fromStore.FetchUser(user.token));

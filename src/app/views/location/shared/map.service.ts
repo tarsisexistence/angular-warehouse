@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class MapService {
   private map: google.maps.Map;
   private markers: google.maps.Marker[] = [];

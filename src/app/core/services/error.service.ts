@@ -10,7 +10,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { NavigationError } from '@angular/router';
 
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class ErrorService {
 
   constructor(

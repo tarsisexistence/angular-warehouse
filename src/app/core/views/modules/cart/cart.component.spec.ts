@@ -16,8 +16,8 @@ import * as fromAuth from '@store/reducers';
 
 import { ApolloService } from '@apollo/services/apollo.service';
 import { CartComponent } from '@cart/cart.component';
-import { CartService } from '@shared/services/cart.service';
-import { MaterialModule } from '@material/material.module';
+import { CartService } from '@core/services/cart.service';
+import { SharedModule } from '@shared/shared.module';
 
 describe('CartComponent', () => {
   let component: CartComponent;
@@ -28,7 +28,7 @@ describe('CartComponent', () => {
     TestBed.configureTestingModule({
           declarations: [CartComponent],
           imports: [
-            MaterialModule,
+            SharedModule,
             RouterTestingModule,
             StoreModule.forRoot({
               shop: combineReducers(fromAuth.reducers)

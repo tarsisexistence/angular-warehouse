@@ -5,7 +5,7 @@ import {
   Observer
 } from 'rxjs';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class GeocodingService {
   public geocoder: google.maps.Geocoder;
 

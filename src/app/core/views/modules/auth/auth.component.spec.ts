@@ -5,7 +5,6 @@ import {
 } from '@angular/core/testing';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogRef } from '@angular/material';
-import { ReactiveFormsModule } from '@angular/forms';
 
 import {
   combineReducers,
@@ -15,10 +14,10 @@ import {
 import * as fromStore from '@core/store';
 import * as fromAuth from '@store/reducers';
 
-import { MaterialModule } from '@material/material.module';
+import { SharedModule } from '@shared/shared.module';
 import { AuthComponent } from '@auth/auth.component';
-import { SignUpComponent } from '@auth/sign-up/sign-up.component';
-import { SignInComponent } from '@auth/sign-in/sign-in.component';
+import { SignUpComponent } from '@auth/components/sign-up/sign-up.component';
+import { SignInComponent } from '@auth/components/sign-in/sign-in.component';
 
 describe('AuthComponent', () => {
   let component: AuthComponent;
@@ -34,8 +33,7 @@ describe('AuthComponent', () => {
       ],
       imports: [
         NoopAnimationsModule,
-        ReactiveFormsModule,
-        MaterialModule,
+        SharedModule,
         StoreModule.forRoot({
           shop: combineReducers(fromAuth.reducers)
         })

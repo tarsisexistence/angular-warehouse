@@ -30,7 +30,7 @@ import { routerEffects } from '@core/store';
 
 import { environment } from '@env/environment';
 import { MyApolloModule } from '@apollo/apollo.module';
-import { MaterialModule } from '@material/material.module';
+import { SharedModule } from '@shared/shared.module';
 import { AuthModule } from '@auth/auth.module';
 import { CartModule } from '@cart/cart.module';
 import { HeaderComponent } from '@core/views/components/header/header.component';
@@ -46,7 +46,7 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
     CommonModule,
     RouterModule,
     HttpClientModule,
-    MaterialModule,
+    SharedModule,
     MyApolloModule,
     AuthModule,
     CartModule,

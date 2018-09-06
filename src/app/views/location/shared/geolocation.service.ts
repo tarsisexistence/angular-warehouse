@@ -5,7 +5,7 @@ import {
   Observable
 } from 'rxjs';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class GeolocationService {
   public getCurrentPosition(): Observable<Position> {
     return Observable.create((observer: Observer<Position>) => {

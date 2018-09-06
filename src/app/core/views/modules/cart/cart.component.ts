@@ -13,9 +13,9 @@ import { Store } from '@ngrx/store';
 import * as fromStore from '@core/store';
 
 import { ApolloService } from '@apollo/services/apollo.service';
-import { CartService } from '@shared/services/cart.service';
-import { Apparel } from '@shop/shared/apparel.interface';
+import { CartService } from '@core/services/cart.service';
 import { PaymentComponent } from '@shared/dialogs/payment/payment.component';
+import { Apparel } from '@shop/shared/apparel.interface';
 import { Order } from '@shared/interfaces/order.interface';
 
 @Component({

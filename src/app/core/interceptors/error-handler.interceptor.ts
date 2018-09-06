@@ -10,7 +10,7 @@ import * as Raven from 'raven-js';
 Raven.config('https://a4c420f5930a4e87927ea6baaf4e2afd@sentry.io/1273569')
     .install();
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class ErrorHandlerInterceptor implements ErrorHandler {
 
   constructor(private injector: Injector) {

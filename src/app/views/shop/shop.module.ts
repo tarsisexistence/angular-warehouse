@@ -10,7 +10,7 @@ import {
   shopState
 } from '@core/store';
 
-import { MaterialModule } from '@material/material.module';
+import { SharedModule } from '@shared/shared.module';
 import { shopRouting } from '@shop/shop.routes';
 import { ShopResolver } from '@shop/shared/shop.resolver';
 import { ShopComponent } from '@shop/containers/shop/shop.component';
@@ -23,7 +23,7 @@ import { ShopFooterComponent } from '@shop/components/shop-footer/shop-footer.co
     CommonModule,
     RouterModule,
     shopRouting,
-    MaterialModule,
+    SharedModule,
     StoreModule.forFeature(shopState, shopReducers),
     EffectsModule.forFeature(shopEffects)
   ],

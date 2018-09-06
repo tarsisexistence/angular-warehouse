@@ -9,13 +9,13 @@ import {
   cartState
 } from '@core/store';
 
-import { MaterialModule } from '@shared/material/material.module';
+import { SharedModule } from '@shared/shared.module';
 import { CartComponent } from '@cart/cart.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    MaterialModule,
+    SharedModule,
     StoreModule.forFeature(cartState, cartReducers),
     EffectsModule.forFeature(cartEffects)
   ],

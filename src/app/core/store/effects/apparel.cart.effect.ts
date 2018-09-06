@@ -14,7 +14,7 @@ import {
 } from 'rxjs/operators';
 
 import { Apparel } from '@shop/shared/apparel.interface';
-import { CartService } from '@shared/services/cart.service';
+import { CartService } from '@core/services/cart.service';
 import {
   AddApparel,
   AddApparelFail,

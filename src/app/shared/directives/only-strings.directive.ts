@@ -9,8 +9,6 @@ import {
 })
 export class OnlyStringsDirective {
   private regex: RegExp = new RegExp(/^-?[a-zA-Z ]+(\.[a-zA-Z ]*){0,1}$/g);
-  // Allow key codes for special events. Reflect :
-  // Backspace, tab, end, home
   private specialKeys: Array<string> = ['Backspace', 'Tab', 'End', 'Home', '-'];
 
   constructor(private el: ElementRef) {

@@ -133,6 +133,6 @@ export function reducer(
   return state;
 }
 
+export const getUser = (state: UserState) => state.user;
 export const getUserLoading = (state: UserState) => state.loading;
 export const getUserLoaded = (state: UserState) => state.loaded;
-export const getUser = (state: UserState) => state.user;

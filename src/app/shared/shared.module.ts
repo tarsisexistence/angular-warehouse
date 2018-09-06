@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
-  FormsModule,
   ReactiveFormsModule
 } from '@angular/forms';
 
@@ -12,7 +11,6 @@ import { OnlyNumbersDirective } from '@shared/directives/only-numbers.directive'
 import { OnlyStringsDirective } from '@shared/directives/only-strings.directive';
 
 const sharedModules = [
-  FormsModule,
   ReactiveFormsModule,
   MaterialModule
 ];

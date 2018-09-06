@@ -9,7 +9,6 @@ import {
 import { HttpErrorResponse } from '@angular/common/http';
 import { NavigationError } from '@angular/router';
 
-// import * as StackTraceParser from 'error-stack-parser';
 
 @Injectable()
 export class ErrorService {

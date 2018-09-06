@@ -17,7 +17,7 @@ import {
 } from 'rxjs/operators';
 
 import { ApolloService } from '@apollo/services/apollo.service';
-import { AuthService } from '@auth/auth.service';
+import { AuthService } from '@auth/shared/services/auth.service';
 import {
   Access,
   CatchPhraseConfig,

@@ -12,7 +12,7 @@ import { takeUntil } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import * as fromStore from '@core/store';
 
-import { AuthComponent } from '@auth/auth.component';
+import { AuthComponent } from '@auth/containers/auth/auth.component';
 import { User } from '@auth/shared/interfaces/user.interface';
 
 @Component({

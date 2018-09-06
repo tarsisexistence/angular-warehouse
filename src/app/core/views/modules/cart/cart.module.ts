@@ -10,7 +10,7 @@ import {
 } from '@core/store';
 
 import { SharedModule } from '@shared/shared.module';
-import { CartComponent } from '@cart/cart.component';
+import { CartComponent } from '@cart/components/cart/cart.component';
 
 @NgModule({
   imports: [

@@ -15,7 +15,7 @@ import * as fromStore from '@core/store';
 import * as fromAuth from '@store/reducers';
 
 import { ApolloService } from '@apollo/services/apollo.service';
-import { CartComponent } from '@cart/cart.component';
+import { CartComponent } from '@cart/components/cart/cart.component';
 import { CartService } from '@core/services/cart.service';
 import { SharedModule } from '@shared/shared.module';
 

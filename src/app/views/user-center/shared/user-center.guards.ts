@@ -13,9 +13,9 @@ import {
   switchMap,
   catchError
 } from 'rxjs/operators';
-
 import * as fromStore from '@core/store';
-import { AuthService } from '@auth/auth.service';
+
+import { AuthService } from '@auth/shared/services/auth.service';
 
 @Injectable()
 export class UserCenterGuard implements CanActivate {

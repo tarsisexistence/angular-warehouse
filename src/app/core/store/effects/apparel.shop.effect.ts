@@ -22,7 +22,7 @@ import {
   LoadApparelSuccess
 } from '@store/actions/apparel.shop.action';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class ApparelEffect {
   @Effect()
   public loadApparels$ = this.actions$.pipe(

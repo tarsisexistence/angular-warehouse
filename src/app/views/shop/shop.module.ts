@@ -12,7 +12,6 @@ import {
 
 import { SharedModule } from '@shared/shared.module';
 import { shopRouting } from '@shop/shop.routes';
-import { ShopResolver } from '@shop/shared/shop.resolver';
 import { ShopComponent } from '@shop/containers/shop/shop.component';
 import { ShopBarComponent } from '@shop/components/shop-bar/shop-bar.component';
 import { ShopApparelsComponent } from '@shop/components/shop-apparels/shop-apparels.component';
@@ -32,9 +31,6 @@ import { ShopFooterComponent } from '@shop/components/shop-footer/shop-footer.co
     ShopBarComponent,
     ShopApparelsComponent,
     ShopFooterComponent
-  ],
-  providers: [
-    ShopResolver
   ]
 })
 export class ShopModule {

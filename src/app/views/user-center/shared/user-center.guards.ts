@@ -17,7 +17,7 @@ import * as fromStore from '@core/store';
 
 import { AuthService } from '@auth/shared/services/auth.service';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class UserCenterGuard implements CanActivate {
 
   constructor(
@@ -27,10 +27,10 @@ export class UserCenterGuard implements CanActivate {
   }
 
   public canActivate(): Observable<boolean> {
-    const checkStore = this.checkStore().pipe(
-        switchMap(() => of(true)),
-        catchError(() => of(false))
-    );
+    // const checkStore = this.checkStore().pipe(
+    //     switchMap(() => of(true)),
+    //     catchError(() => of(false))
+    // );
 
     return of(Boolean(this.authService.fetchStorageUser()));
   }
@@ -38,9 +38,11 @@ export class UserCenterGuard implements CanActivate {
   public checkStore(): Observable<boolean> {
     return this.store.select(fromStore.getShopApparelsLoaded).pipe(
         tap((loaded: boolean) => {
-          if (!loaded) {
-            this.store.dispatch(new fromStore.LoadApparel());
+          if (loaded) {
+            return;
           }
+
+          this.store.dispatch(new fromStore.LoadApparel());
         }),
         filter((loaded: boolean) => loaded),
         take(1)

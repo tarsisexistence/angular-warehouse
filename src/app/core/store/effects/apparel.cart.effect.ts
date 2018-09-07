@@ -28,7 +28,7 @@ import {
   RemoveApparelSuccess
 } from '@store/actions/apparel.cart.action';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class CartEffect {
 
   @Effect()

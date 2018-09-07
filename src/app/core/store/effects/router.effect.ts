@@ -14,7 +14,7 @@ import {
 
 import * as routerActions from '../actions/router.action';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class RouterEffect {
 
   @Effect({ dispatch: false })

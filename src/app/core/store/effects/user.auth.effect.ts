@@ -40,7 +40,7 @@ import {
 } from '@store/actions/user.auth.action';
 import { Go } from '@store/actions/router.action';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class UserEffect {
 
   @Effect()

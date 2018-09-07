@@ -1,9 +1,7 @@
 import express from 'express';
 import cors from 'cors';
-import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
-import { schema } from './src/schema';
-import { graphqlExpress, graphiqlExpress } from 'apollo-server-express';
+import { server } from './src/schema';
 
 const app = express();
 app.use(cors());
@@ -16,8 +14,8 @@ connection.once('open', () => {
   console.log('mongodb database connection established successfully');
 });
 
-app.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }));
+server.applyMiddleware({ app });
 
-app.use('/graphql', bodyParser.json(), graphqlExpress({ schema }));
-
-app.listen(4000, () => console.log('Express server running on port 4000'));
+app.listen({ port: 4000 }, () =>
+    console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`)
+);

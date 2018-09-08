@@ -1,9 +1,9 @@
-import { apparelModel } from '../model';
+import { apparelModel } from '../models';
 
 export const apparelResolver = {
   Query: {
-    allApparel: () => apparelModel.find(),
-    apparel: (root, { id }) => apparelModel.findOne({ id })
+    allApparel: async () => await apparelModel.find(),
+    apparel: async (root, { id }) => await apparelModel.findOne({ id })
     // allApparelForFuture: (root, { searchTerm }) => {
     //   return searchTerm === ''
     //       ? apparelModel.find()

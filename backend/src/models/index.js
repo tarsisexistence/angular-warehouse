@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
-import { apparelSchema } from './schemas/apparel.schema';
-import { orderSchema } from './schemas/order.schema';
-import { userSchema } from './schemas/user.schema';
+import { apparelSchema } from './apparel.schema';
+import { orderSchema } from './order.schema';
+import { userSchema } from './user.schema';
 
 export const apparelModel = mongoose.model('apparel', apparelSchema);
 export const orderModel = mongoose.model('order', orderSchema);

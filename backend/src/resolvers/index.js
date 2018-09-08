@@ -1,6 +1,6 @@
-import { apparelResolver } from './resolvers/apparel.resolver';
-import { orderResolver } from './resolvers/order.resolver';
-import { userResolver } from './resolvers/user.resolver';
+import { apparelResolver } from './apparel';
+import { orderResolver } from './order';
+import { userResolver } from './user';
 
 export const resolvers = {
   Query: Object.assign(

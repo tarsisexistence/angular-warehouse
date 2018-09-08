@@ -4,7 +4,6 @@ module.exports = {
   mode: 'none',
   entry: {
     test: './test.ts',
-    resolvers: './resolvers.js'
   },
   devtool: 'inline-source-map',
   module: {

@@ -1,23 +1,23 @@
-import { userModel } from '../model';
+import { userModel } from '../models';
 
 const crypto = require('crypto');
 
 export const userResolver = {
   Query: {
-    user: (root, { id }) => userModel.findOne({ id }),
-    signIn: (root, { email, password }) => userModel.findOne({ email, password: encryption(password) })
+    user: async (root, { id }) => await userModel.findOne({ id }),
+    signIn: async (root, { email, password }) => await userModel.findOne({ email, password: encryption(password) })
   },
   Mutation: {
-    signUp: (root, { email, password }) => {
+    signUp: async (root, { email, password }) => {
       const user = new userModel({
         email,
         password: encryption(password)
       });
 
-      return user.save();
+      return await user.save();
     },
-    setCatchPhrase: (root, { id, catchPhrase }) => {
-      return userModel.findOneAndUpdate({ id }, { catchPhrase });
+    setCatchPhrase: async (root, { id, catchPhrase }) => {
+      return await userModel.findOneAndUpdate({ id }, { catchPhrase });
     }
   }
 };

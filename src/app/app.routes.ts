@@ -28,6 +28,10 @@ export const routes: Routes = [
     path: 'cart',
     pathMatch: 'full',
     component: CartComponent
+  },
+  {
+    path: '**',
+    redirectTo: ''
   }
 ];
 

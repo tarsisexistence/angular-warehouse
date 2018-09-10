@@ -1,9 +1,5 @@
-import {
-  TestBed,
-  inject
-} from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 
-import { Apollo } from 'apollo-angular';
 import {
   ApolloTestingController,
   ApolloTestingModule
@@ -18,14 +14,14 @@ describe('ApolloService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [ApolloTestingModule],
-      providers: [Apollo, ApolloService]
+      imports: [ApolloTestingModule]
     });
 
     backend = TestBed.get(ApolloTestingController);
   });
 
-  it('should be created', inject([ApolloService], (service: ApolloService) => {
+  it('should be created', () => {
+    const service: ApolloService = TestBed.get(ApolloService);
     expect(service).toBeTruthy();
 
     it('should test getting all orders', (done) => {
@@ -47,5 +43,5 @@ describe('ApolloService', () => {
 
       backend.expectOne(allOrders).flush(data);
     });
-  }));
+  });
 });

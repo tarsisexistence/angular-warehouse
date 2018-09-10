@@ -6,7 +6,6 @@ import {
 import { MatIconModule } from '@angular/material';
 
 import { ShopApparelsComponent } from './shop-apparels.component';
-import { CartService } from '@core/services/cart.service';
 
 describe('ShopApparelsComponent', () => {
   let component: ShopApparelsComponent;
@@ -15,8 +14,7 @@ describe('ShopApparelsComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
           declarations: [ShopApparelsComponent],
-          imports: [MatIconModule],
-          providers: [CartService]
+          imports: [MatIconModule]
         })
         .compileComponents();
   }));

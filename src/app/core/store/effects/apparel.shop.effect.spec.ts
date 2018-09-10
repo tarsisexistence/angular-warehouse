@@ -2,7 +2,6 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 
 import { Actions } from '@ngrx/effects';
-import { Apollo } from 'apollo-angular';
 
 import {
   hot,
@@ -54,9 +53,6 @@ describe('ApparelShopEffects', () => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       providers: [
-        Apollo,
-        ApolloService,
-        fromEffects.ApparelEffect,
         {
           provide: Actions,
           useFactory: getActions

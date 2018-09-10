@@ -15,7 +15,6 @@ import {
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 import { PaymentComponent } from './payment.component';
-import { CartService } from '@core/services/cart.service';
 
 describe('PaymentComponent', () => {
   let component: PaymentComponent;
@@ -32,7 +31,6 @@ describe('PaymentComponent', () => {
             NoopAnimationsModule
           ],
           providers: [
-            CartService,
             {
               provide: MatDialogRef,
               useValue: {}

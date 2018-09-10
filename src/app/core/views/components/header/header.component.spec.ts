@@ -30,8 +30,7 @@ describe('HeaderComponent', () => {
         StoreModule.forRoot({
           auth: combineReducers(fromAuth.reducers)
         })
-      ],
-      providers: []
+      ]
     });
 
     fixture = TestBed.createComponent(HeaderComponent);

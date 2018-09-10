@@ -5,7 +5,6 @@ import {
 } from '@angular/core/testing';
 
 import { LocationMapComponent } from './location-map.component';
-import { MapService } from '@location/shared/map.service';
 
 describe('LocationMapComponent', () => {
   let component: LocationMapComponent;
@@ -13,8 +12,7 @@ describe('LocationMapComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-          declarations: [LocationMapComponent],
-          providers: [MapService]
+          declarations: [LocationMapComponent]
         })
         .compileComponents();
   }));

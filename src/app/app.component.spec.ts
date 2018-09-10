@@ -15,7 +15,6 @@ import * as fromAuth from '@store/reducers';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from '@core/views/components/header/header.component';
-import { AuthService } from '@auth/shared/services/auth.service';
 import { SharedModule } from '@shared/shared.module';
 
 // TODO: create shared testing module
@@ -36,8 +35,7 @@ describe('AppComponent', () => {
         StoreModule.forRoot({
           shop: combineReducers(fromAuth.reducers)
         })
-      ],
-      providers: [AuthService]
+      ]
     });
 
     fixture = TestBed.createComponent(AppComponent);

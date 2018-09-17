@@ -4,6 +4,7 @@ import {
   Optional,
   SkipSelf
 } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import {
@@ -36,6 +37,7 @@ import { CartModule } from '@cart/cart.module';
 import { HeaderComponent } from '@core/views/components/header/header.component';
 import { ServerErrorInterceptor } from '@core/interceptors/server-error.interceptor';
 import { ErrorHandlerInterceptor } from '@core/interceptors/error-handler.interceptor';
+import { ShopFooterComponent } from '@core/views/components/shop-footer/shop-footer.component';
 
 export const metaReducers: MetaReducer<any>[] = !environment.production
     ? [storeFreeze]
@@ -43,6 +45,7 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
 
 @NgModule({
   imports: [
+    BrowserAnimationsModule,
     CommonModule,
     RouterModule,
     HttpClientModule,
@@ -58,8 +61,8 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
       logOnly: !environment.production
     })
   ],
-  declarations: [HeaderComponent],
-  exports: [HeaderComponent],
+  declarations: [HeaderComponent, ShopFooterComponent],
+  exports: [HeaderComponent, ShopFooterComponent],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

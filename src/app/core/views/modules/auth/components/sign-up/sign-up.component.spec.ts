@@ -3,7 +3,7 @@ import {
   ComponentFixture,
   TestBed
 } from '@angular/core/testing';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { SharedModule } from '@shared/shared.module';
 import { SignUpComponent } from './sign-up.component';
@@ -16,7 +16,7 @@ describe('SignUpComponent', () => {
     TestBed.configureTestingModule({
           declarations: [SignUpComponent],
           imports: [
-            NoopAnimationsModule,
+            BrowserAnimationsModule,
             SharedModule
           ]
         })

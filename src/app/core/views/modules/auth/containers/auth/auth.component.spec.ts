@@ -3,7 +3,7 @@ import {
   ComponentFixture,
   TestBed
 } from '@angular/core/testing';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogRef } from '@angular/material';
 
 import {
@@ -32,7 +32,7 @@ describe('AuthComponent', () => {
         SignInComponent
       ],
       imports: [
-        NoopAnimationsModule,
+        BrowserAnimationsModule,
         SharedModule,
         StoreModule.forRoot({
           shop: combineReducers(fromAuth.reducers)

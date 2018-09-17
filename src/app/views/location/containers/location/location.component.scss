@@ -5,16 +5,21 @@
   justify-content: space-between;
 
   &__gmap {
-    margin-bottom: 30px;
+    margin-bottom: 40px;
   }
 
   &__navigation {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 80px;
 
-    & > div {
+    &-search, &-reignarr, &-current {
       width: 35%;
+    }
+
+    /deep/ & > .mat-form-field-wrapper {
+      width: 100%;
     }
 
     &-search {
@@ -22,22 +27,19 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
+      margin-bottom: 0;
+
+      &-input {
+        width: 60%;
+      }
+
+      &-button {
+        width: 38%;
+        height: 100%;
+      }
     }
 
-    &.search-input {
-      width: 60%;
-    }
-
-    /deep/ & > .mat-form-field-wrapper {
-      width: 100%;
-    }
-
-    .search-button {
-      width: 38%;
-      height: 100%;
-    }
-
-    .position-button {
+    &-position-button {
       width: 100%;
       margin: 5px 0;
     }

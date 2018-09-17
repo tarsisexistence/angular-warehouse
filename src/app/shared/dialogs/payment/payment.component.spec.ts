@@ -12,7 +12,7 @@ import {
   MatFormFieldModule,
   MatInputModule
 } from '@angular/material';
-import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { PaymentComponent } from './payment.component';
 
@@ -28,7 +28,7 @@ describe('PaymentComponent', () => {
             ReactiveFormsModule,
             MatFormFieldModule,
             MatInputModule,
-            NoopAnimationsModule
+            BrowserAnimationsModule
           ],
           providers: [
             {

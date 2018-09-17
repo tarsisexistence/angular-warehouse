@@ -12,11 +12,21 @@ import { AuthService } from '@auth/shared/services/auth.service';
 
 @Component({
   selector: 'app-root',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <core-header></core-header>
-    <router-outlet></router-outlet>
+    <div class="app__outlet">
+      <router-outlet></router-outlet>
+    </div>
+    <shop-footer></shop-footer>
   `,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styles: [
+      `
+          .app__outlet {
+              min-height: 90vh;
+          }
+    `
+  ]
 })
 export class AppComponent implements OnInit {
 

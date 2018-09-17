@@ -1,14 +1,12 @@
 import {
-  ChangeDetectionStrategy,
-  Component,
-  OnDestroy,
-  OnInit,
   AfterViewInit,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
   HostBinding,
-  ChangeDetectorRef
+  OnDestroy,
+  OnInit
 } from '@angular/core';
-
-import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 
 import {
@@ -22,37 +20,35 @@ import {
   pairwise,
   debounceTime
 } from 'rxjs/operators';
-import { Store } from '@ngrx/store';
-import * as fromStore from '@core/store';
 
-import { AuthComponent } from '@auth/containers/auth/auth.component';
-import { User } from '@auth/shared/interfaces/user.interface';
-import { headerAnimation } from '@core/shared/animations/header.animation';
+import { OrdersComponent } from '@shared/dialogs/orders/orders.component';
+import {
+  returnPolicy,
+  shippingHandling
+} from '@shared/constants/shop-rules.constants';
 import { Direction } from '@core/shared/enums/direction.enum';
 import { VisibilityState } from '@core/shared/enums/visibility-state.enum';
+import { footerAnimation } from '@app/core/shared/animations/footer.animation';
 
 @Component({
-  selector: 'core-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss'],
-  animations: [headerAnimation],
+  selector: 'shop-footer',
+  templateUrl: './shop-footer.component.html',
+  styleUrls: ['./shop-footer.component.scss'],
+  animations: [footerAnimation],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
-  private user: User;
+export class ShopFooterComponent implements AfterViewInit, OnInit, OnDestroy {
   private ngUnsubscribe: Subject<void> = new Subject<void>();
   private isVisible: boolean;
 
-  @HostBinding('@toggleHeader')
+  @HostBinding('@toggleFooter')
   get toggle(): VisibilityState {
     return this.isVisible ? VisibilityState.Visible : VisibilityState.Hidden;
   }
 
   constructor(
-      public router: Router,
       private cdr: ChangeDetectorRef,
-      private dialog: MatDialog,
-      private store: Store<fromStore.AuthState>
+      private dialog: MatDialog
   ) {
   }
 
@@ -72,11 +68,11 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
         .subscribe((direction: Direction) => {
           switch (direction) {
             case Direction.Up:
-              this.isVisible = true;
+              this.isVisible = false;
               this.cdr.markForCheck();
               break;
             case Direction.Down:
-              this.isVisible = false;
+              this.isVisible = true;
               this.cdr.markForCheck();
               break;
             default:
@@ -86,24 +82,23 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
   }
 
   public ngOnInit(): void {
-    this.isVisible = true;
-
-    this.store.select(fromStore.getUser)
-        .pipe(takeUntil(this.ngUnsubscribe))
-        .subscribe((user: User) => this.user = user);
+    this.isVisible = false;
   }
 
-  public auth(): void {
-    if (this.user && this.user.catchPhrase) {
-      this.router.navigate(['user-center', this.user.id]).catch((err: Error) => console.error(err));
-      return;
-    }
-
-    this.authPopUp();
+  public openShippingHandling(): void {
+    this.dialog.open(OrdersComponent, {
+      height: '500px',
+      width: '600px',
+      data: shippingHandling
+    });
   }
 
-  private authPopUp(): void {
-    this.dialog.open(AuthComponent, { width: '30%' });
+  public openReturnPolicy(): void {
+    this.dialog.open(OrdersComponent, {
+      height: '500px',
+      width: '600px',
+      data: returnPolicy
+    });
   }
 
   public ngOnDestroy(): void {

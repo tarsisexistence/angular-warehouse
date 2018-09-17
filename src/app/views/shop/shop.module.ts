@@ -15,7 +15,6 @@ import { shopRouting } from '@shop/shop.routes';
 import { ShopComponent } from '@shop/containers/shop/shop.component';
 import { ShopBarComponent } from '@shop/components/shop-bar/shop-bar.component';
 import { ShopApparelsComponent } from '@shop/components/shop-apparels/shop-apparels.component';
-import { ShopFooterComponent } from '@shop/components/shop-footer/shop-footer.component';
 
 @NgModule({
   imports: [
@@ -29,8 +28,7 @@ import { ShopFooterComponent } from '@shop/components/shop-footer/shop-footer.co
   declarations: [
     ShopComponent,
     ShopBarComponent,
-    ShopApparelsComponent,
-    ShopFooterComponent
+    ShopApparelsComponent
   ]
 })
 export class ShopModule {

@@ -5,11 +5,8 @@ import {
 } from '@angular/animations';
 import {
   ChangeDetectionStrategy,
-  Component,
-  HostBinding,
-  Input
+  Component
 } from '@angular/core';
-import { pulseAnimation } from '@shop/shared/animations/bubble.animation';
 
 @Component({
   selector: 'shop-cart-button',

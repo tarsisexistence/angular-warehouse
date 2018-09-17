@@ -9,14 +9,14 @@ export class Apparels {
   }
 
   get accessories(): Apparel[] {
-    return this.all.filter((apparel: Apparel) => apparel.type === ApparelType.accessory) || [];
+    return this.all.filter((apparel: Apparel) => apparel.type === ApparelType.accessory.toString()) || [];
   }
 
   get sneakers(): Apparel[] {
-    return this.all.filter((apparel: Apparel) => apparel.type === ApparelType.sneaker) || [];
+    return this.all.filter((apparel: Apparel) => apparel.type === ApparelType.sneaker.toString()) || [];
   }
 
   get 't-shirts'(): Apparel[] {
-    return this.all.filter((apparel: Apparel) => apparel.type === ApparelType.tshirt) || [];
+    return this.all.filter((apparel: Apparel) => apparel.type === ApparelType.tshirt.toString()) || [];
   }
 }

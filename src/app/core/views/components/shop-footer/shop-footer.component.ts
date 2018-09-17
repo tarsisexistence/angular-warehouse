@@ -28,20 +28,23 @@ import {
 } from '@shared/constants/shop-rules.constants';
 import { Direction } from '@core/shared/enums/direction.enum';
 import { VisibilityState } from '@core/shared/enums/visibility-state.enum';
-import { footerAnimation } from '@app/core/shared/animations/footer.animation';
+import { getToggleAnimation } from '@core/shared/animations/toggle.animation';
+
+const animationTrigger = 'toggleFooter';
+const animation = getToggleAnimation(animationTrigger);
 
 @Component({
   selector: 'shop-footer',
   templateUrl: './shop-footer.component.html',
   styleUrls: ['./shop-footer.component.scss'],
-  animations: [footerAnimation],
+  animations: [animation],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ShopFooterComponent implements AfterViewInit, OnInit, OnDestroy {
   private ngUnsubscribe: Subject<void> = new Subject<void>();
   private isVisible: boolean;
 
-  @HostBinding('@toggleFooter')
+  @HostBinding(`@${animationTrigger}`)
   get toggle(): VisibilityState {
     return this.isVisible ? VisibilityState.Visible : VisibilityState.Hidden;
   }

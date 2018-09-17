@@ -15,7 +15,7 @@ import * as fromStore from '@core/store';
 import { ApolloService } from '@apollo/services/apollo.service';
 import { CartService } from '@core/services/cart.service';
 import { PaymentComponent } from '@shared/dialogs/payment/payment.component';
-import { Apparel } from '@shop/shared/apparel.interface';
+import { Apparel } from '@shop/shared/interfaces/apparel.interface';
 import { Order } from '@shared/interfaces/order.interface';
 
 @Component({

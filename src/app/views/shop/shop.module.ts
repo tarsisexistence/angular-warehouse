@@ -15,6 +15,9 @@ import { shopRouting } from '@shop/shop.routes';
 import { ShopComponent } from '@shop/containers/shop/shop.component';
 import { ShopBarComponent } from '@shop/components/shop-bar/shop-bar.component';
 import { ShopApparelsComponent } from '@shop/components/shop-apparels/shop-apparels.component';
+import { ShopCartComponent } from '@shop/containers/shop-cart/shop-cart.component';
+import { ShopCartButtonComponent } from '@shop/components/shop-cart-button/shop-cart-button.component';
+import { ShopCartBubbleComponent } from '@shop/components/shop-cart-bubble/shop-cart-bubble.component';
 
 @NgModule({
   imports: [
@@ -28,7 +31,10 @@ import { ShopApparelsComponent } from '@shop/components/shop-apparels/shop-appar
   declarations: [
     ShopComponent,
     ShopBarComponent,
-    ShopApparelsComponent
+    ShopApparelsComponent,
+    ShopCartComponent,
+    ShopCartButtonComponent,
+    ShopCartBubbleComponent
   ]
 })
 export class ShopModule {

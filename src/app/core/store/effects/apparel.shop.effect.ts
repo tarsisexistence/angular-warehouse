@@ -14,7 +14,7 @@ import {
 } from 'rxjs/operators';
 
 import { ApolloService } from '@apollo/services/apollo.service';
-import { Apparel } from '@shop/shared/apparel.interface';
+import { Apparel } from '@shop/shared/interfaces/apparel.interface';
 import {
   ApparelShopActionTypes,
   LoadApparel,

@@ -1,5 +1,5 @@
-import { Apparel } from './apparel.interface';
-import { ApparelType } from '@shop/shared/apparel-type.enum';
+import { Apparel } from '@shop/shared/interfaces/apparel.interface';
+import { ApparelType } from '@shop/shared/enums/apparel-type.enum';
 
 export class Apparels {
   public all: Apparel[];

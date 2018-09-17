@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { Order } from '@shared/interfaces/order.interface';
-import { Apparel } from '@shop/shared/apparel.interface';
+import { Apparel } from '@shop/shared/interfaces/apparel.interface';
 import {
   Access,
   CatchPhraseConfig,

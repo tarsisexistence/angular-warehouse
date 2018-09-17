@@ -1,6 +1,6 @@
 import { Action } from '@ngrx/store';
 
-import { Apparel } from '@shop/shared/apparel.interface';
+import { Apparel } from '@shop/shared/interfaces/apparel.interface';
 
 export enum ApparelShopActionTypes {
   LoadApparel = '[Shop] Load Apparel',

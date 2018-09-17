@@ -12,9 +12,9 @@ import { takeUntil } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import * as fromStore from '@core/store';
 
-import { Apparel } from '@shop/shared/apparel.interface';
-import { Apparels } from '@shop/shared/apparels';
-import { categories } from '@shop/shared/apparels.constants';
+import { Apparel } from '@shop/shared/interfaces/apparel.interface';
+import { Apparels } from '@shop/shared/models/apparels.model';
+import { categories } from '@shop/shared/models/categories.model';
 
 @Component({
   selector: 'shop-feat',

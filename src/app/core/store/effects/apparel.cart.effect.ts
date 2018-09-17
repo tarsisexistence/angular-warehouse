@@ -13,7 +13,7 @@ import {
   finalize
 } from 'rxjs/operators';
 
-import { Apparel } from '@shop/shared/apparel.interface';
+import { Apparel } from '@shop/shared/interfaces/apparel.interface';
 import { CartService } from '@core/services/cart.service';
 import {
   AddApparel,

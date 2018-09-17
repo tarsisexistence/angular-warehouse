@@ -35,12 +35,12 @@ const animation = getToggleAnimation(animationTrigger);
 
 @Component({
   selector: 'shop-footer',
-  templateUrl: './shop-footer.component.html',
-  styleUrls: ['./shop-footer.component.scss'],
+  templateUrl: './footer.component.html',
+  styleUrls: ['./footer.component.scss'],
   animations: [animation],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ShopFooterComponent implements AfterViewInit, OnInit, OnDestroy {
+export class FooterComponent implements AfterViewInit, OnInit, OnDestroy {
   private ngUnsubscribe: Subject<void> = new Subject<void>();
   private isVisible: boolean;
 

@@ -5,28 +5,28 @@ import {
 } from '@angular/core/testing';
 import { MatDialogModule } from '@angular/material';
 
-import { ShopFooterComponent } from './shop-footer.component';
+import { FooterComponent } from './footer.component';
 
-describe('ShopFooterComponent', () => {
+describe('FooterComponent', () => {
 
-  let component: ShopFooterComponent;
-  let fixture: ComponentFixture<ShopFooterComponent>;
+  let component: FooterComponent;
+  let fixture: ComponentFixture<FooterComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-          declarations: [ShopFooterComponent],
+          declarations: [FooterComponent],
           imports: [MatDialogModule]
         })
         .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ShopFooterComponent);
+    fixture = TestBed.createComponent(FooterComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should init shop-footer component', () => {
+  it('should init footer component', () => {
     expect(component).toBeTruthy();
   });
 });

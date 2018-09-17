@@ -37,7 +37,7 @@ import { CartModule } from '@cart/cart.module';
 import { HeaderComponent } from '@core/views/components/header/header.component';
 import { ServerErrorInterceptor } from '@core/interceptors/server-error.interceptor';
 import { ErrorHandlerInterceptor } from '@core/interceptors/error-handler.interceptor';
-import { ShopFooterComponent } from '@core/views/components/shop-footer/shop-footer.component';
+import { FooterComponent } from '@core/views/components/footer/footer.component';
 
 export const metaReducers: MetaReducer<any>[] = !environment.production
     ? [storeFreeze]
@@ -61,8 +61,8 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
       logOnly: !environment.production
     })
   ],
-  declarations: [HeaderComponent, ShopFooterComponent],
-  exports: [HeaderComponent, ShopFooterComponent],
+  declarations: [HeaderComponent, FooterComponent],
+  exports: [HeaderComponent, FooterComponent],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

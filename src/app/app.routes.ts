@@ -4,8 +4,6 @@ import {
   Routes
 } from '@angular/router';
 
-import { CartComponent } from '@cart/components/cart/cart.component';
-
 export const routes: Routes = [
   {
     path: '',
@@ -26,8 +24,7 @@ export const routes: Routes = [
   },
   {
     path: 'cart',
-    pathMatch: 'full',
-    component: CartComponent
+    loadChildren: '@cart/cart.module#CartModule'
   },
   {
     path: '**',

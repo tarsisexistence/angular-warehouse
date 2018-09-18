@@ -33,7 +33,6 @@ import { environment } from '@env/environment';
 import { MyApolloModule } from '@apollo/apollo.module';
 import { SharedModule } from '@shared/shared.module';
 import { AuthModule } from '@auth/auth.module';
-import { CartModule } from '@cart/cart.module';
 import { HeaderComponent } from '@core/views/components/header/header.component';
 import { ServerErrorInterceptor } from '@core/interceptors/server-error.interceptor';
 import { ErrorHandlerInterceptor } from '@core/interceptors/error-handler.interceptor';
@@ -52,7 +51,6 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
     SharedModule,
     MyApolloModule,
     AuthModule,
-    CartModule,
     EffectsModule.forRoot(routerEffects),
     StoreModule.forRoot(reducers, { metaReducers }),
     StoreRouterConnectingModule,

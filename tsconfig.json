@@ -31,7 +31,7 @@
         "app/core/views/modules/auth/*"
       ],
       "@cart/*": [
-        "app/core/views/modules/cart/*"
+        "app/views/cart/*"
       ],
       "@core/*": [
         "app/core/*"

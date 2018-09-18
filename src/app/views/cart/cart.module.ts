@@ -11,17 +11,17 @@ import {
 
 import { SharedModule } from '@shared/shared.module';
 import { CartComponent } from '@cart/components/cart/cart.component';
+import { cartRouting } from '@cart/cart.routes';
 
 @NgModule({
   imports: [
     CommonModule,
+    cartRouting,
     SharedModule,
     StoreModule.forFeature(cartState, cartReducers),
     EffectsModule.forFeature(cartEffects)
   ],
-  declarations: [
-    CartComponent
-  ]
+  declarations: [CartComponent]
 })
 export class CartModule {
 }

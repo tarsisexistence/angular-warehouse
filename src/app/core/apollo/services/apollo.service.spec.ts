@@ -6,7 +6,7 @@ import {
 } from 'apollo-angular/testing';
 
 import { ApolloService } from '@apollo/services/apollo.service';
-import { Order } from '@shared/interfaces/order.interface';
+import { Order } from '@shared/../../shared/interfaces/order.interface';
 import { allOrders } from '@apollo/queries';
 
 describe('ApolloService', () => {

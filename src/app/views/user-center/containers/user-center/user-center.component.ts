@@ -10,7 +10,7 @@ import { takeUntil } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 import * as fromStore from '@core/store';
 
-import { User } from '@auth/shared/interfaces/user.interface';
+import { User } from '@auth/../../../../core/shared/interfaces/user.interface';
 
 @Component({
   selector: 'user-center-feat',

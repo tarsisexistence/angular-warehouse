@@ -16,7 +16,7 @@ import {
   Access,
   CatchPhraseConfig,
   User
-} from '@auth/shared/interfaces/user.interface';
+} from '@core/shared/interfaces/user.interface';
 
 @Component({
   selector: 'auth-feat',

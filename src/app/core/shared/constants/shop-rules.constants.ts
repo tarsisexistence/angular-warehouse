@@ -1,4 +1,4 @@
-import { ShopRules } from '@shared/interfaces/shop-rules.interface';
+import { ShopRules } from '@core/shared/interfaces/shop-rules.interface';
 
 export const returnPolicy: ShopRules = Object.freeze({
 	title: 'Return policy',

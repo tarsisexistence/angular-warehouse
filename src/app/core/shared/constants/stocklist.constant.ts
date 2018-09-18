@@ -1,4 +1,4 @@
-import { Stocklist } from '@shared/interfaces/stocklist.interface';
+import { Stocklist } from '@core/shared/interfaces/stocklist.interface';
 
 export const stocklist: Stocklist[] = [
 	{

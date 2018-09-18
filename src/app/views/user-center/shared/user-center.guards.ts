@@ -15,7 +15,7 @@ import {
 } from 'rxjs/operators';
 import * as fromStore from '@core/store';
 
-import { AuthService } from '@auth/shared/services/auth.service';
+import { AuthService } from '@core/services/auth.service';
 
 @Injectable({ providedIn: 'root' })
 export class UserCenterGuard implements CanActivate {

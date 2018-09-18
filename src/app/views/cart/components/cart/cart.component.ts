@@ -16,7 +16,7 @@ import { ApolloService } from '@apollo/services/apollo.service';
 import { CartService } from '@core/services/cart.service';
 import { PaymentComponent } from '@shared/dialogs/payment/payment.component';
 import { Apparel } from '@shop/shared/interfaces/apparel.interface';
-import { Order } from '@shared/interfaces/order.interface';
+import { Order } from '@core/shared/interfaces/order.interface';
 
 @Component({
   selector: 'cart-feat',

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { StorageUser } from '@auth/shared/interfaces/user.interface';
+import { StorageUser } from '@core/shared/interfaces/user.interface';
 
 const storageKey = 'cspr';
 

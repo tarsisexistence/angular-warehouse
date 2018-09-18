@@ -5,13 +5,13 @@ import { Apollo } from 'apollo-angular';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { Order } from '@shared/interfaces/order.interface';
+import { Order } from '@core/shared/interfaces/order.interface';
 import { Apparel } from '@shop/shared/interfaces/apparel.interface';
 import {
   Access,
   CatchPhraseConfig,
   User
-} from '@auth/shared/interfaces/user.interface';
+} from '@core/shared/interfaces/user.interface';
 import {
   allApparel,
   addOrder,

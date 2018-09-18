@@ -25,7 +25,7 @@ import { OrdersComponent } from '@shared/dialogs/orders/orders.component';
 import {
   returnPolicy,
   shippingHandling
-} from '@shared/constants/shop-rules.constants';
+} from '@core/shared/constants/shop-rules.constants';
 import { Direction } from '@core/shared/enums/direction.enum';
 import { VisibilityState } from '@core/shared/enums/visibility-state.enum';
 import { getToggleAnimation } from '@core/shared/animations/toggle.animation';

@@ -17,12 +17,12 @@ import {
 } from 'rxjs/operators';
 
 import { ApolloService } from '@apollo/services/apollo.service';
-import { AuthService } from '@auth/shared/services/auth.service';
+import { AuthService } from '@core/services/auth.service';
 import {
   Access,
   CatchPhraseConfig,
   User
-} from '@auth/shared/interfaces/user.interface';
+} from '@core/shared/interfaces/user.interface';
 import {
   AuthActionTypes,
   FetchUser,

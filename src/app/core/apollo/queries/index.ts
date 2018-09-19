@@ -1,4 +1,5 @@
 export { allApparel } from './apparel.query';
+
 export {
   addOrder,
   allOrders

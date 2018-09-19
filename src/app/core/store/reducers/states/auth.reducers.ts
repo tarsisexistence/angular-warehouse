@@ -2,8 +2,8 @@ import {
   createSelector,
   createFeatureSelector
 } from '@ngrx/store';
-import * as fromUserReducer from '../plain/user.auth.reducer';
-import { authState } from '../../states';
+import * as fromUserReducer from '+store/reducers/plain/user.auth.reducer';
+import { authState } from '+store/states';
 
 export interface AuthState {
   user: fromUserReducer.UserState

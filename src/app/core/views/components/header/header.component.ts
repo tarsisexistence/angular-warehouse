@@ -7,7 +7,6 @@ import {
   HostBinding,
   ChangeDetectorRef
 } from '@angular/core';
-
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 

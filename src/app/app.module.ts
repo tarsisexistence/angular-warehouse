@@ -4,9 +4,9 @@ import {
   BrowserTransferStateModule
 } from '@angular/platform-browser';
 
-import { appRouting } from '@app/app.routes';
-import { AppComponent } from '@app/app.component';
-import { CoreModule } from '@core/core.module';
+import { appRouting } from '!app/app.routes';
+import { AppComponent } from '!app/app.component';
+import { CoreModule } from '$core/core.module';
 
 @NgModule({
   imports: [

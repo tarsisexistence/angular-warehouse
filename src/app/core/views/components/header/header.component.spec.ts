@@ -10,10 +10,10 @@ import {
   Store,
   StoreModule
 } from '@ngrx/store';
-import * as fromStore from '@core/store';
-import * as fromAuth from '@core/store/reducers';
+import * as fromStore from '$core/store';
+import * as fromAuth from '$core/store/reducers';
 
-import { SharedModule } from '@shared/shared.module';
+import { SharedModule } from '#shared/shared.module';
 import { HeaderComponent } from './header.component';
 
 describe('HeaderComponent', () => {

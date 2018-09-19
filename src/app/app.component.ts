@@ -5,10 +5,10 @@ import {
 } from '@angular/core';
 
 import { Store } from '@ngrx/store';
-import * as fromStore from '@core/store';
 
-import { StorageUser } from '@core/shared/interfaces/user.interface';
-import { AuthService } from '@core/services/auth.service';
+import * as fromStore from '$core/store';
+import { StorageUser } from '$core/shared/interfaces/user.interface';
+import { AuthService } from '$core/services/auth.service';
 
 @Component({
   selector: 'app-root',

@@ -4,8 +4,8 @@ import {
   Routes
 } from '@angular/router';
 
-import { LocationComponent } from '@location/containers/location/location.component';
-import { LocationStocklistComponent } from '@location/components/location-stocklist/location-stocklist.component';
+import { LocationComponent } from '-location/containers/location/location.component';
+import { LocationStocklistComponent } from '-location/components/location-stocklist/location-stocklist.component';
 
 // TODO: make states as enum v's
 export const routes: Routes = [

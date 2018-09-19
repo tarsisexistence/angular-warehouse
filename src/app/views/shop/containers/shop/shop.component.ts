@@ -10,11 +10,11 @@ import { ActivatedRoute } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
-import * as fromStore from '@core/store';
+import * as fromStore from '$core/store';
 
-import { Apparel } from '@shop/shared/interfaces/apparel.interface';
-import { Apparels } from '@shop/shared/models/apparels.model';
-import { categories } from '@shop/shared/models/categories.model';
+import { Apparel } from '-shop/shared/interfaces/apparel.interface';
+import { Apparels } from '-shop/shared/models/apparels.model';
+import { categories } from '-shop/shared/models/categories.model';
 
 @Component({
   selector: 'shop-feat',

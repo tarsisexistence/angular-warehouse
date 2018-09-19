@@ -9,8 +9,8 @@ import {
 } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material';
 
-import { LocationComponent } from '@location/containers/location/location.component';
-import { LocationMapComponent } from '@location/components/location-map/location-map.component';
+import { LocationComponent } from '-location/containers/location/location.component';
+import { LocationMapComponent } from '-location/components/location-map/location-map.component';
 
 describe('LocationComponent', () => {
   let component: LocationComponent;

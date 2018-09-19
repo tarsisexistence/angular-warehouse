@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CanDeactivate } from '@angular/router';
 
-import { ShopModule } from '@shop/shop.module';
+import { ShopModule } from '-shop/shop.module';
 
 @Injectable({ providedIn: ShopModule })
 export class ShopGuard implements CanDeactivate<any> {

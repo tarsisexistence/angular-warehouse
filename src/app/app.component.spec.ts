@@ -10,12 +10,12 @@ import {
   Store,
   StoreModule
 } from '@ngrx/store';
-import * as fromStore from '@core/store';
-import * as fromAuth from '@store/reducers';
 
-import { AppComponent } from './app.component';
-import { HeaderComponent } from '@core/views/components/header/header.component';
-import { SharedModule } from '@shared/shared.module';
+import * as fromAuth from '+store/reducers';
+import * as fromStore from '$core/store';
+import { HeaderComponent } from '$core/views/components/header/header.component';
+import { AppComponent } from '!app/app.component';
+import { SharedModule } from '#shared/shared.module';
 
 // TODO: create shared testing module
 describe('AppComponent', () => {

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { Apparel } from '@shop/shared/interfaces/apparel.interface';
+import { Apparel } from '-shop/shared/interfaces/apparel.interface';
 
 const storageKey = 'cspcart';
 

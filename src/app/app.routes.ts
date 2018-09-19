@@ -7,24 +7,24 @@ import {
 export const routes: Routes = [
   {
     path: '',
-    loadChildren: '@home/home.module#HomeModule'
+    loadChildren: '-home/home.module#HomeModule'
   },
   {
     path: 'shop',
-    loadChildren: '@shop/shop.module#ShopModule',
+    loadChildren: '-shop/shop.module#ShopModule',
     runGuardsAndResolvers: 'paramsOrQueryParamsChange'
   },
   {
     path: 'location',
-    loadChildren: '@location/location.module#LocationModule'
+    loadChildren: '-location/location.module#LocationModule'
   },
   {
     path: 'user-center',
-    loadChildren: '@user-center/user-center.module#UserCenterModule'
+    loadChildren: '-user-center/user-center.module#UserCenterModule'
   },
   {
     path: 'cart',
-    loadChildren: '@cart/cart.module#CartModule'
+    loadChildren: '-cart/cart.module#CartModule'
   },
   {
     path: '**',

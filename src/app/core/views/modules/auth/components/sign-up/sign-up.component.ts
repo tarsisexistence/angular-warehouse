@@ -15,7 +15,7 @@ import {
 import {
   Access,
   User
-} from '@core/shared/interfaces/user.interface';
+} from '$core/shared/interfaces/user.interface';
 
 @Component({
   selector: 'auth-sign-up',

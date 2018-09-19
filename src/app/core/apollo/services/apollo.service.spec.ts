@@ -5,9 +5,9 @@ import {
   ApolloTestingModule
 } from 'apollo-angular/testing';
 
-import { ApolloService } from '@apollo/services/apollo.service';
-import { Order } from '@shared/../../shared/interfaces/order.interface';
-import { allOrders } from '@apollo/queries';
+import { allOrders } from '+apollo/queries';
+import { ApolloService } from '+apollo/services/apollo.service';
+import { Order } from '$core/shared/interfaces/order.interface';
 
 describe('ApolloService', () => {
   let backend: ApolloTestingController;

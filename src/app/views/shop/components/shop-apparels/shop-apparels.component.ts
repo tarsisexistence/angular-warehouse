@@ -6,7 +6,7 @@ import {
   EventEmitter
 } from '@angular/core';
 
-import { Apparel } from '@shop/shared/interfaces/apparel.interface';
+import { Apparel } from '-shop/shared/interfaces/apparel.interface';
 
 @Component({
   selector: 'shop-apparels',

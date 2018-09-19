@@ -4,7 +4,7 @@ import {
   Routes
 } from '@angular/router';
 
-import { HomeComponent } from '@home/containers/home/home.component';
+import { HomeComponent } from '-home/containers/home/home.component';
 
 export const routes: Routes = [
   {

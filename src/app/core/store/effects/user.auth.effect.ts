@@ -16,13 +16,13 @@ import {
   finalize
 } from 'rxjs/operators';
 
-import { ApolloService } from '@apollo/services/apollo.service';
-import { AuthService } from '@core/services/auth.service';
+import { ApolloService } from '+apollo/services/apollo.service';
+import { AuthService } from '$core/services/auth.service';
 import {
   Access,
   CatchPhraseConfig,
   User
-} from '@core/shared/interfaces/user.interface';
+} from '$core/shared/interfaces/user.interface';
 import {
   AuthActionTypes,
   FetchUser,
@@ -37,8 +37,8 @@ import {
   SignUpCatchPhraseSuccess,
   SignUpFailure,
   SignUpSuccess
-} from '@store/actions/user.auth.action';
-import { Go } from '@store/actions/router.action';
+} from '+store/actions/user.auth.action';
+import { Go } from '+store/actions/router.action';
 
 @Injectable({ providedIn: 'root' })
 export class UserEffect {

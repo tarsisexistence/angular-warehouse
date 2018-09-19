@@ -10,11 +10,11 @@ import {
   Store,
   StoreModule
 } from '@ngrx/store';
-import * as fromStore from '@core/store';
-import * as fromAuth from '@store/reducers';
 
-import { CartComponent } from '@cart/components/cart/cart.component';
-import { SharedModule } from '@shared/shared.module';
+import * as fromAuth from '+store/reducers';
+import * as fromStore from '$core/store';
+import { SharedModule } from '#shared/shared.module';
+import { CartComponent } from '-cart/components/cart/cart.component';
 
 describe('CartComponent', () => {
   let component: CartComponent;

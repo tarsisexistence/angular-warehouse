@@ -8,7 +8,7 @@ import {
   ChangeDetectionStrategy
 } from '@angular/core';
 
-import { MapService } from '@location/shared/map.service';
+import { MapService } from '-location/shared/map.service';
 
 @Component({
   selector: 'location-map',

@@ -23,14 +23,14 @@ import {
   debounceTime
 } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
-import * as fromStore from '@core/store';
 
-import { AuthComponent } from '@auth/containers/auth/auth.component';
-import { User } from '@auth/../../../shared/interfaces/user.interface';
-import { Direction } from '@core/shared/enums/direction.enum';
-import { VisibilityState } from '@core/shared/enums/visibility-state.enum';
+import * as fromStore from '$core/store';
+import { AuthComponent } from '$auth/containers/auth/auth.component';
+import { User } from '$core/shared/interfaces/user.interface';
+import { Direction } from '$core/shared/enums/direction.enum';
+import { VisibilityState } from '$core/shared/enums/visibility-state.enum';
+import { getToggleAnimation } from '$core/shared/animations/toggle.animation';
 
-import { getToggleAnimation } from '@core/shared/animations/toggle.animation';
 
 const animationTrigger = 'toggleHeader';
 const animation = getToggleAnimation(animationTrigger);

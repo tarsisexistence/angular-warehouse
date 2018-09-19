@@ -13,14 +13,14 @@ import {
   take
 } from 'rxjs/operators';
 
-import { ApolloService } from '@apollo/services/apollo.service';
-import { Apparel } from '@shop/shared/interfaces/apparel.interface';
+import { ApolloService } from '+apollo/services/apollo.service';
 import {
   ApparelShopActionTypes,
   LoadApparel,
   LoadApparelFail,
   LoadApparelSuccess
-} from '@store/actions/apparel.shop.action';
+} from '+store/actions/apparel.shop.action';
+import { Apparel } from '-shop/shared/interfaces/apparel.interface';
 
 @Injectable({ providedIn: 'root' })
 export class ApparelEffect {

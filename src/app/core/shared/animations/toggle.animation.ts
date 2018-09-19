@@ -6,7 +6,7 @@ import {
   trigger
 } from '@angular/animations';
 
-import { VisibilityState } from '@core/shared/enums/visibility-state.enum';
+import { VisibilityState } from '$core/shared/enums/visibility-state.enum';
 
 export const getToggleAnimation = (type: string) => {
   return (

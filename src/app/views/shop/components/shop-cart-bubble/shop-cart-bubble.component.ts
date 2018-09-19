@@ -14,7 +14,7 @@ import {
   pulseAnimation,
   slideInAnimation,
   slideOutAnimation
-} from '@shop/shared/animations/bubble.animation';
+} from '-shop/shared/animations/bubble.animation';
 
 @Component({
   selector: 'shop-cart-bubble',

@@ -7,11 +7,11 @@ import {
   cartReducers,
   cartEffects,
   cartState
-} from '@core/store';
+} from '$core/store';
 
-import { SharedModule } from '@shared/shared.module';
-import { CartComponent } from '@cart/components/cart/cart.component';
-import { cartRouting } from '@cart/cart.routes';
+import { SharedModule } from '#shared/shared.module';
+import { CartComponent } from '-cart/components/cart/cart.component';
+import { cartRouting } from '-cart/cart.routes';
 
 @NgModule({
   imports: [

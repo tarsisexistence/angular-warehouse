@@ -14,8 +14,8 @@ import {
 } from 'rxjs';
 
 import * as fromEffects from './apparel.shop.effect';
-import * as fromActions from '@store/actions/apparel.shop.action';
-import { ApolloService } from '@apollo/services/apollo.service';
+import * as fromActions from '+store/actions/apparel.shop.action';
+import { ApolloService } from '+apollo/services/apollo.service';
 
 export class ApparelShopTestActions extends Actions {
   constructor() {

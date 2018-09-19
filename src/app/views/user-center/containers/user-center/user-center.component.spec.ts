@@ -10,10 +10,10 @@ import {
   Store,
   StoreModule
 } from '@ngrx/store';
-import * as fromStore from '@core/store';
-import * as fromAuth from '@store/reducers';
 
-import { UserCenterComponent } from '@user-center/containers/user-center/user-center.component';
+import * as fromAuth from '+store/reducers';
+import * as fromStore from '$core/store';
+import { UserCenterComponent } from '-user-center/containers/user-center/user-center.component';
 
 describe('UserCenterComponent', () => {
   let component: UserCenterComponent;

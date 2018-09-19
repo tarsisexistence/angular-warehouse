@@ -10,13 +10,13 @@ import { MatDialog } from '@angular/material';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
-import * as fromStore from '@core/store';
+import * as fromStore from '$core/store';
 
-import { ApolloService } from '@apollo/services/apollo.service';
-import { CartService } from '@core/services/cart.service';
-import { PaymentComponent } from '@shared/dialogs/payment/payment.component';
-import { Apparel } from '@shop/shared/interfaces/apparel.interface';
-import { Order } from '@core/shared/interfaces/order.interface';
+import { PaymentComponent } from '#shared/dialogs/payment/payment.component';
+import { CartService } from '$core/services/cart.service';
+import { Order } from '$core/shared/interfaces/order.interface';
+import { ApolloService } from '+apollo/services/apollo.service';
+import { Apparel } from '-shop/shared/interfaces/apparel.interface';
 
 @Component({
   selector: 'cart-feat',

@@ -6,9 +6,9 @@ import {
   OnInit
 } from '@angular/core';
 
-import { GeocodingService } from '@location/shared/geocoding.service';
-import { GeolocationService } from '@location/shared/geolocation.service';
-import { MapService } from '@location/shared/map.service';
+import { GeocodingService } from '-location/shared/geocoding.service';
+import { GeolocationService } from '-location/shared/geolocation.service';
+import { MapService } from '-location/shared/map.service';
 
 @Component({
   selector: 'location-feat',

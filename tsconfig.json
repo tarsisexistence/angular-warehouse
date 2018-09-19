@@ -18,45 +18,53 @@
       "esnext.asynciterable"
     ],
     "paths": {
-      "@env/*": [
-        "environments/*"
-      ],
-      "@app/*": [
+      "!app/*": [
         "app/*"
       ],
-      "@apollo/*": [
-        "app/core/apollo/*"
+      "!env/*": [
+        "environments/*"
       ],
-      "@auth/*": [
-        "app/core/views/modules/auth/*"
-      ],
-      "@cart/*": [
-        "app/views/cart/*"
-      ],
-      "@core/*": [
-        "app/core/*"
-      ],
-      "@home/*": [
-        "app/views/home/*"
-      ],
-      "@shared/*": [
+      "#shared/*": [
         "app/shared/*"
       ],
-      "@shop/*": [
-        "app/views/shop/*"
+      "$auth/*": [
+        "app/core/views/modules/auth/*"
       ],
-      "@store/*": [
-        "app/core/store/*"
+      "$core/*": [
+        "app/core/*"
       ],
-      "@material/*": [
+      "+material/*": [
         "app/shared/material/*"
       ],
-      "@location/*": [
+      "+apollo/*": [
+        "app/core/apollo/*"
+      ],
+      "+store/*": [
+        "app/core/store/*"
+      ],
+      "-cart/*": [
+        "app/views/cart/*"
+      ],
+      "-home/*": [
+        "app/views/home/*"
+      ],
+      "-shop/*": [
+        "app/views/shop/*"
+      ],
+      "-location/*": [
         "app/views/location/*"
       ],
-      "@user-center/*": [
+      "-user-center/*": [
         "app/views/user-center/*"
       ]
     }
   }
 }
+
+// from core $
+// shared #
+// external  +
+// lazy -
+// cli boilerplate - !
+
+// @ and no-symbols paths are reserved for libraries from npm like @angular, @ngrx etc.

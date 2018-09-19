@@ -3,8 +3,8 @@ import {
   LoadApparel,
   LoadApparelFail,
   LoadApparelSuccess
-} from '@core/store';
-import { Apparel } from '@shop/shared/interfaces/apparel.interface';
+} from '$core/store';
+import { Apparel } from '-shop/shared/interfaces/apparel.interface';
 
 describe('ApparelShopReducer', () => {
   describe('undefined action', () => {

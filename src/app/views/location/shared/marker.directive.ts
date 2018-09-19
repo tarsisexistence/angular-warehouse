@@ -5,7 +5,7 @@ import {
   SimpleChange
 } from '@angular/core';
 
-import { MapService } from '@location/shared/map.service';
+import { MapService } from '-location/shared/map.service';
 
 @Directive({
   selector: '[googleMapMarker]'

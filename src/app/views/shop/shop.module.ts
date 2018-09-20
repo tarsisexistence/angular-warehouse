@@ -4,12 +4,12 @@ import { RouterModule } from '@angular/router';
 
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import {
-  shopReducers,
-  shopEffects,
-  shopState
-} from '$core/store';
 
+import {
+  States,
+  shopReducers,
+  shopEffects
+} from '$core/store';
 import { SharedModule } from '#shared/shared.module';
 import { shopRouting } from '-shop/shop.routes';
 import { ShopComponent } from '-shop/containers/shop/shop.component';
@@ -25,7 +25,7 @@ import { ShopCartBubbleComponent } from '-shop/components/shop-cart-bubble/shop-
     RouterModule,
     shopRouting,
     SharedModule,
-    StoreModule.forFeature(shopState, shopReducers),
+    StoreModule.forFeature(States.Shop, shopReducers),
     EffectsModule.forFeature(shopEffects)
   ],
   declarations: [

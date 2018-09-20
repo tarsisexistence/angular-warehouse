@@ -55,7 +55,7 @@ export class ShopComponent implements OnInit, OnDestroy {
           this.category = data.category === undefined ? 'all' : data.category;
         });
 
-    this.store.select(fromStore.getShopApparels)
+    this.store.select(fromStore.getShopApparel)
         .pipe(takeUntil(this.ngUnsubscribe))
         .subscribe((apparels: Apparel[]) => {
           this.apparels = new Apparels(apparels);

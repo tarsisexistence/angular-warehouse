@@ -36,7 +36,7 @@ export class UserCenterGuard implements CanActivate {
   }
 
   public checkStore(): Observable<boolean> {
-    return this.store.select(fromStore.getShopApparelsLoaded).pipe(
+    return this.store.select(fromStore.getShopApparelLoaded).pipe(
         tap((loaded: boolean) => {
           if (loaded) {
             return;

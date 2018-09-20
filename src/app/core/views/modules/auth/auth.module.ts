@@ -5,9 +5,9 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
 import {
+  States,
   authReducers,
-  authEffects,
-  authState
+  authEffects
 } from '$core/store';
 import { SharedModule } from '#shared/shared.module';
 import { SignUpComponent } from '$auth/components/sign-up/sign-up.component';
@@ -18,7 +18,7 @@ import { AuthComponent } from '$auth/containers/auth/auth.component';
   imports: [
     CommonModule,
     SharedModule,
-    StoreModule.forFeature(authState, authReducers),
+    StoreModule.forFeature(States.Auth, authReducers),
     EffectsModule.forFeature(authEffects)
   ],
   declarations: [

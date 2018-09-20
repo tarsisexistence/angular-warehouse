@@ -11,8 +11,8 @@ import {
   StoreModule
 } from '@ngrx/store';
 
+import * as fromStore from '+store/index';
 import * as fromAuth from '+store/reducers';
-import * as fromStore from '$core/store';
 import { HeaderComponent } from '$core/views/components/header/header.component';
 import { AppComponent } from '!app/app.component';
 import { SharedModule } from '#shared/shared.module';

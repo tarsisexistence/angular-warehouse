@@ -8,7 +8,7 @@ import {
   States,
   authReducers,
   authEffects
-} from '$core/store';
+} from '+store/index';
 import { SharedModule } from '#shared/shared.module';
 import { SignUpComponent } from '$auth/components/sign-up/sign-up.component';
 import { SignInComponent } from '$auth/components/sign-in/sign-in.component';

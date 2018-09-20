@@ -8,7 +8,7 @@ import {
   States,
   cartReducers,
   cartEffects
-} from '$core/store';
+} from '+store/index';
 import { SharedModule } from '#shared/shared.module';
 import { CartComponent } from '-cart/components/cart/cart.component';
 import { cartRouting } from '-cart/cart.routes';

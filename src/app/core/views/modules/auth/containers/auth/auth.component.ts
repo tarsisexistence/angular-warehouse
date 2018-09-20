@@ -11,7 +11,7 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 
-import * as fromStore from '$core/store';
+import * as fromStore from '+store/index';
 import {
   Access,
   CatchPhraseConfig,
@@ -63,7 +63,10 @@ export class AuthComponent implements OnInit, OnDestroy {
 
   public setCatchPhrase(catchPhrase: string): void {
     const { id } = this.user;
-    const config: CatchPhraseConfig = { id, catchPhrase };
+    const config: CatchPhraseConfig = {
+      id,
+      catchPhrase
+    };
     this.store.dispatch(new fromStore.SignUpCatchPhrase(config));
     this.dialogRef.close();
   }

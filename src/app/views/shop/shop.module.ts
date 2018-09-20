@@ -9,7 +9,7 @@ import {
   States,
   shopReducers,
   shopEffects
-} from '$core/store';
+} from '+store/index';
 import { SharedModule } from '#shared/shared.module';
 import { shopRouting } from '-shop/shop.routes';
 import { ShopComponent } from '-shop/containers/shop/shop.component';

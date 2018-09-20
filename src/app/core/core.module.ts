@@ -28,7 +28,7 @@ import {
   reducers,
   CustomSerializer
 } from '+store/selectors/router.selectors';
-import { routerEffects } from '$core/store';
+import { routerEffects } from '+store/index';
 import { environment } from '!env/environment';
 import { SharedModule } from '#shared/shared.module';
 import { MyApolloModule } from '+apollo/apollo.module';

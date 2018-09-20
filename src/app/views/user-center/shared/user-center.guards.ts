@@ -13,8 +13,8 @@ import {
   switchMap,
   catchError
 } from 'rxjs/operators';
-import * as fromStore from '$core/store';
 
+import * as fromStore from '+store/index';
 import { AuthService } from '$core/services/auth.service';
 
 @Injectable({ providedIn: 'root' })

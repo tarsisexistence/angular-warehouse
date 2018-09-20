@@ -10,8 +10,8 @@ import { MatDialog } from '@angular/material';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
-import * as fromStore from '$core/store';
 
+import * as fromStore from '+store/index';
 import { PaymentComponent } from '#shared/dialogs/payment/payment.component';
 import { CartService } from '$core/services/cart.service';
 import { Order } from '$core/shared/interfaces/order.interface';

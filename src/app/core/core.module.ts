@@ -27,7 +27,7 @@ import { storeFreeze } from 'ngrx-store-freeze';
 import {
   reducers,
   CustomSerializer
-} from '+store/reducers/states/router.reducers';
+} from '+store/selectors/router.selectors';
 import { routerEffects } from '$core/store';
 import { environment } from '!env/environment';
 import { SharedModule } from '#shared/shared.module';

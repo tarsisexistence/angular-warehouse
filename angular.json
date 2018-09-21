@@ -20,8 +20,8 @@
           "options": {
             "outputPath": "dist/concept-store-platform",
             "index": "src/index.html",
-            "main": "src/main.ts",
-            "polyfills": "src/polyfills.ts",
+            "main": "src/main/main.ts",
+            "polyfills": "src/helpers/polyfills.ts",
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
@@ -94,10 +94,10 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "src/test.ts",
-            "polyfills": "src/polyfills.ts",
+            "main": "src/test/test.ts",
+            "polyfills": "src/helpers/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
-            "karmaConfig": "src/karma.conf.js",
+            "karmaConfig": "src/test/karma.conf.js",
             "styles": [
               "styles.scss"
             ],

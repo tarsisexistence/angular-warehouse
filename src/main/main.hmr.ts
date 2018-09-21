@@ -3,7 +3,8 @@ import {
   ApplicationRef
 } from '@angular/core';
 import { createNewHosts } from '@angularclass/hmr';
-import { setupNgProfiler } from './profiler';
+
+import { setupNgProfiler } from '!helpers/profiler';
 
 export const hmrBootstrap = (
     module: any,

@@ -7,8 +7,8 @@ import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { AppModule } from '!app/app.module';
 import { environment } from '!env/environment';
-import { hmrBootstrap } from './main.hmr';
-import { setupNgProfiler } from './profiler';
+import { hmrBootstrap } from '!main/main.hmr';
+import { setupNgProfiler } from '!helpers/profiler';
 
 if (environment.production) {
   window.console.log = () => {

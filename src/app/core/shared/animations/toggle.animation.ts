@@ -8,7 +8,7 @@ import {
 
 import { VisibilityState } from '$core/shared/enums/visibility-state.enum';
 
-export const getToggleAnimation = (type: string) => {
+export function getToggleAnimation(type: string): any {
   return (
       trigger(type, [
         state(

@@ -21,8 +21,20 @@
       "!app/*": [
         "app/*"
       ],
+      "!assets/*": [
+        "assets/*"
+      ],
       "!env/*": [
         "environments/*"
+      ],
+      "!helpers/*": [
+        "helpers/*"
+      ],
+      "!main/*": [
+        "main/*"
+      ],
+      "!test/*": [
+        "test/*"
       ],
       "#shared/*": [
         "app/shared/*"

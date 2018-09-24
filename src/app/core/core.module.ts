@@ -37,6 +37,7 @@ import { HeaderComponent } from '$core/views/components/header/header.component'
 import { ServerErrorInterceptor } from '$core/interceptors/server-error.interceptor';
 import { ErrorHandlerInterceptor } from '$core/interceptors/error-handler.interceptor';
 import { FooterComponent } from '$core/views/components/footer/footer.component';
+import { CartModule } from '$cart/cart.module';
 
 export const metaReducers: MetaReducer<any>[] = !environment.production
     ? [storeFreeze]
@@ -48,19 +49,26 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
     CommonModule,
     RouterModule,
     HttpClientModule,
-    SharedModule,
-    MyApolloModule,
-    AuthModule,
     EffectsModule.forRoot(routerEffects),
     StoreModule.forRoot(reducers, { metaReducers }),
     StoreRouterConnectingModule,
     StoreDevtoolsModule.instrument({
       name: 'concept store platform',
       logOnly: !environment.production
-    })
+    }),
+    MyApolloModule,
+    SharedModule,
+    AuthModule,
+    CartModule
   ],
-  declarations: [HeaderComponent, FooterComponent],
-  exports: [HeaderComponent, FooterComponent],
+  declarations: [
+    HeaderComponent,
+    FooterComponent
+  ],
+  exports: [
+    HeaderComponent,
+    FooterComponent
+  ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

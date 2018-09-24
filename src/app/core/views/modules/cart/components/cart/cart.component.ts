@@ -62,18 +62,19 @@ export class CartComponent implements OnInit, OnDestroy {
       data: subtotal
     });
 
-    dialogRef.afterClosed().subscribe((order: Order) => {
-      if (!order) {
-        return;
-      }
+    dialogRef.afterClosed()
+        .subscribe((order: Order) => {
+          if (!order) {
+            return;
+          }
 
-      this.apolloService.addOrder(order)
-          .subscribe(() => {
-            alert('Your order is confirmed. We will contact you soon');
-            this.cartService.emptyCart();
-            this.router.navigate(['']);
-          });
-    });
+          this.apolloService.addOrder(order)
+              .subscribe(() => {
+                alert('Your order is confirmed. We will contact you soon');
+                this.cartService.emptyCart();
+                this.router.navigate(['']);
+              });
+        });
   }
 
   public identify(index: number, apparel: Apparel): string {

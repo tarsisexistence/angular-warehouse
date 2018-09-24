@@ -5,6 +5,7 @@
 
   <hr class="cart__line">
 
+  <!--TODO: create smart and dumb components-->
   <ng-container *ngIf="cartApparels && cartApparels.length > 0; else empty">
 
     <ng-container *ngFor="let apparel of cartApparels; trackBy:identify">
@@ -18,14 +19,16 @@
           </span>
 
           <a (click)="removeCartApparel(apparel.id)">
-            <mat-icon class="icon">delete</mat-icon>
+            <mat-icon class="icon">
+              delete
+            </mat-icon>
           </a>
         </div>
       </div>
     </ng-container>
 
     <p class="cart__subtotal">
-      Subtotal: {{subtotal.toFixed(2)}} $
+      Subtotal: {{ subtotal | currency }}
     </p>
 
     <button class="cart__checkout"
@@ -36,6 +39,8 @@
   </ng-container>
 
   <ng-template #empty>
-    <span class="cart__empty">YOU HAVE NOTHING IN YOUR SHOPPING CART. CONTINUE SHOPPING</span>
+    <span class="cart__empty">
+      YOU HAVE NOTHING IN YOUR SHOPPING CART. CONTINUE SHOPPING
+    </span>
   </ng-template>
 </div>

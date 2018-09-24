@@ -36,8 +36,9 @@ describe('ApolloService', () => {
           ]
         }
       };
-      service.getAllOrders().subscribe((result: Order[]) => {
-        expect(result).toEqual(data);
+      service.getAllOrders().subscribe((result: any) => {
+        expect(result).toEqual(data)
+            .catch((err: Error) => console.error(err));
         done();
       });
 

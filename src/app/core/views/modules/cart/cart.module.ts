@@ -10,13 +10,11 @@ import {
   cartEffects
 } from '+store/index';
 import { SharedModule } from '#shared/shared.module';
-import { CartComponent } from '-cart/components/cart/cart.component';
-import { cartRouting } from '-cart/cart.routes';
+import { CartComponent } from '$cart/components/cart/cart.component';
 
 @NgModule({
   imports: [
     CommonModule,
-    cartRouting,
     SharedModule,
     StoreModule.forFeature(States.Cart, cartReducers),
     EffectsModule.forFeature(cartEffects)

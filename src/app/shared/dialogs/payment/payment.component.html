@@ -39,8 +39,7 @@
   </form>
 
   <p class="payment__information">
-    <!--TODO: pipe -->
-    Total payment: {{ subtotal.toFixed(2) }}$
+    Total payment: {{ subtotal | currency }}
   </p>
 </div>
 

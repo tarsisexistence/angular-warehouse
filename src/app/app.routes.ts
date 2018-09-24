@@ -4,7 +4,7 @@ import {
   Routes
 } from '@angular/router';
 
-import { CartComponent } from '$cart/components/cart/cart.component';
+import { CartComponent } from '$cart/containers/cart/cart.component';
 
 export const routes: Routes = [
   {

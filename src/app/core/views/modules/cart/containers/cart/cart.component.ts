@@ -57,11 +57,11 @@ export class CartComponent implements OnInit, OnDestroy {
     this.store.dispatch(new fromStore.RemoveApparel(id));
   }
 
-  public checkout(subtotal: number): void {
+  public checkout(): void {
     const dialogRef = this.dialog.open(PaymentComponent, {
       height: '500px',
       width: '600px',
-      data: subtotal
+      data: this.subtotal
     });
 
     dialogRef.afterClosed()

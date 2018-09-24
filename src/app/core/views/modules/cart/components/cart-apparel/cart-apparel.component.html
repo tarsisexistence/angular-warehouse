@@ -1,0 +1,18 @@
+<div class="apparel">
+  <p>
+    {{ apparel.title }}
+  </p>
+
+  <div>
+    <span>
+      {{ apparel.price }}$
+    </span>
+
+    <a class="apparel__delete"
+       (click)="removeCartApparel(apparel.id)">
+      <mat-icon class="icon">
+        delete
+      </mat-icon>
+    </a>
+  </div>
+</div>

@@ -5,26 +5,12 @@
 
   <hr class="cart__line">
 
-  <!--TODO: create smart and dumb components-->
   <ng-container *ngIf="cartApparels && cartApparels.length > 0; else empty">
 
     <ng-container *ngFor="let apparel of cartApparels; trackBy:identify">
-      <div class="cart__apparel">
-        <p>
-          {{ apparel.title }}
-        </p>
-        <div>
-          <span>
-            {{ apparel.price }}$
-          </span>
-
-          <a (click)="removeCartApparel(apparel.id)">
-            <mat-icon class="icon">
-              delete
-            </mat-icon>
-          </a>
-        </div>
-      </div>
+      <cart-apparel [apparel]="apparel"
+                    (removeCartApparelEmitter)="removeCartApparel($event)">
+      </cart-apparel>
     </ng-container>
 
     <p class="cart__subtotal">
@@ -36,6 +22,7 @@
             (click)="checkout(subtotal)">
       Checkout
     </button>
+
   </ng-container>
 
   <ng-template #empty>

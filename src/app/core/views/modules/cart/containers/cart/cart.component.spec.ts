@@ -14,7 +14,7 @@ import {
 import * as fromStore from '+store/index';
 import * as fromAuth from '+store/reducers';
 import { SharedModule } from '#shared/shared.module';
-import { CartComponent } from '$cart/components/cart/cart.component';
+import { CartComponent } from '$cart/containers/cart/cart.component';
 
 describe('CartComponent', () => {
   let component: CartComponent;

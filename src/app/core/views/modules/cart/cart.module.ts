@@ -10,7 +10,8 @@ import {
   cartEffects
 } from '+store/index';
 import { SharedModule } from '#shared/shared.module';
-import { CartComponent } from '$cart/components/cart/cart.component';
+import { CartComponent } from '$cart/containers/cart/cart.component';
+import { CartApparelComponent } from '$cart/components/cart-apparel/cart-apparel.component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,10 @@ import { CartComponent } from '$cart/components/cart/cart.component';
     StoreModule.forFeature(States.Cart, cartReducers),
     EffectsModule.forFeature(cartEffects)
   ],
-  declarations: [CartComponent]
+  declarations: [
+    CartComponent,
+    CartApparelComponent
+  ]
 })
 export class CartModule {
 }

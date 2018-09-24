@@ -16,7 +16,6 @@ import { AppComponent } from '!app/app.component';
 import { SharedTestingModule } from '#shared/shared.testing.module';
 import { HeaderComponent } from '$core/views/components/header/header.component';
 
-// TODO: create shared testing module
 describe('AppComponent', () => {
   let component: AppComponent;
   let fixture: ComponentFixture<AppComponent>;

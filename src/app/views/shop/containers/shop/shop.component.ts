@@ -5,7 +5,11 @@ import {
   ChangeDetectorRef,
   ChangeDetectionStrategy
 } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {
+  ActivatedRoute,
+  NavigationEnd,
+  Router
+} from '@angular/router';
 
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -30,22 +34,16 @@ export class ShopComponent implements OnInit, OnDestroy {
   private ngUnsubscribe: Subject<boolean>;
 
   constructor(
-      private route: ActivatedRoute,
       private cdr: ChangeDetectorRef,
+      private route: ActivatedRoute,
+      private router: Router,
       private store: Store<fromStore.ShopState>
   ) {
   }
 
   public ngOnInit(): void {
-    // TODO: find application
-    // this.router.events
-    //     .pipe(takeUntil(this.ngUnsubscribe))
-    //     .subscribe((e: any) => {
-    //       if (e instanceof NavigationEnd) {
-    //         console.log('data');
-    //       }
-    //     });
     this.ngUnsubscribe = new Subject<boolean>();
+
     this.categories = categories;
 
     this.route.data
@@ -55,6 +53,7 @@ export class ShopComponent implements OnInit, OnDestroy {
           this.category = data.category === undefined ? 'all' : data.category;
         });
 
+    this.store.dispatch(new fromStore.LoadApparel());
     this.store.select(fromStore.getShopApparel)
         .pipe(takeUntil(this.ngUnsubscribe))
         .subscribe((apparels: Apparel[]) => {
@@ -67,7 +66,14 @@ export class ShopComponent implements OnInit, OnDestroy {
           this.loading = false;
           this.cdr.markForCheck();
         });
-    this.store.dispatch(new fromStore.LoadApparel());
+
+    this.router.events
+        .pipe(takeUntil(this.ngUnsubscribe))
+        .subscribe((e: any) => {
+          if (e instanceof NavigationEnd) {
+            // TODO: mix apparel array
+          }
+        });
   }
 
   public addToCart(apparel: Apparel): void {

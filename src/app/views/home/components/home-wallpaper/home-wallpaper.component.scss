@@ -1,0 +1,17 @@
+.wallpaper {
+  height: 105vh;
+
+  &__media {
+    display: block;
+    width: 100%;
+    height: 110vh;
+    object-fit: cover;
+
+    overflow: hidden;
+  }
+
+  &__image {
+    width: 100%;
+    height: 110vh;
+  }
+}

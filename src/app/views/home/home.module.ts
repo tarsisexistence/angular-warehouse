@@ -3,7 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { homeRouting } from '-home/home.routes';
 import { HomeComponent } from '-home/containers/home/home.component';
-import { HomeEntranceComponent } from '-home/components/home-entrance/home-entrance.component';
+import { HomeWallpaperComponent } from '-home/components/home-wallpaper/home-wallpaper.component';
+import { HomeActionComponent } from '-home/components/home-action/home-action.component';
 
 @NgModule({
   imports: [
@@ -12,11 +13,8 @@ import { HomeEntranceComponent } from '-home/components/home-entrance/home-entra
   ],
   declarations: [
     HomeComponent,
-    HomeEntranceComponent
-  ],
-  exports: [
-    HomeComponent,
-    HomeEntranceComponent
+    HomeWallpaperComponent,
+    HomeActionComponent
   ]
 })
 export class HomeModule {

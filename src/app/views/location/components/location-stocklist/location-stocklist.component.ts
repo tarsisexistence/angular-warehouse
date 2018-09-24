@@ -3,6 +3,7 @@ import {
   Component,
   OnInit
 } from '@angular/core';
+
 import { Stocklist } from '$core/shared/interfaces/stocklist.interface';
 import { stocklist } from '$core/shared/constants/stocklist.constant';
 
@@ -19,7 +20,7 @@ export class LocationStocklistComponent implements OnInit {
     this.stocklist = stocklist;
   }
 
-  public identify(index: number, item: any): number {
+  public identify(index: number): number {
     return index;
   }
 }

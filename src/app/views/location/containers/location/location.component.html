@@ -1,12 +1,14 @@
 <main class="location">
   <!--these properties are required: center, zoom-->
-  <location-map [center]="center"
-                       [zoom]="zoom"
-                       [disableDefaultUI]="disableDefaultUI"
-                       [disableDoubleClickZoom]="disableDoubleClickZoom"
-                       [mapTypeId]="mapTypeId"
-                       [maxZoom]="maxZoom" [minZoom]="minZoom" [styles]="styles"
-                       class="location__gmap">
+  <location-map class="location__gmap"
+                [center]="center"
+                [zoom]="zoom"
+                [disableDefaultUI]="disableDefaultUI"
+                [disableDoubleClickZoom]="disableDoubleClickZoom"
+                [mapTypeId]="mapTypeId"
+                [maxZoom]="maxZoom"
+                [minZoom]="minZoom"
+                [styles]="styles">
     <!--this property is required: position-->
     <div googleMapMarker
          [position]="position"
@@ -18,34 +20,51 @@
   <div class="location__navigation">
     <div class="location__navigation-search">
       <mat-form-field class="location__navigation-search-input">
-        <input matInput placeholder="Address" id="input-search" [(ngModel)]="address"
-               (keyup.enter)="search(address)">
+        <input matInput
+               placeholder="Address"
+               id="input-search"
+               [(ngModel)]="address"
+               (keyup.enter)="search(address)"/>
       </mat-form-field>
 
-      <button class="location__navigation-search-button" mat-raised-button color="primary" (click)="search(address)">
+      <button class="location__navigation-search-button"
+              mat-raised-button
+              color="primary"
+              (click)="search(address)">
         Search
       </button>
     </div>
     <div class="location__navigation-reignarr">
-      <button class="location__navigation-position-button" mat-raised-button color="primary" (click)="storeLocation()">
+      <button class="location__navigation-position-button"
+              mat-raised-button
+              color="primary"
+              (click)="storeLocation()">
         REIGNARR
       </button>
     </div>
     <div class="location__navigation-current">
-      <button class="location__navigation-position-button" mat-raised-button color="primary"
+      <button class="location__navigation-position-button"
+              mat-raised-button
+              color="primary"
               (click)="getCurrentPosition()">
         Current place
       </button>
     </div>
-
   </div>
 
 
-  <div class="alert alert-warning alert-dismissible" role="alert" *ngIf="warning">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  <div *ngIf="warning"
+       class="alert alert-warning alert-dismissible"
+       role="alert">
+    <button class="close" type="button" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
+
     <strong>Warning!</strong>
-    {{ message }}
+
+    <span>
+      {{ message }}
+    </span>
   </div>
+
 </main>

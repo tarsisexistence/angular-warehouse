@@ -13,9 +13,9 @@ import {
 
 import * as fromStore from '+store/index';
 import * as fromAuth from '+store/reducers';
-import { HeaderComponent } from '$core/views/components/header/header.component';
 import { AppComponent } from '!app/app.component';
 import { SharedModule } from '#shared/shared.module';
+import { HeaderComponent } from '$core/views/components/header/header.component';
 
 // TODO: create shared testing module
 describe('AppComponent', () => {

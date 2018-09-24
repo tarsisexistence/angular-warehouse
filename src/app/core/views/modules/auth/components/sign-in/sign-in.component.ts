@@ -27,12 +27,9 @@ export class SignInComponent implements OnInit {
   public signInForm: FormGroup;
   public detailForm: FormGroup;
 
-  @Input()
-  public user: User;
-  @Output()
-  public signInEmitter: EventEmitter<Access> = new EventEmitter<Access>();
-  @Output()
-  public toggleAuthMethodEmitter: EventEmitter<void> = new EventEmitter<void>();
+  @Input() public user: User;
+  @Output() public signInEmitter: EventEmitter<Access> = new EventEmitter<Access>();
+  @Output() public toggleAuthMethodEmitter: EventEmitter<void> = new EventEmitter<void>();
 
   constructor(private fb: FormBuilder) {
   }

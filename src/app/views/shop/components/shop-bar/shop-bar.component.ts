@@ -13,7 +13,7 @@ import {
 export class ShopBarComponent {
   @Input() public categories: string[];
 
-  public identify(index: number, category: string): number {
+  public identify(index: number): number {
     return index;
   }
 }

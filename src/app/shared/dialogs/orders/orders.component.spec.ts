@@ -3,9 +3,9 @@ import {
   ComponentFixture,
   TestBed
 } from '@angular/core/testing';
+import { MAT_DIALOG_DATA } from '@angular/material';
 
 import { OrdersComponent } from './orders.component';
-import { MAT_DIALOG_DATA } from '@angular/material';
 
 describe('OrdersComponent', () => {
   let component: OrdersComponent;

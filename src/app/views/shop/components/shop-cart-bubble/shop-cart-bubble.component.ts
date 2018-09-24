@@ -22,6 +22,7 @@ import {
   styleUrls: ['./shop-cart-bubble.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [
+      // TODO: refactor this
     trigger('visibilityChange', [
       transition(':enter', [
         useAnimation(slideInAnimation, {

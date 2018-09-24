@@ -1,16 +1,26 @@
 <div class="sign-in">
-  <p class="sign-in__title">Sign in to use more</p>
+  <p class="sign-in__title">
+    Sign in to use more
+  </p>
 
 
-  <form class="sign-in__form" [formGroup]="signInForm" (ngSubmit)="signIn(signInForm)">
+  <form class="sign-in__form"
+        [formGroup]="signInForm"
+        (ngSubmit)="signIn(signInForm)">
     <mat-form-field>
-      <input matInput placeholder="E-Mail" type="email" formControlName="email">
+      <input matInput
+             placeholder="E-Mail"
+             type="email"
+             formControlName="email"/>
     </mat-form-field>
 
     <!--<p *ngIf="signInForm.value.email.invalid && signInForm.value.email.dirty">Your email doesn't look quite right...</p>-->
 
     <mat-form-field>
-      <input matInput placeholder="Password" type="password" formControlName="password">
+      <input matInput
+             placeholder="Password"
+             type="password"
+             formControlName="password"/>
     </mat-form-field>
 
     <!--<p *ngIf="signInForm.value.password.invalid && signInForm.value.password.touched">-->
@@ -21,11 +31,15 @@
     <!--Form looks good! Let's do this.-->
     <!--</p>-->
 
-    <button class="sign-in__submit" mat-raised-button>
+    <button class="sign-in__submit"
+            mat-raised-button>
       Sign in
     </button>
   </form>
 
-  <a class="sign-in__sign-up-link" (click)="toggleAuthMethod()">I am new at Reignarr</a>
+  <a class="sign-in__sign-up-link"
+     (click)="toggleAuthMethod()">
+    I am new at Reignarr
+  </a>
 </div>
 

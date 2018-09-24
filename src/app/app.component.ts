@@ -7,8 +7,8 @@ import {
 import { Store } from '@ngrx/store';
 
 import * as fromStore from '+store/index';
-import { StorageUser } from '$core/shared/interfaces/user.interface';
 import { AuthService } from '$core/services/auth.service';
+import { StorageUser } from '$core/shared/interfaces/user.interface';
 
 @Component({
   selector: 'app-root',

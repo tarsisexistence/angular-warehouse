@@ -46,7 +46,7 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
   private isVisible: boolean;
 
   @HostBinding(`@${animationTrigger}`)
-  get toggle(): VisibilityState {
+  public get toggle(): VisibilityState {
     return this.isVisible ? VisibilityState.Visible : VisibilityState.Hidden;
   }
 
@@ -59,6 +59,7 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
   }
 
   public ngAfterViewInit(): void {
+    // TODO: refactor
     const scroll$ = fromEvent(window, 'scroll').pipe(
         takeUntil(this.ngUnsubscribe),
         debounceTime(5),
@@ -97,7 +98,8 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
 
   public auth(): void {
     if (this.user && this.user.catchPhrase) {
-      this.router.navigate(['user-center', this.user.id]).catch((err: Error) => console.error(err));
+      this.router.navigate(['user-center', this.user.id])
+          .catch((err: Error) => console.error(err));
       return;
     }
 

@@ -30,7 +30,7 @@ export class PaymentComponent implements OnInit {
   constructor(
       private fb: FormBuilder,
       private dialogRef: MatDialogRef<PaymentComponent>,
-      @Inject(MAT_DIALOG_DATA) public data: subtotal
+      @Inject(MAT_DIALOG_DATA) public subtotal: subtotal
   ) {
   }
 

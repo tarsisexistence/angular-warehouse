@@ -1,11 +1,14 @@
 <div class="stocklist">
   <ng-container *ngFor="let stock of stocklist; trackBy: identify">
     <div class="stocklist__country">
-      <p class="stocklist__country-name">{{stock.country }}</p>
+      <p class="stocklist__country-name">
+        {{stock.country }}
+      </p>
 
       <ng-container *ngFor="let cityStocks of stock.cityStocks; trackBy: identify">
         <div class="stocklist__city">
-          <p class="stocklist__city-name">{{ cityStocks.city }}</p>
+          <p class="stocklist__city-name">{{ cityStocks.city }}
+          </p>
 
           <ng-container *ngFor="let stock of cityStocks.stocks; trackBy: identify">
             <div class="stocklist__stock">
@@ -16,8 +19,10 @@
               <p>{{ stock.phone }}</p>
             </div>
           </ng-container>
+
         </div>
       </ng-container>
+
     </div>
   </ng-container>
 </div>

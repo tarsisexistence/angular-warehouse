@@ -1,12 +1,25 @@
 <div class="orders">
-  <p class="orders__title">{{ data.title }}</p>
-  <div class="orders__description"
-       *ngFor="let description of data.content; trackBy: identify">
-    <h4 class="orders__description-type">{{ description.type }}</h4>
-    <p class="orders__description-rule" *ngFor="let rule of description.rules">
-      {{ rule }}
-    </p>
-  </div>
+  <p class="orders__title">
+    {{ data.title }}
+  </p>
+
+  <ng-container *ngFor="let description of data.content; trackBy: identify">
+    <div class="orders__description">
+      <h4 class="orders__description-type">
+        {{ description.type }}
+      </h4>
+
+      <ng-container *ngFor="let rule of description.rules">
+        <p class="orders__description-rule">
+          {{ rule }}
+        </p>
+      </ng-container>
+    </div>
+  </ng-container>
 </div>
 
-<button mat-button mat-dialog-close style="float:right;">Ok</button>
+<!--TODO: refactor-->
+<button mat-button mat-dialog-close
+        style="float:right;">
+  Ok
+</button>

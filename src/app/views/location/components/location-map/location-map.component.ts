@@ -17,16 +17,20 @@ import { MapService } from '-location/shared/map.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LocationMapComponent implements OnInit, OnChanges {
-  @Input() center: google.maps.LatLng; // Center location-map. Required.
-  @Input() zoom: number; // The initial location-map zoom level. Required.
-  @Input() disableDefaultUI: boolean; // Enables/disables all default UI.
-  @Input() disableDoubleClickZoom: boolean; // Enables/disables zoom and center on double click. Enabled by default.
-  @Input() mapTypeId: google.maps.MapTypeId; // The initial location-map mapTypeId. Defaults to ROADMAP.
-  @Input() maxZoom: number; // The maximum zoom level which will be displayed on the location-map.
-  @Input() minZoom: number; // The minimum zoom level which will be displayed on the location-map.
-  @Input() styles: google.maps.MapTypeStyle[]; // Styles to apply to each of the default location-map types.
+  @Input() public center: google.maps.LatLng; // Center location-map. Required.
+  @Input() public zoom: number; // The initial location-map zoom level. Required.
+  @Input() public disableDefaultUI: boolean; // Enables/disables all default UI.
+  @Input() public mapTypeId: google.maps.MapTypeId; // The initial location-map mapTypeId. Defaults to ROADMAP.
+  @Input() public maxZoom: number; // The maximum zoom level which will be displayed on the location-map.
+  @Input() public minZoom: number; // The minimum zoom level which will be displayed on the location-map.
+  @Input() public styles: google.maps.MapTypeStyle[]; // Styles to apply to each of the default location-map types.
+  @Input() public disableDoubleClickZoom: boolean; // Enables/disables zoom and center on double click. Enabled by
+  // default.
 
-  constructor(public map: MapService, private elementRef: ElementRef) {
+  constructor(
+      public map: MapService,
+      private elementRef: ElementRef
+  ) {
   }
 
   public ngOnInit(): void {

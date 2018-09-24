@@ -1,24 +1,39 @@
 <header class="header">
   <section class="header__brandline">
-    <a class="header__brandname" routerLink="/">Reignarr</a>
+    <a class="header__brandname"
+       routerLink="/">
+      Reignarr
+    </a>
+
     <a (click)="auth()">
-      <mat-icon class="header__icon header__icon-profile">account_circle</mat-icon>
+      <mat-icon class="header__icon header__icon-profile">
+        account_circle
+      </mat-icon>
     </a>
   </section>
 
   <section class="header__nav">
     <div class="header__nav-main">
-      <a routerLink="/">Home</a>
+      <a routerLink="/">
+        Home
+      </a>
       <!--TODO: Lookbook as CMS-->
-      <a routerLink="/shop">Shop</a>
+      <a routerLink="/shop">
+        Shop
+      </a>
       <a routerLink="/cart">
         <mat-icon class="header__icon header__icon-cart">shopping_cart</mat-icon>
       </a>
     </div>
+
     <div class="header__nav-main">
       <!--TODO: Blog as CMS-->
-      <a routerLink="location/map">Store Location</a>
-      <a routerLink="location/stocklist">Stocklist</a>
+      <a routerLink="location/map">
+        Store Location
+      </a>
+      <a routerLink="location/stocklist">
+        Stocklist
+      </a>
     </div>
   </section>
 </header>

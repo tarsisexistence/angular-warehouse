@@ -1,9 +1,4 @@
 import {
-  transition,
-  trigger,
-  useAnimation
-} from '@angular/animations';
-import {
   ChangeDetectionStrategy,
   Component
 } from '@angular/core';

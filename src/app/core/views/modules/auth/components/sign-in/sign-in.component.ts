@@ -24,17 +24,20 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SignInComponent implements OnInit {
+  @Input() public user: User;
+  @Output() public signInEmitter: EventEmitter<Access>;
+  @Output() public toggleAuthMethodEmitter: EventEmitter<void>;
+
   public signInForm: FormGroup;
   public detailForm: FormGroup;
-
-  @Input() public user: User;
-  @Output() public signInEmitter: EventEmitter<Access> = new EventEmitter<Access>();
-  @Output() public toggleAuthMethodEmitter: EventEmitter<void> = new EventEmitter<void>();
 
   constructor(private fb: FormBuilder) {
   }
 
   public ngOnInit(): void {
+    this.signInEmitter = new EventEmitter<Access>();
+    this.toggleAuthMethodEmitter = new EventEmitter<void>();
+
     this.signInForm = this.fb.group({
       email: [
         '',

@@ -20,12 +20,14 @@ import { User } from '$core/shared/interfaces/user.interface';
 })
 export class UserCenterComponent implements OnInit, OnDestroy {
   private user: User;
-  private ngUnsubscribe: Subject<void> = new Subject<void>();
+  private ngUnsubscribe: Subject<void>;
 
   constructor(private store: Store<fromStore.AuthState>) {
   }
 
   public ngOnInit(): void {
+    this.ngUnsubscribe = new Subject<void>();
+
     this.store
         .select(fromStore.getUser)
         .pipe(takeUntil(this.ngUnsubscribe))

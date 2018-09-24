@@ -25,9 +25,9 @@ import {
 })
 export class SignUpComponent implements OnInit {
   @Input() public user: User;
-  @Output() public signUpEmitter: EventEmitter<Access> = new EventEmitter<Access>();
-  @Output() public setCatchPhraseEmitter: EventEmitter<string> = new EventEmitter<string>();
-  @Output() public toggleAuthMethodEmitter: EventEmitter<void> = new EventEmitter<void>();
+  @Output() public signUpEmitter: EventEmitter<Access>;
+  @Output() public setCatchPhraseEmitter: EventEmitter<string>;
+  @Output() public toggleAuthMethodEmitter: EventEmitter<void>;
 
   public signUpForm: FormGroup;
   public detailForm: FormGroup;
@@ -36,6 +36,10 @@ export class SignUpComponent implements OnInit {
   }
 
   public ngOnInit(): void {
+    this.signUpEmitter = new EventEmitter<Access>();
+    this.setCatchPhraseEmitter = new EventEmitter<string>();
+    this.toggleAuthMethodEmitter = new EventEmitter<void>();
+
     this.signUpForm = this.fb.group({
       email: [
         '',

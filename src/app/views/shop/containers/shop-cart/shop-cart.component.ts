@@ -27,13 +27,16 @@ import {
 })
 export class ShopCartComponent implements OnInit, OnDestroy {
   @Input() public totalCounter: number;
-  @Output() public userCounterChange = new EventEmitter<void>();
+  @Output() public userCounterChange: EventEmitter<void>;
 
   public showBubble$: Observable<boolean>;
   public bubbleMessage: string;
-  private ngUnsubscribe: Subject<void> = new Subject<void>();
+  private ngUnsubscribe: Subject<void>;
 
   public ngOnInit(): void {
+    this.userCounterChange = new EventEmitter<void>();
+    this.ngUnsubscribe = new Subject<void>();
+
     const change$ = this.userCounterChange.asObservable();
     const showBubble$ = change$.pipe(
         takeUntil(this.ngUnsubscribe),

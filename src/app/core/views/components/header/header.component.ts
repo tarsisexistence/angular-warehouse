@@ -40,9 +40,9 @@ const animation = getToggleAnimation(animationTrigger);
   animations: [animation],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
+export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   private user: User;
-  private ngUnsubscribe: Subject<void> = new Subject<void>();
+  private ngUnsubscribe: Subject<void>;
   private isVisible: boolean;
 
   @HostBinding(`@${animationTrigger}`)
@@ -56,6 +56,15 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
       private dialog: MatDialog,
       private store: Store<fromStore.AuthState>
   ) {
+  }
+
+  public ngOnInit(): void {
+    this.ngUnsubscribe = new Subject<void>();
+    this.isVisible = true;
+
+    this.store.select(fromStore.getUser)
+        .pipe(takeUntil(this.ngUnsubscribe))
+        .subscribe((user: User) => this.user = user);
   }
 
   public ngAfterViewInit(): void {
@@ -83,14 +92,6 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
               return;
           }
         });
-  }
-
-  public ngOnInit(): void {
-    this.isVisible = true;
-
-    this.store.select(fromStore.getUser)
-        .pipe(takeUntil(this.ngUnsubscribe))
-        .subscribe((user: User) => this.user = user);
   }
 
   public auth(): void {

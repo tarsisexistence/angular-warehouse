@@ -27,7 +27,7 @@ import {
 export class AuthComponent implements OnInit, OnDestroy {
   public user: User;
   public signUpScreen: boolean;
-  private ngUnsubscribe: Subject<void> = new Subject<void>();
+  private ngUnsubscribe: Subject<void>;
 
   constructor(
       private cdr: ChangeDetectorRef,
@@ -37,6 +37,8 @@ export class AuthComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit(): void {
+    this.ngUnsubscribe = new Subject<void>();
+
     this.store.select(fromStore.getUser)
         .pipe(takeUntil(this.ngUnsubscribe))
         .subscribe((user: User) => {

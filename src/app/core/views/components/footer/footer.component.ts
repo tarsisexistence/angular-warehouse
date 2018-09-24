@@ -40,12 +40,12 @@ const animation = getToggleAnimation(animationTrigger);
   animations: [animation],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class FooterComponent implements AfterViewInit, OnInit, OnDestroy {
-  private ngUnsubscribe: Subject<void> = new Subject<void>();
+export class FooterComponent implements OnInit, AfterViewInit, OnDestroy {
+  private ngUnsubscribe: Subject<void>;
   private isVisible: boolean;
 
   @HostBinding(`@${animationTrigger}`)
-  get toggle(): VisibilityState {
+  public get toggle(): VisibilityState {
     return this.isVisible ? VisibilityState.Visible : VisibilityState.Hidden;
   }
 
@@ -53,6 +53,11 @@ export class FooterComponent implements AfterViewInit, OnInit, OnDestroy {
       private cdr: ChangeDetectorRef,
       private dialog: MatDialog
   ) {
+  }
+
+  public ngOnInit(): void {
+    this.ngUnsubscribe = new Subject<void>();
+    this.isVisible = false;
   }
 
   public ngAfterViewInit(): void {
@@ -80,10 +85,6 @@ export class FooterComponent implements AfterViewInit, OnInit, OnDestroy {
               return;
           }
         });
-  }
-
-  public ngOnInit(): void {
-    this.isVisible = false;
   }
 
   public openShippingHandling(): void {

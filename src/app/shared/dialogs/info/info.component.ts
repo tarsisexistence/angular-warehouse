@@ -8,14 +8,16 @@ import { MAT_DIALOG_DATA } from '@angular/material';
 import { ShopRules } from '$core/shared/interfaces/shop-rules.interface';
 
 @Component({
-  selector: 'app-orders-dialog',
-  templateUrl: './orders.component.html',
-  styleUrls: ['./orders.component.scss'],
+  selector: 'app-info-dialog',
+  templateUrl: './info.component.html',
+  styleUrls: ['./info.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class OrdersComponent {
+export class InfoComponent {
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data: ShopRules) {
+  constructor(
+      @Inject(MAT_DIALOG_DATA) public data: ShopRules
+  ) {
   }
 
   public identify(index: number): number {

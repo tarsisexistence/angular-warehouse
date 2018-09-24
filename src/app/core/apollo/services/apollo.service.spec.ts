@@ -24,7 +24,7 @@ describe('ApolloService', () => {
     const service: ApolloService = TestBed.get(ApolloService);
     expect(service).toBeTruthy();
 
-    it('should test getting all orders', (done) => {
+    it('should test getting all data', (done) => {
       const data = {
         'data': {
           'allOrders': [

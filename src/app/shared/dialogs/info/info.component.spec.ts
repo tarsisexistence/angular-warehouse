@@ -5,15 +5,15 @@ import {
 } from '@angular/core/testing';
 import { MAT_DIALOG_DATA } from '@angular/material';
 
-import { OrdersComponent } from './orders.component';
+import { InfoComponent } from './info.component';
 
-describe('OrdersComponent', () => {
-  let component: OrdersComponent;
-  let fixture: ComponentFixture<OrdersComponent>;
+describe('InfoComponent', () => {
+  let component: InfoComponent;
+  let fixture: ComponentFixture<InfoComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-          declarations: [OrdersComponent],
+          declarations: [InfoComponent],
           providers: [
             {
               provide: MAT_DIALOG_DATA,
@@ -25,7 +25,7 @@ describe('OrdersComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(OrdersComponent);
+    fixture = TestBed.createComponent(InfoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

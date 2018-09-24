@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { OrdersComponent } from '#shared/dialogs/orders/orders.component';
+import { InfoComponent } from '#shared/dialogs/info/info.component';
 import { PaymentComponent } from '#shared/dialogs/payment/payment.component';
 import { OnlyNumbersDirective } from '#shared/directives/only-numbers.directive';
 import { OnlyStringsDirective } from '#shared/directives/only-strings.directive';
@@ -22,13 +22,13 @@ const sharedModules = [
     sharedModules
   ],
   declarations: [
-    OrdersComponent,
+    InfoComponent,
     PaymentComponent,
     OnlyNumbersDirective,
     OnlyStringsDirective
   ],
   entryComponents: [
-    OrdersComponent,
+    InfoComponent,
     PaymentComponent
   ]
 })

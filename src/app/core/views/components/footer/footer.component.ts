@@ -21,7 +21,7 @@ import {
   debounceTime
 } from 'rxjs/operators';
 
-import { OrdersComponent } from '#shared/dialogs/orders/orders.component';
+import { InfoComponent } from '#shared/dialogs/info/info.component';
 import {
   returnPolicy,
   shippingHandling
@@ -90,7 +90,7 @@ export class FooterComponent implements AfterViewInit, OnInit, OnDestroy {
   }
 
   public openShippingHandling(): void {
-    this.dialog.open(OrdersComponent, {
+    this.dialog.open(InfoComponent, {
       height: '500px',
       width: '600px',
       data: shippingHandling
@@ -98,7 +98,7 @@ export class FooterComponent implements AfterViewInit, OnInit, OnDestroy {
   }
 
   public openReturnPolicy(): void {
-    this.dialog.open(OrdersComponent, {
+    this.dialog.open(InfoComponent, {
       height: '500px',
       width: '600px',
       data: returnPolicy

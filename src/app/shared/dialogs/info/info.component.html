@@ -1,16 +1,16 @@
-<div class="orders">
-  <p class="orders__title">
+<div class="info">
+  <p class="info__title">
     {{ data.title }}
   </p>
 
   <ng-container *ngFor="let description of data.content; trackBy: identify">
-    <div class="orders__description">
-      <h4 class="orders__description-type">
+    <div class="info__description">
+      <h4 class="info__description-type">
         {{ description.type }}
       </h4>
 
       <ng-container *ngFor="let rule of description.rules">
-        <p class="orders__description-rule">
+        <p class="info__description-rule">
           {{ rule }}
         </p>
       </ng-container>
@@ -18,8 +18,7 @@
   </ng-container>
 </div>
 
-<!--TODO: refactor-->
-<button mat-button mat-dialog-close
-        style="float:right;">
+<button mat-button
+        mat-dialog-close>
   Ok
 </button>

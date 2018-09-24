@@ -25,21 +25,3 @@ export const pulseAnimation = animation([
       ])
   )
 ]);
-
-export const slideInAnimation = animation([
-  style({
-    transform: 'translateY({{ from }})',
-    opacity: 0
-  }),
-  animate('{{ timings }}', style('*'))
-]);
-
-export const slideOutAnimation = animation([
-  animate(
-      '{{ timings }}',
-      style({
-        transform: 'translateY({{ to }})',
-        opacity: 0
-      })
-  )
-]);

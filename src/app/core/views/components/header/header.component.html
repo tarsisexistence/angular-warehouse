@@ -1,7 +1,7 @@
 <header class="header">
   <section class="header__brandline">
     <a class="header__brandname"
-       routerLink="/">
+       [routerLink]="['']">
       Reignarr
     </a>
 
@@ -14,24 +14,24 @@
 
   <section class="header__nav">
     <div class="header__nav-main">
-      <a routerLink="/">
+      <a [routerLink]="['']">
         Home
       </a>
-      <!--TODO: Lookbook as CMS-->
-      <a routerLink="/shop">
+      <a [routerLink]="['shop']">
         Shop
       </a>
-      <a routerLink="/cart">
-        <mat-icon class="header__icon header__icon-cart">shopping_cart</mat-icon>
+      <a [routerLink]="['cart']">
+        <mat-icon class="header__icon header__icon-cart">
+          shopping_cart
+        </mat-icon>
       </a>
     </div>
 
     <div class="header__nav-main">
-      <!--TODO: Blog as CMS-->
-      <a routerLink="location/map">
+      <a [routerLink]="['location', 'map']">
         Store Location
       </a>
-      <a routerLink="location/stocklist">
+      <a [routerLink]="['location', 'stocklist']">
         Stocklist
       </a>
     </div>

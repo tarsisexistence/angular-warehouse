@@ -59,19 +59,16 @@ export class HeaderComponent implements AfterViewInit, OnInit, OnDestroy {
   }
 
   public ngAfterViewInit(): void {
-    // TODO: refactor
-    const scroll$ = fromEvent(window, 'scroll').pipe(
-        takeUntil(this.ngUnsubscribe),
-        debounceTime(5),
-        map(() => window.pageYOffset),
-        pairwise(),
-        map(([y1, y2]): Direction => y1 === y2 ? null :
-            y1 > y2 ? Direction.Up : Direction.Down),
-        distinctUntilChanged()
-    );
-
-    scroll$
-        .pipe(takeUntil(this.ngUnsubscribe))
+    fromEvent(window, 'scroll')
+        .pipe(
+            takeUntil(this.ngUnsubscribe),
+            debounceTime(5),
+            map(() => window.pageYOffset),
+            pairwise(),
+            map(([y1, y2]): Direction => y1 === y2 ? null :
+                y1 > y2 ? Direction.Up : Direction.Down),
+            distinctUntilChanged()
+        )
         .subscribe((direction: Direction) => {
           switch (direction) {
             case Direction.Up:

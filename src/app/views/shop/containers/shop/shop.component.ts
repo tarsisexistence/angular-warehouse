@@ -27,7 +27,7 @@ export class ShopComponent implements OnInit, OnDestroy {
   public category: string;
   public categories: string[];
   public loading: boolean;
-  private ngUnsubscribe: Subject<boolean> = new Subject();
+  private ngUnsubscribe: Subject<boolean>;
 
   constructor(
       private route: ActivatedRoute,
@@ -45,7 +45,7 @@ export class ShopComponent implements OnInit, OnDestroy {
     //         console.log('data');
     //       }
     //     });
-
+    this.ngUnsubscribe = new Subject<boolean>();
     this.categories = categories;
 
     this.route.data

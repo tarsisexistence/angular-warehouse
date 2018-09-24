@@ -25,21 +25,20 @@ import {
 })
 export class SignUpComponent implements OnInit {
   @Input() public user: User;
-  @Output() public signUpEmitter: EventEmitter<Access>;
-  @Output() public setCatchPhraseEmitter: EventEmitter<string>;
-  @Output() public toggleAuthMethodEmitter: EventEmitter<void>;
+  @Output() private signUpEmitter: EventEmitter<Access>;
+  @Output() private setCatchPhraseEmitter: EventEmitter<string>;
+  @Output() private toggleAuthMethodEmitter: EventEmitter<void>;
 
   public signUpForm: FormGroup;
   public detailForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
-  }
-
-  public ngOnInit(): void {
     this.signUpEmitter = new EventEmitter<Access>();
     this.setCatchPhraseEmitter = new EventEmitter<string>();
     this.toggleAuthMethodEmitter = new EventEmitter<void>();
+  }
 
+  public ngOnInit(): void {
     this.signUpForm = this.fb.group({
       email: [
         '',

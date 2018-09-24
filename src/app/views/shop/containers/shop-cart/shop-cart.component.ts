@@ -27,17 +27,20 @@ import {
 })
 export class ShopCartComponent implements OnInit, OnDestroy {
   @Input() public totalCounter: number;
-  @Output() public userCounterChange: EventEmitter<void>;
+  @Output() private userCounterChangeEmitter: EventEmitter<void>;
 
   public showBubble$: Observable<boolean>;
   public bubbleMessage: string;
   private ngUnsubscribe: Subject<void>;
 
+  constructor() {
+    this.userCounterChangeEmitter = new EventEmitter<void>();
+  }
+
   public ngOnInit(): void {
-    this.userCounterChange = new EventEmitter<void>();
     this.ngUnsubscribe = new Subject<void>();
 
-    const change$ = this.userCounterChange.asObservable();
+    const change$ = this.userCounterChangeEmitter.asObservable();
     const showBubble$ = change$.pipe(
         takeUntil(this.ngUnsubscribe),
         mapTo(true)
@@ -50,6 +53,10 @@ export class ShopCartComponent implements OnInit, OnDestroy {
 
     this.showBubble$ = merge(showBubble$, hideBubble$);
     this.bubbleMessage = 'Added';
+  }
+
+  public userCounterChange(): void {
+    this.userCounterChangeEmitter.emit();
   }
 
   public ngOnDestroy(): void {

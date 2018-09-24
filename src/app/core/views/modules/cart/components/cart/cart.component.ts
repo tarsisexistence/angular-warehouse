@@ -27,7 +27,7 @@ import { Apparel } from '-shop/shared/interfaces/apparel.interface';
 export class CartComponent implements OnInit, OnDestroy {
   public cartApparels: Apparel[];
   public subtotal: number;
-  private ngUnsubscribe: Subject<boolean> = new Subject();
+  private ngUnsubscribe: Subject<boolean>;
 
   private static calcSubtotal(apparels: Apparel[]): number {
     return apparels.reduce((result: number, apparel: Apparel) => result + apparel.price, 0);
@@ -43,6 +43,8 @@ export class CartComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit(): void {
+    this.ngUnsubscribe = new Subject<boolean>();
+
     this.store.select(fromStore.getCartApparel)
         .pipe(takeUntil(this.ngUnsubscribe))
         .subscribe((apparels: Apparel[]) => {

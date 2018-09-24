@@ -25,19 +25,18 @@ import {
 })
 export class SignInComponent implements OnInit {
   @Input() public user: User;
-  @Output() public signInEmitter: EventEmitter<Access>;
-  @Output() public toggleAuthMethodEmitter: EventEmitter<void>;
+  @Output() private signInEmitter: EventEmitter<Access>;
+  @Output() private toggleAuthMethodEmitter: EventEmitter<void>;
 
   public signInForm: FormGroup;
   public detailForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
+    this.signInEmitter = new EventEmitter<Access>();
+    this.toggleAuthMethodEmitter = new EventEmitter<void>();
   }
 
   public ngOnInit(): void {
-    this.signInEmitter = new EventEmitter<Access>();
-    this.toggleAuthMethodEmitter = new EventEmitter<void>();
-
     this.signInForm = this.fb.group({
       email: [
         '',

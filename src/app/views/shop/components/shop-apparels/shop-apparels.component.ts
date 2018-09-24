@@ -3,8 +3,7 @@ import {
   Input,
   Output,
   ChangeDetectionStrategy,
-  EventEmitter,
-  OnInit
+  EventEmitter
 } from '@angular/core';
 
 import { Apparel } from '-shop/shared/interfaces/apparel.interface';
@@ -15,11 +14,11 @@ import { Apparel } from '-shop/shared/interfaces/apparel.interface';
   styleUrls: ['./shop-apparels.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ShopApparelsComponent implements OnInit {
+export class ShopApparelsComponent {
   @Input() public apparels: Apparel[];
-  @Output() public addToCartEmitter: EventEmitter<Apparel>;
+  @Output() private addToCartEmitter: EventEmitter<Apparel>;
 
-  public ngOnInit(): void {
+  constructor() {
     this.addToCartEmitter = new EventEmitter<Apparel>();
   }
 

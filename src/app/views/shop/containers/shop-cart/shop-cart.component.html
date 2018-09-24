@@ -1,7 +1,6 @@
+<shop-cart-button (click)="userCounterChange()">
+</shop-cart-button>
+
 <shop-cart-bubble *ngIf="showBubble$ | async"
                   [message]="bubbleMessage">
 </shop-cart-bubble>
-
-
-<shop-cart-button (click)="userCounterChange.emit()">
-</shop-cart-button>

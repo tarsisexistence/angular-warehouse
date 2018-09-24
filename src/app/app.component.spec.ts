@@ -3,7 +3,6 @@ import {
   async,
   ComponentFixture
 } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
 
 import {
   combineReducers,
@@ -14,7 +13,7 @@ import {
 import * as fromStore from '+store/index';
 import * as fromAuth from '+store/reducers';
 import { AppComponent } from '!app/app.component';
-import { SharedModule } from '#shared/shared.module';
+import { SharedTestingModule } from '#shared/shared.testing.module';
 import { HeaderComponent } from '$core/views/components/header/header.component';
 
 // TODO: create shared testing module
@@ -30,10 +29,9 @@ describe('AppComponent', () => {
         HeaderComponent
       ],
       imports: [
-        RouterTestingModule,
-        SharedModule,
+        SharedTestingModule,
         StoreModule.forRoot({
-          shop: combineReducers(fromAuth.reducers)
+          shop: combineReducers(fromAuth.authReducers)
         })
       ]
     });

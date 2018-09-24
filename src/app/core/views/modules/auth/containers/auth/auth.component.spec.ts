@@ -3,7 +3,6 @@ import {
   ComponentFixture,
   TestBed
 } from '@angular/core/testing';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogRef } from '@angular/material';
 
 import {
@@ -14,10 +13,10 @@ import {
 
 import * as fromStore from '+store/index';
 import * as fromAuth from '+store/reducers';
+import { SharedTestingModule } from '#shared/shared.testing.module';
 import { AuthComponent } from '$auth/containers/auth/auth.component';
 import { SignUpComponent } from '$auth/components/sign-up/sign-up.component';
 import { SignInComponent } from '$auth/components/sign-in/sign-in.component';
-import { SharedModule } from '#shared/shared.module';
 
 describe('AuthComponent', () => {
   let component: AuthComponent;
@@ -32,10 +31,9 @@ describe('AuthComponent', () => {
         SignInComponent
       ],
       imports: [
-        BrowserAnimationsModule,
-        SharedModule,
+        SharedTestingModule,
         StoreModule.forRoot({
-          shop: combineReducers(fromAuth.reducers)
+          shop: combineReducers(fromAuth.authReducers)
         })
       ],
       providers: [

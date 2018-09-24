@@ -18,9 +18,7 @@ const sharedModules = [
     CommonModule,
     ...sharedModules
   ],
-  exports: [
-    sharedModules
-  ],
+  exports: sharedModules,
   declarations: [
     InfoComponent,
     PaymentComponent,

@@ -13,7 +13,7 @@ import {
 
 import * as fromStore from '+store/index';
 import * as fromAuth from '+store/reducers';
-import { SharedModule } from '#shared/shared.module';
+import { SharedTestingModule } from '#shared/shared.testing.module';
 import { HeaderComponent } from './header.component';
 
 describe('HeaderComponent', () => {
@@ -26,9 +26,9 @@ describe('HeaderComponent', () => {
       declarations: [HeaderComponent],
       imports: [
         RouterTestingModule,
-        SharedModule,
+        SharedTestingModule,
         StoreModule.forRoot({
-          auth: combineReducers(fromAuth.reducers)
+          auth: combineReducers(fromAuth.authReducers)
         })
       ]
     });

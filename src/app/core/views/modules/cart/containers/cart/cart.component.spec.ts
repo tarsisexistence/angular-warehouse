@@ -3,7 +3,6 @@ import {
   ComponentFixture,
   TestBed
 } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
 
 import {
   combineReducers,
@@ -13,7 +12,7 @@ import {
 
 import * as fromStore from '+store/index';
 import * as fromAuth from '+store/reducers';
-import { SharedModule } from '#shared/shared.module';
+import { SharedTestingModule } from '#shared/shared.testing.module';
 import { CartComponent } from '$cart/containers/cart/cart.component';
 
 describe('CartComponent', () => {
@@ -25,10 +24,9 @@ describe('CartComponent', () => {
     TestBed.configureTestingModule({
           declarations: [CartComponent],
           imports: [
-            SharedModule,
-            RouterTestingModule,
+            SharedTestingModule,
             StoreModule.forRoot({
-              shop: combineReducers(fromAuth.reducers)
+              shop: combineReducers(fromAuth.cartReducers)
             })
           ]
         })

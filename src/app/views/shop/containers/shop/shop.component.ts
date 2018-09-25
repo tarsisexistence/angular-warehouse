@@ -29,7 +29,7 @@ import { mixArray } from '-shop/shared/functions/mix-array.function';
 })
 export class ShopComponent implements OnInit, OnDestroy {
   public apparels: Apparels;
-  public category: string;
+  public selectedCategory: string;
   public categories: string[];
   public loading: boolean;
   private ngUnsubscribe: Subject<boolean>;
@@ -44,14 +44,13 @@ export class ShopComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     this.ngUnsubscribe = new Subject<boolean>();
-
     this.categories = categories;
 
     this.route.data
         .pipe(takeUntil(this.ngUnsubscribe))
         .subscribe((data: { category: string }) => {
           this.loading = this.apparels === undefined;
-          this.category = data.category === undefined ? 'all' : data.category;
+          this.selectedCategory = data.category === undefined ? 'all' : data.category;
         });
 
     this.store.dispatch(new fromStore.LoadApparel());
@@ -59,7 +58,6 @@ export class ShopComponent implements OnInit, OnDestroy {
         .pipe(takeUntil(this.ngUnsubscribe))
         .subscribe((apparels: Apparel[]) => {
           this.apparels = new Apparels(apparels);
-
           this.loading = false;
           this.cdr.markForCheck();
         });
@@ -68,7 +66,7 @@ export class ShopComponent implements OnInit, OnDestroy {
         .pipe(takeUntil(this.ngUnsubscribe))
         .subscribe((e: any) => {
           if (e instanceof NavigationEnd) {
-            this.apparels.all = mixArray<Apparel>(this.apparels.all);
+            this.apparels[this.selectedCategory] = mixArray<Apparel>(this.apparels[this.selectedCategory]);
             this.cdr.markForCheck();
           }
         });

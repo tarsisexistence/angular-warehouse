@@ -19,6 +19,7 @@ import * as fromStore from '+store/index';
 import { Apparel } from '-shop/shared/interfaces/apparel.interface';
 import { Apparels } from '-shop/shared/models/apparels.model';
 import { categories } from '-shop/shared/models/categories.model';
+import { mixArray } from '-shop/shared/functions/mix-array.function';
 
 @Component({
   selector: 'shop-feat',
@@ -59,10 +60,6 @@ export class ShopComponent implements OnInit, OnDestroy {
         .subscribe((apparels: Apparel[]) => {
           this.apparels = new Apparels(apparels);
 
-          this.apparels.all.forEach((apparel: Apparel) => {
-            this.apparels[apparel.type].push(apparel);
-          });
-
           this.loading = false;
           this.cdr.markForCheck();
         });
@@ -71,7 +68,8 @@ export class ShopComponent implements OnInit, OnDestroy {
         .pipe(takeUntil(this.ngUnsubscribe))
         .subscribe((e: any) => {
           if (e instanceof NavigationEnd) {
-            // TODO: mix apparel array
+            this.apparels.all = mixArray<Apparel>(this.apparels.all);
+            this.cdr.markForCheck();
           }
         });
   }

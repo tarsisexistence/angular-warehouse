@@ -1,4 +1,4 @@
-import { RSRoutes } from '!app/route-store/interfaces/routes.interface';
+import { RSRoutes } from '!app/core/route-store/interfaces/routes.interface';
 
 export interface RSRoute {
   path: string;

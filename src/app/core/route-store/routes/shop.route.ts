@@ -1,9 +1,9 @@
-import { RSRoutes } from '!app/route-store/interfaces/routes.interface';
+import { RSRoutes } from '!app/core/route-store/interfaces/routes.interface';
 import {
   appRoute,
   routeStore
-} from '!app/app.route';
-import { RSStates } from '!app/route-store';
+} from '!app/core/route-store/routes/app.route';
+import { RSStates } from '!app/core/route-store';
 
 interface ShopStates extends RSStates {
   all;

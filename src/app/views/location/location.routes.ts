@@ -4,7 +4,7 @@ import {
   Routes
 } from '@angular/router';
 
-import { locationRoute as ROUTE } from '-location/location.route';
+import { locationRoute as ROUTE } from '$route-store/routes/location.route';
 import { LocationComponent } from '-location/containers/location/location.component';
 import { LocationStocklistComponent } from '-location/components/location-stocklist/location-stocklist.component';
 

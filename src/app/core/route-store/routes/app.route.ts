@@ -2,7 +2,7 @@ import {
   RouteStore,
   RSRoutes,
   RSStates
-} from '!app/route-store';
+} from '$ngrs/index';
 
 interface AppStates extends RSStates {
   home;

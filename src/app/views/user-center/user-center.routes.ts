@@ -4,7 +4,7 @@ import {
   Routes
 } from '@angular/router';
 
-import { userCenterRoute as ROUTE } from '-user-center/user-center.route';
+import { userCenterRoute as ROUTE } from '$route-store/routes/user-center.route';
 import { UserCenterComponent } from '-user-center/containers/user-center/user-center.component';
 import { UserCenterGuard } from '-user-center/shared/user-center.guards';
 

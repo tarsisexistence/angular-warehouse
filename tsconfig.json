@@ -48,6 +48,12 @@
       "$core/*": [
         "app/core/*"
       ],
+      "$ngrs/*": [
+        "app/core/route-store/*"
+      ],
+      "$route-store/*": [
+        "app/core/route-store/*"
+      ],
       "+material/*": [
         "app/shared/material/*"
       ],

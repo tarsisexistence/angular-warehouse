@@ -1,5 +1,5 @@
-import { RSRoutes } from '!app/route-store/interfaces/routes.interface';
-import { RSRoute } from '!app/route-store/interfaces/route.interface';
+import { RSRoutes } from '!app/core/route-store/interfaces/routes.interface';
+import { RSRoute } from '!app/core/route-store/interfaces/route.interface';
 
 export class RouteStore {
   private routesState: RSRoutes<string>;

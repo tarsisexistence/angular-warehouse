@@ -4,7 +4,7 @@ import {
   Routes
 } from '@angular/router';
 
-import { appRoute as ROUTE } from '!app/app.route';
+import { appRoute as ROUTE } from '$route-store/routes/app.route';
 import { CartComponent } from '$cart/containers/cart/cart.component';
 
 export const routes: Routes = [

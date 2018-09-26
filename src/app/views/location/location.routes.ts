@@ -4,19 +4,22 @@ import {
   Routes
 } from '@angular/router';
 
+import { locationRoute as ROUTE } from '-location/location.route';
 import { LocationComponent } from '-location/containers/location/location.component';
 import { LocationStocklistComponent } from '-location/components/location-stocklist/location-stocklist.component';
 
-// TODO: make states as enum v's
 export const routes: Routes = [
   {
-    path: 'map',
+    path: ROUTE.root.path,
     pathMatch: 'full',
+    redirectTo: ROUTE.map.path
+  },
+  {
+    path: ROUTE.map.path,
     component: LocationComponent
   },
   {
-    path: 'stocklist',
-    pathMatch: 'full',
+    path: ROUTE.stocklist.path,
     component: LocationStocklistComponent
   }
 ];

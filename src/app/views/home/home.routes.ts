@@ -4,12 +4,12 @@ import {
   Routes
 } from '@angular/router';
 
+import { homeRoute as ROUTE } from '-home/home.route';
 import { HomeComponent } from '-home/containers/home/home.component';
 
 export const routes: Routes = [
   {
-    path: '',
-    pathMatch: 'full',
+    path: ROUTE.root.path,
     component: HomeComponent
   }
 ];

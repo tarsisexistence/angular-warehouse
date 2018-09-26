@@ -4,34 +4,35 @@ import {
   Routes
 } from '@angular/router';
 
+import { appRoute as ROUTE } from '!app/app.route';
 import { CartComponent } from '$cart/containers/cart/cart.component';
 
 export const routes: Routes = [
   {
-    path: '',
-    loadChildren: '-home/home.module#HomeModule'
+    path: ROUTE.home.path,
+    loadChildren: ROUTE.home.lazyPath
   },
   {
-    path: 'shop',
-    loadChildren: '-shop/shop.module#ShopModule',
+    path: ROUTE.shop.path,
+    loadChildren: ROUTE.shop.lazyPath,
     runGuardsAndResolvers: 'paramsOrQueryParamsChange'
   },
   {
-    path: 'location',
-    loadChildren: '-location/location.module#LocationModule'
+    path: ROUTE.location.path,
+    loadChildren: ROUTE.location.lazyPath
   },
   {
-    path: 'user-center',
-    loadChildren: '-user-center/user-center.module#UserCenterModule'
+    path: ROUTE.userCenter.path,
+    loadChildren: ROUTE.userCenter.lazyPath
   },
   {
-    path: 'cart',
+    path: ROUTE.cart.path,
     pathMatch: 'full',
     component: CartComponent
   },
   {
-    path: '**',
-    redirectTo: ''
+    path: ROUTE.notFound.path,
+    redirectTo: ROUTE.home.path
   }
 ];
 

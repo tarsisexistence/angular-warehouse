@@ -10,10 +10,12 @@ import { CartComponent } from '$cart/containers/cart/cart.component';
 export const routes: Routes = [
   {
     path: ROUTE.home.path,
+    pathMatch: 'full',
     loadChildren: ROUTE.home.lazyPath
   },
   {
     path: ROUTE.shop.path,
+    pathMatch: 'full',
     loadChildren: ROUTE.shop.lazyPath,
     runGuardsAndResolvers: 'paramsOrQueryParamsChange'
   },
@@ -23,6 +25,7 @@ export const routes: Routes = [
   },
   {
     path: ROUTE.userCenter.path,
+    pathMatch: 'full',
     loadChildren: ROUTE.userCenter.lazyPath
   },
   {

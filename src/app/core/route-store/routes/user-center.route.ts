@@ -1,11 +1,7 @@
 import { RSRoutes } from '!app/core/route-store/interfaces/routes.interface';
-import {
-  appRoute,
-  routeStore
-} from '!app/core/route-store/routes/app.route';
-import { RSStates } from '!app/core/route-store';
+import { RSStates } from '$route-store/index';
 
-interface UserCenterStates extends RSStates {
+export interface UserCenterStates extends RSStates {
   id
 }
 
@@ -18,4 +14,3 @@ export const userCenterRoute: RSRoutes<UserCenterStates> = {
   }
 };
 
-routeStore.createFeatureRoutes(appRoute.userCenter, userCenterRoute);

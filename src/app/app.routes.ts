@@ -15,7 +15,6 @@ export const routes: Routes = [
   },
   {
     path: ROUTE.shop.path,
-    pathMatch: 'full',
     loadChildren: ROUTE.shop.lazyPath,
     runGuardsAndResolvers: 'paramsOrQueryParamsChange'
   },

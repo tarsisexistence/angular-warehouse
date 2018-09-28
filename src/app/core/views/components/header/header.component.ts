@@ -9,6 +9,8 @@ import {
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
+import { appRouteEntity } from '$ngrs/routes/app.route';
+import { locationRouteEntity } from '$ngrs/states';
 
 import {
   Subject,
@@ -41,6 +43,8 @@ const animation = getToggleAnimation(animationTrigger);
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
+  public appRoute: any;
+  public locationRoute: any;
   private user: User;
   private ngUnsubscribe: Subject<void>;
   private isVisible: boolean;
@@ -59,6 +63,8 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   public ngOnInit(): void {
+    this.appRoute = appRouteEntity;
+    this.locationRoute = locationRouteEntity;
     this.ngUnsubscribe = new Subject<void>();
     this.isVisible = true;
 

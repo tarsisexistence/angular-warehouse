@@ -4,7 +4,7 @@ import {
   RSStates
 } from '$ngrs/index';
 
-interface AppStates extends RSStates {
+interface AppRoutes extends RSStates {
   home;
   shop;
   location;
@@ -13,7 +13,7 @@ interface AppStates extends RSStates {
   notFound;
 }
 
-export const appRoute: RSRoutes<AppStates> = {
+export const appRoute: RSRoutes<AppRoutes> = {
   home: {
     path: '',
     lazyPath: '-home/home.module#HomeModule'
@@ -39,18 +39,4 @@ export const appRoute: RSRoutes<AppStates> = {
 };
 
 export const routeStore = RouteStore.getInstance();
-routeStore.createRoutes(appRoute);
-
-export enum AppRouteStates {
-  root = 'root',
-  home = 'home',
-  shop = 'shop',
-  location = 'location',
-  userCenter = 'userCenter',
-  cart = 'cart',
-  notFound = 'notFound'
-}
-
-type states = 'home' | 'shop' | 'location' | 'userCenter' | 'cart' | 'notFound'
-
-// export const appRoute: Partial<{ [k in AppRouteStates]: RSRoute }> = {
+export const appRouteEntity = routeStore.createRoot<AppRoutes>(appRoute);

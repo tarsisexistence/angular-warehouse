@@ -4,13 +4,13 @@ import {
   Routes
 } from '@angular/router';
 
-import { userCenterRoute as ROUTE } from '$route-store/routes/user-center.route';
+import { userCenterRouteEntity } from '$route-store/states';
 import { UserCenterComponent } from '-user-center/containers/user-center/user-center.component';
 import { UserCenterGuard } from '-user-center/shared/user-center.guards';
 
 export const routes: Routes = [
   {
-    path: ROUTE.id.path,
+    path: userCenterRouteEntity.id.path,
     component: UserCenterComponent,
     canActivate: [UserCenterGuard]
   }

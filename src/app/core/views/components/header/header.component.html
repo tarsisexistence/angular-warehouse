@@ -14,13 +14,13 @@
 
   <section class="header__nav">
     <div class="header__nav-main">
-      <a [routerLink]="['']">
+      <a [routerLink]="appRoute.home.state">
         Home
       </a>
-      <a [routerLink]="['shop']">
+      <a [routerLink]="appRoute.shop.state">
         Shop
       </a>
-      <a [routerLink]="['cart']">
+      <a [routerLink]="appRoute.cart.state">
         <mat-icon class="header__icon header__icon-cart">
           shopping_cart
         </mat-icon>
@@ -28,10 +28,10 @@
     </div>
 
     <div class="header__nav-main">
-      <a [routerLink]="['location', 'map']">
+      <a [routerLink]="locationRoute.map.state">
         Store Location
       </a>
-      <a [routerLink]="['location', 'stocklist']">
+      <a [routerLink]="locationRoute.stocklist.state">
         Stocklist
       </a>
     </div>

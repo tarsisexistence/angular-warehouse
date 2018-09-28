@@ -1,14 +1,8 @@
 import { RSRoutes } from '!app/core/route-store/interfaces/routes.interface';
-import {
-  appRoute,
-  routeStore
-} from '!app/core/route-store/routes/app.route';
-import { RSStates } from '!app/core/route-store';
+import { RSStates } from '$ngrs/interfaces';
 
-export const homeRoute: RSRoutes<any> = {
+export const homeRoute: RSRoutes<RSStates> = {
   root: {
     path: ''
   }
 };
-
-routeStore.createFeatureRoutes(appRoute.home, homeRoute);

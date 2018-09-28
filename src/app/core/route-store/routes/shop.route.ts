@@ -1,16 +1,12 @@
 import { RSRoutes } from '!app/core/route-store/interfaces/routes.interface';
-import {
-  appRoute,
-  routeStore
-} from '!app/core/route-store/routes/app.route';
 import { RSStates } from '!app/core/route-store';
 
-interface ShopStates extends RSStates {
+export interface ShopRoutes extends RSStates {
   all;
   category;
 }
 
-export const shopRoute: RSRoutes<any> = {
+export const shopRoute: RSRoutes<ShopRoutes> = {
   root: {
     path: ''
   },
@@ -22,4 +18,3 @@ export const shopRoute: RSRoutes<any> = {
   }
 };
 
-routeStore.createFeatureRoutes(appRoute.shop, shopRoute);

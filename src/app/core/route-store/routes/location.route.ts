@@ -1,16 +1,12 @@
 import { RSRoutes } from '!app/core/route-store/interfaces/routes.interface';
-import {
-  appRoute,
-  routeStore
-} from '!app/core/route-store/routes/app.route';
 import { RSStates } from '!app/core/route-store';
 
-export interface LocationStates extends RSStates {
+export interface LocationRoutes extends RSStates {
   map;
   stocklist;
 }
 
-export const locationRoute: RSRoutes<any> = {
+export const locationRoute: RSRoutes<LocationRoutes> = {
   root: {
     path: ''
   },
@@ -21,5 +17,3 @@ export const locationRoute: RSRoutes<any> = {
     path: 'stocklist'
   }
 };
-
-routeStore.createFeatureRoutes(appRoute.location, locationRoute);

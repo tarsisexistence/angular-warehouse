@@ -15,11 +15,13 @@ export const routes: Routes = [
   },
   {
     path: ROUTE.shop.path,
+    pathMatch: 'prefix',
     loadChildren: ROUTE.shop.lazyPath,
     runGuardsAndResolvers: 'paramsOrQueryParamsChange'
   },
   {
     path: ROUTE.location.path,
+    pathMatch: 'prefix',
     loadChildren: ROUTE.location.lazyPath
   },
   {

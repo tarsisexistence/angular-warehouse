@@ -8,15 +8,3 @@ export interface RSRoute {
   lazyPath?: string;
   state?: string[];
 }
-
-export interface RSRouteState extends RSRoute {
-  state: string[];
-  id?: number;
-  parentId?: number;
-}
-
-export interface RSAdductedRouteState extends RSRouteState {
-  path: string;
-  component?: any;
-  lazyPath?: string;
-}

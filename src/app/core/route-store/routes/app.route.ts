@@ -1,10 +1,9 @@
 import {
-  RouteStore,
   RSRoutes,
-  RSStates
+  RSBaseRoute
 } from '$ngrs/index';
 
-interface AppRoutes extends RSStates {
+export interface AppRoutes extends RSBaseRoute {
   home;
   shop;
   location;
@@ -38,5 +37,4 @@ export const appRoute: RSRoutes<AppRoutes> = {
   }
 };
 
-export const routeStore = RouteStore.getInstance();
-export const appRouteEntity = routeStore.createRoot<AppRoutes>(appRoute);
+

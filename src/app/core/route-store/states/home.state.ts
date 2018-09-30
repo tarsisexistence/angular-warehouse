@@ -1,8 +1,8 @@
 import {
   appRouteEntity,
   routeStore
-} from '$ngrs/routes/app.route';
+} from '$ngrs/states/app.state';
 import { homeRoute } from '$ngrs/routes/home.route';
-import { RSStates } from '$ngrs/interfaces';
+import { RSBaseRoute } from '$ngrs/interfaces';
 
-export const homeRouteEntity = routeStore.createFeature<RSStates>(appRouteEntity.home, homeRoute);
+export const homeRouteEntity = routeStore.createFeature<RSBaseRoute>(appRouteEntity.home, homeRoute);

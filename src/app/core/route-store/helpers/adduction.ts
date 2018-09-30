@@ -1,5 +1,4 @@
-import { RSAdductedRouteState } from '$ngrs/interfaces/route.interface';
-import { RSRoutesState } from '$ngrs/interfaces/routes.interface';
+import { RSRoute } from '$ngrs/interfaces';
 
 export function adduction(routes: RSRoutesState<any>): RSAdductedRouteState {
   return Object.keys(routes).reduce((acc: RSAdductedRouteState, route: string) => {
@@ -13,3 +12,17 @@ export function adduction(routes: RSRoutesState<any>): RSAdductedRouteState {
     };
   }, {} as RSAdductedRouteState);
 }
+
+interface RSRouteState extends RSRoute {
+  state: string[];
+  id?: number;
+  parentId?: number;
+}
+
+interface RSAdductedRouteState extends RSRouteState {
+  path: string;
+  component?: any;
+  lazyPath?: string;
+}
+
+type RSRoutesState<T> = { [key in keyof T]: RSRouteState }

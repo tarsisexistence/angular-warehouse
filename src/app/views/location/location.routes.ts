@@ -4,22 +4,22 @@ import {
   Routes
 } from '@angular/router';
 
-import { locationRouteEntity } from '$route-store/states';
+import { locationRoute as route } from '$ngrs/routes';
 import { LocationComponent } from '-location/containers/location/location.component';
 import { LocationStocklistComponent } from '-location/components/location-stocklist/location-stocklist.component';
 
 export const routes: Routes = [
   {
-    path: locationRouteEntity.root.path,
+    path: route.root.path,
     pathMatch: 'full',
-    redirectTo: locationRouteEntity.map.path
+    redirectTo: route.map.path
   },
   {
-    path: locationRouteEntity.map.path,
+    path: route.map.path,
     component: LocationComponent
   },
   {
-    path: locationRouteEntity.stocklist.path,
+    path: route.stocklist.path,
     component: LocationStocklistComponent
   }
 ];

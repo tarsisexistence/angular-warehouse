@@ -1,12 +1,12 @@
 import { RSRoutes } from '$ngrs/interfaces/routes.interface';
 import { assignId } from '$ngrs/helpers/assign-id';
 import {
-  RSRouteEntity,
-  RSRouteEntities
-} from '$ngrs/interfaces/route-entities.interface';
+  RSEntity,
+  RSEntities
+} from '$ngrs/interfaces';
 
 export class RouteStore {
-  private entity: RSRouteEntities<any>;
+  private entity: RSEntities<any>;
   private static instance: RouteStore;
 
   public static getInstance(): RouteStore {
@@ -17,7 +17,25 @@ export class RouteStore {
     return RouteStore.instance;
   }
 
-  private static entitify<T>(parentEntity: RSRouteEntity | null, routes: RSRoutes<any>): RSRouteEntities<T> {
+  public createRoot<T>(routes: RSRoutes<T>): RSEntities<T> {
+    if (this.entity) {
+      throw `Route store is already created!`;
+    }
+
+    this.entity = RouteStore.entitify<T>(null, routes);
+
+    return this.entity as RSEntities<T>;
+  }
+
+  public createFeature<T>(parentRoute: RSEntity, routes: RSRoutes<T>): RSEntities<T> {
+    const featureEntity = RouteStore.entitify<T>(parentRoute, routes);
+
+    this.entity = Object.assign({}, this.entity, featureEntity);
+
+    return featureEntity as RSEntities<T>;
+  }
+
+  private static entitify<T>(parentEntity: RSEntity | null, routes: RSRoutes<any>): RSEntities<T> {
     return Object.keys(routes).reduce((acc: any, route: string) => {
       const { path, lazyPath } = routes[route];
       return ({
@@ -32,23 +50,5 @@ export class RouteStore {
         }
       });
     }, {});
-  }
-
-  public createRoot<T>(routes: RSRoutes<any>): RSRouteEntities<T> {
-    if (this.entity) {
-      throw `Route store is already created!`;
-    }
-
-    this.entity = RouteStore.entitify<T>(null, routes);
-
-    return this.entity as RSRouteEntities<T>;
-  }
-
-  public createFeature<T>(parentRoute: RSRouteEntity, routes: RSRoutes<any>): RSRouteEntities<T> {
-    const featureEntity = RouteStore.entitify<T>(parentRoute, routes);
-
-    this.entity = Object.assign({}, this.entity, featureEntity);
-
-    return featureEntity as RSRouteEntities<T>;
   }
 }

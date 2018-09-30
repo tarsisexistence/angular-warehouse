@@ -9,8 +9,6 @@ import {
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
-import { appRouteEntity } from '$ngrs/routes/app.route';
-import { locationRouteEntity } from '$ngrs/states';
 
 import {
   Subject,
@@ -26,6 +24,10 @@ import {
 import { Store } from '@ngrx/store';
 
 import * as fromStore from '+store/index';
+import {
+  appRouteEntity,
+  locationRouteEntity
+} from '$ngrs/states';
 import { AuthComponent } from '$auth/containers/auth/auth.component';
 import { User } from '$core/shared/interfaces/user.interface';
 import { Direction } from '$core/shared/enums/direction.enum';

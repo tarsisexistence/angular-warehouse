@@ -1,10 +1,10 @@
 import {
   appRouteEntity,
   routeStore
-} from '$ngrs/routes/app.route';
+} from '$ngrs/states/app.state';
 import {
   userCenterRoute,
-  UserCenterStates
+  UserCenterRoutes
 } from '$ngrs/routes/user-center.route';
 
-export const userCenterRouteEntity = routeStore.createFeature<UserCenterStates>(appRouteEntity.userCenter, userCenterRoute);
+export const userCenterRouteEntity = routeStore.createFeature<UserCenterRoutes>(appRouteEntity.userCenter, userCenterRoute);

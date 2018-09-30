@@ -4,22 +4,22 @@ import {
   Routes
 } from '@angular/router';
 
-import { shopRouteEntity } from '$route-store/states';
+import { shopRoute as route } from '$ngrs/routes';
 import { ShopComponent } from '-shop/containers/shop/shop.component';
 import { ShopResolver } from '-shop/shared/guards-and-resolvers/shop.resolver';
 
 export const routes: Routes = [
   {
-    path: shopRouteEntity.root.path,
+    path: route.root.path,
     pathMatch: 'full',
-    redirectTo: shopRouteEntity.all.path
+    redirectTo: route.all.path
   },
   {
-    path: shopRouteEntity.all.path,
+    path: route.all.path,
     component: ShopComponent
   },
   {
-    path: shopRouteEntity.category.path,
+    path: route.category.path,
     resolve: { category: ShopResolver },
     component: ShopComponent
   }

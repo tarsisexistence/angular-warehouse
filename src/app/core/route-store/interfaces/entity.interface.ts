@@ -1,4 +1,4 @@
-export interface RSRouteEntity {
+export interface RSEntity {
   id: number;
   parentId: number;
   state: string[]
@@ -7,4 +7,4 @@ export interface RSRouteEntity {
   lazyPath?: string;
 }
 
-export type RSRouteEntities<T> = { [key in keyof T]: RSRouteEntity }
+export type RSEntities<T> = { [key in keyof T]: RSEntity }

@@ -1,11 +1,11 @@
 import { RSRoutes } from '!app/core/route-store/interfaces/routes.interface';
-import { RSStates } from '$route-store/index';
+import { RSBaseRoute } from '$route-store/index';
 
-export interface UserCenterStates extends RSStates {
+export interface UserCenterRoutes extends RSBaseRoute {
   id
 }
 
-export const userCenterRoute: RSRoutes<UserCenterStates> = {
+export const userCenterRoute: RSRoutes<UserCenterRoutes> = {
   root: {
     path: ''
   },

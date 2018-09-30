@@ -1,7 +1,7 @@
 import { RSRoutes } from '!app/core/route-store/interfaces/routes.interface';
-import { RSStates } from '!app/core/route-store';
+import { RSBaseRoute } from '!app/core/route-store';
 
-export interface LocationRoutes extends RSStates {
+export interface LocationRoutes extends RSBaseRoute {
   map;
   stocklist;
 }

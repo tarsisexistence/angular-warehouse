@@ -1,7 +1,7 @@
 import {
   appRouteEntity,
   routeStore
-} from '$ngrs/routes/app.route';
+} from '$ngrs/states/app.state';
 import {
   locationRoute,
   LocationRoutes

@@ -4,12 +4,12 @@ import {
   Routes
 } from '@angular/router';
 
-import { homeRouteEntity } from '$route-store/states';
+import { homeRoute as route } from '$ngrs/routes';
 import { HomeComponent } from '-home/containers/home/home.component';
 
 export const routes: Routes = [
   {
-    path: homeRouteEntity.root.path,
+    path: route.root.path,
     component: HomeComponent
   }
 ];

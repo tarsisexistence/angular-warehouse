@@ -1,5 +1,7 @@
-import { RSRoutes } from '!app/core/route-store/interfaces/routes.interface';
-import { RSBaseRoute } from '$route-store/index';
+import {
+  RSBaseRoute,
+  RSRoutes
+} from '$routes-entity/interfaces';
 
 export interface UserCenterRoutes extends RSBaseRoute {
   id

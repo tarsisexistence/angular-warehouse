@@ -1,4 +1,4 @@
-import { RSRoute } from '$ngrs/interfaces';
+import { RSRoute } from '$routes-entity/interfaces';
 
 export function adduction(routes: RSRoutesState<any>): RSAdductedRouteState {
   return Object.keys(routes).reduce((acc: RSAdductedRouteState, route: string) => {

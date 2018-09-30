@@ -25,9 +25,9 @@ import { Store } from '@ngrx/store';
 
 import * as fromStore from '+store/index';
 import {
-  appRouteEntity,
-  locationRouteEntity
-} from '$ngrs/states';
+  appEntity,
+  locationEntity
+} from '$routes-entity/entities';
 import { AuthComponent } from '$auth/containers/auth/auth.component';
 import { User } from '$core/shared/interfaces/user.interface';
 import { Direction } from '$core/shared/enums/direction.enum';
@@ -65,8 +65,8 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   public ngOnInit(): void {
-    this.appRoute = appRouteEntity;
-    this.locationRoute = locationRouteEntity;
+    this.appRoute = appEntity;
+    this.locationRoute = locationEntity;
     this.ngUnsubscribe = new Subject<void>();
     this.isVisible = true;
 

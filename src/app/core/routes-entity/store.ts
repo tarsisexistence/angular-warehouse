@@ -1,9 +1,9 @@
-import { RSRoutes } from '$ngrs/interfaces/routes.interface';
-import { assignId } from '$ngrs/helpers/assign-id';
+import { assignId } from '$routes-entity/helpers';
 import {
   RSEntity,
-  RSEntities
-} from '$ngrs/interfaces';
+  RSEntities,
+  RSRoutes
+} from '$routes-entity/interfaces';
 
 export class RouteStore {
   private entity: RSEntities<any>;
@@ -52,3 +52,5 @@ export class RouteStore {
     }, {});
   }
 }
+
+export const routeStore = RouteStore.getInstance();

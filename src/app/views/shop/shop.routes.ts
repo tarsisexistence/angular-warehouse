@@ -4,7 +4,7 @@ import {
   Routes
 } from '@angular/router';
 
-import { shopRoute as route } from '$ngrs/routes';
+import { shopRoute as route } from '$routes-entity/routes';
 import { ShopComponent } from '-shop/containers/shop/shop.component';
 import { ShopResolver } from '-shop/shared/guards-and-resolvers/shop.resolver';
 

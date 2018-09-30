@@ -1,7 +1,7 @@
 import {
   RSRoutes,
   RSBaseRoute
-} from '$ngrs/index';
+} from '$routes-entity/interfaces';
 
 export interface AppRoutes extends RSBaseRoute {
   home;

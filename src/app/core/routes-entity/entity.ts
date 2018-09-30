@@ -16,7 +16,7 @@ import {
   userCenterEntity
 } from '$routes-entity/entities';
 
-interface Entity {
+export interface Entity {
   app: RSEntities<AppRoutes>;
   home: RSEntities<RSBaseRoute>;
   location: RSEntities<LocationRoutes>;

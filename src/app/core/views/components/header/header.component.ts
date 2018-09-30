@@ -25,9 +25,9 @@ import { Store } from '@ngrx/store';
 
 import * as fromStore from '+store/index';
 import {
-  appEntity,
-  locationEntity
-} from '$routes-entity/entities';
+  routesEntity,
+  Entity
+} from '$routes-entity/entity';
 import { AuthComponent } from '$auth/containers/auth/auth.component';
 import { User } from '$core/shared/interfaces/user.interface';
 import { Direction } from '$core/shared/enums/direction.enum';
@@ -45,8 +45,7 @@ const animation = getToggleAnimation(animationTrigger);
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
-  public appRoute: any;
-  public locationRoute: any;
+  public routes: Entity;
   private user: User;
   private ngUnsubscribe: Subject<void>;
   private isVisible: boolean;
@@ -65,8 +64,7 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   public ngOnInit(): void {
-    this.appRoute = appEntity;
-    this.locationRoute = locationEntity;
+    this.routes = routesEntity;
     this.ngUnsubscribe = new Subject<void>();
     this.isVisible = true;
 
@@ -104,6 +102,7 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
 
   public auth(): void {
     if (this.user && this.user.catchPhrase) {
+      // TODO: ..
       this.router.navigate(['user-center', this.user.id])
           .catch((err: Error) => console.error(err));
       return;

@@ -16,13 +16,13 @@ import {
   finalize
 } from 'rxjs/operators';
 
-import { ApolloService } from '+apollo/services/apollo.service';
 import { AuthService } from '$core/services/auth.service';
 import {
   Access,
   CatchPhraseConfig,
   User
 } from '$core/shared/interfaces/user.interface';
+import { ApolloService } from '+apollo/services/apollo.service';
 import {
   AuthActionTypes,
   FetchUser,
@@ -39,6 +39,7 @@ import {
   SignUpSuccess
 } from '+store/actions/user.auth.action';
 import { Go } from '+store/actions/router.action';
+import { routesEntity } from '$routes-entity/entity';
 
 @Injectable({ providedIn: 'root' })
 export class UserEffect {
@@ -110,7 +111,7 @@ export class UserEffect {
   public signOut$ = this.actions$.pipe(
       ofType(AuthActionTypes.SignOut, AuthActionTypes.Redirect),
       tap(() => this.authService.removeStorageUser()),
-      tap(() => this.router.navigate(['']))
+      tap(() => this.router.navigate(routesEntity.app.home.state))
   );
 
   constructor(

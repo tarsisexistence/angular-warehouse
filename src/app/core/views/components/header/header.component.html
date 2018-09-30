@@ -1,7 +1,7 @@
 <header class="header">
   <section class="header__brandline">
     <a class="header__brandname"
-       [routerLink]="['']">
+       [routerLink]="routes.app.home.state">
       Reignarr
     </a>
 
@@ -14,13 +14,13 @@
 
   <section class="header__nav">
     <div class="header__nav-main">
-      <a [routerLink]="appRoute.home.state">
+      <a [routerLink]="routes.app.home.state">
         Home
       </a>
-      <a [routerLink]="appRoute.shop.state">
+      <a [routerLink]="routes.app.shop.state">
         Shop
       </a>
-      <a [routerLink]="appRoute.cart.state">
+      <a [routerLink]="routes.app.cart.state">
         <mat-icon class="header__icon header__icon-cart">
           shopping_cart
         </mat-icon>
@@ -28,10 +28,10 @@
     </div>
 
     <div class="header__nav-main">
-      <a [routerLink]="locationRoute.map.state">
+      <a [routerLink]="routes.location.map.state">
         Store Location
       </a>
-      <a [routerLink]="locationRoute.stocklist.state">
+      <a [routerLink]="routes.location.stocklist.state">
         Stocklist
       </a>
     </div>

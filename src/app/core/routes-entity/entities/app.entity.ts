@@ -4,4 +4,4 @@ import {
   AppRoutes
 } from '$routes-entity/routes';
 
-export const appEntity = routeStore.createRoot<AppRoutes>(appRoute);
+export const app = routeStore.createRoot<AppRoutes>(appRoute);

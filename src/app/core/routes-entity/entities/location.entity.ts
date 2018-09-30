@@ -3,6 +3,6 @@ import {
   LocationRoutes
 } from '$routes-entity/routes';
 import { routeStore } from '$routes-entity/store';
-import { appEntity } from './app.entity';
+import { app } from './app.entity';
 
-export const locationEntity = routeStore.createFeature<LocationRoutes>(appEntity.location, locationRoute);
+export const location = routeStore.createFeature<LocationRoutes>(app.location, locationRoute);

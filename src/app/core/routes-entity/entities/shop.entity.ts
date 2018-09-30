@@ -3,6 +3,6 @@ import {
   ShopRoutes
 } from '$routes-entity/routes/shop.route';
 import { routeStore } from '$routes-entity/store';
-import { appEntity } from './app.entity';
+import { app } from './app.entity';
 
-export const shopEntity = routeStore.createFeature<ShopRoutes>(appEntity.shop, shopRoute);
+export const shop = routeStore.createFeature<ShopRoutes>(app.shop, shopRoute);

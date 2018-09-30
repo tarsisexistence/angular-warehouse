@@ -1,57 +1,64 @@
-import { assignId } from '$routes-entity/helpers';
+import { entitify } from '$routes-entity/helpers';
+import { Entity } from '$routes-entity/entity';
 import {
   RSEntity,
   RSEntities,
-  RSRoutes
+  RSRoutes,
+  RSRoutesEntity
 } from '$routes-entity/interfaces';
 
-export class RouteStore {
-  private entity: RSEntities<any>;
-  private static instance: RouteStore;
+export class RouteStore<C> {
+  public get entity(): RSRoutesEntity<C> {
+    return this._entity;
+  }
 
-  public static getInstance(): RouteStore {
-    if (!RouteStore.instance) {
-      RouteStore.instance = new RouteStore();
+  private _entity: RSRoutesEntity<C>;
+
+  public static inject<C>(): RouteStore<C> {
+    if (!RouteStore.inject['instance']) {
+      RouteStore.inject['instance'] = new RouteStore<C>();
     }
 
-    return RouteStore.instance;
+    return RouteStore.inject['instance'];
   }
 
   public createRoot<T>(routes: RSRoutes<T>): RSEntities<T> {
-    if (this.entity) {
+    if (this._entity) {
+      // TODO: rename route store
       throw `Route store is already created!`;
     }
 
-    this.entity = RouteStore.entitify<T>(null, routes);
+    const rootEntity = entitify<T>(null, routes);
 
-    return this.entity as RSEntities<T>;
+    this.initEntity();
+    this.updateEntity('app', rootEntity);
+
+    return rootEntity as RSEntities<T>;
   }
 
   public createFeature<T>(parentRoute: RSEntity, routes: RSRoutes<T>): RSEntities<T> {
-    const featureEntity = RouteStore.entitify<T>(parentRoute, routes);
+    const featureEntity = entitify<T>(parentRoute, routes);
 
-    this.entity = Object.assign({}, this.entity, featureEntity);
+    this.updateEntity<RSEntities<T>>(parentRoute.route, featureEntity);
 
-    return featureEntity as RSEntities<T>;
+    return featureEntity;
   }
 
-  private static entitify<T>(parentEntity: RSEntity | null, routes: RSRoutes<any>): RSEntities<T> {
-    return Object.keys(routes).reduce((acc: any, route: string) => {
-      const { path, lazyPath } = routes[route];
-      return ({
-        ...acc,
-        [route]: {
-          id: assignId(),
-          parentId: parentEntity !== null ? parentEntity.id : null,
-          state: parentEntity !== null ? [...parentEntity.state, path] : [path],
-          path,
-          lazyPath,
-          route
-        }
-      });
-    }, {});
+  public getEntity(): RSRoutesEntity<C> {
+    return this.entity;
+  }
+
+  private initEntity() {
+    this._entity = {} as RSRoutesEntity<C>;
+  }
+
+  private updateEntity<T>(route: string, entity: T): void {
+    this._entity = Object.assign(
+        {},
+        this._entity,
+        { [route]: entity }
+    );
   }
 }
 
-// TODO: ..
-export const routeStore = RouteStore.getInstance();
+export const routeStore = RouteStore.inject<Entity>();

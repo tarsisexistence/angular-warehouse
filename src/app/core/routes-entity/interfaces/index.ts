@@ -3,5 +3,7 @@ export { RSRoutes } from './routes.interface';
 export { RSRoute } from './route.interface';
 export {
   RSEntity,
-  RSEntities
+  RSEntities,
+  RSRoutesEntity,
+  RSApplicationEntity
 } from './entity.interface';

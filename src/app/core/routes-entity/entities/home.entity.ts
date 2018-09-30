@@ -1,6 +1,6 @@
 import { homeRoute } from '$routes-entity/routes';
 import { RSBaseRoute } from '$routes-entity/interfaces';
 import { routeStore } from '$routes-entity/store';
-import { appEntity } from './app.entity';
+import { app } from './app.entity';
 
-export const homeEntity = routeStore.createFeature<RSBaseRoute>(appEntity.home, homeRoute);
+export const home = routeStore.createFeature<RSBaseRoute>(app.home, homeRoute);

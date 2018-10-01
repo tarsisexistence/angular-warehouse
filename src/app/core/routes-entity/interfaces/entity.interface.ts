@@ -1,4 +1,4 @@
-export interface RSEntity {
+export interface RSEntityStructure {
   id: number;
   parentId: number;
   state: string[]
@@ -7,8 +7,10 @@ export interface RSEntity {
   lazyPath?: string;
 }
 
-export type RSEntities<T> = { [key in keyof T]: RSEntity }
+export type RSEntity<T> = { [key in keyof T]: RSEntityStructure }
+
+export type RSEntities<T> = { [key in keyof T]: RSEntity<T[key]> }
 
 export type RSRoutesEntity<T> = { [key in keyof T]: T[key] }
 
-export type RSApplicationEntity<T> = { [key in keyof T]: RSEntities<T[key]> }
+

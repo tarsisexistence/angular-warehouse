@@ -1,9 +1,11 @@
-export { RSBaseRoute } from './base-route.interface';
-export { RSRoutes } from './routes.interface';
-export { RSRoute } from './route.interface';
 export {
+  RSBaseRoute,
+  RSRoute,
+  RSRoutes
+} from './routes.interface';
+export {
+  RSEntityStructure,
   RSEntity,
   RSEntities,
-  RSRoutesEntity,
-  RSApplicationEntity
+  RSRoutesEntity
 } from './entity.interface';

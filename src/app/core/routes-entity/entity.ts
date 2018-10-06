@@ -1,6 +1,6 @@
 import {
   RSBaseRoute,
-  RSApplicationEntity,
+  RSEntity,
   RSEntities
 } from '$routes-entity/interfaces';
 import {
@@ -19,18 +19,17 @@ import {
 } from '$routes-entity/entities';
 
 export interface Entity {
-  app: RSEntities<AppRoutes>;
-  home: RSEntities<RSBaseRoute>;
-  location: RSEntities<LocationRoutes>;
-  shop: RSEntities<ShopRoutes>;
-  userCenter: RSEntities<UserCenterRoutes>;
+  app: RSEntity<AppRoutes>;
+  home: RSEntity<RSBaseRoute>;
+  location: RSEntity<LocationRoutes>;
+  shop: RSEntity<ShopRoutes>;
+  userCenter: RSEntity<UserCenterRoutes>;
 }
 
-export const routesEntity: RSApplicationEntity<Entity> = {
+export const routesEntity: RSEntities<Entity> = {
   app,
   home,
   location,
   shop,
   userCenter
 };
-

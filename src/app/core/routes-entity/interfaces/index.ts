@@ -1,11 +1,10 @@
 export {
+  RSRoutes,
   RSBaseRoute,
-  RSRoute,
-  RSRoutes
+  RSRoute
 } from './routes.interface';
 export {
-  RSEntityStructure,
+  RSStructure,
   RSEntity,
-  RSEntities,
-  RSRoutesEntity
+  RSEntities
 } from './entity.interface';

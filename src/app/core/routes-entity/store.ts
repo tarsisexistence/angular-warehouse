@@ -1,18 +1,18 @@
 import { entitify } from '$routes-entity/helpers';
 import { Entity } from '$routes-entity/entity';
 import {
-  RSEntityStructure,
+  RSStructure,
   RSEntity,
   RSRoutes,
-  RSRoutesEntity
+  RSEntities
 } from '$routes-entity/interfaces';
 
 export class RouteStore<C> {
-  public get entity(): RSRoutesEntity<C> {
+  public get entity(): RSEntities<C> {
     return this._entity;
   }
 
-  private _entity: RSRoutesEntity<C>;
+  private _entity: RSEntities<C>;
 
   public static inject<C>(): RouteStore<C> {
     if (!RouteStore.inject['instance']) {
@@ -36,7 +36,7 @@ export class RouteStore<C> {
     return rootEntity as RSEntity<T>;
   }
 
-  public createFeature<T>(parentRoute: RSEntityStructure, routes: RSRoutes<T>): RSEntity<T> {
+  public createFeature<T>(parentRoute: RSStructure, routes: RSRoutes<T>): RSEntity<T> {
     const featureEntity = entitify<T>(parentRoute, routes);
 
     this.updateEntity<RSEntity<T>>(parentRoute.route, featureEntity);
@@ -44,12 +44,12 @@ export class RouteStore<C> {
     return featureEntity;
   }
 
-  public getEntity(): RSRoutesEntity<C> {
+  public getEntity(): RSEntities<C> {
     return this.entity;
   }
 
-  private initEntity(): void {
-    this._entity = {} as RSRoutesEntity<C>;
+  private initEntity() {
+    this._entity = {} as RSEntities<C>;
   }
 
   private updateEntity<T>(route: string, entity: T): void {

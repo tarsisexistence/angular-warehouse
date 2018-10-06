@@ -3,33 +3,22 @@ import {
   RSEntity,
   RSEntities
 } from '$routes-entity/interfaces';
-import {
-  AppRoutes,
-  LocationRoutes,
-  ShopRoutes,
-  UserCenterRoutes
-} from '$routes-entity/routes';
 
-import {
-  app,
-  home,
-  location,
-  shop,
-  userCenter
-} from '$routes-entity/entities';
+import * as fromRoutes from '$routes-entity/routes';
+import * as fromEntities from '$routes-entity/entities';
 
 export interface Entity {
-  app: RSEntity<AppRoutes>;
+  app: RSEntity<fromRoutes.AppRoutes>;
   home: RSEntity<RSBaseRoute>;
-  location: RSEntity<LocationRoutes>;
-  shop: RSEntity<ShopRoutes>;
-  userCenter: RSEntity<UserCenterRoutes>;
+  location: RSEntity<fromRoutes.LocationRoutes>;
+  shop: RSEntity<fromRoutes.ShopRoutes>;
+  userCenter: RSEntity<fromRoutes.UserCenterRoutes>;
 }
 
 export const routesEntity: RSEntities<Entity> = {
-  app,
-  home,
-  location,
-  shop,
-  userCenter
+  app: fromEntities.app,
+  home: fromEntities.home,
+  location: fromEntities.location,
+  shop: fromEntities.shop,
+  userCenter: fromEntities.userCenter
 };

@@ -3,6 +3,7 @@ export {
   RSBaseRoute,
   RSRoute
 } from './routes.interface';
+
 export {
   RSStructure,
   RSEntity,

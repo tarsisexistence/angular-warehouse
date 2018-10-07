@@ -16,6 +16,9 @@ import { takeUntil } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 
 import * as fromStore from '+store/index';
+import { shop as shopRoutesEntity } from '$routes-entity/entities';
+import { RSEntity } from '$routes-entity/interfaces';
+import { ShopRoutes } from '$routes-entity/routes';
 import { Apparel } from '-shop/shared/interfaces/apparel.interface';
 import { Apparels } from '-shop/shared/models/apparels.model';
 import { categories } from '-shop/shared/models/categories.model';
@@ -32,6 +35,7 @@ export class ShopComponent implements OnInit, OnDestroy {
   public selectedCategory: string;
   public categories: string[];
   public loading: boolean;
+  public shopRoutesEntity: RSEntity<ShopRoutes>;
   private ngUnsubscribe: Subject<boolean>;
 
   constructor(
@@ -44,6 +48,7 @@ export class ShopComponent implements OnInit, OnDestroy {
 
   public ngOnInit(): void {
     this.ngUnsubscribe = new Subject<boolean>();
+    this.shopRoutesEntity = shopRoutesEntity;
     this.categories = categories;
 
     this.route.data
@@ -66,7 +71,13 @@ export class ShopComponent implements OnInit, OnDestroy {
         .pipe(takeUntil(this.ngUnsubscribe))
         .subscribe((e: any) => {
           if (e instanceof NavigationEnd) {
-            this.apparels[this.selectedCategory] = mixArray<Apparel>(this.apparels[this.selectedCategory]);
+            const apparel = this.apparels[this.selectedCategory];
+
+            if (apparel === undefined) {
+              return;
+            }
+
+            this.apparels[this.selectedCategory] = mixArray<Apparel>(apparel);
             this.cdr.markForCheck();
           }
         });

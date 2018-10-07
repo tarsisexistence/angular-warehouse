@@ -4,6 +4,9 @@ import {
   ChangeDetectionStrategy
 } from '@angular/core';
 
+import { ShopRoutes } from '$routes-entity/routes';
+import { RSEntity } from '$routes-entity/interfaces';
+
 @Component({
   selector: 'shop-bar',
   templateUrl: './shop-bar.component.html',
@@ -12,6 +15,7 @@ import {
 })
 export class ShopBarComponent {
   @Input() public categories: string[];
+  @Input() public routesEntity: RSEntity<ShopRoutes>;
 
   public identify(index: number): number {
     return index;

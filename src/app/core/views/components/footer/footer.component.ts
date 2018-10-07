@@ -21,11 +21,11 @@ import {
   debounceTime
 } from 'rxjs/operators';
 
-import { InfoComponent } from '#shared/dialogs/info/info.component';
 import {
   returnPolicy,
   shippingHandling
 } from '$core/shared/constants/shop-rules.constants';
+import { InfoComponent } from '#shared/dialogs/info/info.component';
 import { Direction } from '$core/shared/enums/direction.enum';
 import { VisibilityState } from '$core/shared/enums/visibility-state.enum';
 import { getToggleAnimation } from '$core/shared/animations/toggle.animation';

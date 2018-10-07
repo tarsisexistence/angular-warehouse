@@ -9,3 +9,5 @@ export {
   RSEntity,
   RSEntities
 } from './entity.interface';
+
+export { RSStateParams } from './state-params.interface'

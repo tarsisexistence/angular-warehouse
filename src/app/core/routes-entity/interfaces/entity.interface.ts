@@ -1,8 +1,11 @@
+import { RSStateParams } from '$core/routes-entity';
+
 export interface RSStructure {
   id: number;
   parentId: number;
-  state: string[]
   path: string;
+  state: string[];
+  stateFn: (params?: RSStateParams, ...restParams: RSStateParams[]) => string[];
   route: string;
   lazyPath?: string;
 }

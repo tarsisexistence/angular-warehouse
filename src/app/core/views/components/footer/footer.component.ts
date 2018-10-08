@@ -41,7 +41,7 @@ const animation = getToggleAnimation(animationTrigger);
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FooterComponent implements OnInit, AfterViewInit, OnDestroy {
-  private ngUnsubscribe: Subject<void>;
+  private unsubscribe$: Subject<void>;
   private isVisible: boolean;
 
   @HostBinding(`@${animationTrigger}`)
@@ -56,14 +56,14 @@ export class FooterComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   public ngOnInit(): void {
-    this.ngUnsubscribe = new Subject<void>();
+    this.unsubscribe$ = new Subject<void>();
     this.isVisible = false;
   }
 
   public ngAfterViewInit(): void {
     fromEvent(window, 'scroll')
         .pipe(
-            takeUntil(this.ngUnsubscribe),
+            takeUntil(this.unsubscribe$),
             debounceTime(5),
             map(() => window.pageYOffset),
             pairwise(),
@@ -104,7 +104,7 @@ export class FooterComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   public ngOnDestroy(): void {
-    this.ngUnsubscribe.next();
-    this.ngUnsubscribe.complete();
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 }

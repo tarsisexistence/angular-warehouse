@@ -47,7 +47,7 @@ const animation = getToggleAnimation(animationTrigger);
 export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   public routes: Entity;
   private user: User;
-  private ngUnsubscribe: Subject<void>;
+  private unsubscribe$: Subject<void>;
   private isVisible: boolean;
 
   @HostBinding(`@${animationTrigger}`)
@@ -65,18 +65,18 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
 
   public ngOnInit(): void {
     this.routes = routesEntity;
-    this.ngUnsubscribe = new Subject<void>();
+    this.unsubscribe$ = new Subject<void>();
     this.isVisible = true;
 
     this.store.select(fromStore.getUser)
-        .pipe(takeUntil(this.ngUnsubscribe))
+        .pipe(takeUntil(this.unsubscribe$))
         .subscribe((user: User) => this.user = user);
   }
 
   public ngAfterViewInit(): void {
     fromEvent(window, 'scroll')
         .pipe(
-            takeUntil(this.ngUnsubscribe),
+            takeUntil(this.unsubscribe$),
             debounceTime(5),
             map(() => window.pageYOffset),
             pairwise(),
@@ -116,7 +116,7 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   public ngOnDestroy(): void {
-    this.ngUnsubscribe.next();
-    this.ngUnsubscribe.complete();
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 }

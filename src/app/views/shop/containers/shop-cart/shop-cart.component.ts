@@ -31,22 +31,22 @@ export class ShopCartComponent implements OnInit, OnDestroy {
 
   public showBubble$: Observable<boolean>;
   public bubbleMessage: string;
-  private ngUnsubscribe: Subject<void>;
+  private unsubscribe$: Subject<void>;
 
   constructor() {
     this.userCounterChangeEmitter = new EventEmitter<void>();
   }
 
   public ngOnInit(): void {
-    this.ngUnsubscribe = new Subject<void>();
+    this.unsubscribe$ = new Subject<void>();
 
     const change$ = this.userCounterChangeEmitter.asObservable();
     const showBubble$ = change$.pipe(
-        takeUntil(this.ngUnsubscribe),
+        takeUntil(this.unsubscribe$),
         mapTo(true)
     );
     const hideBubble$ = change$.pipe(
-        takeUntil(this.ngUnsubscribe),
+        takeUntil(this.unsubscribe$),
         debounceTime(400),
         mapTo(false)
     );
@@ -60,7 +60,7 @@ export class ShopCartComponent implements OnInit, OnDestroy {
   }
 
   public ngOnDestroy(): void {
-    this.ngUnsubscribe.next();
-    this.ngUnsubscribe.complete();
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 }

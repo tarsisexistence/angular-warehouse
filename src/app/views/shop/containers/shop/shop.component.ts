@@ -36,7 +36,7 @@ export class ShopComponent implements OnInit, OnDestroy {
   public categories: string[];
   public loading: boolean;
   public shopRoutesEntity: RSEntity<ShopRoutes>;
-  private ngUnsubscribe: Subject<boolean>;
+  private unsubscribe$: Subject<boolean>;
 
   constructor(
       private cdr: ChangeDetectorRef,
@@ -47,12 +47,12 @@ export class ShopComponent implements OnInit, OnDestroy {
   }
 
   public ngOnInit(): void {
-    this.ngUnsubscribe = new Subject<boolean>();
+    this.unsubscribe$ = new Subject<boolean>();
     this.shopRoutesEntity = shopRoutesEntity;
     this.categories = categories;
 
     this.route.data
-        .pipe(takeUntil(this.ngUnsubscribe))
+        .pipe(takeUntil(this.unsubscribe$))
         .subscribe((data: { category: string }) => {
           this.loading = this.apparels === undefined;
           this.selectedCategory = data.category === undefined ? 'all' : data.category;
@@ -60,7 +60,7 @@ export class ShopComponent implements OnInit, OnDestroy {
 
     this.store.dispatch(new fromStore.LoadApparel());
     this.store.select(fromStore.getShopApparel)
-        .pipe(takeUntil(this.ngUnsubscribe))
+        .pipe(takeUntil(this.unsubscribe$))
         .subscribe((apparels: Apparel[]) => {
           this.apparels = new Apparels(apparels);
           this.loading = false;
@@ -68,7 +68,7 @@ export class ShopComponent implements OnInit, OnDestroy {
         });
 
     this.router.events
-        .pipe(takeUntil(this.ngUnsubscribe))
+        .pipe(takeUntil(this.unsubscribe$))
         .subscribe((e: any) => {
           if (e instanceof NavigationEnd) {
             const apparel = this.apparels[this.selectedCategory];
@@ -88,7 +88,7 @@ export class ShopComponent implements OnInit, OnDestroy {
   }
 
   public ngOnDestroy(): void {
-    this.ngUnsubscribe.next();
-    this.ngUnsubscribe.complete();
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 }

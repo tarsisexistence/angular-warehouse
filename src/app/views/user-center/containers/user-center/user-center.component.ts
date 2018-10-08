@@ -20,17 +20,17 @@ import { User } from '$core/shared/interfaces/user.interface';
 })
 export class UserCenterComponent implements OnInit, OnDestroy {
   private user: User;
-  private ngUnsubscribe: Subject<void>;
+  private unsubscribe$: Subject<void>;
 
   constructor(private store: Store<fromStore.AuthState>) {
   }
 
   public ngOnInit(): void {
-    this.ngUnsubscribe = new Subject<void>();
+    this.unsubscribe$ = new Subject<void>();
 
     this.store
         .select(fromStore.getUser)
-        .pipe(takeUntil(this.ngUnsubscribe))
+        .pipe(takeUntil(this.unsubscribe$))
         .subscribe((user: User) => (this.user = user));
   }
 
@@ -39,7 +39,7 @@ export class UserCenterComponent implements OnInit, OnDestroy {
   }
 
   public ngOnDestroy(): void {
-    this.ngUnsubscribe.next();
-    this.ngUnsubscribe.complete();
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 }

@@ -9,8 +9,11 @@
         (ngSubmit)="signIn(signInForm)">
     <mat-form-field>
       <input matInput
-             placeholder="E-Mail"
              type="email"
+             placeholder="E-Mail"
+             aria-label="E-Mail"
+             aria-describedby=""
+             aria-required="true"
              formControlName="email"/>
     </mat-form-field>
 
@@ -18,8 +21,11 @@
 
     <mat-form-field>
       <input matInput
-             placeholder="Password"
              type="password"
+             placeholder="Password"
+             aria-label="Password"
+             aria-describedby=""
+             aria-required="true"
              formControlName="password"/>
     </mat-form-field>
 

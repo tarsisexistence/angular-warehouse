@@ -1,39 +1,54 @@
 <header class="header">
+
   <section class="header__brandline">
     <a class="header__brandname"
+       accesskey="1"
+
        [routerLink]="routes.app.home.state">
       Reignarr
     </a>
 
-    <a (click)="auth()">
+    <a accesskey="a"
+       (click)="auth()">
       <mat-icon class="header__icon header__icon-profile">
         account_circle
       </mat-icon>
     </a>
   </section>
 
-  <section class="header__nav">
-    <div class="header__nav-main">
-      <a [routerLink]="routes.app.home.state">
+  <section class="header__nav" role="navigation">
+    <nav class="header__nav-main">
+      <a accesskey="h"
+         title="Home"
+         [routerLink]="routes.app.home.state">
         Home
       </a>
-      <a [routerLink]="routes.app.shop.state">
+      <a accesskey="s"
+         title="Shop"
+         [routerLink]="routes.app.shop.state">
         Shop
       </a>
-      <a [routerLink]="routes.app.cart.state">
+      <a accesskey="c"
+         title="Shopping cart"
+         [routerLink]="routes.app.cart.state">
         <mat-icon class="header__icon header__icon-cart">
           shopping_cart
         </mat-icon>
       </a>
-    </div>
+    </nav>
 
-    <div class="header__nav-main">
-      <a [routerLink]="routes.location.map.state">
+    <nav class="header__nav-main">
+      <a accesskey="l"
+         title="Store location"
+         [routerLink]="routes.location.map.state">
         Store Location
       </a>
-      <a [routerLink]="routes.location.stocklist.state">
+      <a accesskey="k"
+         title="Stocklist"
+         [routerLink]="routes.location.stocklist.state">
         Stocklist
       </a>
-    </div>
+    </nav>
   </section>
+
 </header>

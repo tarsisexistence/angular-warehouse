@@ -1,13 +1,36 @@
 <footer class="footer">
+
   <div class="footer__info">
-    <div>
-      <a (click)="openShippingHandling()">Shipping & Handling</a>
-      <a (click)="openReturnPolicy()">Return policy</a>
-    </div>
-    <div>
-      <a href="https://vk.com/maktarsis">VK</a>
-      <a href="https://www.facebook.com/maktarsis">Facebook</a>
-      <a href="https://www.instagram.com/maktarsis">Instagram</a>
-    </div>
+    <section role="dialog" aria-label="rules and policies">
+      <a accesskey="&"
+         title="Shipping & Handling"
+         (click)="openShippingHandling()">
+        Shipping & Handling
+      </a>
+      <a accesskey="p"
+         title="Return policy"
+         (click)="openReturnPolicy()">
+        Return policy
+      </a>
+    </section>
+
+    <section role="navigation" aria-label="social">
+      <a accesskey="v"
+         title="vk"
+         href="https://vk.com/maktarsis">
+        VK
+      </a>
+      <a accesskey="f"
+         title="facebook"
+         href="https://www.facebook.com/maktarsis">
+        Facebook
+      </a>
+      <a accesskey="i"
+         title="instagram"
+         href="https://www.instagram.com/maktarsis">
+        Instagram
+      </a>
+    </section>
   </div>
+
 </footer>

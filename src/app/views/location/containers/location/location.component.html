@@ -22,6 +22,7 @@
       <mat-form-field class="location__navigation-search-input">
         <input matInput
                placeholder="Address"
+               aria-label="Address"
                id="input-search"
                [(ngModel)]="address"
                (keyup.enter)="search(address)"/>

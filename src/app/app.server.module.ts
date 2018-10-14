@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { FlexLayoutServerModule } from '@angular/flex-layout/server';
 import {
   ServerModule,
   ServerTransferStateModule
@@ -15,8 +14,7 @@ import { AppComponent } from '!app/app.component';
     AppModule,
     ServerModule,
     ServerTransferStateModule,
-    ModuleMapLoaderModule,
-    FlexLayoutServerModule
+    ModuleMapLoaderModule
   ],
 
   bootstrap: [AppComponent]

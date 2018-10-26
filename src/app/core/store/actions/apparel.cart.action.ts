@@ -70,7 +70,7 @@ export class RemoveApparelFail implements Action {
 export class RemoveApparelSuccess implements Action {
   readonly type = ApparelCartActionTypes.RemoveApparelSuccess;
 
-  constructor(public payload: number) {
+  constructor(public payload: string) {
   }
 }
 

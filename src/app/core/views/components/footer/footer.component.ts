@@ -7,7 +7,10 @@ import {
   OnDestroy,
   OnInit
 } from '@angular/core';
-import { MatDialog } from '@angular/material';
+import {
+  MatDialog,
+  MatDialogConfig
+} from '@angular/material';
 
 import {
   Subject,
@@ -92,7 +95,7 @@ export class FooterComponent implements OnInit, AfterViewInit, OnDestroy {
       height: '500px',
       width: '600px',
       data: shippingHandling
-    });
+    } as MatDialogConfig<any>);
   }
 
   public openReturnPolicy(): void {
@@ -100,7 +103,7 @@ export class FooterComponent implements OnInit, AfterViewInit, OnDestroy {
       height: '500px',
       width: '600px',
       data: returnPolicy
-    });
+    } as MatDialogConfig<any>);
   }
 
   public ngOnDestroy(): void {

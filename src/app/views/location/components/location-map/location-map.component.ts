@@ -37,7 +37,6 @@ export class LocationMapComponent implements OnInit {
 
   @Input()
   set zoom(zoom: number) {
-    debugger;
     this.map.setZoom(zoom);
     this._zoom = zoom;
   }

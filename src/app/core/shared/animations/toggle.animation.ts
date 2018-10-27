@@ -14,14 +14,14 @@ export function getToggleAnimation(type: string): any {
         state(
             VisibilityState.Hidden.toString(),
             style({
-              opacity: 0,
+              visibility: 'hidden',
               transform: 'translateY(-100%)'
             })
         ),
         state(
             VisibilityState.Visible.toString(),
             style({
-              opacity: 1,
+              visibility: 'visible',
               transform: 'translateY(0)'
             })
         ),

@@ -1,4 +1,4 @@
-.auth {
+:host {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -7,7 +7,9 @@
   width: 100%;
   height: 100%;
   box-sizing: border-box;
+}
 
+.auth {
   &__logo {
     width: 50%;
     align-self: center;

@@ -1,22 +1,16 @@
-- angular 7
 - pwa
 - ngrx semantic action types
 - ngrx facade https://medium.com/@thomasburleson_11450/ngrx-facades-better-state-management-82a04b9a1e39
 - ngrx errors https://medium.com/city-pantry/handling-errors-in-ngrx-effects-a95d918490d9
-- nest backend
+- ngrx entities
+- typescript backend
 https://auth0.com/blog/full-stack-typescript-apps-part-1-developing-backend-apis-with-nestjs/
 https://auth0.com/blog/full-stack-typescript-apps-part-2-developing-frontend-angular-apps/
 - a11y https://blog.angularindepth.com/test-for-accessibility-and-help-millions-of-people-97d86f72e2c4
 - required props https://netbasal.com/how-to-add-angular-component-input-validation-b078a30af97f
 - digitonly directive https://codeburst.io/digit-only-directive-in-angular-3db8a94d80c3
 - apollo refetch
-- semantic css
-- accessibility
-- @ngrx/entity
-- quantities
+- quantities (cart apparels)
 - e2e
-- onchanges -> sett
 - antdesign
-- resolve todos
-- document readme
 - https://css-tricks.com/having-fun-with-link-hover-effects/?utm_source=mybridge&utm_medium=blog&utm_campaign=read_more

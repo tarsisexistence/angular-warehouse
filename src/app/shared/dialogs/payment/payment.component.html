@@ -8,7 +8,7 @@
   <form class="payment__form"
         [formGroup]="form"
         (ngSubmit)="payment(form)">
-    <div class="payment__form-controls">
+    <fieldset class="payment__form-controls">
       <mat-form-field>
         <input matInput
                placeholder="Full name"
@@ -32,10 +32,7 @@
                aria-required="true"
                formControlName="address">
       </mat-form-field>
-      <!--<mat-form-field>-->
-      <!--<input matInput placeholder="E-Mail" type="email" formControlName="email">-->
-      <!--</mat-form-field>-->
-    </div>
+    </fieldset>
 
     <button class="payment__submit"
             mat-raised-button

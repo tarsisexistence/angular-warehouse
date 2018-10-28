@@ -1,6 +1,6 @@
 {
   "hooks": {
-    "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-    "pre-commit": "run-s precise-commits-check format:fix lint-staged"
+    "pre-commit": "lint-staged",
+    "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
   }
 }

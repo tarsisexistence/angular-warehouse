@@ -23,13 +23,8 @@
             "main": "src/main/main.ts",
             "polyfills": "src/helpers/polyfills.ts",
             "tsConfig": "src/typescript/tsconfig.app.json",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
-            "styles": [
-              "src/styles.scss"
-            ],
+            "assets": ["src/favicon.ico", "src/assets", "src/manifest.json"],
+            "styles": ["src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -46,9 +41,8 @@
                 {
                   "type": "bundle",
                   "name": "main",
-                  "baseline": "900kb",
-                  "warning": "100kb",
-                  "error": "200kb"
+                  "maximumWarning": "1mb",
+                  "maximumError": "1.5mb"
                 }
               ],
               "fileReplacements": [
@@ -65,7 +59,8 @@
               "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
-              "buildOptimizer": true
+              "buildOptimizer": true,
+              "serviceWorker": true
             }
           }
         },
@@ -98,14 +93,9 @@
             "polyfills": "src/helpers/polyfills.ts",
             "tsConfig": "src/typescript/tsconfig.spec.json",
             "karmaConfig": "src/test/karma.conf.js",
-            "styles": [
-              "styles.scss"
-            ],
+            "styles": ["styles.scss"],
             "scripts": [],
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ]
+            "assets": ["src/favicon.ico", "src/assets", "src/manifest.json"]
           }
         },
         "lint": {
@@ -115,9 +105,7 @@
               "src/typescript/tsconfig.app.json",
               "src/typescript/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -137,9 +125,7 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "e2e/tsconfig.e2e.json",
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }

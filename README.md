@@ -1,14 +1,15 @@
 ## Concept Store Platform "**REIGNARR**"
 
-### Personal project for personal needs
+### Personal project for personal purpose
 
 #### If you are interested in what's going on here then feel free to contact me
 
 #### Project:
-CSP is online store as a platform for consumers that loves conceptual clothing
 
+Concept Store Platform - Online store as a platform for consumers who loves conceptual clothes
 
 #### Technologies:
+
 - Angular (core, material, universal)
 - TypeScript
 - RXJS

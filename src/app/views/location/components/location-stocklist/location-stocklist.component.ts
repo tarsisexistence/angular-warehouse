@@ -1,11 +1,7 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  OnInit
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 import { Stocklist } from '$core/shared/interfaces/stocklist.interface';
-import { stocklist } from '$core/shared/constants/stocklist.constant';
+import { stocklist } from '$core/shared/constants/stocklist';
 
 @Component({
   selector: 'location-stocklist',

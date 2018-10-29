@@ -22,4 +22,21 @@ Concept Store Platform - Online store as a platform for consumers who loves conc
 - Ravenjs
 - Compodoc
 - GoogleMaps
-- and cool techniques
+
+#### Features:
+
+- Automatic documentation
+- Hot Module Replacement (HMR)
+- Latest Angular, TypeScript, RXJS ...
+- Lazy Modules & OnPush Strategy & trackBy ...
+- Material UI Kit
+- MEAN + GraphQL (Apollo)
+- NGRX state management
+- Paths strategy
+- Progressive Web Application (Service Worker)
+- Project Structure
+- Routes Hub
+- SCSS
+- Server Side Rendering (Universal)
+- Scripts, analyzers, explorers, linters, hooks
+- ... animations, accessibility, interceptors

@@ -7,6 +7,7 @@ import { stocklist } from '$core/shared/constants/stocklist';
   selector: 'location-stocklist',
   templateUrl: './location-stocklist.component.html',
   styleUrls: ['./location-stocklist.component.scss'],
+  host: { class: 'stocklist' },
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LocationStocklistComponent implements OnInit {

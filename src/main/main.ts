@@ -1,11 +1,11 @@
 import 'hammerjs';
 import { enableProdMode, NgModuleRef } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { environment } from '~env/environment';
-import { AppModule } from '~app/app.module';
-import { hmrBootstrap } from '~main/main.hmr';
+import { bootstrapWithHmr } from '~main/main.hmr';
 import { setupNgProfiler } from '~helpers/profiler';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { AppModule } from '~app/app.module';
 
 if (environment.production) {
   window.console.log = () => {};
@@ -13,20 +13,27 @@ if (environment.production) {
   enableProdMode();
 }
 
-const bootstrap: () => Promise<NgModuleRef<any>> = () => {
-  return platformBrowserDynamic().bootstrapModule(AppModule);
-};
+const isSSR = document.readyState === 'loading';
 
-if (environment.hmr && module['hot']) {
-  hmrBootstrap(module, bootstrap);
+if (isSSR) {
+  document.addEventListener('DOMContentLoaded', bootstrapApp);
 } else {
-  bootstrap()
-    .then((reference) => setupNgProfiler(reference))
-    .catch((err) => console.log(err));
+  bootstrapApp();
 }
 
-// TODO: bootstrap on the server
-// document.addEventListener('DOMContentLoaded', () => {
-//   platformBrowserDynamic().bootstrapModule(AppModule)
-//       .catch(err => console.log(err));
-// });
+export function bootstrapApp(): void {
+  const boot: () => Promise<NgModuleRef<any>> = () =>
+    platformBrowserDynamic().bootstrapModule(AppModule);
+
+  bootstrap(boot)
+    .then(setupNgProfiler)
+    .catch(console.error);
+}
+
+function bootstrap(boot: () => Promise<NgModuleRef<any>>): any {
+  if (module['hot'] && environment.hmr) {
+    return bootstrapWithHmr(module, boot);
+  }
+
+  return boot();
+}

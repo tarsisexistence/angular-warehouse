@@ -1,9 +1,11 @@
-.location {
+:host {
   display: flex;
   flex-direction: column;
   margin-top: 60px;
   justify-content: space-between;
+}
 
+.location {
   &__gmap {
     margin-bottom: 40px;
   }

@@ -1,9 +1,11 @@
-.stocklist {
+:host {
   display: flex;
   justify-content: space-between;
   width: 85%;
   margin: 175px 0 0 auto;
+}
 
+.stocklist {
   &__country {
     width: 100%;
     display: flex;

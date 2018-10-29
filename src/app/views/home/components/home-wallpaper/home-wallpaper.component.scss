@@ -1,6 +1,8 @@
-.wallpaper {
+:host {
   height: 105vh;
+}
 
+.wallpaper {
   &__media {
     display: block;
     width: 100%;

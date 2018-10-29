@@ -1,6 +1,8 @@
-.user-center {
+:host {
   margin: 150px;
+}
 
+.user-center {
   &__sign-out {
     margin: 15px auto;
     background: black;

@@ -1,20 +1,16 @@
-<div class="container">
-  <div class="shop">
+<div class="shop">
+  <shop-bar class="shop__bar"
+            [routesEntity]="shopRoutesEntity"
+            [categories]="categories">
+  </shop-bar>
 
-    <shop-bar class="shop__bar"
-              [routesEntity]="shopRoutesEntity"
-              [categories]="categories">
-    </shop-bar>
+  <shop-apparels *ngIf="apparels"
+                 class="shop__apparels"
+                 [apparels]="apparels[selectedCategory]"
+                 (addToCartEmitter)="addToCart($event)">
+  </shop-apparels>
 
-    <shop-apparels *ngIf="apparels"
-                   class="shop__apparels"
-                   [apparels]="apparels[selectedCategory]"
-                   (addToCartEmitter)="addToCart($event)">
-    </shop-apparels>
-
-    <div *ngIf="loading">
-      <p class="shop__loading">Loading...</p>
-    </div>
+  <div *ngIf="loading">
+    <p class="shop__loading">Loading...</p>
   </div>
 </div>
-

@@ -1,71 +1,71 @@
-<main class="location">
-  <!--these properties are required: center, zoom-->
-  <location-map class="location__gmap"
-                [center]="center"
-                [zoom]="zoom"
-                [disableDefaultUI]="disableDefaultUI"
-                [disableDoubleClickZoom]="disableDoubleClickZoom"
-                [mapTypeId]="mapTypeId"
-                [maxZoom]="maxZoom"
-                [minZoom]="minZoom"
-                [styles]="styles">
-    <!--this property is required: position-->
-    <div googleMapMarker
-         [position]="position"
-         [title]="title"
-         [content]="content">
-    </div>
-  </location-map>
+<!--these properties are required: center, zoom-->
+<location-map class="location__gmap"
+              [center]="center"
+              [zoom]="zoom"
+              [disableDefaultUI]="disableDefaultUI"
+              [disableDoubleClickZoom]="disableDoubleClickZoom"
+              [mapTypeId]="mapTypeId"
+              [maxZoom]="maxZoom"
+              [minZoom]="minZoom"
+              [styles]="styles">
+  <!--this property is required: position-->
+  <section googleMapMarker
+           [position]="position"
+           [title]="title"
+           [content]="content">
+  </section>
+</location-map>
 
-  <div class="location__navigation">
-    <div class="location__navigation-search">
-      <mat-form-field class="location__navigation-search-input">
-        <input matInput
-               placeholder="Address"
-               aria-label="Address"
-               id="input-search"
-               [(ngModel)]="address"
-               (keyup.enter)="search(address)"/>
-      </mat-form-field>
+<div class="location__navigation">
+  <div class="location__navigation-search">
+    <mat-form-field class="location__navigation-search-input">
+      <input matInput
+             placeholder="Address"
+             aria-label="Address"
+             id="input-search"
+             [(ngModel)]="address"
+             (keyup.enter)="search(address)"/>
+    </mat-form-field>
 
-      <button class="location__navigation-search-button"
-              mat-raised-button
-              color="primary"
-              (click)="search(address)">
-        Search
-      </button>
-    </div>
-    <div class="location__navigation-reignarr">
-      <button class="location__navigation-position-button"
-              mat-raised-button
-              color="primary"
-              (click)="storeLocation()">
-        REIGNARR
-      </button>
-    </div>
-    <div class="location__navigation-current">
-      <button class="location__navigation-position-button"
-              mat-raised-button
-              color="primary"
-              (click)="getCurrentPosition()">
-        Current place
-      </button>
-    </div>
-  </div>
-
-
-  <div *ngIf="warning"
-       class="alert alert-warning alert-dismissible"
-       role="alert">
-    <button class="close" type="button" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
+    <button class="location__navigation-search-button"
+            mat-raised-button
+            color="primary"
+            (click)="search(address)">
+      Search
     </button>
+  </div>
+  <div class="location__navigation-reignarr">
+    <button class="location__navigation-position-button"
+            mat-raised-button
+            color="primary"
+            (click)="storeLocation()">
+      REIGNARR
+    </button>
+  </div>
+  <div class="location__navigation-current">
+    <button class="location__navigation-position-button"
+            mat-raised-button
+            color="primary"
+            (click)="getCurrentPosition()">
+      Current place
+    </button>
+  </div>
+</div>
 
-    <strong>Warning!</strong>
 
-    <span>
+<section *ngIf="warning"
+         class="alert alert-warning alert-dismissible"
+         role="alert">
+  <button class="close"
+          type="button"
+          data-dismiss="alert"
+          aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+
+  <strong>Warning!</strong>
+
+  <span>
       {{ message }}
     </span>
-  </div>
-
-</main>
+</section>

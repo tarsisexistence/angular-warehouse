@@ -6,26 +6,24 @@ import {
   trigger
 } from '@angular/animations';
 
-import { VisibilityState } from '$core/shared/enums/visibility-state.enum';
+import { visibility } from '$core/shared/constants/visibility';
 
 export function getToggleAnimation(type: string): any {
-  return (
-      trigger(type, [
-        state(
-            VisibilityState.Hidden.toString(),
-            style({
-              opacity: 0,
-              transform: 'translateY(-100%)'
-            })
-        ),
-        state(
-            VisibilityState.Visible.toString(),
-            style({
-              opacity: 1,
-              transform: 'translateY(0)'
-            })
-        ),
-        transition(`* => *`, animate('100ms ease-in'))
-      ])
-  );
-};
+  return trigger(type, [
+    state(
+      visibility.hidden,
+      style({
+        visibility: visibility.hidden,
+        transform: 'translateY(-100%)'
+      })
+    ),
+    state(
+      visibility.visible,
+      style({
+        visibility: visibility.visible,
+        transform: 'translateY(0)'
+      })
+    ),
+    transition(`* => *`, animate('100ms ease-in'))
+  ]);
+}

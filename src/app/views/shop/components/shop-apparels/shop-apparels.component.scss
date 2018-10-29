@@ -1,7 +1,9 @@
-.apparels {
+:host {
   display: flex;
   flex-wrap: wrap;
+}
 
+.apparels {
   &__apparel {
     position: relative;
     height: 250px;

@@ -1,31 +1,27 @@
-import {
-  Directive,
-  Input,
-  OnChanges,
-  SimpleChange
-} from '@angular/core';
+import { Directive, Input } from '@angular/core';
 
 import { MapService } from '-location/shared/map.service';
 
 @Directive({
   selector: '[googleMapMarker]'
 })
-export class MarkerDirective implements OnChanges {
-  @Input() public position: google.maps.LatLng; // Marker position. Required.
-  @Input() public title: string; // The marker's title will appear as a tooltip.
-  @Input() public content: string; // An InfoWindow's content is displayed in a popup window above the location-map, at
-                                   // a given location.
+export class MarkerDirective {
+  @Input()
+  public title: string;
+  @Input()
+  public content: string;
 
-  constructor(public map: MapService) {
+  @Input()
+  set position(position: google.maps.LatLng) {
+    this.map.addMarker(position, this.title, this.content);
+    this._position = position;
   }
 
-  /**
-   * This method is invoked when the marker properties change.
-   */
-  public ngOnChanges(changes: { [propertyName: string]: SimpleChange }): void {
-    // Creates the marker and the info window.
-    if (changes['position']) {
-      this.map.addMarker(this.position, this.title, this.content);
-    }
+  get position(): google.maps.LatLng {
+    return this._position;
   }
+
+  private _position: google.maps.LatLng;
+
+  constructor(public map: MapService) {}
 }

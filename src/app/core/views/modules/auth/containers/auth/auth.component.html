@@ -1,27 +1,26 @@
 <div class="auth">
-
-  <div class="auth__logo-wrapper">
+  <header class="auth__logo-wrapper">
     <img class="auth__logo"
          src="/assets/Reignarr.png"
          alt="logotype"/>
-  </div>
+  </header>
 
-  <div *ngIf="signUpScreen"
-       class="auth__method">
+  <section *ngIf="signUpScreen"
+           class="auth__method">
     <auth-sign-up [user]="user"
                   (signUpEmitter)="signUp($event)"
                   (setCatchPhraseEmitter)="setCatchPhrase($event)"
                   (toggleAuthMethodEmitter)="toggleAuthMethod()">
     </auth-sign-up>
-  </div>
+  </section>
 
-  <div *ngIf="!signUpScreen"
-       class="auth__method">
+  <section *ngIf="!signUpScreen"
+           class="auth__method">
     <auth-sign-in [user]="user"
                   (signInEmitter)="signIn($event)"
                   (toggleAuthMethodEmitter)="toggleAuthMethod()">
     </auth-sign-in>
-  </div>
+  </section>
 
 </div>
 

@@ -7,12 +7,9 @@ import {
   OnDestroy,
   OnInit
 } from '@angular/core';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatDialogConfig } from '@angular/material';
 
-import {
-  Subject,
-  fromEvent
-} from 'rxjs';
+import { Subject, fromEvent } from 'rxjs';
 import {
   takeUntil,
   distinctUntilChanged,
@@ -21,39 +18,36 @@ import {
   debounceTime
 } from 'rxjs/operators';
 
+import { InfoComponent } from '#shared/dialogs/info/info.component';
+import { getToggleAnimation } from '$core/shared/animations/toggle.animation';
 import {
+  direction,
+  visibility,
   returnPolicy,
   shippingHandling
-} from '$core/shared/constants/shop-rules.constants';
-import { InfoComponent } from '#shared/dialogs/info/info.component';
-import { Direction } from '$core/shared/enums/direction.enum';
-import { VisibilityState } from '$core/shared/enums/visibility-state.enum';
-import { getToggleAnimation } from '$core/shared/animations/toggle.animation';
+} from '$core/shared/constants';
+import { DirectionState, VisibilityState } from '$core/shared/interfaces';
 
-const animationTrigger = 'toggleFooter';
-const animation = getToggleAnimation(animationTrigger);
+const toggleAnimationTrigger = 'toggleFooter';
+const toggleAnimation = getToggleAnimation(toggleAnimationTrigger);
 
 @Component({
   selector: 'shop-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss'],
-  animations: [animation],
+  animations: [toggleAnimation],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FooterComponent implements OnInit, AfterViewInit, OnDestroy {
   private unsubscribe$: Subject<void>;
   private isVisible: boolean;
 
-  @HostBinding(`@${animationTrigger}`)
+  @HostBinding(`@${toggleAnimationTrigger}`)
   public get toggle(): VisibilityState {
-    return this.isVisible ? VisibilityState.Visible : VisibilityState.Hidden;
+    return this.isVisible ? visibility.visible : visibility.hidden;
   }
 
-  constructor(
-      private cdr: ChangeDetectorRef,
-      private dialog: MatDialog
-  ) {
-  }
+  constructor(private cdr: ChangeDetectorRef, private dialog: MatDialog) {}
 
   public ngOnInit(): void {
     this.unsubscribe$ = new Subject<void>();
@@ -62,29 +56,32 @@ export class FooterComponent implements OnInit, AfterViewInit, OnDestroy {
 
   public ngAfterViewInit(): void {
     fromEvent(window, 'scroll')
-        .pipe(
-            takeUntil(this.unsubscribe$),
-            debounceTime(5),
-            map(() => window.pageYOffset),
-            pairwise(),
-            map(([y1, y2]): Direction => y1 === y2 ? null :
-                y1 > y2 ? Direction.Up : Direction.Down),
-            distinctUntilChanged()
-        )
-        .subscribe((direction: Direction) => {
-          switch (direction) {
-            case Direction.Up:
-              this.isVisible = false;
-              this.cdr.markForCheck();
-              break;
-            case Direction.Down:
-              this.isVisible = true;
-              this.cdr.markForCheck();
-              break;
-            default:
-              return;
-          }
-        });
+      .pipe(
+        takeUntil(this.unsubscribe$),
+        debounceTime(5),
+        map(() => window.pageYOffset),
+        pairwise(),
+        map(
+          ([y1, y2]): DirectionState =>
+            y1 === y2 ? null : y1 > y2 ? direction.up : direction.down
+        ),
+        distinctUntilChanged()
+      )
+      .subscribe((directionState: DirectionState) => {
+        // TODO: refactor
+        switch (directionState) {
+          case direction.up:
+            this.isVisible = false;
+            this.cdr.markForCheck();
+            break;
+          case direction.down:
+            this.isVisible = true;
+            this.cdr.markForCheck();
+            break;
+          default:
+            return;
+        }
+      });
   }
 
   public openShippingHandling(): void {
@@ -92,7 +89,7 @@ export class FooterComponent implements OnInit, AfterViewInit, OnDestroy {
       height: '500px',
       width: '600px',
       data: shippingHandling
-    });
+    } as MatDialogConfig<any>);
   }
 
   public openReturnPolicy(): void {
@@ -100,7 +97,7 @@ export class FooterComponent implements OnInit, AfterViewInit, OnDestroy {
       height: '500px',
       width: '600px',
       data: returnPolicy
-    });
+    } as MatDialogConfig<any>);
   }
 
   public ngOnDestroy(): void {

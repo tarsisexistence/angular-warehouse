@@ -10,7 +10,7 @@ const port = 4000;
 const app = express();
 app.use(cors());
 app.listen({ port }, () =>
-    console.log(`🚀 Server ready at http://localhost:4000${graphqlPath}`)
+  console.log(`🚀 Server ready at http://localhost:4000${graphqlPath}`)
 );
 
 server.applyMiddleware({ app, path: graphqlPath });
@@ -19,4 +19,3 @@ mongoose.connect(databasePath).catch((error) => console.error(error));
 mongoose.connection.once('open', () => {
   console.log('mongodb database connection established successfully');
 });
-

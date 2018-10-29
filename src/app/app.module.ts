@@ -3,7 +3,9 @@ import {
   BrowserModule,
   BrowserTransferStateModule
 } from '@angular/platform-browser';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
+import { environment } from '!env/environment';
 import { appRouting } from '!app/app.routes';
 import { AppComponent } from '!app/app.component';
 import { CoreModule } from '$core/core.module';
@@ -13,10 +15,13 @@ import { CoreModule } from '$core/core.module';
     BrowserModule.withServerTransition({ appId: 'app-root' }),
     BrowserTransferStateModule,
     appRouting,
-    CoreModule
+    CoreModule,
+    // TODO
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production
+    })
   ],
   declarations: [AppComponent],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule {}

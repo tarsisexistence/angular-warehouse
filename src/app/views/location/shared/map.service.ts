@@ -14,19 +14,26 @@ export class MapService {
   }
 
   public setCenter(latLng: google.maps.LatLng): void {
-    if (this.map !== null && this.map !== undefined && latLng !== null) {
-      // Changes the center of the map to the given LatLng.
-      this.map.panTo(latLng);
+    if (this.map === null || this.map === undefined || latLng === null) {
+      return;
     }
+
+    this.map.panTo(latLng);
   }
 
   public setZoom(zoom: number): void {
-    if (this.map !== null && this.map !== undefined) {
-      this.map.setZoom(zoom);
+    if (this.map === null || this.map === undefined) {
+      return;
     }
+
+    this.map.setZoom(zoom);
   }
 
-  public addMarker(latLng: google.maps.LatLng, title?: string, contentString?: string): void {
+  public addMarker(
+    latLng: google.maps.LatLng,
+    title?: string,
+    contentString?: string
+  ): void {
     if (this.map != null && latLng != null) {
       // Creates the marker.
       const marker: google.maps.Marker = new google.maps.Marker({

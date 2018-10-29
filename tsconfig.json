@@ -19,22 +19,22 @@
       "esnext.asynciterable"
     ],
     "paths": {
-      "!app/*": [
+      "~app/*": [
         "app/*"
       ],
-      "!assets/*": [
+      "~assets/*": [
         "assets/*"
       ],
-      "!env/*": [
+      "~env/*": [
         "environments/*"
       ],
-      "!helpers/*": [
+      "~helpers/*": [
         "helpers/*"
       ],
-      "!main/*": [
+      "~main/*": [
         "main/*"
       ],
-      "!test/*": [
+      "~test/*": [
         "test/*"
       ],
       "#shared/*": [
@@ -77,10 +77,16 @@
   }
 }
 
-// from core $
-// shared #
-// external  +
-// lazy -
-// cli boilerplate - !
+/**
 
-// @ and no-symbols paths are reserved for libraries from npm like @angular, @ngrx etc.
+ Imports:
+
+ '' <> 3-rd party
+ @  <> 3-rd party
+ $  <> core
+ #  <> shared
+ +  <> external
+ -  <> lazy
+ ~  <> boilerplate
+
+*/

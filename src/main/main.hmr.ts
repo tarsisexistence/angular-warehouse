@@ -1,7 +1,7 @@
 import { NgModuleRef, ApplicationRef } from '@angular/core';
 import { createNewHosts } from '@angularclass/hmr';
 
-import { setupNgProfiler } from 'helpers/profiler';
+import { setupNgProfiler } from '~helpers/profiler';
 
 export const hmrBootstrap = (
   module: any,

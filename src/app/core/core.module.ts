@@ -13,9 +13,9 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { storeFreeze } from 'ngrx-store-freeze';
 
+import { environment } from '~env/environment';
 import { reducers, CustomSerializer } from '+store/selectors/router.selectors';
 import { routerEffects } from '+store/index';
-import { environment } from 'environments/environment';
 import { SharedModule } from '#shared/shared.module';
 import { MyApolloModule } from '+apollo/apollo.module';
 import { AuthModule } from '$auth/auth.module';

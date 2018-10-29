@@ -5,10 +5,10 @@ import {
 } from '@angular/platform-browser';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
-import { environment } from '!env/environment';
-import { appRouting } from '!app/app.routes';
-import { AppComponent } from '!app/app.component';
-import { CoreModule } from '$core/core.module';
+import { environment } from 'environments/environment';
+import { appRouting } from 'app/app.routes';
+import { AppComponent } from 'app/app.component';
+import { CoreModule } from 'app/core/core.module';
 
 @NgModule({
   imports: [

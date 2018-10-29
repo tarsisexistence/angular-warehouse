@@ -1,18 +1,14 @@
 import 'hammerjs';
-import {
-  enableProdMode,
-  NgModuleRef
-} from '@angular/core';
+import { enableProdMode, NgModuleRef } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-import { AppModule } from '!app/app.module';
-import { environment } from '!env/environment';
-import { hmrBootstrap } from '!main/main.hmr';
-import { setupNgProfiler } from '!helpers/profiler';
+import { hmrBootstrap } from 'main/main.hmr';
+import { AppModule } from 'app/app.module';
+import { environment } from 'environments/environment';
+import { setupNgProfiler } from 'helpers/profiler';
 
 if (environment.production) {
-  window.console.log = () => {
-  };
+  window.console.log = () => {};
 
   enableProdMode();
 }
@@ -25,8 +21,8 @@ if (environment.hmr && module['hot']) {
   hmrBootstrap(module, bootstrap);
 } else {
   bootstrap()
-      .then((reference) => setupNgProfiler(reference))
-      .catch(err => console.log(err));
+    .then((reference) => setupNgProfiler(reference))
+    .catch((err) => console.log(err));
 }
 
 // TODO: bootstrap on the server

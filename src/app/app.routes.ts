@@ -1,8 +1,5 @@
 import { ModuleWithProviders } from '@angular/core';
-import {
-  RouterModule,
-  Routes
-} from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 import { appRoute as route } from '$routes-entity/routes';
 import { CartComponent } from '$cart/containers/cart/cart.component';
@@ -41,7 +38,8 @@ export const routes: Routes = [
 ];
 
 export const appRouting: ModuleWithProviders = RouterModule.forRoot(routes, {
+  enableTracing: false,
   initialNavigation: 'enabled',
   onSameUrlNavigation: 'reload',
-  enableTracing: false
+  scrollPositionRestoration: 'top'
 });

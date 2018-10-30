@@ -16,3 +16,5 @@
 - antdesign
 - https://css-tricks.com/having-fun-with-link-hover-effects/?utm_source=mybridge&utm_medium=blog&utm_campaign=read_more
 - preload strategy https://github.com/coryrylan/angular-preloading-strategies
+- lazy --all
+- @font-face

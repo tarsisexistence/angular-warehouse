@@ -1,10 +1,9 @@
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
-
 @import "assets/styles/reset";
 
 // experimental
 * {
-  font-family: 'Inknut Antiqua', serif;
   font-display: swap;
+  font-family: 'Inknut Antiqua', serif;
   //font-family: 'Fjalla One', sans-serif;
 }

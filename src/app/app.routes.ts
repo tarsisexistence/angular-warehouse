@@ -55,8 +55,9 @@ export const routes: Routes = [
 ];
 
 export const appRouting: ModuleWithProviders = RouterModule.forRoot(routes, {
+  enableTracing: false,
   initialNavigation: 'enabled',
   onSameUrlNavigation: 'reload',
-  enableTracing: false,
+  scrollPositionRestoration: 'top',
   preloadingStrategy: AppPreload
 });

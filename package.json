@@ -2,7 +2,7 @@
   "name": "concept-store-platform",
   "author": "Mak Tarsis  <tarsis.maksym@gmail.com>",
   "description": "CSP is online store as a platform for consumers that loves conceptual clothing built on modern technologies and approaches",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "private": true,
   "license": "MIT",
   "repository": {

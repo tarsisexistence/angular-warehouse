@@ -33,6 +33,7 @@ Concept Store Platform - Online store as a platform for consumers who loves conc
 - MEAN + GraphQL (Apollo)
 - NGRX state management
 - Paths strategy
+- Preloading Strategy
 - Progressive Web Application (Service Worker)
 - Project Structure
 - Routes Hub

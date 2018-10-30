@@ -9,6 +9,7 @@ import { environment } from '~env/environment';
 import { appRouting } from '~app/app.routes';
 import { AppComponent } from '~app/app.component';
 import { CoreModule } from '$core/core.module';
+import { AppPreload } from '~app/app.preload';
 
 @NgModule({
   imports: [
@@ -16,11 +17,11 @@ import { CoreModule } from '$core/core.module';
     BrowserTransferStateModule,
     appRouting,
     CoreModule,
-    // TODO
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production
     })
   ],
+  providers: [AppPreload],
   declarations: [AppComponent],
   bootstrap: [AppComponent]
 })

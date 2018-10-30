@@ -1,33 +1,47 @@
 import { ModuleWithProviders } from '@angular/core';
-import {
-  RouterModule,
-  Routes
-} from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 import { appRoute as route } from '$routes-entity/routes';
 import { CartComponent } from '$cart/containers/cart/cart.component';
+import { AppPreload } from '~app/app.preload';
 
 export const routes: Routes = [
   {
     path: route.home.path,
     pathMatch: 'full',
-    loadChildren: route.home.lazyPath
+    loadChildren: route.home.lazyPath,
+    data: {
+      preload: true,
+      delay: false
+    }
   },
   {
     path: route.shop.path,
     pathMatch: 'prefix',
     loadChildren: route.shop.lazyPath,
-    runGuardsAndResolvers: 'paramsOrQueryParamsChange'
+    runGuardsAndResolvers: 'paramsOrQueryParamsChange',
+    data: {
+      preload: false,
+      delay: true
+    }
   },
   {
     path: route.location.path,
     pathMatch: 'prefix',
-    loadChildren: route.location.lazyPath
+    loadChildren: route.location.lazyPath,
+    data: {
+      preload: false,
+      delay: true
+    }
   },
   {
     path: route.userCenter.path,
     pathMatch: 'full',
-    loadChildren: route.userCenter.lazyPath
+    loadChildren: route.userCenter.lazyPath,
+    data: {
+      preload: false,
+      delay: true
+    }
   },
   {
     path: route.cart.path,
@@ -43,5 +57,6 @@ export const routes: Routes = [
 export const appRouting: ModuleWithProviders = RouterModule.forRoot(routes, {
   initialNavigation: 'enabled',
   onSameUrlNavigation: 'reload',
-  enableTracing: false
+  enableTracing: false,
+  preloadingStrategy: AppPreload
 });

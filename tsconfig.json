@@ -40,12 +40,6 @@
       "#shared/*": [
         "app/shared/*"
       ],
-      "$auth/*": [
-        "app/core/views/modules/auth/*"
-      ],
-      "$cart/*": [
-        "app/core/views/modules/cart/*"
-      ],
       "$core/*": [
         "app/core/*"
       ],
@@ -60,6 +54,12 @@
       ],
       "+store/*": [
         "app/core/store/*"
+      ],
+      "-auth/*": [
+        "app/views/auth/*"
+      ],
+      "-cart/*": [
+        "app/views/cart/*"
       ],
       "-home/*": [
         "app/views/home/*"

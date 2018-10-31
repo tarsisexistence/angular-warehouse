@@ -2,7 +2,6 @@ import { ModuleWithProviders } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { appRoute as route } from '$routes-entity/routes';
-import { CartComponent } from '$cart/containers/cart/cart.component';
 import { AppPreload } from '~app/app.preload';
 
 export const routes: Routes = [
@@ -11,7 +10,7 @@ export const routes: Routes = [
     pathMatch: 'full',
     loadChildren: route.home.lazyPath,
     data: {
-      preload: true,
+      preload: false,
       delay: false
     }
   },
@@ -22,7 +21,7 @@ export const routes: Routes = [
     runGuardsAndResolvers: 'paramsOrQueryParamsChange',
     data: {
       preload: false,
-      delay: true
+      delay: false
     }
   },
   {
@@ -31,7 +30,7 @@ export const routes: Routes = [
     loadChildren: route.location.lazyPath,
     data: {
       preload: false,
-      delay: true
+      delay: false
     }
   },
   {
@@ -46,7 +45,11 @@ export const routes: Routes = [
   {
     path: route.cart.path,
     pathMatch: 'full',
-    component: CartComponent
+    loadChildren: route.cart.lazyPath,
+    data: {
+      preload: true,
+      delay: false
+    }
   },
   {
     path: route.notFound.path,

@@ -36,7 +36,6 @@ export class AuthComponent implements OnInit, OnDestroy {
   ) {}
 
   public ngOnInit(): void {
-    debugger;
     this.unsubscribe$ = new Subject<void>();
 
     this.store

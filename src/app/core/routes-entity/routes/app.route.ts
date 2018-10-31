@@ -1,7 +1,6 @@
 import { RSRoutes, RSBaseRoute } from '$routes-entity/interfaces';
 
 export interface AppRoutes extends RSBaseRoute {
-  auth;
   cart;
   home;
   shop;
@@ -11,10 +10,6 @@ export interface AppRoutes extends RSBaseRoute {
 }
 
 export const appRoute: RSRoutes<AppRoutes> = {
-  auth: {
-    path: 'auth',
-    lazyPath: '-auth/auth.module#AuthModule'
-  },
   cart: {
     path: 'cart',
     lazyPath: '-cart/cart.module#CartModule'

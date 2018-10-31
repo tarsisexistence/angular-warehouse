@@ -7,7 +7,6 @@ import {
 } from '$routes-entity/routes';
 import {
   app,
-  auth,
   cart,
   home,
   location,
@@ -17,7 +16,6 @@ import {
 
 export interface Entity {
   app: RSEntity<AppRoutes>;
-  auth: RSEntity<RSBaseRoute>;
   cart: RSEntity<RSBaseRoute>;
   home: RSEntity<RSBaseRoute>;
   location: RSEntity<LocationRoutes>;
@@ -27,7 +25,6 @@ export interface Entity {
 
 export const routesEntity: RSEntities<Entity> = {
   app,
-  auth,
   cart,
   home,
   location,

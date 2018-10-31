@@ -22,7 +22,7 @@ import { Store } from '@ngrx/store';
 
 import * as fromStore from '+store/index';
 import { routesEntity, Entity } from '$routes-entity/entity';
-import { AuthComponent } from '-auth/containers/auth/auth.component';
+import { AuthComponent } from '=auth/containers/auth/auth.component';
 import { getToggleAnimation } from '$core/shared/animations/toggle.animation';
 import { direction, visibility } from '$core/shared/constants';
 import { DirectionState, VisibilityState, User } from '$core/shared/interfaces';

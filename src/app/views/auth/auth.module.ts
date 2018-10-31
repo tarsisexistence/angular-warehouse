@@ -6,10 +6,9 @@ import { EffectsModule } from '@ngrx/effects';
 
 import { States, authReducers, authEffects } from '+store/index';
 import { SharedModule } from '#shared/shared.module';
-import { SignUpComponent } from '-auth/components/sign-up/sign-up.component';
-import { SignInComponent } from '-auth/components/sign-in/sign-in.component';
-import { AuthComponent } from '-auth/containers/auth/auth.component';
-import { authRouting } from '-auth/auth.routes';
+import { SignUpComponent } from '=auth/components/sign-up/sign-up.component';
+import { SignInComponent } from '=auth/components/sign-in/sign-in.component';
+import { AuthComponent } from '=auth/containers/auth/auth.component';
 
 @NgModule({
   imports: [

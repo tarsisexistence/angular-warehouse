@@ -6,9 +6,9 @@ import { combineReducers, Store, StoreModule } from '@ngrx/store';
 import * as fromStore from '+store/index';
 import * as fromAuth from '+store/reducers';
 import { SharedTestingModule } from '#shared/shared.testing.module';
-import { AuthComponent } from '-auth/containers/auth/auth.component';
-import { SignUpComponent } from '-auth/components/sign-up/sign-up.component';
-import { SignInComponent } from '-auth/components/sign-in/sign-in.component';
+import { AuthComponent } from '=auth/containers/auth/auth.component';
+import { SignUpComponent } from '=auth/components/sign-up/sign-up.component';
+import { SignInComponent } from '=auth/components/sign-in/sign-in.component';
 
 describe('AuthComponent', () => {
   let component: AuthComponent;

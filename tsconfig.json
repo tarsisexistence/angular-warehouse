@@ -55,7 +55,7 @@
       "+store/*": [
         "app/core/store/*"
       ],
-      "-auth/*": [
+      "=auth/*": [
         "app/views/auth/*"
       ],
       "-cart/*": [
@@ -83,10 +83,11 @@
 
  '' <> 3-rd party
  @  <> 3-rd party
- $  <> core
- #  <> shared
- +  <> external
- -  <> lazy
+ +  <> external resource
+ -  <> lazy module
+ =  <> simple feature module
+ #  <> shared resource
+ $  <> core module
  ~  <> boilerplate
 
 */

@@ -1,5 +1,4 @@
 export * from './app.route';
-export * from './auth.route';
 export * from './cart.route';
 export * from './home.route';
 export * from './location.route';

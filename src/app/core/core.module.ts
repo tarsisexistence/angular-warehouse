@@ -17,13 +17,12 @@ import { environment } from '~env/environment';
 import { reducers, CustomSerializer } from '+store/selectors/router.selectors';
 import { routerEffects } from '+store/index';
 import { SharedModule } from '#shared/shared.module';
+import { AuthModule } from '=auth/auth.module';
 import { MyApolloModule } from '+apollo/apollo.module';
-import { AuthModule } from '$auth/auth.module';
-import { HeaderComponent } from '$core/views/components/header/header.component';
+import { HeaderComponent } from '$core/components/header/header.component';
 import { ServerErrorInterceptor } from '$core/interceptors/server-error.interceptor';
 import { ErrorHandlerInterceptor } from '$core/interceptors/error-handler.interceptor';
-import { FooterComponent } from '$core/views/components/footer/footer.component';
-import { CartModule } from '$cart/cart.module';
+import { FooterComponent } from '$core/components/footer/footer.component';
 
 export const metaReducers: MetaReducer<any>[] = !environment.production
   ? [storeFreeze]
@@ -44,8 +43,7 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
     }),
     MyApolloModule,
     SharedModule,
-    AuthModule,
-    CartModule
+    AuthModule
   ],
   declarations: [HeaderComponent, FooterComponent],
   exports: [HeaderComponent, FooterComponent],

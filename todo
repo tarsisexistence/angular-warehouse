@@ -1,4 +1,3 @@
-- pwa https://medium.com/crowdbotics/learn-to-build-a-simple-progressive-web-app-pwa-with-angular-and-lighthouse-hacker-news-clone-51aca763032f
 - ngrx semantic action types
 - ngrx facade https://medium.com/@thomasburleson_11450/ngrx-facades-better-state-management-82a04b9a1e39
 - ngrx errors https://medium.com/city-pantry/handling-errors-in-ngrx-effects-a95d918490d9
@@ -11,9 +10,8 @@
 - error state matcher https://itnext.io/materror-cross-field-validators-in-angular-material-7-97053b2ed0cf
 - digitonly directive https://codeburst.io/digit-only-directive-in-angular-3db8a94d80c3
 - apollo refetch
-- quantities (cart apparels)
 - e2e
 - antdesign
-- https://css-tricks.com/having-fun-with-link-hover-effects/?utm_source=mybridge&utm_medium=blog&utm_campaign=read_more
-- preload strategy https://github.com/coryrylan/angular-preloading-strategies
+- https://css-tricks.com/having-fun-with-link-hover-effects
 - lazy --all
+- quantities (cart apparels)

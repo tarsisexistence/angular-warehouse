@@ -131,6 +131,7 @@ export class LocationComponent implements OnInit {
                   'your locality',
                   results[0].formatted_address
                 );
+
                 this.cdr.markForCheck();
               })
               .then(() => console.log('Geocoding service: completed.'))

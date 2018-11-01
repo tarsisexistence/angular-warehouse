@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 
-import { Subject, fromEvent } from 'rxjs';
+import { Subject, fromEvent, BehaviorSubject } from 'rxjs';
 import {
   takeUntil,
   distinctUntilChanged,
@@ -40,18 +40,18 @@ const toggleAnimation = getToggleAnimation(toggleAnimationTrigger);
 })
 export class FooterComponent implements OnInit, AfterViewInit, OnDestroy {
   private unsubscribe$: Subject<void>;
-  private isVisible: boolean;
+  private isVisible: BehaviorSubject<boolean>;
 
   @HostBinding(`@${toggleAnimationTrigger}`)
   public get toggle(): VisibilityState {
-    return this.isVisible ? visibility.visible : visibility.hidden;
+    return this.isVisible.value ? visibility.visible : visibility.hidden;
   }
 
   constructor(private cdr: ChangeDetectorRef, private dialog: MatDialog) {}
 
   public ngOnInit(): void {
     this.unsubscribe$ = new Subject<void>();
-    this.isVisible = false;
+    this.isVisible = new BehaviorSubject<boolean>(false);
   }
 
   public ngAfterViewInit(): void {
@@ -71,11 +71,11 @@ export class FooterComponent implements OnInit, AfterViewInit, OnDestroy {
         // TODO: refactor
         switch (directionState) {
           case direction.up:
-            this.isVisible = false;
+            this.isVisible.next(false);
             this.cdr.markForCheck();
             break;
           case direction.down:
-            this.isVisible = true;
+            this.isVisible.next(true);
             this.cdr.markForCheck();
             break;
           default:
@@ -101,6 +101,8 @@ export class FooterComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   public ngOnDestroy(): void {
+    this.isVisible.complete();
+
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
   }

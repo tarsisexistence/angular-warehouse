@@ -4,13 +4,12 @@ import {
   OnDestroy,
   OnInit,
   AfterViewInit,
-  HostBinding,
-  ChangeDetectorRef
+  HostBinding
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 
-import { Subject, fromEvent } from 'rxjs';
+import { Subject, fromEvent, BehaviorSubject } from 'rxjs';
 import {
   takeUntil,
   distinctUntilChanged,
@@ -41,24 +40,23 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   public routes: Entity;
   private user: User;
   private unsubscribe$: Subject<void>;
-  private isVisible: boolean;
+  private isVisible: BehaviorSubject<boolean>;
 
   @HostBinding(`@${toggleAnimationTrigger}`)
   public get toggle(): VisibilityState {
-    return this.isVisible ? visibility.visible : visibility.hidden;
+    return this.isVisible.value ? visibility.visible : visibility.hidden;
   }
 
   constructor(
     public router: Router,
-    private cdr: ChangeDetectorRef,
     private dialog: MatDialog,
     private store: Store<fromStore.AuthState>
   ) {}
 
   public ngOnInit(): void {
+    this.isVisible = new BehaviorSubject<boolean>(true);
     this.routes = routesEntity;
     this.unsubscribe$ = new Subject<void>();
-    this.isVisible = true;
 
     this.store
       .select(fromStore.getUser)
@@ -82,12 +80,10 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
       .subscribe((directionState: DirectionState) => {
         switch (directionState) {
           case direction.up:
-            this.isVisible = true;
-            this.cdr.markForCheck();
+            this.isVisible.next(true);
             break;
           case direction.down:
-            this.isVisible = false;
-            this.cdr.markForCheck();
+            this.isVisible.next(false);
             break;
           default:
             return;
@@ -113,6 +109,8 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   public ngOnDestroy(): void {
+    this.isVisible.complete();
+
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
   }

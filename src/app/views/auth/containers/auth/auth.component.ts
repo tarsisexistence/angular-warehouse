@@ -1,13 +1,12 @@
 import {
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
   OnInit,
   OnDestroy
 } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
 
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 
@@ -25,33 +24,25 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class AuthComponent implements OnInit, OnDestroy {
-  public user: User;
+  public user: BehaviorSubject<User>;
   public signUpScreen: boolean;
   private unsubscribe$: Subject<void>;
 
   constructor(
-    private cdr: ChangeDetectorRef,
     private dialogRef: MatDialogRef<AuthComponent>,
     private store: Store<fromStore.AuthState>
   ) {}
 
   public ngOnInit(): void {
+    this.user = new BehaviorSubject<User>(null);
     this.unsubscribe$ = new Subject<void>();
 
     this.store
       .select(fromStore.getUser)
       .pipe(takeUntil(this.unsubscribe$))
-      .subscribe((user: User) => {
-        this.user = user;
+      .subscribe((user: User) => this.user.next(user));
 
-        if (this.user === null) {
-          return;
-        }
-
-        this.cdr.markForCheck();
-      });
-
-    this.signUpScreen = !(this.user && this.user.catchPhrase);
+    this.signUpScreen = !(this.user.value && this.user.value.catchPhrase);
   }
 
   public signIn(credentials: Access): void {
@@ -64,12 +55,15 @@ export class AuthComponent implements OnInit, OnDestroy {
   }
 
   public setCatchPhrase(catchPhrase: string): void {
-    const { id } = this.user;
+    const { id } = this.user.getValue();
     const config: CatchPhraseConfig = {
       id,
       catchPhrase
     };
-    this.store.dispatch(new fromStore.SignUpCatchPhrase(config));
+
+    const catchPhraseAction = new fromStore.SignUpCatchPhrase(config);
+    this.store.dispatch(catchPhraseAction);
+
     this.dialogRef.close();
   }
 
@@ -78,6 +72,8 @@ export class AuthComponent implements OnInit, OnDestroy {
   }
 
   public ngOnDestroy(): void {
+    this.user.complete();
+
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
   }

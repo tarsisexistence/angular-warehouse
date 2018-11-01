@@ -2,7 +2,6 @@ import {
   Component,
   OnInit,
   OnDestroy,
-  ChangeDetectorRef,
   ChangeDetectionStrategy
 } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
@@ -91,6 +90,8 @@ export class ShopComponent implements OnInit, OnDestroy {
   }
 
   public ngOnDestroy(): void {
+    this.apparels.complete();
+
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
   }

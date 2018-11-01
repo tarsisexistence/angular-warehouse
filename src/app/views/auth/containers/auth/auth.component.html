@@ -7,7 +7,7 @@
 
   <section *ngIf="signUpScreen"
            class="auth__method">
-    <auth-sign-up [user]="user"
+    <auth-sign-up [user]="user | async"
                   (signUpEmitter)="signUp($event)"
                   (setCatchPhraseEmitter)="setCatchPhrase($event)"
                   (toggleAuthMethodEmitter)="toggleAuthMethod()">
@@ -16,7 +16,7 @@
 
   <section *ngIf="!signUpScreen"
            class="auth__method">
-    <auth-sign-in [user]="user"
+    <auth-sign-in [user]="user | async"
                   (signInEmitter)="signIn($event)"
                   (toggleAuthMethodEmitter)="toggleAuthMethod()">
     </auth-sign-in>

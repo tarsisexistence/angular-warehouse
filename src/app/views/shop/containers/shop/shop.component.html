@@ -6,7 +6,7 @@
 
   <shop-apparels *ngIf="apparels"
                  class="shop__apparels"
-                 [apparels]="apparels[selectedCategory]"
+                 [apparels]="(apparels | async)[selectedCategory]"
                  (addToCartEmitter)="addToCart($event)">
   </shop-apparels>
 

@@ -1,21 +1,41 @@
 import { Injectable } from '@angular/core';
 
-import { Apparel } from '-shop/shared/interfaces/apparel.interface';
+import {
+  CartApparel,
+  CartApparelEntities
+} from '-shop/shared/interfaces/cart-apparel.interface';
 
 const storageKey = 'cspcart';
 
 @Injectable({ providedIn: 'root' })
 export class CartService {
-  public addApparelToCart(apparel: Apparel): Apparel {
-    const apparels = this.fetchStorageApparel();
-    this.updateStorage([...apparels, apparel]);
+  public addApparelToCart(apparel: CartApparel): CartApparelEntities {
+    const apparelEntities = this.fetchStorageApparel();
 
-    return apparel;
+    const entities = Object.keys(apparelEntities).reduce(
+      (entities: CartApparelEntities, id: string) => {
+        if (id === apparel.id) {
+          apparelEntities[id].quantities += 1;
+        }
+
+        return {
+          ...entities,
+          [id]: apparelEntities[id]
+        };
+      },
+      {}
+    );
+
+    this.updateStorage(entities);
+
+    return apparels;
   }
 
   public removeApparelFromCart(id: string): string {
     const apparels = this.fetchStorageApparel();
-    const cartApparels: Apparel[] = apparels.filter((apparel: Apparel) => apparel.id !== id);
+    const cartApparels: CartApparel[] = apparels.filter(
+      (apparel: CartApparel) => apparel.id !== id
+    );
     this.updateStorage(cartApparels);
 
     return id;
@@ -25,12 +45,11 @@ export class CartService {
     localStorage.removeItem(storageKey);
   }
 
-  public fetchStorageApparel(): Apparel[] {
-    const apparelInLS: Apparel[] = JSON.parse(localStorage.getItem(storageKey));
-    return apparelInLS ? apparelInLS : [];
+  public fetchStorageApparel(): CartApparelEntities {
+    return JSON.parse(localStorage.getItem(storageKey)) || {};
   }
 
-  private updateStorage(apparel: Apparel[]): void {
+  private updateStorage(apparel: CartApparelEntities): void {
     localStorage.setItem(storageKey, JSON.stringify(apparel));
   }
 }

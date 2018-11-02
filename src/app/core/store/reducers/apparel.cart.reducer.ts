@@ -1,42 +1,31 @@
 import * as ApparelCartActions from '+store/actions/apparel.cart.action';
-import { Apparel } from '-shop/shared/interfaces/apparel.interface';
+import {
+  CartApparel,
+  CartApparelEntities
+} from '-shop/shared/interfaces/cart-apparel.interface';
 
-export interface ApparelState {
-  entities: { [id: number]: Apparel }
+export interface CartApparelState {
+  entities: CartApparelEntities;
   loaded: boolean;
   loading: boolean;
 }
 
-export const initialState: ApparelState = {
+export const initialState: CartApparelState = {
   entities: {},
   loaded: false,
   loading: false
 };
 
 export function reducer(
-    state = initialState,
-    action: ApparelCartActions.ApparelCartAction
-): ApparelState {
+  state = initialState,
+  action: ApparelCartActions.ApparelCartAction
+): CartApparelState {
   switch (action.type) {
     case ApparelCartActions.ApparelCartActionTypes.AddApparel: {
       return {
         ...state,
         loading: true
-      };
-    }
-
-    case ApparelCartActions.ApparelCartActionTypes.AddApparelSuccess: {
-      const entities = {
-        ...state.entities,
-        [action.payload.id]: action.payload
-      };
-
-      return {
-        ...state,
-        loading: false,
-        loaded: true,
-        entities
-      };
+      } as CartApparelState;
     }
 
     case ApparelCartActions.ApparelCartActionTypes.AddApparelFail: {
@@ -44,28 +33,28 @@ export function reducer(
         ...state,
         loading: false,
         loaded: false
-      };
+      } as CartApparelState;
     }
 
     case ApparelCartActions.ApparelCartActionTypes.FetchApparel: {
       return {
         ...state,
         loading: true
-      };
+      } as CartApparelState;
     }
 
+    case ApparelCartActions.ApparelCartActionTypes.AddApparelSuccess:
     case ApparelCartActions.ApparelCartActionTypes.FetchApparelSuccess: {
-      const apparels: Apparel[] = action.payload;
+      const apparels: CartApparel[] = action.payload;
       const entities = apparels.reduce(
-          (entities: { [id: number]: Apparel }, apparel: Apparel) => (
-              {
-                ...entities,
-                [apparel.id]: apparel
-              }
-          ),
-          {
-            ...state.entities
-          });
+        (entities: CartApparelEntities, apparel: CartApparel) => ({
+          ...entities,
+          [apparel.id]: apparel
+        }),
+        {
+          ...state.entities
+        }
+      );
 
       return {
         ...state,
@@ -80,30 +69,30 @@ export function reducer(
         ...state,
         loading: false,
         loaded: false
-      };
+      } as CartApparelState;
     }
 
     case ApparelCartActions.ApparelCartActionTypes.RemoveApparel: {
       return {
         ...state,
         loading: true
-      };
+      } as CartApparelState;
     }
 
     case ApparelCartActions.ApparelCartActionTypes.RemoveApparelSuccess: {
       const id = action.payload;
       const entities = Object.keys(state.entities).reduce(
-          (entities: { [id: number]: Apparel }, entitiyId: string) => {
-            if (entitiyId === String(id)) {
-              return entities;
-            }
+        (entities: CartApparelEntities, entitiyId: string) => {
+          if (entitiyId === String(id)) {
+            return entities;
+          }
 
-            return {
-              ...entities,
-              [entitiyId]: state.entities[entitiyId]
-            };
-          },
-          {}
+          return {
+            ...entities,
+            [entitiyId]: state.entities[entitiyId]
+          };
+        },
+        {}
       );
 
       return {
@@ -119,12 +108,12 @@ export function reducer(
         ...state,
         loading: false,
         loaded: false
-      };
+      } as CartApparelState;
     }
   }
   return state;
 }
 
-export const getCartEntities = (state: ApparelState) => state.entities;
-export const getCartLoading = (state: ApparelState) => state.loading;
-export const getCartLoaded = (state: ApparelState) => state.loaded;
+export const getCartEntities = (state: CartApparelState) => state.entities;
+export const getCartLoading = (state: CartApparelState) => state.loading;
+export const getCartLoaded = (state: CartApparelState) => state.loaded;

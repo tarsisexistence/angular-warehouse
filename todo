@@ -13,5 +13,6 @@
 - e2e
 - antdesign
 - https://css-tricks.com/having-fun-with-link-hover-effects
-- lazy --all
 - quantities (cart apparels)
+- fetch apparel
+- static methods cartservice

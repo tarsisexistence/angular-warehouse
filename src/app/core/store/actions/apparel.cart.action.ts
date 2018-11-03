@@ -15,6 +15,30 @@ export enum ApparelCartActionTypes {
   RemoveApparelSuccess = '[Cart] Remove Apparel Success'
 }
 
+export class AddApparel implements Action {
+  readonly type = ApparelCartActionTypes.AddApparel;
+  public payload: CartApparel;
+
+  constructor(payload: Apparel) {
+    this.payload = {
+      ...payload,
+      quantities: 1
+    } as CartApparel;
+  }
+}
+
+export class AddApparelFail implements Action {
+  readonly type = ApparelCartActionTypes.AddApparelFail;
+
+  constructor(public payload: Error) {}
+}
+
+export class AddApparelSuccess implements Action {
+  readonly type = ApparelCartActionTypes.AddApparelSuccess;
+
+  constructor(public payload: CartApparel) {}
+}
+
 export class FetchApparel implements Action {
   readonly type = ApparelCartActionTypes.FetchApparel;
 }
@@ -28,25 +52,7 @@ export class FetchApparelFail implements Action {
 export class FetchApparelSuccess implements Action {
   readonly type = ApparelCartActionTypes.FetchApparelSuccess;
 
-  constructor(public payload: CartApparel[]) {}
-}
-
-export class AddApparel implements Action {
-  readonly type = ApparelCartActionTypes.AddApparel;
-
-  constructor(public payload: Apparel) {}
-}
-
-export class AddApparelFail implements Action {
-  readonly type = ApparelCartActionTypes.AddApparelFail;
-
-  constructor(public payload: Error) {}
-}
-
-export class AddApparelSuccess implements Action {
-  readonly type = ApparelCartActionTypes.AddApparelSuccess;
-
-  constructor(public payload: CartApparel[]) {}
+  constructor(public payload: Apparel[]) {}
 }
 
 export class RemoveApparel implements Action {

@@ -18,6 +18,7 @@ import {
   RemoveApparelSuccess
 } from '+store/actions/apparel.cart.action';
 import { CartApparel } from '-shop/shared/interfaces/cart-apparel.interface';
+import { Apparel } from '-shop/shared/interfaces/apparel.interface';
 
 @Injectable({ providedIn: 'root' })
 export class CartEffect {
@@ -36,11 +37,8 @@ export class CartEffect {
   @Effect()
   public addApparel$ = this.actions$.pipe(
     ofType<AddApparel>(ApparelCartActionTypes.AddApparel),
-    map(
-      (action: AddApparel): CartApparel =>
-        ({ ...action.payload, quantities: 1 } as CartApparel)
-    ),
-    switchMap((apparel: CartApparel) =>
+    map((action: AddApparel) => action.payload),
+    switchMap((apparel: Apparel) =>
       of(this.cartService.addApparelToCart(apparel)).pipe(
         map((apparel: CartApparel) => new AddApparelSuccess(apparel)),
         catchError((error: Error) => of(new AddApparelFail(error))),

@@ -3,6 +3,7 @@ import {
   CartApparel,
   CartApparelEntities
 } from '-shop/shared/interfaces/cart-apparel.interface';
+import { Apparel } from '-shop/shared/interfaces/apparel.interface';
 
 export interface CartApparelState {
   entities: CartApparelEntities;
@@ -28,6 +29,73 @@ export function reducer(
       } as CartApparelState;
     }
 
+    case ApparelCartActions.ApparelCartActionTypes.AddApparelSuccess: {
+      debugger;
+      const apparel: CartApparel = action.payload;
+      const isExist = Object.keys(state.entities).some(
+        (apparelId: string) => apparelId === apparel.id
+      );
+
+      let entities: CartApparelEntities = null;
+
+      if (!isExist) {
+        entities = {
+          ...state.entities,
+          [apparel.id]: apparel
+        };
+      } else {
+        const cartApparel = state.entities[apparel.id];
+        const updatedApparel = {
+          ...cartApparel,
+          quantities: cartApparel.quantities + 1
+        };
+        entities = {
+          ...state.entities,
+          [apparel.id]: updatedApparel
+        };
+      }
+
+      return {
+        ...state,
+        loading: false,
+        loaded: true,
+        entities
+      };
+    }
+
+    case ApparelCartActions.ApparelCartActionTypes.FetchApparelSuccess: {
+      const apparels: Apparel[] = action.payload;
+      const entities = apparels.reduce(
+        (
+          apparels: CartApparelEntities,
+          apparel: Apparel
+        ): CartApparelEntities => {
+          const duplicateApparel = apparels[apparel.id];
+          const quantities =
+            duplicateApparel !== undefined
+              ? duplicateApparel.quantities + 1
+              : 1;
+          const cartApparel = {
+            ...apparel,
+            quantities
+          };
+
+          return {
+            ...apparels,
+            [apparel.id]: cartApparel
+          };
+        },
+        {} as CartApparelEntities
+      );
+
+      return {
+        ...state,
+        loading: false,
+        loaded: true,
+        entities
+      };
+    }
+
     case ApparelCartActions.ApparelCartActionTypes.AddApparelFail: {
       return {
         ...state,
@@ -41,27 +109,6 @@ export function reducer(
         ...state,
         loading: true
       } as CartApparelState;
-    }
-
-    case ApparelCartActions.ApparelCartActionTypes.AddApparelSuccess:
-    case ApparelCartActions.ApparelCartActionTypes.FetchApparelSuccess: {
-      const apparels: CartApparel[] = action.payload;
-      const entities = apparels.reduce(
-        (entities: CartApparelEntities, apparel: CartApparel) => ({
-          ...entities,
-          [apparel.id]: apparel
-        }),
-        {
-          ...state.entities
-        }
-      );
-
-      return {
-        ...state,
-        loading: false,
-        loaded: true,
-        entities
-      };
     }
 
     case ApparelCartActions.ApparelCartActionTypes.FetchApparelFail: {

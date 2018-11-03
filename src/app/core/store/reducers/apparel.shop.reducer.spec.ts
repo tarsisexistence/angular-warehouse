@@ -1,7 +1,7 @@
 import * as fromReducer from './apparel.shop.reducer';
 import {
   LoadApparel,
-  LoadApparelFail,
+  LoadApparelFailure,
   LoadApparelSuccess
 } from '+store/index';
 import { Apparel } from '-shop/shared/interfaces/apparel.interface';
@@ -49,7 +49,7 @@ describe('ApparelShopReducer', () => {
     it('should be failed', () => {
       const payload = { message: 'Load Error ' };
       const { initialState } = fromReducer;
-      const action = new LoadApparelFail(payload);
+      const action = new LoadApparelFailure(payload);
       const state = fromReducer.reducer(initialState, action);
 
       expect(state.entities).toBe(initialState.entities);

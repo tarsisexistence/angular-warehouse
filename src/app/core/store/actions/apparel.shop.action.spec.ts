@@ -1,12 +1,11 @@
 import {
   ApparelShopActionTypes,
   LoadApparel,
-  LoadApparelFail,
+  LoadApparelFailure,
   LoadApparelSuccess
 } from '+store/index';
 
 describe('Apparel Actions', () => {
-
   describe('LoadApparel action', () => {
     // describe('LoadApparel', () => {
     //   it('should create an action', () => {
@@ -16,8 +15,7 @@ describe('Apparel Actions', () => {
     //     });
     //   });
     // });
-
-    // describe('LoadApparelFail', () => {
+    // describe('LoadApparelFailure', () => {
     //   it('should create an action', () => {
     //     const action = new LoadApparel();
     //     const payload = { message: 'Load Error ' };
@@ -30,12 +28,12 @@ describe('Apparel Actions', () => {
     //     });
     //   });
     //
-    //   describe('LoadApparelFail', () => {
+    //   describe('LoadApparelFailure', () => {
     //     it('should create an action', () => {
     //       const payload = { message: 'Load Error ' };
-    //       const action = new LoadApparelFail(payload);
+    //       const action = new LoadApparelFailure(payload);
     //       expect({ ...action }).toEqual({
-    //         type: ApparelShopActionTypes.LoadApparelFail,
+    //         type: ApparelShopActionTypes.LoadApparelFailure,
     //         payload
     //       });
     //     });

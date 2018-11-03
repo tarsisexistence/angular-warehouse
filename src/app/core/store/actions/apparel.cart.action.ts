@@ -4,15 +4,15 @@ import { Apparel } from '-shop/shared/interfaces/apparel.interface';
 import { CartApparel } from '-shop/shared/interfaces/cart-apparel.interface';
 
 export enum ApparelCartActionTypes {
-  FetchApparel = '[Cart] Fetch Apparel',
-  FetchApparelFail = '[Cart] Fetch Apparel Fail',
-  FetchApparelSuccess = '[Cart] Fetch Apparel Success',
-  AddApparel = '[Cart] Add Apparel',
-  AddApparelFail = '[Cart] Add Apparel Fail',
-  AddApparelSuccess = '[Cart] Add Apparel Success',
-  RemoveApparel = '[Cart] Remove Apparel',
-  RemoveApparelFail = '[Cart] Remove Apparel Fail',
-  RemoveApparelSuccess = '[Cart] Remove Apparel Success'
+  FetchApparel = '[Cart - Apparel] Fetch',
+  FetchApparelFailure = '[Cart - Apparel] Fetch (failure)',
+  FetchApparelSuccess = '[Cart - Apparel] Fetch (success)',
+  AddApparel = '[Cart - Apparel] Add',
+  AddApparelFailure = '[Cart - Apparel] Add (failure)',
+  AddApparelSuccess = '[Cart - Apparel] Add (success)',
+  RemoveApparel = '[Cart - Apparel] Remove',
+  RemoveApparelFailure = '[Cart - Apparel] Remove (failure)',
+  RemoveApparelSuccess = '[Cart - Apparel] Remove (success)'
 }
 
 export class AddApparel implements Action {
@@ -27,8 +27,8 @@ export class AddApparel implements Action {
   }
 }
 
-export class AddApparelFail implements Action {
-  readonly type = ApparelCartActionTypes.AddApparelFail;
+export class AddApparelFailure implements Action {
+  readonly type = ApparelCartActionTypes.AddApparelFailure;
 
   constructor(public payload: Error) {}
 }
@@ -43,8 +43,8 @@ export class FetchApparel implements Action {
   readonly type = ApparelCartActionTypes.FetchApparel;
 }
 
-export class FetchApparelFail implements Action {
-  readonly type = ApparelCartActionTypes.FetchApparelFail;
+export class FetchApparelFailure implements Action {
+  readonly type = ApparelCartActionTypes.FetchApparelFailure;
 
   constructor(public payload: Error) {}
 }
@@ -61,8 +61,8 @@ export class RemoveApparel implements Action {
   constructor(public payload: string) {}
 }
 
-export class RemoveApparelFail implements Action {
-  readonly type = ApparelCartActionTypes.RemoveApparelFail;
+export class RemoveApparelFailure implements Action {
+  readonly type = ApparelCartActionTypes.RemoveApparelFailure;
 
   constructor(public payload: Error) {}
 }
@@ -75,11 +75,11 @@ export class RemoveApparelSuccess implements Action {
 
 export type ApparelCartAction =
   | FetchApparel
-  | FetchApparelFail
+  | FetchApparelFailure
   | FetchApparelSuccess
   | AddApparel
-  | AddApparelFail
+  | AddApparelFailure
   | AddApparelSuccess
   | RemoveApparel
-  | RemoveApparelFail
+  | RemoveApparelFailure
   | RemoveApparelSuccess;

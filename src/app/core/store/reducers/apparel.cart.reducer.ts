@@ -95,7 +95,7 @@ export function reducer(
       };
     }
 
-    case ApparelCartActions.ApparelCartActionTypes.AddApparelFail: {
+    case ApparelCartActions.ApparelCartActionTypes.AddApparelFailure: {
       return {
         ...state,
         loading: false,
@@ -110,7 +110,7 @@ export function reducer(
       } as CartApparelState;
     }
 
-    case ApparelCartActions.ApparelCartActionTypes.FetchApparelFail: {
+    case ApparelCartActions.ApparelCartActionTypes.FetchApparelFailure: {
       return {
         ...state,
         loading: false,
@@ -149,7 +149,7 @@ export function reducer(
       };
     }
 
-    case ApparelCartActions.ApparelCartActionTypes.RemoveApparelFail: {
+    case ApparelCartActions.ApparelCartActionTypes.RemoveApparelFailure: {
       return {
         ...state,
         loading: false,

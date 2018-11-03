@@ -3,30 +3,28 @@ import { Action } from '@ngrx/store';
 import { Apparel } from '-shop/shared/interfaces/apparel.interface';
 
 export enum ApparelShopActionTypes {
-  LoadApparel = '[Shop] Load Apparel',
-  LoadApparelFail = '[Shop] Load Apparel Fail',
-  LoadApparelSuccess = '[Shop] Load Apparel Success'
+  LoadApparel = '[Shop - Apparel] Load',
+  LoadApparelFailure = '[Shop - Apparel] Load (failure)',
+  LoadApparelSuccess = '[Shop - Apparel] Load (success)'
 }
 
 export class LoadApparel implements Action {
   readonly type = ApparelShopActionTypes.LoadApparel;
 }
 
-export class LoadApparelFail implements Action {
-  readonly type = ApparelShopActionTypes.LoadApparelFail;
+export class LoadApparelFailure implements Action {
+  readonly type = ApparelShopActionTypes.LoadApparelFailure;
 
-  constructor(public payload: any) {
-  }
+  constructor(public payload: any) {}
 }
 
 export class LoadApparelSuccess implements Action {
   readonly type = ApparelShopActionTypes.LoadApparelSuccess;
 
-  constructor(public payload: Apparel[]) {
-  }
+  constructor(public payload: Apparel[]) {}
 }
 
 export type ApparelShopAction =
-    | LoadApparel
-    | LoadApparelFail
-    | LoadApparelSuccess;
+  | LoadApparel
+  | LoadApparelFailure
+  | LoadApparelSuccess;

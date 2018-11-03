@@ -14,8 +14,8 @@ export const initialState: ApparelState = {
 };
 
 export function reducer(
-    state = initialState,
-    action: ApparelShopActions.ApparelShopAction
+  state = initialState,
+  action: ApparelShopActions.ApparelShopAction
 ): ApparelState {
   switch (action.type) {
     case ApparelShopActions.ApparelShopActionTypes.LoadApparel: {
@@ -27,13 +27,11 @@ export function reducer(
 
     case ApparelShopActions.ApparelShopActionTypes.LoadApparelSuccess: {
       const entities = action.payload.reduce(
-          (entities: { [id: number]: Apparel }, apparel: Apparel) => (
-              {
-                ...entities,
-                [apparel.id]: apparel
-              }
-          ),
-          { ...state.entities }
+        (entities: { [id: number]: Apparel }, apparel: Apparel) => ({
+          ...entities,
+          [apparel.id]: apparel
+        }),
+        { ...state.entities }
       );
       return {
         ...state,
@@ -43,7 +41,7 @@ export function reducer(
       };
     }
 
-    case ApparelShopActions.ApparelShopActionTypes.LoadApparelFail: {
+    case ApparelShopActions.ApparelShopActionTypes.LoadApparelFailure: {
       return {
         loading: false,
         ...state,

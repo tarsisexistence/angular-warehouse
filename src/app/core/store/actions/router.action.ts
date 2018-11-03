@@ -2,21 +2,21 @@ import { Action } from '@ngrx/store';
 import { NavigationExtras } from '@angular/router';
 
 export enum RouterActionsTypes {
-  Go = '[Router] Go',
-  Forward = 'Router] Forward',
-  Back = '[Router] Back'
+  Go = '[Router - Shift] Go',
+  Forward = 'Router - Shift] Forward',
+  Back = '[Router - Shift] Back'
 }
 
 export class Go implements Action {
   readonly type = RouterActionsTypes.Go;
 
-  constructor(public payload: {
-    path: any[],
-    query?: object;
-    extras?: NavigationExtras
-  }) {
-
-  }
+  constructor(
+    public payload: {
+      path: any[];
+      query?: object;
+      extras?: NavigationExtras;
+    }
+  ) {}
 }
 
 export class Forward implements Action {
@@ -27,7 +27,4 @@ export class Back implements Action {
   readonly type = RouterActionsTypes.Back;
 }
 
-export type RouterActions =
-    | Go
-    | Forward
-    | Back;
+export type RouterActions = Go | Forward | Back;

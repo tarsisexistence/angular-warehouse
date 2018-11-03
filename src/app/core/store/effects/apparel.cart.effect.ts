@@ -7,14 +7,14 @@ import { switchMap, map, catchError, finalize } from 'rxjs/operators';
 import { CartService } from '$core/services/cart.service';
 import {
   AddApparel,
-  AddApparelFail,
+  AddApparelFailure,
   AddApparelSuccess,
   ApparelCartActionTypes,
   FetchApparel,
-  FetchApparelFail,
+  FetchApparelFailure,
   FetchApparelSuccess,
   RemoveApparel,
-  RemoveApparelFail,
+  RemoveApparelFailure,
   RemoveApparelSuccess
 } from '+store/actions/apparel.cart.action';
 import { CartApparel } from '-shop/shared/interfaces/cart-apparel.interface';
@@ -28,7 +28,7 @@ export class CartEffect {
     switchMap(() =>
       of(CartService.fetchStorageApparel()).pipe(
         map((apparel: CartApparel[]) => new FetchApparelSuccess(apparel)),
-        catchError((error: Error) => of(new FetchApparelFail(error))),
+        catchError((error: Error) => of(new FetchApparelFailure(error))),
         finalize(() => console.log('finalize fetchApparel$'))
       )
     )
@@ -41,7 +41,7 @@ export class CartEffect {
     switchMap((apparel: Apparel) =>
       of(CartService.addApparelToCart(apparel)).pipe(
         map((apparel: CartApparel) => new AddApparelSuccess(apparel)),
-        catchError((error: Error) => of(new AddApparelFail(error))),
+        catchError((error: Error) => of(new AddApparelFailure(error))),
         finalize(() => console.log('finalize addApparel$'))
       )
     )
@@ -56,7 +56,7 @@ export class CartEffect {
         map(
           (sequenceNumber: string) => new RemoveApparelSuccess(sequenceNumber)
         ),
-        catchError((error: Error) => of(new RemoveApparelFail(error))),
+        catchError((error: Error) => of(new RemoveApparelFailure(error))),
         finalize(() => console.log('finalize removeApparel$'))
       )
     )

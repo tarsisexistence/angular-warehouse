@@ -62,6 +62,45 @@ export function reducer(
       };
     }
 
+    case ApparelCartActions.ApparelCartActionTypes.AddApparelFailure: {
+      return {
+        ...state,
+        loading: false,
+        loaded: false
+      } as CartApparelState;
+    }
+
+    case ApparelCartActions.ApparelCartActionTypes.ClearApparel: {
+      return {
+        ...state,
+        loading: true
+      } as CartApparelState;
+    }
+
+    case ApparelCartActions.ApparelCartActionTypes.ClearApparelSuccess: {
+      return {
+        ...state,
+        loading: false,
+        loaded: true,
+        entities: {}
+      } as CartApparelState;
+    }
+
+    case ApparelCartActions.ApparelCartActionTypes.ClearApparelFailure: {
+      return {
+        ...state,
+        loading: false,
+        loaded: false
+      } as CartApparelState;
+    }
+
+    case ApparelCartActions.ApparelCartActionTypes.FetchApparel: {
+      return {
+        ...state,
+        loading: true
+      } as CartApparelState;
+    }
+
     case ApparelCartActions.ApparelCartActionTypes.FetchApparelSuccess: {
       const apparels: Apparel[] = action.payload;
       const entities = apparels.reduce(
@@ -93,21 +132,6 @@ export function reducer(
         loaded: true,
         entities
       };
-    }
-
-    case ApparelCartActions.ApparelCartActionTypes.AddApparelFailure: {
-      return {
-        ...state,
-        loading: false,
-        loaded: false
-      } as CartApparelState;
-    }
-
-    case ApparelCartActions.ApparelCartActionTypes.FetchApparel: {
-      return {
-        ...state,
-        loading: true
-      } as CartApparelState;
     }
 
     case ApparelCartActions.ApparelCartActionTypes.FetchApparelFailure: {

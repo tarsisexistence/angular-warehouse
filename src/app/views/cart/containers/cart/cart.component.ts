@@ -15,7 +15,6 @@ import * as fromStore from '+store/index';
 import { ApolloService } from '+apollo/services/apollo.service';
 import { PaymentComponent } from '#shared/dialogs/payment/payment.component';
 import { routesEntity } from '$routes-entity/entity';
-import { CartService } from '$core/services/cart.service';
 import { Order } from '$core/shared/interfaces/order.interface';
 import { Apparel } from '-shop/shared/interfaces/apparel.interface';
 
@@ -74,8 +73,9 @@ export class CartComponent implements OnInit, OnDestroy {
 
       this.apolloService.addOrder(order).subscribe(() => {
         alert('Your order is confirmed. We will contact you soon');
-        debugger;
-        CartService.emptyCart();
+
+        this.store.dispatch(new fromStore.ClearApparel());
+
         this.router.navigate(routesEntity.app.home.state).catch(console.error);
       });
     });

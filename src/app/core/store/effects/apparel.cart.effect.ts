@@ -10,6 +10,9 @@ import {
   AddApparelFailure,
   AddApparelSuccess,
   ApparelCartActionTypes,
+  ClearApparel,
+  ClearApparelFailure,
+  ClearApparelSuccess,
   FetchApparel,
   FetchApparelFailure,
   FetchApparelSuccess,
@@ -23,18 +26,6 @@ import { Apparel } from '-shop/shared/interfaces/apparel.interface';
 @Injectable({ providedIn: 'root' })
 export class CartEffect {
   @Effect()
-  public fetchApparel$ = this.actions$.pipe(
-    ofType<FetchApparel>(ApparelCartActionTypes.FetchApparel),
-    switchMap(() =>
-      of(CartService.fetchStorageApparel()).pipe(
-        map((apparel: CartApparel[]) => new FetchApparelSuccess(apparel)),
-        catchError((error: Error) => of(new FetchApparelFailure(error))),
-        finalize(() => console.log('finalize fetchApparel$'))
-      )
-    )
-  );
-
-  @Effect()
   public addApparel$ = this.actions$.pipe(
     ofType<AddApparel>(ApparelCartActionTypes.AddApparel),
     map((action: AddApparel) => action.payload),
@@ -43,6 +34,30 @@ export class CartEffect {
         map((apparel: CartApparel) => new AddApparelSuccess(apparel)),
         catchError((error: Error) => of(new AddApparelFailure(error))),
         finalize(() => console.log('finalize addApparel$'))
+      )
+    )
+  );
+
+  @Effect()
+  public clearApparel$ = this.actions$.pipe(
+    ofType<ClearApparel>(ApparelCartActionTypes.ClearApparel),
+    switchMap((action: ClearApparel) =>
+      of(CartService.emptyCart()).pipe(
+        map(() => new ClearApparelSuccess()),
+        catchError((error: Error) => of(new ClearApparelFailure(error))),
+        finalize(() => console.log('finalize clearApparel$'))
+      )
+    )
+  );
+
+  @Effect()
+  public fetchApparel$ = this.actions$.pipe(
+    ofType<FetchApparel>(ApparelCartActionTypes.FetchApparel),
+    switchMap(() =>
+      of(CartService.fetchStorageApparel()).pipe(
+        map((apparel: CartApparel[]) => new FetchApparelSuccess(apparel)),
+        catchError((error: Error) => of(new FetchApparelFailure(error))),
+        finalize(() => console.log('finalize fetchApparel$'))
       )
     )
   );

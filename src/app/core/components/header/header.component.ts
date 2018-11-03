@@ -94,9 +94,7 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   public auth(): void {
     if (this.user && this.user.catchPhrase) {
       // TODO: ..
-      this.router
-        .navigate(['user-center', this.user.id])
-        .catch((err: Error) => console.error(err));
+      this.router.navigate(['user-center', this.user.id]).catch(console.error);
       return;
     }
 

@@ -26,19 +26,20 @@ describe('ApolloService', () => {
 
     it('should test getting all data', (done) => {
       const data = {
-        'data': {
-          'allOrders': [
+        data: {
+          allOrders: [
             {
-              'id': '197dab70-b062-11e8-8240-bfefe9f77f98',
-              'name': 'Tak Marsis',
-              'phone': '3809342112319'
+              id: '197dab70-b062-11e8-8240-bfefe9f77f98',
+              name: 'Tak Marsis',
+              phone: '3809342112319'
             }
           ]
         }
       };
       service.getAllOrders().subscribe((result: any) => {
-        expect(result).toEqual(data)
-            .catch((err: Error) => console.error(err));
+        expect(result)
+          .toEqual(data)
+          .catch(console.error);
         done();
       });
 

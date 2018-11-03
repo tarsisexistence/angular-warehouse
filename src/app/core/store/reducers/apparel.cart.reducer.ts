@@ -30,7 +30,6 @@ export function reducer(
     }
 
     case ApparelCartActions.ApparelCartActionTypes.AddApparelSuccess: {
-      debugger;
       const apparel: CartApparel = action.payload;
       const isExist = Object.keys(state.entities).some(
         (apparelId: string) => apparelId === apparel.id

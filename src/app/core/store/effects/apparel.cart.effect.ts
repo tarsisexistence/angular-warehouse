@@ -26,7 +26,7 @@ export class CartEffect {
   public fetchApparel$ = this.actions$.pipe(
     ofType<FetchApparel>(ApparelCartActionTypes.FetchApparel),
     switchMap(() =>
-      of(this.cartService.fetchStorageApparel()).pipe(
+      of(CartService.fetchStorageApparel()).pipe(
         map((apparel: CartApparel[]) => new FetchApparelSuccess(apparel)),
         catchError((error: Error) => of(new FetchApparelFail(error))),
         finalize(() => console.log('finalize fetchApparel$'))
@@ -39,7 +39,7 @@ export class CartEffect {
     ofType<AddApparel>(ApparelCartActionTypes.AddApparel),
     map((action: AddApparel) => action.payload),
     switchMap((apparel: Apparel) =>
-      of(this.cartService.addApparelToCart(apparel)).pipe(
+      of(CartService.addApparelToCart(apparel)).pipe(
         map((apparel: CartApparel) => new AddApparelSuccess(apparel)),
         catchError((error: Error) => of(new AddApparelFail(error))),
         finalize(() => console.log('finalize addApparel$'))
@@ -52,7 +52,7 @@ export class CartEffect {
     ofType<RemoveApparel>(ApparelCartActionTypes.RemoveApparel),
     map((action: RemoveApparel) => action.payload),
     switchMap((id: string) =>
-      of(this.cartService.removeApparelFromCart(id)).pipe(
+      of(CartService.removeApparelFromCart(id)).pipe(
         map(
           (sequenceNumber: string) => new RemoveApparelSuccess(sequenceNumber)
         ),
@@ -62,5 +62,5 @@ export class CartEffect {
     )
   );
 
-  constructor(private actions$: Actions, private cartService: CartService) {}
+  constructor(private actions$: Actions) {}
 }

@@ -39,7 +39,6 @@ export class CartComponent implements OnInit, OnDestroy {
 
   constructor(
     private apolloService: ApolloService,
-    private cartService: CartService,
     private dialog: MatDialog,
     private router: Router,
     private store: Store<fromStore.CartState>
@@ -75,8 +74,9 @@ export class CartComponent implements OnInit, OnDestroy {
 
       this.apolloService.addOrder(order).subscribe(() => {
         alert('Your order is confirmed. We will contact you soon');
-        this.cartService.emptyCart();
-        this.router.navigate(routesEntity.app.home.state);
+        debugger;
+        CartService.emptyCart();
+        this.router.navigate(routesEntity.app.home.state).catch(console.error);
       });
     });
   }

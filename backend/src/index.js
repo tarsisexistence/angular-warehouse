@@ -15,7 +15,7 @@ app.listen({ port }, () =>
 
 server.applyMiddleware({ app, path: graphqlPath });
 
-mongoose.connect(databasePath).catch((error) => console.error(error));
+mongoose.connect(databasePath).catch(console.error);
 mongoose.connection.once('open', () => {
   console.log('mongodb database connection established successfully');
 });

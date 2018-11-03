@@ -11,8 +11,7 @@ export interface AppRoutes extends RSBaseRoute {
 
 export const appRoute: RSRoutes<AppRoutes> = {
   cart: {
-    path: 'cart',
-    lazyPath: '-cart/cart.module#CartModule'
+    path: 'cart'
   },
   home: {
     path: '',

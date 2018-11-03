@@ -6,17 +6,15 @@ import { EffectsModule } from '@ngrx/effects';
 
 import { States, cartReducers, cartEffects } from '+store/index';
 import { SharedModule } from '#shared/shared.module';
-import { CartComponent } from '-cart/containers/cart/cart.component';
-import { CartApparelComponent } from '-cart/components/cart-apparel/cart-apparel.component';
-import { cartRouting } from '-cart/cart.routes';
+import { CartComponent } from '=cart/containers/cart/cart.component';
+import { CartApparelComponent } from '=cart/components/cart-apparel/cart-apparel.component';
 
 @NgModule({
   imports: [
     CommonModule,
     SharedModule,
     StoreModule.forFeature(States.Cart, cartReducers),
-    EffectsModule.forFeature(cartEffects),
-    cartRouting
+    EffectsModule.forFeature(cartEffects)
   ],
   declarations: [CartComponent, CartApparelComponent]
 })

@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { appRoute as route } from '$routes-entity/routes';
 import { AppPreload } from '~app/app.preload';
+import { CartComponent } from '=cart/containers/cart/cart.component';
 
 export const routes: Routes = [
   {
@@ -45,11 +46,7 @@ export const routes: Routes = [
   {
     path: route.cart.path,
     pathMatch: 'full',
-    loadChildren: route.cart.lazyPath,
-    data: {
-      preload: true,
-      delay: false
-    }
+    component: CartComponent
   },
   {
     path: route.notFound.path,

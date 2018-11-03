@@ -58,7 +58,7 @@
       "=auth/*": [
         "app/views/auth/*"
       ],
-      "-cart/*": [
+      "=cart/*": [
         "app/views/cart/*"
       ],
       "-home/*": [

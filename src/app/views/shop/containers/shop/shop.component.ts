@@ -54,6 +54,7 @@ export class ShopComponent implements OnInit, OnDestroy {
       });
 
     this.store.dispatch(new fromStore.LoadApparel());
+
     this.store
       .select(fromStore.getShopApparel)
       .pipe(takeUntil(this.unsubscribe$))

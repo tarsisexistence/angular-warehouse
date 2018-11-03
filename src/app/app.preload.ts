@@ -1,12 +1,12 @@
 import { PreloadingStrategy, Route } from '@angular/router';
 
 import { Observable, of, timer } from 'rxjs';
-import { flatMap } from 'rxjs/operators';
+import { mergeMap } from 'rxjs/operators';
 
 export class AppPreload implements PreloadingStrategy {
-  preload(route: Route, load: Function): Observable<any> {
+  public preload(route: Route, load: () => Observable<any>): Observable<any> {
     const loadRoute = (delay) =>
-      delay ? timer(150).pipe(flatMap(() => load())) : load();
+      delay === false ? load() : timer(300).pipe(mergeMap(load));
 
     return route.data && route.data['preload']
       ? loadRoute(route.data['delay'])

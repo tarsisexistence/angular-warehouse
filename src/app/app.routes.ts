@@ -39,7 +39,7 @@ export const routes: Routes = [
     loadChildren: route.userCenter.lazyPath,
     data: {
       preload: false,
-      delay: true
+      delay: false
     }
   },
   {

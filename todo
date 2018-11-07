@@ -1,7 +1,5 @@
-- ngrx semantic action types
 - ngrx facade https://medium.com/@thomasburleson_11450/ngrx-facades-better-state-management-82a04b9a1e39
 - ngrx errors https://medium.com/city-pantry/handling-errors-in-ngrx-effects-a95d918490d9
-- ngrx entities
 - typescript backend https://medium.com/@19majkel94/graphql-typescript-typegraphql-ba0225cb4bed
 - https://auth0.com/blog/full-stack-typescript-apps-part-1-developing-backend-apis-with-nestjs/
 - https://auth0.com/blog/full-stack-typescript-apps-part-2-developing-frontend-angular-apps/
@@ -13,4 +11,5 @@
 - e2e
 - antdesign
 - https://css-tricks.com/having-fun-with-link-hover-effects
-- nx https://nrwl.io/nx/guide-getting-started
+- nx https://nrwl.io/nx/guide-getting-started, https://blog.nrwl.io/building-full-stack-applications-using-angular-cli-and-nx-5eff205248f1
+- connection aware https://netbasal.com/connection-aware-components-in-angular-3a66bb0bab6f

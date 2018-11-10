@@ -9,7 +9,7 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 
-import * as fromStore from '+store/index';
+import * as fromStore from '+store';
 import { User } from '$core/shared/interfaces/user.interface';
 
 @Component({
@@ -22,16 +22,15 @@ export class UserCenterComponent implements OnInit, OnDestroy {
   private user: User;
   private unsubscribe$: Subject<void>;
 
-  constructor(private store: Store<fromStore.AuthState>) {
-  }
+  constructor(private store: Store<fromStore.AuthState>) {}
 
   public ngOnInit(): void {
     this.unsubscribe$ = new Subject<void>();
 
     this.store
-        .select(fromStore.getUser)
-        .pipe(takeUntil(this.unsubscribe$))
-        .subscribe((user: User) => (this.user = user));
+      .select(fromStore.getUser)
+      .pipe(takeUntil(this.unsubscribe$))
+      .subscribe((user: User) => (this.user = user));
   }
 
   public signOut(): void {

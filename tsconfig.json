@@ -52,6 +52,9 @@
       "+apollo/*": [
         "app/core/apollo/*"
       ],
+      "+store": [
+        "app/core/store"
+      ],
       "+store/*": [
         "app/core/store/*"
       ],

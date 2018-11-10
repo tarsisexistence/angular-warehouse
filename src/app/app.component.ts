@@ -1,12 +1,8 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  OnInit
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 import { Store } from '@ngrx/store';
 
-import * as fromStore from '+store/index';
+import * as fromStore from '+store';
 import { AuthService } from '$core/services/auth.service';
 import { StorageUser } from '$core/shared/interfaces/user.interface';
 
@@ -21,20 +17,18 @@ import { StorageUser } from '$core/shared/interfaces/user.interface';
     <shop-footer></shop-footer>
   `,
   styles: [
-      `
-          .app__outlet {
-              min-height: 90vh;
-          }
+    `
+      .app__outlet {
+        min-height: 90vh;
+      }
     `
   ]
 })
 export class AppComponent implements OnInit {
-
   constructor(
-      private authService: AuthService,
-      private store: Store<fromStore.ShopState>
-  ) {
-  }
+    private authService: AuthService,
+    private store: Store<fromStore.ShopState>
+  ) {}
 
   public ngOnInit(): void {
     const user: StorageUser = this.authService.fetchStorageUser();

@@ -1,9 +1,5 @@
 import * as fromReducer from './apparel.shop.reducer';
-import {
-  LoadApparel,
-  LoadApparelFailure,
-  LoadApparelSuccess
-} from '+store/index';
+import { LoadApparel, LoadApparelFailure, LoadApparelSuccess } from '+store';
 import { Apparel } from '-shop/shared/interfaces/apparel.interface';
 
 describe('ApparelShopReducer', () => {

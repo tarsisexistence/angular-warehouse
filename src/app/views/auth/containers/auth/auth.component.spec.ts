@@ -3,7 +3,7 @@ import { MatDialogRef } from '@angular/material';
 
 import { combineReducers, Store, StoreModule } from '@ngrx/store';
 
-import * as fromStore from '+store/index';
+import * as fromStore from '+store';
 import * as fromAuth from '+store/reducers';
 import { SharedTestingModule } from '#shared/shared.testing.module';
 import { AuthComponent } from '=auth/containers/auth/auth.component';

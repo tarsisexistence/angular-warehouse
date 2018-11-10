@@ -1,17 +1,9 @@
-import {
-  async,
-  ComponentFixture,
-  TestBed
-} from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 
-import {
-  combineReducers,
-  Store,
-  StoreModule
-} from '@ngrx/store';
+import { combineReducers, Store, StoreModule } from '@ngrx/store';
 
-import * as fromStore from '+store/index';
+import * as fromStore from '+store';
 import * as fromAuth from '+store/reducers';
 import { UserCenterComponent } from '-user-center/containers/user-center/user-center.component';
 

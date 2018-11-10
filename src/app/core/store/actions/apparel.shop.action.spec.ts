@@ -3,7 +3,7 @@ import {
   LoadApparel,
   LoadApparelFailure,
   LoadApparelSuccess
-} from '+store/index';
+} from '+store';
 
 describe('Apparel Actions', () => {
   describe('LoadApparel action', () => {

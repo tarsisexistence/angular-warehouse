@@ -5,7 +5,7 @@ import { Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
 import { catchError, filter, switchMap, take, tap } from 'rxjs/operators';
 
-import * as fromStore from '+store/index';
+import * as fromStore from '+store';
 import { AuthService } from '$core/services/auth.service';
 
 @Injectable({ providedIn: 'root' })

@@ -3,7 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 import { combineReducers, Store, StoreModule } from '@ngrx/store';
 
-import * as fromStore from '+store/index';
+import * as fromStore from '+store';
 import * as fromAuth from '+store/reducers';
 import { SharedTestingModule } from '#shared/shared.testing.module';
 import { HeaderComponent } from './header.component';

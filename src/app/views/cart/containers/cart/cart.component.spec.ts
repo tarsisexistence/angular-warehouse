@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { combineReducers, Store, StoreModule } from '@ngrx/store';
 
-import * as fromStore from '+store/index';
+import * as fromStore from '+store';
 import * as fromAuth from '+store/reducers';
 import { SharedTestingModule } from '#shared/shared.testing.module';
 import { CartComponent } from '=cart/containers/cart/cart.component';

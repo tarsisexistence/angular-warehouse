@@ -11,7 +11,7 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 
-import * as fromStore from '+store/index';
+import * as fromStore from '+store';
 import { ApolloService } from '+apollo/services/apollo.service';
 import { PaymentComponent } from '#shared/dialogs/payment/payment.component';
 import { routesEntity } from '$routes-entity/entity';

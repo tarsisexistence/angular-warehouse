@@ -10,7 +10,7 @@ import { BehaviorSubject, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 
-import * as fromStore from '+store/index';
+import * as fromStore from '+store';
 import { shop as shopRoutesEntity } from '$routes-entity/entities';
 import { RSEntity } from '$routes-entity/interfaces';
 import { ShopRoutes } from '$routes-entity/routes';

@@ -19,7 +19,7 @@ import {
 } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 
-import * as fromStore from '+store/index';
+import * as fromStore from '+store';
 import { routesEntity, Entity } from '$routes-entity/entity';
 import { AuthComponent } from '=auth/containers/auth/auth.component';
 import { getToggleAnimation } from '$core/shared/animations/toggle.animation';

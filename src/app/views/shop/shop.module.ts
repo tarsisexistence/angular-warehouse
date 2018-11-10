@@ -5,11 +5,7 @@ import { RouterModule } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
-import {
-  States,
-  shopReducers,
-  shopEffects
-} from '+store/index';
+import { States, shopReducers, shopEffects } from '+store';
 import { SharedModule } from '#shared/shared.module';
 import { shopRouting } from '-shop/shop.routes';
 import { ShopComponent } from '-shop/containers/shop/shop.component';
@@ -37,5 +33,4 @@ import { ShopCartBubbleComponent } from '-shop/components/shop-cart-bubble/shop-
     ShopCartBubbleComponent
   ]
 })
-export class ShopModule {
-}
+export class ShopModule {}

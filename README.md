@@ -39,5 +39,5 @@ Concept Store Platform - Online store as a platform for consumers who loves conc
 - Routes Hub
 - SCSS
 - Server Side Rendering (Universal)
-- Scripts, analyzers, explorers, linters, hooks
+- Scripts, analyzers, explorers, linters, hooks etc
 - ... animations, accessibility, interceptors

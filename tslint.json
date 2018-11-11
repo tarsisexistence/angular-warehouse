@@ -1,8 +1,8 @@
 {
   "extends": [
+    "angular-tslint-rules",
     "tslint:latest",
-    "tslint-config-prettier",
-    "angular-tslint-rules"
+    "tslint-config-prettier"
   ],
   "rulesDirectory": [
     "node_modules/codelyzer"

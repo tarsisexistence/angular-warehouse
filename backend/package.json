@@ -24,7 +24,6 @@
     "babel-cli": "6.26.0",
     "babel-preset-env": "1.7.0",
     "babel-watch": "2.0.8",
-    "hoek": "5.0.4",
     "ts-loader": "5.0.0",
     "typescript": "3.0.3",
     "webpack": "4.28.3",

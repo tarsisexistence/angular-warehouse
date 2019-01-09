@@ -27,12 +27,13 @@ export function reducer(
 
     case ApparelShopActions.ApparelShopActionTypes.LoadApparelSuccess: {
       const entities = action.payload.reduce(
-        (entities: { [id: number]: Apparel }, apparel: Apparel) => ({
-          ...entities,
+        (accEntities: { [id: number]: Apparel }, apparel: Apparel) => ({
+          ...accEntities,
           [apparel.id]: apparel
         }),
         { ...state.entities }
       );
+
       return {
         ...state,
         loading: false,
@@ -48,8 +49,10 @@ export function reducer(
         loaded: false
       };
     }
+
+    default:
+      return state;
   }
-  return state;
 }
 
 export const getApparelEntities = (state: ApparelState) => state.entities;

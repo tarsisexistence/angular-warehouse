@@ -19,7 +19,7 @@ export enum ApparelCartActionTypes {
 }
 
 export class AddApparel implements Action {
-  readonly type = ApparelCartActionTypes.AddApparel;
+  public readonly type = ApparelCartActionTypes.AddApparel;
   public payload: CartApparel;
 
   constructor(payload: Apparel) {
@@ -31,65 +31,61 @@ export class AddApparel implements Action {
 }
 
 export class AddApparelFailure implements Action {
-  readonly type = ApparelCartActionTypes.AddApparelFailure;
+  public readonly type = ApparelCartActionTypes.AddApparelFailure;
 
   constructor(public payload: Error) {}
 }
 
 export class AddApparelSuccess implements Action {
-  readonly type = ApparelCartActionTypes.AddApparelSuccess;
+  public readonly type = ApparelCartActionTypes.AddApparelSuccess;
 
   constructor(public payload: CartApparel) {}
 }
 
 export class ClearApparel implements Action {
-  readonly type = ApparelCartActionTypes.ClearApparel;
-
-  constructor() {}
+  public readonly type = ApparelCartActionTypes.ClearApparel;
 }
 
 export class ClearApparelFailure implements Action {
-  readonly type = ApparelCartActionTypes.ClearApparelFailure;
+  public readonly type = ApparelCartActionTypes.ClearApparelFailure;
 
   constructor(public payload: Error) {}
 }
 
 export class ClearApparelSuccess implements Action {
-  readonly type = ApparelCartActionTypes.ClearApparelSuccess;
-
-  constructor() {}
+  public readonly type = ApparelCartActionTypes.ClearApparelSuccess;
 }
 
 export class FetchApparel implements Action {
-  readonly type = ApparelCartActionTypes.FetchApparel;
+  public readonly type = ApparelCartActionTypes.FetchApparel;
 }
 
 export class FetchApparelFailure implements Action {
-  readonly type = ApparelCartActionTypes.FetchApparelFailure;
+  public readonly type = ApparelCartActionTypes.FetchApparelFailure;
 
   constructor(public payload: Error) {}
 }
 
 export class FetchApparelSuccess implements Action {
-  readonly type = ApparelCartActionTypes.FetchApparelSuccess;
+  public readonly type = ApparelCartActionTypes.FetchApparelSuccess;
 
   constructor(public payload: Apparel[]) {}
 }
 
 export class RemoveApparel implements Action {
-  readonly type = ApparelCartActionTypes.RemoveApparel;
+  public readonly type = ApparelCartActionTypes.RemoveApparel;
 
   constructor(public payload: string) {}
 }
 
 export class RemoveApparelFailure implements Action {
-  readonly type = ApparelCartActionTypes.RemoveApparelFailure;
+  public readonly type = ApparelCartActionTypes.RemoveApparelFailure;
 
   constructor(public payload: Error) {}
 }
 
 export class RemoveApparelSuccess implements Action {
-  readonly type = ApparelCartActionTypes.RemoveApparelSuccess;
+  public readonly type = ApparelCartActionTypes.RemoveApparelSuccess;
 
   constructor(public payload: string) {}
 }

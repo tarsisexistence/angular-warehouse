@@ -9,17 +9,17 @@ export enum ApparelShopActionTypes {
 }
 
 export class LoadApparel implements Action {
-  readonly type = ApparelShopActionTypes.LoadApparel;
+  public readonly type = ApparelShopActionTypes.LoadApparel;
 }
 
 export class LoadApparelFailure implements Action {
-  readonly type = ApparelShopActionTypes.LoadApparelFailure;
+  public readonly type = ApparelShopActionTypes.LoadApparelFailure;
 
   constructor(public payload: any) {}
 }
 
 export class LoadApparelSuccess implements Action {
-  readonly type = ApparelShopActionTypes.LoadApparelSuccess;
+  public readonly type = ApparelShopActionTypes.LoadApparelSuccess;
 
   constructor(public payload: Apparel[]) {}
 }

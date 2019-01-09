@@ -1,4 +1,4 @@
-import { createSelector, createFeatureSelector } from '@ngrx/store';
+import { createFeatureSelector, createSelector } from '@ngrx/store';
 
 import { States } from '+store/states';
 import * as fromCartReducer from '+store/reducers/apparel.cart.reducer';

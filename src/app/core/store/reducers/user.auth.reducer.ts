@@ -16,8 +16,8 @@ export const initialState: UserState = {
 };
 
 export function reducer(
-    state = initialState,
-    action: UserAuthActions.AuthActionsUnion
+  state = initialState,
+  action: UserAuthActions.AuthActionsUnion
 ): UserState {
   switch (action.type) {
     case UserAuthActions.AuthActionTypes.FetchUser: {
@@ -79,6 +79,7 @@ export function reducer(
         email: action.payload.email,
         catchPhrase: null
       };
+
       return {
         ...state,
         loading: false,
@@ -109,6 +110,7 @@ export function reducer(
         email: state.user.email,
         catchPhrase: action.payload.catchPhrase
       };
+
       return {
         ...state,
         loading: false,
@@ -129,8 +131,10 @@ export function reducer(
     case UserAuthActions.AuthActionTypes.SignOut: {
       return initialState;
     }
+
+    default:
+      return state;
   }
-  return state;
 }
 
 export const getUser = (state: UserState) => state.user;

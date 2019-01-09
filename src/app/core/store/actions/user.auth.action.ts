@@ -23,83 +23,83 @@ export enum AuthActionTypes {
 }
 
 export class FetchUser implements Action {
-  readonly type = AuthActionTypes.FetchUser;
+  public readonly type = AuthActionTypes.FetchUser;
 
   constructor(public payload: string) {}
 }
 
 export class FetchUserSuccess implements Action {
-  readonly type = AuthActionTypes.FetchUserSuccess;
+  public readonly type = AuthActionTypes.FetchUserSuccess;
 
   constructor(public payload: User) {}
 }
 
 export class FetchUserFailure implements Action {
-  readonly type = AuthActionTypes.FetchUserFailure;
+  public readonly type = AuthActionTypes.FetchUserFailure;
 
   constructor(public payload: Error) {}
 }
 
 export class SignIn implements Action {
-  readonly type = AuthActionTypes.SignIn;
+  public readonly type = AuthActionTypes.SignIn;
 
   constructor(public payload: Access) {}
 }
 
 export class SignInSuccess implements Action {
-  readonly type = AuthActionTypes.SignInSuccess;
+  public readonly type = AuthActionTypes.SignInSuccess;
 
   constructor(public payload: User) {}
 }
 
 export class SignInFailure implements Action {
-  readonly type = AuthActionTypes.SignInFailure;
+  public readonly type = AuthActionTypes.SignInFailure;
 
   constructor(public payload: Error) {}
 }
 
 export class SignUp implements Action {
-  readonly type = AuthActionTypes.SignUp;
+  public readonly type = AuthActionTypes.SignUp;
 
   constructor(public payload: Access) {}
 }
 
 export class SignUpSuccess implements Action {
-  readonly type = AuthActionTypes.SignUpSuccess;
+  public readonly type = AuthActionTypes.SignUpSuccess;
 
   constructor(public payload: User) {}
 }
 
 export class SignUpFailure implements Action {
-  readonly type = AuthActionTypes.SignUpFailure;
+  public readonly type = AuthActionTypes.SignUpFailure;
 
   constructor(public payload: Error) {}
 }
 
 export class SignUpCatchPhrase implements Action {
-  readonly type = AuthActionTypes.SignUpCatchPhrase;
+  public readonly type = AuthActionTypes.SignUpCatchPhrase;
 
   constructor(public payload: CatchPhraseConfig) {}
 }
 
 export class SignUpCatchPhraseSuccess implements Action {
-  readonly type = AuthActionTypes.SignUpCatchPhraseSuccess;
+  public readonly type = AuthActionTypes.SignUpCatchPhraseSuccess;
 
   constructor(public payload: User) {}
 }
 
 export class SignUpCatchPhraseFailure implements Action {
-  readonly type = AuthActionTypes.SignUpCatchPhraseFailure;
+  public readonly type = AuthActionTypes.SignUpCatchPhraseFailure;
 
   constructor(public payload: Error) {}
 }
 
 export class SignOut implements Action {
-  readonly type = AuthActionTypes.SignOut;
+  public readonly type = AuthActionTypes.SignOut;
 }
 
 export class Redirect implements Action {
-  readonly type = AuthActionTypes.Redirect;
+  public readonly type = AuthActionTypes.Redirect;
 }
 
 export type AuthActionsUnion =

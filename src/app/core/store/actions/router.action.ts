@@ -8,7 +8,7 @@ export enum RouterActionsTypes {
 }
 
 export class Go implements Action {
-  readonly type = RouterActionsTypes.Go;
+  public readonly type = RouterActionsTypes.Go;
 
   constructor(
     public payload: {
@@ -20,11 +20,11 @@ export class Go implements Action {
 }
 
 export class Forward implements Action {
-  readonly type = RouterActionsTypes.Forward;
+  public readonly type = RouterActionsTypes.Forward;
 }
 
 export class Back implements Action {
-  readonly type = RouterActionsTypes.Back;
+  public readonly type = RouterActionsTypes.Back;
 }
 
 export type RouterActions = Go | Forward | Back;

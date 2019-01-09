@@ -105,7 +105,7 @@ export function reducer(
       const apparels: Apparel[] = action.payload;
       const entities = apparels.reduce(
         (
-          apparels: CartApparelEntities,
+          accApparels: CartApparelEntities,
           apparel: Apparel
         ): CartApparelEntities => {
           const duplicateApparel = apparels[apparel.id];
@@ -119,7 +119,7 @@ export function reducer(
           };
 
           return {
-            ...apparels,
+            ...accApparels,
             [apparel.id]: cartApparel
           };
         },
@@ -152,14 +152,14 @@ export function reducer(
     case ApparelCartActions.ApparelCartActionTypes.RemoveApparelSuccess: {
       const id = action.payload;
       const entities = Object.keys(state.entities).reduce(
-        (entities: CartApparelEntities, entitiyId: string) => {
-          if (entitiyId === String(id)) {
+        (accEntities: CartApparelEntities, entityId: string) => {
+          if (entityId === String(id)) {
             return entities;
           }
 
           return {
-            ...entities,
-            [entitiyId]: state.entities[entitiyId]
+            ...accEntities,
+            [entityId]: state.entities[entityId]
           };
         },
         {}
@@ -180,8 +180,10 @@ export function reducer(
         loaded: false
       } as CartApparelState;
     }
+
+    default:
+      return state;
   }
-  return state;
 }
 
 export const getCartEntities = (state: CartApparelState) => state.entities;

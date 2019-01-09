@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
-import { exhaustMap, map, catchError, take } from 'rxjs/operators';
+import { catchError, exhaustMap, map, take } from 'rxjs/operators';
 
 import { ApolloService } from '+apollo/services/apollo.service';
 import {

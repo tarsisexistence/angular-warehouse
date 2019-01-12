@@ -22,7 +22,7 @@
             "index": "src/index.html",
             "main": "src/main/main.ts",
             "polyfills": "src/helpers/polyfills.ts",
-            "tsConfig": "src/typescript/tsconfig.app.json",
+            "tsConfig": "src/configs/tsconfig.app.json",
             "assets": ["src/favicon.ico", "src/assets", "src/manifest.json"],
             "styles": ["src/styles.scss"],
             "scripts": []
@@ -91,7 +91,7 @@
           "options": {
             "main": "src/test/test.ts",
             "polyfills": "src/helpers/polyfills.ts",
-            "tsConfig": "src/typescript/tsconfig.spec.json",
+            "tsConfig": "src/configs/tsconfig.spec.json",
             "karmaConfig": "src/test/karma.conf.js",
             "styles": ["styles.scss"],
             "scripts": [],
@@ -102,8 +102,8 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "src/typescript/tsconfig.app.json",
-              "src/typescript/tsconfig.spec.json"
+              "src/configs/tsconfig.app.json",
+              "src/configs/tsconfig.spec.json"
             ],
             "exclude": ["**/node_modules/**"]
           }

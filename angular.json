@@ -23,8 +23,14 @@
             "main": "src/main/main.ts",
             "polyfills": "src/helpers/polyfills.ts",
             "tsConfig": "src/configs/tsconfig.app.json",
-            "assets": ["src/favicon.ico", "src/assets", "src/manifest.json"],
-            "styles": ["src/styles.scss"],
+            "assets": [
+              "src/favicon.ico",
+              "src/assets",
+              "src/manifest.json"
+            ],
+            "styles": [
+              "src/styles.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -93,9 +99,15 @@
             "polyfills": "src/helpers/polyfills.ts",
             "tsConfig": "src/configs/tsconfig.spec.json",
             "karmaConfig": "src/test/karma.conf.js",
-            "styles": ["styles.scss"],
+            "styles": [
+              "styles.scss"
+            ],
             "scripts": [],
-            "assets": ["src/favicon.ico", "src/assets", "src/manifest.json"]
+            "assets": [
+              "src/favicon.ico",
+              "src/assets",
+              "src/manifest.json"
+            ]
           }
         },
         "lint": {
@@ -105,7 +117,9 @@
               "src/configs/tsconfig.app.json",
               "src/configs/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
@@ -125,11 +139,16 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "e2e/tsconfig.e2e.json",
-            "exclude": ["**/node_modules/**"]
+            "exclude": [
+              "**/node_modules/**"
+            ]
           }
         }
       }
     }
+  },
+  "cli": {
+    "packageManager": "yarn"
   },
   "defaultProject": "concept-store-platform"
 }

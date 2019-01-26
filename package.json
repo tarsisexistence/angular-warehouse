@@ -18,7 +18,7 @@
     "test": "snyk test && ng test",
     "e2e": "ng e2e",
     "// - SERVES - //": "------------------------------",
-    "backend:serve": "cd backend && npm run dev",
+    "backend:serve": "cd backend && yarn run dev",
     "frontend:serve": "ng serve",
     "frontend:hmr:serve": "ng serve --configuration hmr",
     "// - BUILD ANALYZERS & EXPLORERS - //": "------------------------------",
@@ -105,7 +105,8 @@
     "tslint-config-security": "1.15.0",
     "typescript": "3.1.6",
     "webpack-bundle-analyzer": "3.0.3",
-    "webpack-node-externals": "1.7.2"
+    "webpack-node-externals": "1.7.2",
+    "yarn": "~1.13.0"
   },
   "browserslist": [
     "> 1%",

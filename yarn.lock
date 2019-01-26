@@ -7486,10 +7486,10 @@ performance-now@^2.1.0:
   resolved "https://registry.yarnpkg.com/performance-now/-/performance-now-2.1.0.tgz#6309f4e0e5fa913ec1c69307ae364b4b377c9e7b"
   integrity sha1-Ywn04OX6kT7BxpMHrjZLSzd8nns=
 
-perfume.js@2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/perfume.js/-/perfume.js-2.1.1.tgz#586ef6c0378d7dabf99880c44feec3bc8dfd2d32"
-  integrity sha512-jL6Vmt1DXpKnv9iIXNeHLrHO7FgvlRb5gl88UbGxqrg3FVhFTUk5bkfv3X9g8zvHEBX/4l1VwTOMzpU4CKkx2w==
+perfume.js@2.1.2:
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/perfume.js/-/perfume.js-2.1.2.tgz#71e81449eec0b55c7895b030a0a8c53b9da9c3d8"
+  integrity sha512-xKZc8ok0mzww8H45B3FVG5O9rvzY4tuCDELdtwM79OeeP4nVeX1d9Sr3ZNgbUDFQKiEJa1Prc/t8b+XxvSd9fQ==
   dependencies:
     detect-browser "4.0.0"
     first-input-delay "0.1.3"

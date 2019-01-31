@@ -87,17 +87,6 @@
     "@angular-devkit/core" "7.3.0"
     rxjs "6.3.3"
 
-"@angular-devkit/core@7.2.2":
-  version "7.2.2"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-7.2.2.tgz#f0daf3e24f0ce8105341118f4505c1db4e284ab0"
-  integrity sha512-gDF8iXiPN870WuBMl7bCQ5+Qz5SjGL/qMcvP4hli5hkn+kMAhgG38ligUK1bbhPQUJ+Z/nSOEmyv8gLHO09SZg==
-  dependencies:
-    ajv "6.6.2"
-    chokidar "2.0.4"
-    fast-json-stable-stringify "2.0.0"
-    rxjs "6.3.3"
-    source-map "0.7.3"
-
 "@angular-devkit/core@7.3.0":
   version "7.3.0"
   resolved "https://registry.yarnpkg.com/@angular-devkit/core/-/core-7.3.0.tgz#fc272e39b4c307833e9a7db77007418a246f5410"
@@ -108,14 +97,6 @@
     fast-json-stable-stringify "2.0.0"
     rxjs "6.3.3"
     source-map "0.7.3"
-
-"@angular-devkit/schematics@7.2.2":
-  version "7.2.2"
-  resolved "https://registry.yarnpkg.com/@angular-devkit/schematics/-/schematics-7.2.2.tgz#d8d667684603e1debcc4598d88a254560e787f87"
-  integrity sha512-3qONTeqe+bUJ967PNDeITuD4F+3huTEs3u89zZLV+yvaxoK9XJlvaRoQXAkNAMUkij37BoFrGgBfGNijserd6A==
-  dependencies:
-    "@angular-devkit/core" "7.2.2"
-    rxjs "6.3.3"
 
 "@angular-devkit/schematics@7.3.0":
   version "7.3.0"
@@ -247,14 +228,14 @@
     tslib "^1.9.0"
     xhr2 "^0.1.4"
 
-"@angular/pwa@0.12.2":
-  version "0.12.2"
-  resolved "https://registry.yarnpkg.com/@angular/pwa/-/pwa-0.12.2.tgz#3a7e46aa665a074871141e37d307878d5426e7d4"
-  integrity sha512-uJ+i3zEhbp1SKhPGOtrHg9sagFW6cruOL8rk2zUk8G3v7O7Qixqi4nyTHrItMR1sCQYecKD8f0ViAKx3YiG0wQ==
+"@angular/pwa@0.13.0":
+  version "0.13.0"
+  resolved "https://registry.yarnpkg.com/@angular/pwa/-/pwa-0.13.0.tgz#4ee1be75e4104dd82c32d2351df7667d270ec0d0"
+  integrity sha512-E1rOMduecaUw6sZfm5u3nFWi2B90SD6NriGjciVTcKCjPmHKeIWmpWGhVdgGEzCbg1Gxj8ZhsvvBjJzfbDPF6g==
   dependencies:
-    "@angular-devkit/core" "7.2.2"
-    "@angular-devkit/schematics" "7.2.2"
-    "@schematics/angular" "7.2.2"
+    "@angular-devkit/core" "7.3.0"
+    "@angular-devkit/schematics" "7.3.0"
+    "@schematics/angular" "7.3.0"
     parse5-html-rewriting-stream "5.1.0"
     rxjs "6.3.3"
 
@@ -633,15 +614,6 @@
   dependencies:
     any-observable "^0.3.0"
 
-"@schematics/angular@7.2.2":
-  version "7.2.2"
-  resolved "https://registry.yarnpkg.com/@schematics/angular/-/angular-7.2.2.tgz#5a466ebbbd7e1fbb13851f26446ec308b822d1dc"
-  integrity sha512-Yonddct1XBG1H5rTikagFTIT2/RhszJnNa2Iz+rvc26ffAl1mmYPB4sQb7gkOaZQSzK6SE7bT2QW32PVjYFoSQ==
-  dependencies:
-    "@angular-devkit/core" "7.2.2"
-    "@angular-devkit/schematics" "7.2.2"
-    typescript "3.2.2"
-
 "@schematics/angular@7.3.0":
   version "7.3.0"
   resolved "https://registry.yarnpkg.com/@schematics/angular/-/angular-7.3.0.tgz#0ed0af8250f767ceb42a3f658888697d95381569"
@@ -988,16 +960,6 @@ ajv-keywords@^3.1.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/ajv-keywords/-/ajv-keywords-3.2.0.tgz#e86b819c602cf8821ad637413698f1dec021847a"
   integrity sha1-6GuBnGAs+IIa1jdBNpjx3sAhhHo=
-
-ajv@6.6.2:
-  version "6.6.2"
-  resolved "https://registry.yarnpkg.com/ajv/-/ajv-6.6.2.tgz#caceccf474bf3fc3ce3b147443711a24063cc30d"
-  integrity sha512-FBHEW6Jf5TB9MGBgUUA9XHkTbjXYfAUjY43ACMfmdMRHniyoMHjHjzD50OK8LGDWQwp4rWEsIq5kEqq7rvIM1g==
-  dependencies:
-    fast-deep-equal "^2.0.1"
-    fast-json-stable-stringify "^2.0.0"
-    json-schema-traverse "^0.4.1"
-    uri-js "^4.2.2"
 
 ajv@6.7.0, ajv@^6.1.0, ajv@^6.5.5:
   version "6.7.0"

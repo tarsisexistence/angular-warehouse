@@ -51,7 +51,7 @@
     "@angular/platform-browser": "7.2.3",
     "@angular/platform-browser-dynamic": "7.2.3",
     "@angular/platform-server": "7.2.3",
-    "@angular/pwa": "0.12.2",
+    "@angular/pwa": "0.13.0",
     "@angular/router": "7.2.3",
     "@angular/service-worker": "7.2.3",
     "@ngrx/effects": "6.1.0",

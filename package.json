@@ -70,7 +70,7 @@
   "devDependencies": {
     "@angular-devkit/build-angular": "0.12.2",
     "@angular-devkit/build-optimizer": "0.13.0",
-    "@angular/cli": "7.2.1",
+    "@angular/cli": "7.3.0",
     "@angular/compiler-cli": "7.2.3",
     "@angular/language-service": "7.2.3",
     "@angularclass/hmr": "2.1.3",

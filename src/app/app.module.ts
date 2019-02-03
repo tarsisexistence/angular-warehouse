@@ -6,7 +6,6 @@ import {
 import { ServiceWorkerModule } from '@angular/service-worker';
 
 import { environment } from '~env/environment';
-import { appRouting } from '~app/app.routes';
 import { AppComponent } from '~app/app.component';
 import { CoreModule } from '$core/core.module';
 import { AppPreload } from '~app/app.preload';
@@ -15,7 +14,6 @@ import { AppPreload } from '~app/app.preload';
   imports: [
     BrowserModule.withServerTransition({ appId: 'app-root' }),
     BrowserTransferStateModule,
-    appRouting,
     CoreModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production

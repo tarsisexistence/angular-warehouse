@@ -2,7 +2,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./src",
-    "outDir": "./dist/out-tsc",
+    "outDir": "../dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
     "module": "es2015",
@@ -19,6 +19,9 @@
       "esnext.asynciterable"
     ],
     "paths": {
+      "routeshub": [
+        "../dist/routeshub"
+      ],
       "~app/*": [
         "app/*"
       ],
@@ -42,6 +45,9 @@
       ],
       "$core/*": [
         "app/core/*"
+      ],
+      "$routing/*": [
+        "app/routing/*"
       ],
       "$routes-entity/*": [
         "app/core/routes-entity/*"

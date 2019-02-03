@@ -1,24 +1,24 @@
 import { ModuleWithProviders } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { appRoute as route } from '$routes-entity/routes';
-import { AppPreload } from '~app/app.preload';
-import { CartComponent } from '=cart/containers/cart/cart.component';
+import { appNotes } from './app.note';
+import { AppPreload } from 'app/app.preload';
+import { CartComponent } from 'app/views/cart/containers/cart/cart.component';
 
 export const routes: Routes = [
   {
-    path: route.home.path,
+    path: appNotes.home.path,
     pathMatch: 'full',
-    loadChildren: route.home.lazyPath,
+    loadChildren: appNotes.home.lazyPath,
     data: {
       preload: false,
       delay: false
     }
   },
   {
-    path: route.shop.path,
+    path: appNotes.shop.path,
     pathMatch: 'prefix',
-    loadChildren: route.shop.lazyPath,
+    loadChildren: appNotes.shop.lazyPath,
     runGuardsAndResolvers: 'paramsOrQueryParamsChange',
     data: {
       preload: false,
@@ -26,31 +26,31 @@ export const routes: Routes = [
     }
   },
   {
-    path: route.location.path,
+    path: appNotes.location.path,
     pathMatch: 'prefix',
-    loadChildren: route.location.lazyPath,
+    loadChildren: appNotes.location.lazyPath,
     data: {
       preload: false,
       delay: false
     }
   },
   {
-    path: route.userCenter.path,
+    path: appNotes.userCenter.path,
     pathMatch: 'full',
-    loadChildren: route.userCenter.lazyPath,
+    loadChildren: appNotes.userCenter.lazyPath,
     data: {
       preload: false,
       delay: false
     }
   },
   {
-    path: route.cart.path,
+    path: appNotes.cart.path,
     pathMatch: 'full',
     component: CartComponent
   },
   {
-    path: route.notFound.path,
-    redirectTo: route.home.path
+    path: appNotes.notFound.path,
+    redirectTo: appNotes.home.path
   }
 ];
 

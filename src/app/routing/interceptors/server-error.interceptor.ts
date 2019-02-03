@@ -6,11 +6,7 @@ import {
   HttpRequest
 } from '@angular/common/http';
 
-import {
-  Observable,
-  of,
-  throwError
-} from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 import {
   concatAll,
   concatMap,
@@ -23,8 +19,10 @@ import {
 
 @Injectable({ providedIn: 'root' })
 export class ServerErrorInterceptor implements HttpInterceptor {
-
-  public intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+  public intercept(
+    request: HttpRequest<any>,
+    next: HttpHandler
+  ): Observable<HttpEvent<any>> {
     return next.handle(request);
     // .pipe(
     //     retry(2),

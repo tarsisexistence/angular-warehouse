@@ -17,9 +17,7 @@ import { NgPerfume, PerfumeAfterViewInit } from 'perfume.js/angular';
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <core-header></core-header>
-    <div class="app__outlet">
-      <router-outlet></router-outlet>
-    </div>
+    <div class="app__outlet"><router-outlet></router-outlet></div>
     <shop-footer></shop-footer>
   `,
   styles: [

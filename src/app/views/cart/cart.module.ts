@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
-import { States, cartReducers, cartEffects } from '+store';
+import { cartEffects, cartReducers, States } from '+store';
 import { SharedModule } from '#shared/shared.module';
 import { CartComponent } from '=cart/containers/cart/cart.component';
 import { CartApparelComponent } from '=cart/components/cart-apparel/cart-apparel.component';

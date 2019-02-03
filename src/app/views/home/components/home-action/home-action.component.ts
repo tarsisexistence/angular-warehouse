@@ -1,13 +1,8 @@
-import {
-  Component,
-  ChangeDetectionStrategy,
-  OnInit
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
-import {
-  Entity,
-  routesEntity
-} from '$routes-entity/entity';
+import { Slice } from 'routeshub';
+
+import { ShopRoutes, shopSlice } from '-shop/hub';
 
 @Component({
   selector: 'home-action',
@@ -16,9 +11,9 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeActionComponent implements OnInit {
-  public routes: Entity;
+  public slice: Slice<ShopRoutes>;
 
   public ngOnInit(): void {
-    this.routes = routesEntity;
+    this.slice = shopSlice;
   }
 }

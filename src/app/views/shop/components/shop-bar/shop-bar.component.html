@@ -2,7 +2,7 @@
 
   <ng-container *ngFor="let category of categories; trackBy: identify">
     <a class="bar__category"
-       [routerLink]="routesEntity.category.stateFn({ category: category.toLowerCase() })">
+       [routerLink]="slice.category.stateFn({ category: category.toLowerCase() })">
       {{ category }}
     </a>
   </ng-container>

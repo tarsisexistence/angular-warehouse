@@ -35,7 +35,7 @@ import {
   SignUpSuccess
 } from '+store/actions/user.auth.action';
 import { Go } from '+store/actions/router.action';
-import { routesEntity } from '$routes-entity/entity';
+import { appSlice } from '$routing/hub/app.slice';
 
 @Injectable({ providedIn: 'root' })
 export class UserEffect {
@@ -111,7 +111,7 @@ export class UserEffect {
   public signOut$ = this.actions$.pipe(
     ofType(AuthActionTypes.SignOut, AuthActionTypes.Redirect),
     tap(() => this.authService.removeStorageUser()),
-    tap(() => this.router.navigate(routesEntity.app.home.state))
+    tap(() => this.router.navigate(appSlice.home.state))
   );
 
   constructor(

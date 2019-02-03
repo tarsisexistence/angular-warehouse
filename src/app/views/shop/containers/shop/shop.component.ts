@@ -1,8 +1,8 @@
 import {
+  ChangeDetectionStrategy,
   Component,
-  OnInit,
   OnDestroy,
-  ChangeDetectionStrategy
+  OnInit
 } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 
@@ -11,9 +11,6 @@ import { takeUntil } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 
 import * as fromStore from '+store';
-import { shop as shopRoutesEntity } from '$routes-entity/entities';
-import { RSEntity } from '$routes-entity/interfaces';
-import { ShopRoutes } from '$routes-entity/routes';
 import { Apparel } from '-shop/shared/interfaces/apparel.interface';
 import { Apparels } from '-shop/shared/models/apparels.model';
 import { categories } from '-shop/shared/models/categories.model';
@@ -30,7 +27,6 @@ export class ShopComponent implements OnInit, OnDestroy {
   public selectedCategory: string;
   public categories: string[];
   public loading: boolean;
-  public shopRoutesEntity: RSEntity<ShopRoutes>;
   private unsubscribe$: Subject<boolean>;
 
   constructor(
@@ -42,7 +38,6 @@ export class ShopComponent implements OnInit, OnDestroy {
   public ngOnInit(): void {
     this.apparels = new BehaviorSubject<Apparels>(null);
     this.unsubscribe$ = new Subject<boolean>();
-    this.shopRoutesEntity = shopRoutesEntity;
     this.categories = categories;
 
     this.route.data

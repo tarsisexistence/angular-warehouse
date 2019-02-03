@@ -17,7 +17,8 @@
               "core",
               "user-center",
               "shop",
-              "location"
+              "location",
+              "home"
             ],
             "kebab-case"
         ]

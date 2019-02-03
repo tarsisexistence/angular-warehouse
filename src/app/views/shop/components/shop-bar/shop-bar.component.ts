@@ -1,11 +1,13 @@
 import {
+  ChangeDetectionStrategy,
   Component,
   Input,
-  ChangeDetectionStrategy
+  OnInit
 } from '@angular/core';
 
-import { ShopRoutes } from '$routes-entity/routes';
-import { RSEntity } from '$routes-entity/interfaces';
+import { Slice } from 'routeshub';
+
+import { ShopRoutes, shopSlice } from '-shop/hub';
 
 @Component({
   selector: 'shop-bar',
@@ -13,9 +15,13 @@ import { RSEntity } from '$routes-entity/interfaces';
   styleUrls: ['./shop-bar.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ShopBarComponent {
+export class ShopBarComponent implements OnInit {
   @Input() public categories: string[];
-  @Input() public routesEntity: RSEntity<ShopRoutes>;
+  public slice: Slice<ShopRoutes>;
+
+  public ngOnInit(): void {
+    this.slice = shopSlice;
+  }
 
   public identify(index: number): number {
     return index;

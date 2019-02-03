@@ -5,9 +5,9 @@ import { RouterModule } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
-import { States, shopReducers, shopEffects } from '+store';
+import { shopEffects, shopReducers, States } from '+store';
 import { SharedModule } from '#shared/shared.module';
-import { shopRouting } from '-shop/hub/shop.routes';
+import { shopRouting } from '-shop/hub';
 import { ShopComponent } from '-shop/containers/shop/shop.component';
 import { ShopBarComponent } from '-shop/components/shop-bar/shop-bar.component';
 import { ShopApparelsComponent } from '-shop/components/shop-apparels/shop-apparels.component';

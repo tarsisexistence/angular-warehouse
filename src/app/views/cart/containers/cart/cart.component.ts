@@ -14,7 +14,7 @@ import { Store } from '@ngrx/store';
 import * as fromStore from '+store';
 import { ApolloService } from '+apollo/services/apollo.service';
 import { PaymentComponent } from '#shared/dialogs/payment/payment.component';
-import { routesEntity } from '$routes-entity/entity';
+import { appSlice } from '$routing/hub/app.slice';
 import { Order } from '$core/shared/interfaces/order.interface';
 import { Apparel } from '-shop/shared/interfaces/apparel.interface';
 
@@ -76,7 +76,7 @@ export class CartComponent implements OnInit, OnDestroy {
 
         this.store.dispatch(new fromStore.ClearApparel());
 
-        this.router.navigate(routesEntity.app.home.state).catch(console.error);
+        this.router.navigate(appSlice.home.state).catch(console.error);
       });
     });
   }

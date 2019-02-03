@@ -46,5 +46,5 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.store.dispatch(new fromStore.FetchApparel());
   }
 
-  public ngAfterViewInit() {}
+  public ngAfterViewInit(): void {}
 }

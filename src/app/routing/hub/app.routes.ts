@@ -1,7 +1,7 @@
 import { ModuleWithProviders } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { appNotes } from './app.note';
+import { appNotes } from './app.notes';
 import { AppPreload } from 'app/app.preload';
 import { CartComponent } from 'app/views/cart/containers/cart/cart.component';
 

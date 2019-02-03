@@ -7,7 +7,7 @@ import {
 
 import { Slice } from 'routeshub';
 
-import { ShopRoutes, shopSlice } from '-shop/hub';
+import { ShopNotes, shopSlice } from '-shop/hub';
 
 @Component({
   selector: 'shop-bar',
@@ -17,7 +17,7 @@ import { ShopRoutes, shopSlice } from '-shop/hub';
 })
 export class ShopBarComponent implements OnInit {
   @Input() public categories: string[];
-  public slice: Slice<ShopRoutes>;
+  public slice: Slice<ShopNotes>;
 
   public ngOnInit(): void {
     this.slice = shopSlice;

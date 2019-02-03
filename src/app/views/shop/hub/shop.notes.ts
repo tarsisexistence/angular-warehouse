@@ -1,11 +1,11 @@
 import { RootRoute, RouteNote, RoutesNotes } from 'routeshub';
 
-export interface ShopRoutes extends RootRoute {
+export interface ShopNotes extends RootRoute {
   all: RouteNote;
   category: RouteNote;
 }
 
-export const shopNotes: RoutesNotes<ShopRoutes> = {
+export const shopNotes: RoutesNotes<ShopNotes> = {
   root: {
     path: ''
   },

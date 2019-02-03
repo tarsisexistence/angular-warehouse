@@ -1,9 +1,9 @@
 import { createFeature, Slice } from 'routeshub';
 
 import { appSlice } from '~app/routing/hub/app.slice';
-import { homeNotes, HomeRoutes } from './home.note';
+import { homeNotes, HomeNotes } from './home.notes';
 
-export const homeSlice: Slice<HomeRoutes> = createFeature<HomeRoutes>(
+export const homeSlice: Slice<HomeNotes> = createFeature<HomeNotes>(
   appSlice.home,
   homeNotes
 );

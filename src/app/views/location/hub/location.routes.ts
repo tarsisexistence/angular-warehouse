@@ -1,7 +1,7 @@
 import { ModuleWithProviders } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { locationNotes as location } from './location.note';
+import { locationNotes as location } from './location.notes';
 import { LocationComponent } from 'app/views/location/containers/location/location.component';
 import { LocationStocklistComponent } from 'app/views/location/components/location-stocklist/location-stocklist.component';
 

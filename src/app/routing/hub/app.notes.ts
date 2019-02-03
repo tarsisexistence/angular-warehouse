@@ -1,10 +1,10 @@
-import { RootRoute, RouteNote, RoutesNotes } from 'routeshub';
+import { RouteNote, RoutesNotes } from 'routeshub';
 
 /**
  * Declares a type which contains
  * root and notFound routes
  */
-export interface AppRoutes {
+export interface AppNotes {
   cart: RouteNote;
   home: RouteNote;
   shop: RouteNote;
@@ -16,7 +16,7 @@ export interface AppRoutes {
 /**
  * Declares App' notes
  */
-export const appNotes: RoutesNotes<AppRoutes> = {
+export const appNotes: RoutesNotes<AppNotes> = {
   cart: {
     path: 'cart'
   },

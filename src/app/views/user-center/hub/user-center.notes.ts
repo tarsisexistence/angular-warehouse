@@ -1,10 +1,10 @@
 import { RootRoute, RouteNote, RoutesNotes } from 'routeshub';
 
-export interface UserCenterRoutes extends RootRoute {
+export interface UserCenterNotes extends RootRoute {
   id: RouteNote;
 }
 
-export const userCenterNotes: RoutesNotes<UserCenterRoutes> = {
+export const userCenterNotes: RoutesNotes<UserCenterNotes> = {
   root: {
     path: ''
   },

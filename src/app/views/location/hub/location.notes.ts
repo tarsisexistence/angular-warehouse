@@ -1,11 +1,11 @@
 import { RootRoute, RouteNote, RoutesNotes } from 'routeshub';
 
-export interface LocationRoutes extends RootRoute {
+export interface LocationNotes extends RootRoute {
   map: RouteNote;
   stocklist: RouteNote;
 }
 
-export const locationNotes: RoutesNotes<LocationRoutes> = {
+export const locationNotes: RoutesNotes<LocationNotes> = {
   root: {
     path: ''
   },

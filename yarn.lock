@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@abraham/reflection@0.5.0":
-  version "0.5.0"
-  resolved "https://registry.yarnpkg.com/@abraham/reflection/-/reflection-0.5.0.tgz#fa3c5165acda040497cf548b6ed7329ac5ff9a52"
-  integrity sha512-2abWvhiPlpH0x15dBSFmTQuWtdQftIB+PmCkDc22eRriLTfAKPT2fObJoGSz8MZ2YvgsTMcRUxve9s5G9uNY1w==
+"@abraham/reflection@0.5.1":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@abraham/reflection/-/reflection-0.5.1.tgz#5223015a3875462dcf2b03edc8e70f1aad7af941"
+  integrity sha512-keHFMZO/2poNeoxxHaXF2FCYAyBrUYFtio1N698BjJNnC14m/uXhbRj2OKKXglfcAsDe1BSuUpJjfo+vx+w4Cg==
 
 "@angular-devkit/architect@0.13.0":
   version "0.13.0"

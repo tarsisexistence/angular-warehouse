@@ -3,7 +3,8 @@
     "angular-tslint-rules",
     "tslint:latest",
     "tslint-config-prettier",
-    "tslint-config-security"
+    "tslint-config-security",
+    "tslint-immutable"
   ],
   "rulesDirectory": [
     "node_modules/codelyzer"

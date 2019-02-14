@@ -9614,6 +9614,13 @@ tslint-config-security@1.15.0:
   dependencies:
     safe-regex "^1.1.0"
 
+tslint-immutable@5.2.0:
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/tslint-immutable/-/tslint-immutable-5.2.0.tgz#e5f650be98608d434e93a93301746506f812046e"
+  integrity sha512-XKB62fBweW+2oCJQs1W/jLY1ythJBpYA6mz6x6+bs7Y7NofVrrYTQqQYEiFi2sxaU7wVKwiz2W8opIkkX8xnJw==
+  dependencies:
+    tsutils "^2.28.0 || ^3.0.0"
+
 tslint@5.12.0:
   version "5.12.0"
   resolved "https://registry.yarnpkg.com/tslint/-/tslint-5.12.0.tgz#47f2dba291ed3d580752d109866fb640768fca36"
@@ -9636,6 +9643,13 @@ tsutils@^2.27.2:
   version "2.29.0"
   resolved "https://registry.yarnpkg.com/tsutils/-/tsutils-2.29.0.tgz#32b488501467acbedd4b85498673a0812aca0b99"
   integrity sha512-g5JVHCIJwzfISaXpXE1qvNalca5Jwob6FjI4AoPlqMusJ6ftFE7IkkFoMhVLRgK+4Kx3gkzb8UZK5t5yTTvEmA==
+  dependencies:
+    tslib "^1.8.1"
+
+"tsutils@^2.28.0 || ^3.0.0":
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/tsutils/-/tsutils-3.8.0.tgz#7a3dbadc88e465596440622b65c04edc8e187ae5"
+  integrity sha512-XQdPhgcoTbCD8baXC38PQ0vpTZ8T3YrE+vR66YIj/xvDt1//8iAhafpIT/4DmvzzC1QFapEImERu48Pa01dIUA==
   dependencies:
     tslib "^1.8.1"
 

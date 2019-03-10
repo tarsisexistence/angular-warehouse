@@ -22,19 +22,19 @@ export const appNotes: RoutesNotes<AppNotes> = {
   },
   home: {
     path: '',
-    lazyPath: '-home/home.module#HomeModule'
+    lazy: '-home/home.module#HomeModule'
   },
   shop: {
     path: 'shop',
-    lazyPath: '-shop/shop.module#ShopModule'
+    lazy: '-shop/shop.module#ShopModule'
   },
   location: {
     path: 'location',
-    lazyPath: '-location/location.module#LocationModule'
+    lazy: '-location/location.module#LocationModule'
   },
   userCenter: {
     path: 'user-center',
-    lazyPath: '-user-center/user-center.module#UserCenterModule'
+    lazy: '-user-center/user-center.module#UserCenterModule'
   },
   notFound: {
     path: '**'

@@ -31,7 +31,7 @@ export class CartEffect {
     map((action: AddApparel) => action.payload),
     switchMap((apparel: Apparel) =>
       of(CartService.addApparelToCart(apparel)).pipe(
-        map((apparel: CartApparel) => new AddApparelSuccess(apparel)),
+        map((apprl: CartApparel) => new AddApparelSuccess(apprl)),
         catchError((error: Error) => of(new AddApparelFailure(error))),
         finalize(() => console.log('finalize addApparel$'))
       )
@@ -41,7 +41,7 @@ export class CartEffect {
   @Effect()
   public clearApparel$ = this.actions$.pipe(
     ofType<ClearApparel>(ApparelCartActionTypes.ClearApparel),
-    switchMap((action: ClearApparel) =>
+    switchMap(() =>
       of(CartService.emptyCart()).pipe(
         map(() => new ClearApparelSuccess()),
         catchError((error: Error) => of(new ClearApparelFailure(error))),

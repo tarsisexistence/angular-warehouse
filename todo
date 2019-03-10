@@ -1,5 +1,7 @@
 - ngrx facade https://medium.com/@thomasburleson_11450/ngrx-facades-better-state-management-82a04b9a1e39
 - ngrx errors https://medium.com/city-pantry/handling-errors-in-ngrx-effects-a95d918490d9
+- ngrx ux https://blog.angularindepth.com/5-tips-to-improve-user-experience-of-your-angular-app-with-ngrx-6e849ca99529
+- ngrx mock https://medium.com/@bo.vandersteene/mock-your-ngrx-store-on-the-easy-way-68c66d4bea63
 - typescript backend https://medium.com/@19majkel94/graphql-typescript-typegraphql-ba0225cb4bed
 - https://auth0.com/blog/full-stack-typescript-apps-part-1-developing-backend-apis-with-nestjs/
 - https://auth0.com/blog/full-stack-typescript-apps-part-2-developing-frontend-angular-apps/
@@ -9,13 +11,17 @@
 - digitonly directive https://codeburst.io/digit-only-directive-in-angular-3db8a94d80c3
 - apollo refetch
 - e2e
-- antdesign
 - https://css-tricks.com/having-fun-with-link-hover-effects
 - nx https://nrwl.io/nx/guide-getting-started, https://blog.nrwl.io/building-full-stack-applications-using-angular-cli-and-nx-5eff205248f1
 - connection aware https://netbasal.com/connection-aware-components-in-angular-3a66bb0bab6f
-- storybook https://storybook.js.org/basics/guide-angular/
+- storybook https://storybook.js.org/basics/guide-angular/ https://blog.angularindepth.com/mixing-storybook-with-angular-with-a-sprinkle-of-applitools-8413bb950cf8
 - socials https://www.youtube.com/watch?v=fDm0WJ_66d0
 - perfume https://github.com/Zizzamia/perfume.js#angular
 - scss https://medium.com/@aaronverones/using-the-7-1-sass-scss-pattern-with-angular-7-bb210c015dcc
 - onChange decorator https://blog.angularindepth.com/creatively-decouple-ngonchanges-fab95395cc6e
 - build https://github.com/manfredsteyer/ngx-build-plus/tree/master/ngx-build-modern
+- ux https://www.siteinspire.com/websites?categories=64
+- ux mobile https://mediaqueri.es/
+- ux rules https://uxplanet.org/18-ux-design-tips-for-registration-and-login-forms-f897557358ba
+- cursors  http://femmebot.github.io/google-type/images/the-fox-and-the-grapes/grapes.png http://femmebot.github.io/google-type/images/the-fox-and-the-grapes/fox@2x.png
+- checklist https://angular-checklist.io/default/checklist/architecture/Z2guUQd

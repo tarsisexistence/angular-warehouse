@@ -1,15 +1,13 @@
-import { ModuleWithProviders } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 
 import { appNotes } from './app.notes';
-import { AppPreload } from 'app/app.preload';
 import { CartComponent } from 'app/views/cart/containers/cart/cart.component';
 
 export const routes: Routes = [
   {
     path: appNotes.home.path,
     pathMatch: 'full',
-    loadChildren: appNotes.home.lazyPath,
+    loadChildren: appNotes.home.lazy,
     data: {
       preload: false,
       delay: false
@@ -18,7 +16,7 @@ export const routes: Routes = [
   {
     path: appNotes.shop.path,
     pathMatch: 'prefix',
-    loadChildren: appNotes.shop.lazyPath,
+    loadChildren: appNotes.shop.lazy,
     runGuardsAndResolvers: 'paramsOrQueryParamsChange',
     data: {
       preload: false,
@@ -28,7 +26,7 @@ export const routes: Routes = [
   {
     path: appNotes.location.path,
     pathMatch: 'prefix',
-    loadChildren: appNotes.location.lazyPath,
+    loadChildren: appNotes.location.lazy,
     data: {
       preload: false,
       delay: false
@@ -37,7 +35,7 @@ export const routes: Routes = [
   {
     path: appNotes.userCenter.path,
     pathMatch: 'full',
-    loadChildren: appNotes.userCenter.lazyPath,
+    loadChildren: appNotes.userCenter.lazy,
     data: {
       preload: false,
       delay: false
@@ -53,11 +51,3 @@ export const routes: Routes = [
     redirectTo: appNotes.home.path
   }
 ];
-
-export const appRouting: ModuleWithProviders = RouterModule.forRoot(routes, {
-  enableTracing: false,
-  initialNavigation: 'enabled',
-  onSameUrlNavigation: 'reload',
-  scrollPositionRestoration: 'top',
-  preloadingStrategy: AppPreload
-});

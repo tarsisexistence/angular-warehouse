@@ -26,6 +26,6 @@
     "ts-loader": "5.0.0",
     "typescript": "3.0.3",
     "webpack": "4.29.6",
-    "webpack-cli": "3.2.3"
+    "webpack-cli": "3.3.0"
   }
 }

@@ -7,7 +7,6 @@ import {
 
 import { allOrders } from '+apollo/queries';
 import { ApolloService } from '+apollo/services/apollo.service';
-import { Order } from '$core/shared/interfaces/order.interface';
 
 describe('ApolloService', () => {
   let backend: ApolloTestingController;

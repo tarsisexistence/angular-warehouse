@@ -1,21 +1,24 @@
-import {
-  Directive,
-  ElementRef,
-  HostListener
-} from '@angular/core';
+import { Directive, ElementRef, HostListener } from '@angular/core';
 
 @Directive({
   selector: '[onlyStrings]'
 })
 export class OnlyStringsDirective {
-  private regex: RegExp = new RegExp(/^-?[a-zA-Z ]+(\.[a-zA-Z ]*){0,1}$/g);
-  private specialKeys: Array<string> = ['Backspace', 'Tab', 'End', 'Home', '-'];
+  private readonly regex: RegExp = new RegExp(
+    /^-?[a-zA-Z ]+(\.[a-zA-Z ]*){0,1}$/g
+  );
+  private readonly specialKeys: string[] = [
+    'Backspace',
+    'Tab',
+    'End',
+    'Home',
+    '-'
+  ];
 
-  constructor(private el: ElementRef) {
-  }
+  constructor(private readonly el: ElementRef) {}
 
   @HostListener('keydown', ['$event'])
-  public onKeydown(event: KeyboardEvent) {
+  public onKeydown(event: KeyboardEvent): any {
     // Allow Backspace, tab, end, and home keys
     if (this.specialKeys.indexOf(event.key) !== -1) {
       return;

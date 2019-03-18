@@ -1,7 +1,4 @@
-import {
-  Component,
-  ChangeDetectionStrategy
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'home-wallpaper',
@@ -9,5 +6,4 @@ import {
   styleUrls: ['./home-wallpaper.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class HomeWallpaperComponent {
-}
+export class HomeWallpaperComponent {}

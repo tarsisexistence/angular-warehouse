@@ -35,11 +35,11 @@ export class LocationComponent implements OnInit {
   public message: string; // Warning message.
 
   constructor(
-    private elementRef: ElementRef,
-    private map: MapService,
-    private geolocation: GeolocationService,
-    private geocoding: GeocodingService,
-    private cdr: ChangeDetectorRef
+    private readonly elementRef: ElementRef,
+    private readonly map: MapService,
+    private readonly geolocation: GeolocationService,
+    private readonly geocoding: GeocodingService,
+    private readonly cdr: ChangeDetectorRef
   ) {
     this.center = new google.maps.LatLng(41.910943, 12.476358);
     this.zoom = 15;

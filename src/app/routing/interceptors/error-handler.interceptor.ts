@@ -10,7 +10,7 @@ Raven.config(
 
 @Injectable({ providedIn: 'root' })
 export class ErrorHandlerInterceptor implements ErrorHandler {
-  constructor(private injector: Injector) {}
+  constructor(private readonly injector: Injector) {}
 
   public handleError(error: Error | HttpErrorResponse): void {
     Raven.captureException(error);

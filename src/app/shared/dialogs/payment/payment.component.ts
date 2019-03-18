@@ -4,19 +4,12 @@ import {
   Inject,
   OnInit
 } from '@angular/core';
-import {
-  FormBuilder,
-  FormGroup,
-  Validators
-} from '@angular/forms';
-import {
-  MAT_DIALOG_DATA,
-  MatDialogRef
-} from '@angular/material';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 
 import { Order } from '$core/shared/interfaces/order.interface';
 
-type subtotal = number;
+type Subtotal = number;
 
 @Component({
   selector: 'app-payment-dialog',
@@ -28,27 +21,19 @@ export class PaymentComponent implements OnInit {
   public form: FormGroup;
 
   constructor(
-      private fb: FormBuilder,
-      private dialogRef: MatDialogRef<PaymentComponent>,
-      @Inject(MAT_DIALOG_DATA) public subtotal: subtotal
-  ) {
-  }
+    private readonly fb: FormBuilder,
+    private readonly dialogRef: MatDialogRef<PaymentComponent>,
+    @Inject(MAT_DIALOG_DATA) public subtotal: Subtotal
+  ) {}
 
   public ngOnInit(): void {
     this.form = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
       phone: [
-        '', [
-          Validators.required,
-          Validators.minLength(7),
-          Validators.maxLength(15)
-        ]
+        '',
+        [Validators.required, Validators.minLength(7), Validators.maxLength(15)]
       ],
-      address: [
-        '', [
-          Validators.required
-        ]
-      ]
+      address: ['', [Validators.required]]
       // email: [
       //   '',
       //   [

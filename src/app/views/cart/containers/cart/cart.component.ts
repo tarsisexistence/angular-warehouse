@@ -37,10 +37,10 @@ export class CartComponent implements OnInit, OnDestroy {
   }
 
   constructor(
-    private apolloService: ApolloService,
-    private dialog: MatDialog,
-    private router: Router,
-    private store: Store<fromStore.CartState>
+    private readonly apolloService: ApolloService,
+    private readonly dialog: MatDialog,
+    private readonly router: Router,
+    private readonly store: Store<fromStore.CartState>
   ) {}
 
   public ngOnInit(): void {

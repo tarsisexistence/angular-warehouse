@@ -9,22 +9,22 @@ import {
 } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material';
 
-import { Subject, fromEvent, BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, fromEvent, Subject } from 'rxjs';
 import {
-  takeUntil,
+  debounceTime,
   distinctUntilChanged,
   map,
   pairwise,
-  debounceTime
+  takeUntil
 } from 'rxjs/operators';
 
 import { InfoComponent } from '#shared/dialogs/info/info.component';
 import { getToggleAnimation } from '$core/shared/animations/toggle.animation';
 import {
   direction,
-  visibility,
   returnPolicy,
-  shippingHandling
+  shippingHandling,
+  visibility
 } from '$core/shared/constants';
 import { DirectionState, VisibilityState } from '$core/shared/interfaces';
 
@@ -47,7 +47,10 @@ export class FooterComponent implements OnInit, AfterViewInit, OnDestroy {
     return this.isVisible.value ? visibility.visible : visibility.hidden;
   }
 
-  constructor(private cdr: ChangeDetectorRef, private dialog: MatDialog) {}
+  constructor(
+    private readonly cdr: ChangeDetectorRef,
+    private readonly dialog: MatDialog
+  ) {}
 
   public ngOnInit(): void {
     this.unsubscribe$ = new Subject<void>();
@@ -89,7 +92,7 @@ export class FooterComponent implements OnInit, AfterViewInit, OnDestroy {
       height: '500px',
       width: '600px',
       data: shippingHandling
-    } as MatDialogConfig<any>);
+    } as MatDialogConfig);
   }
 
   public openReturnPolicy(): void {
@@ -97,7 +100,7 @@ export class FooterComponent implements OnInit, AfterViewInit, OnDestroy {
       height: '500px',
       width: '600px',
       data: returnPolicy
-    } as MatDialogConfig<any>);
+    } as MatDialogConfig);
   }
 
   public ngOnDestroy(): void {

@@ -50,8 +50,8 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
 
   constructor(
     public router: Router,
-    private dialog: MatDialog,
-    private store: Store<fromStore.AuthState>
+    private readonly dialog: MatDialog,
+    private readonly store: Store<fromStore.AuthState>
   ) {}
 
   public ngOnInit(): void {

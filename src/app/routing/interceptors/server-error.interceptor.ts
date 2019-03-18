@@ -12,9 +12,9 @@ import {
   concatMap,
   delay,
   mergeMap,
-  take,
   retry,
-  retryWhen
+  retryWhen,
+  take
 } from 'rxjs/operators';
 
 @Injectable({ providedIn: 'root' })

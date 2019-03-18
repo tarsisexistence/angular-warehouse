@@ -19,15 +19,15 @@ import { Access, User } from '$core/shared/interfaces/user.interface';
 export class SignInComponent implements OnInit {
   @Input()
   public user: User;
-  @Output()
-  private signInEmitter: EventEmitter<Access>;
-  @Output()
-  private toggleAuthMethodEmitter: EventEmitter<void>;
 
   public signInForm: FormGroup;
   public detailForm: FormGroup;
+  @Output()
+  private readonly signInEmitter: EventEmitter<Access>;
+  @Output()
+  private readonly toggleAuthMethodEmitter: EventEmitter<void>;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private readonly fb: FormBuilder) {
     this.signInEmitter = new EventEmitter<Access>();
     this.toggleAuthMethodEmitter = new EventEmitter<void>();
   }

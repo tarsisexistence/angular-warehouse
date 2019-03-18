@@ -12,12 +12,12 @@ export class MarkerDirective {
   public content: string;
 
   @Input()
-  set position(position: google.maps.LatLng) {
+  public set position(position: google.maps.LatLng) {
     this.map.addMarker(position, this.title, this.content);
     this._position = position;
   }
 
-  get position(): google.maps.LatLng {
+  public get position(): google.maps.LatLng {
     return this._position;
   }
 

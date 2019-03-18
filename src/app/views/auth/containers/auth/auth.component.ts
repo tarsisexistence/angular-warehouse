@@ -1,8 +1,8 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  OnInit,
-  OnDestroy
+  OnDestroy,
+  OnInit
 } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
 
@@ -29,8 +29,8 @@ export class AuthComponent implements OnInit, OnDestroy {
   private unsubscribe$: Subject<void>;
 
   constructor(
-    private dialogRef: MatDialogRef<AuthComponent>,
-    private store: Store<fromStore.AuthState>
+    private readonly dialogRef: MatDialogRef<AuthComponent>,
+    private readonly store: Store<fromStore.AuthState>
   ) {}
 
   public ngOnInit(): void {

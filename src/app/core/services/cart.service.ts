@@ -21,10 +21,6 @@ export class CartService {
     return JSON.parse(localStorage.getItem(storageKey)) || [];
   }
 
-  private static updateStorage(apparel: Apparel[]): void {
-    localStorage.setItem(storageKey, JSON.stringify(apparel));
-  }
-
   public static removeApparelFromCart(id: string): string {
     const apparels = CartService.fetchStorageApparel();
     const cartApparels: Apparel[] = apparels.filter(
@@ -34,5 +30,9 @@ export class CartService {
     CartService.updateStorage(cartApparels);
 
     return id;
+  }
+
+  private static updateStorage(apparel: Apparel[]): void {
+    localStorage.setItem(storageKey, JSON.stringify(apparel));
   }
 }

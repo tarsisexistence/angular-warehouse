@@ -28,7 +28,7 @@ export class ApparelEffect {
   );
 
   constructor(
-    private actions$: Actions,
-    private apolloService: ApolloService
+    private readonly actions$: Actions,
+    private readonly apolloService: ApolloService
   ) {}
 }

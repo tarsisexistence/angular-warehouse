@@ -3,7 +3,7 @@ import { CanActivate } from '@angular/router';
 
 import { Store } from '@ngrx/store';
 import { Observable, of } from 'rxjs';
-import { catchError, filter, switchMap, take, tap } from 'rxjs/operators';
+import { filter, take, tap } from 'rxjs/operators';
 
 import * as fromStore from '+store';
 import { AuthService } from '$core/services/auth.service';
@@ -11,8 +11,8 @@ import { AuthService } from '$core/services/auth.service';
 @Injectable({ providedIn: 'root' })
 export class UserCenterGuard implements CanActivate {
   constructor(
-    private authService: AuthService,
-    private store: Store<fromStore.ShopState>
+    private readonly authService: AuthService,
+    private readonly store: Store<fromStore.ShopState>
   ) {}
 
   public canActivate(): Observable<boolean> {

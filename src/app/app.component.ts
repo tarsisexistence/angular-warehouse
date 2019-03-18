@@ -31,9 +31,9 @@ import { NgPerfume, PerfumeAfterViewInit } from 'perfume.js/angular';
 @PerfumeAfterViewInit('AppComponent')
 export class AppComponent implements OnInit, AfterViewInit {
   constructor(
-    private authService: AuthService,
-    private store: Store<fromStore.ShopState>,
-    private perfume: NgPerfume
+    private readonly authService: AuthService,
+    private readonly store: Store<fromStore.ShopState>,
+    private readonly perfume: NgPerfume
   ) {}
 
   public ngOnInit(): void {

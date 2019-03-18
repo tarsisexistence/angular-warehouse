@@ -115,9 +115,9 @@ export class UserEffect {
   );
 
   constructor(
-    private actions$: Actions,
-    private apolloService: ApolloService,
-    private authService: AuthService,
-    private router: Router
+    private readonly actions$: Actions,
+    private readonly apolloService: ApolloService,
+    private readonly authService: AuthService,
+    private readonly router: Router
   ) {}
 }

@@ -1,9 +1,9 @@
 import {
-  Component,
-  Input,
-  Output,
   ChangeDetectionStrategy,
-  EventEmitter
+  Component,
+  EventEmitter,
+  Input,
+  Output
 } from '@angular/core';
 
 import { Apparel } from '-shop/shared/interfaces/apparel.interface';
@@ -16,7 +16,7 @@ import { Apparel } from '-shop/shared/interfaces/apparel.interface';
 })
 export class ShopApparelsComponent {
   @Input() public apparels: Apparel[];
-  @Output() private addToCartEmitter: EventEmitter<Apparel>;
+  @Output() private readonly addToCartEmitter: EventEmitter<Apparel>;
 
   constructor() {
     this.addToCartEmitter = new EventEmitter<Apparel>();

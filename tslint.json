@@ -162,6 +162,7 @@
     "no-object-literal-type-assertion": false,
     "no-output-rename": true,
     "unified-signatures": true,
+    "max-classes-per-file": false,
     "object-literal-sort-keys": false,
     "object-literal-shorthand": true,
     "object-literal-key-quotes": [

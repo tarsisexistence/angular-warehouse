@@ -30,9 +30,9 @@ export class ShopComponent implements OnInit, OnDestroy {
   private unsubscribe$: Subject<boolean>;
 
   constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private store: Store<fromStore.ShopState>
+    private readonly route: ActivatedRoute,
+    private readonly router: Router,
+    private readonly store: Store<fromStore.ShopState>
   ) {}
 
   public ngOnInit(): void {

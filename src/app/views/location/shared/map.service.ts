@@ -38,7 +38,7 @@ export class MapService {
       // Creates the marker.
       const marker: google.maps.Marker = new google.maps.Marker({
         position: latLng,
-        title: title
+        title
       });
       // Adds the marker to the map.
       marker.setMap(this.map);

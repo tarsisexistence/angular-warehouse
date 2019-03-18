@@ -1,8 +1,8 @@
 import {
-  Component,
   ChangeDetectionStrategy,
-  OnInit,
-  OnDestroy
+  Component,
+  OnDestroy,
+  OnInit
 } from '@angular/core';
 
 import { Subject } from 'rxjs';
@@ -22,7 +22,7 @@ export class UserCenterComponent implements OnInit, OnDestroy {
   private user: User;
   private unsubscribe$: Subject<void>;
 
-  constructor(private store: Store<fromStore.AuthState>) {}
+  constructor(private readonly store: Store<fromStore.AuthState>) {}
 
   public ngOnInit(): void {
     this.unsubscribe$ = new Subject<void>();

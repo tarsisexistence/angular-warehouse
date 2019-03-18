@@ -1,10 +1,10 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  OnInit,
+  EventEmitter,
   Input,
-  Output,
-  EventEmitter
+  OnInit,
+  Output
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -19,17 +19,17 @@ import { Access, User } from '$core/shared/interfaces/user.interface';
 export class SignUpComponent implements OnInit {
   @Input()
   public user: User;
-  @Output()
-  private signUpEmitter: EventEmitter<Access>;
-  @Output()
-  private setCatchPhraseEmitter: EventEmitter<string>;
-  @Output()
-  private toggleAuthMethodEmitter: EventEmitter<void>;
 
   public signUpForm: FormGroup;
   public detailForm: FormGroup;
+  @Output()
+  private readonly signUpEmitter: EventEmitter<Access>;
+  @Output()
+  private readonly setCatchPhraseEmitter: EventEmitter<string>;
+  @Output()
+  private readonly toggleAuthMethodEmitter: EventEmitter<void>;
 
-  constructor(private fb: FormBuilder) {
+  constructor(private readonly fb: FormBuilder) {
     this.signUpEmitter = new EventEmitter<Access>();
     this.setCatchPhraseEmitter = new EventEmitter<string>();
     this.toggleAuthMethodEmitter = new EventEmitter<void>();

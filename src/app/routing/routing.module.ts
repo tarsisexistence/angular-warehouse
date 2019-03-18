@@ -1,6 +1,6 @@
 import { ErrorHandler, ModuleWithProviders, NgModule } from '@angular/core';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
 
 import {
   RouterStateSerializer,
@@ -18,15 +18,12 @@ import {
  * Routing configuration
  * Nothing special
  */
-export const routing: ModuleWithProviders = RouterModule.forRoot(
-  routes as Routes,
-  {
-    enableTracing: false,
-    initialNavigation: 'enabled',
-    onSameUrlNavigation: 'reload',
-    scrollPositionRestoration: 'top'
-  }
-);
+export const routing: ModuleWithProviders = RouterModule.forRoot(routes, {
+  enableTracing: false,
+  initialNavigation: 'enabled',
+  onSameUrlNavigation: 'reload',
+  scrollPositionRestoration: 'top'
+});
 
 /**
  * Routing module contains its configuration

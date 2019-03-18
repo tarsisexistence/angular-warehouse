@@ -1,7 +1,7 @@
 <ng-container *ngFor="let stock of stocklist; trackBy: identify">
   <div class="stocklist__country">
     <p class="stocklist__country-name">
-      {{stock.country }}
+      {{ stock.country }}
     </p>
 
     <ng-container *ngFor="let cityStocks of stock.cityStocks; trackBy: identify">

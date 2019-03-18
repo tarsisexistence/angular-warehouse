@@ -1,10 +1,9 @@
 import {
+  ChangeDetectionStrategy,
   Component,
-  Input,
-  OnInit,
-  SimpleChange,
   ElementRef,
-  ChangeDetectionStrategy
+  Input,
+  OnInit
 } from '@angular/core';
 
 import { MapService } from '-location/shared/map.service';
@@ -30,30 +29,33 @@ export class LocationMapComponent implements OnInit {
   public disableDoubleClickZoom: boolean; // Enables/disables zoom and center on double click. Enabled by def.
 
   @Input()
-  set center(center: google.maps.LatLng) {
+  public set center(center: google.maps.LatLng) {
     this.map.setCenter(center);
     this._center = center;
   }
 
-  get center(): google.maps.LatLng {
+  public get center(): google.maps.LatLng {
     return this._center;
   }
 
   private _center: google.maps.LatLng; // Center location-map. Required.
 
   @Input()
-  set zoom(zoom: number) {
+  public set zoom(zoom: number) {
     this.map.setZoom(zoom);
     this._zoom = zoom;
   }
 
-  get zoom(): number {
+  public get zoom(): number {
     return this._zoom;
   }
 
   private _zoom: number; // The initial location-map zoom level. Required.
 
-  constructor(public map: MapService, private elementRef: ElementRef) {}
+  constructor(
+    public map: MapService,
+    private readonly elementRef: ElementRef
+  ) {}
 
   public ngOnInit(): void {
     const el: HTMLElement = this.elementRef.nativeElement.querySelector(

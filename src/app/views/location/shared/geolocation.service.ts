@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import {
-  Observer,
-  Observable
-} from 'rxjs';
+import { Observable, Observer } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class GeolocationService {
@@ -11,14 +8,14 @@ export class GeolocationService {
     return Observable.create((observer: Observer<Position>) => {
       // Invokes getCurrentPosition method of Geolocation API.
       navigator.geolocation.getCurrentPosition(
-          (position: Position) => {
-            observer.next(position);
-            observer.complete();
-          },
-          (error: PositionError) => {
-            console.log('Geolocation service: ' + error.message);
-            observer.error(error);
-          }
+        (position: Position) => {
+          observer.next(position);
+          observer.complete();
+        },
+        (error: PositionError) => {
+          console.log('Geolocation service: ' + error.message);
+          observer.error(error);
+        }
       );
     });
   }

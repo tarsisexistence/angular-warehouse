@@ -1,23 +1,15 @@
 import {
-  Component,
-  OnInit,
   ChangeDetectionStrategy,
-  Input,
-  Output,
+  Component,
   EventEmitter,
-  OnDestroy
+  Input,
+  OnDestroy,
+  OnInit,
+  Output
 } from '@angular/core';
 
-import {
-  merge,
-  Observable,
-  Subject
-} from 'rxjs';
-import {
-  debounceTime,
-  mapTo,
-  takeUntil
-} from 'rxjs/operators';
+import { merge, Observable, Subject } from 'rxjs';
+import { debounceTime, mapTo, takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'shop-cart',
@@ -27,10 +19,10 @@ import {
 })
 export class ShopCartComponent implements OnInit, OnDestroy {
   @Input() public totalCounter: number;
-  @Output() private userCounterChangeEmitter: EventEmitter<void>;
 
   public showBubble$: Observable<boolean>;
   public bubbleMessage: string;
+  @Output() private readonly userCounterChangeEmitter: EventEmitter<void>;
   private unsubscribe$: Subject<void>;
 
   constructor() {
@@ -42,13 +34,13 @@ export class ShopCartComponent implements OnInit, OnDestroy {
 
     const change$ = this.userCounterChangeEmitter.asObservable();
     const showBubble$ = change$.pipe(
-        takeUntil(this.unsubscribe$),
-        mapTo(true)
+      takeUntil(this.unsubscribe$),
+      mapTo(true)
     );
     const hideBubble$ = change$.pipe(
-        takeUntil(this.unsubscribe$),
-        debounceTime(400),
-        mapTo(false)
+      takeUntil(this.unsubscribe$),
+      debounceTime(400),
+      mapTo(false)
     );
 
     this.showBubble$ = merge(showBubble$, hideBubble$);

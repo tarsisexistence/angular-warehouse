@@ -77,5 +77,5 @@ export class CartEffect {
     )
   );
 
-  constructor(private actions$: Actions) {}
+  constructor(private readonly actions$: Actions) {}
 }

@@ -5,6 +5,7 @@
 
 # dependencies
 /node_modules
+/backend/node_modules
 /functions/node_modules
 
 # video_content
@@ -12,9 +13,6 @@
 
 # IDEs and editors
 .idea
-.idea/
-.idea/*
-.project
 .classpath
 .c9/
 *.launch

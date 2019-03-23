@@ -9,16 +9,16 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { storeFreeze } from 'ngrx-store-freeze';
 import { PerfumeModule } from 'perfume.js/angular';
 
-import { AuthModule } from '=auth/auth.module';
 import { environment } from '~env/environment';
 import { RoutingModule } from '~app/routing/routing.module';
 import { routerEffects } from '+store';
 import { reducers } from '+store/selectors/router.selectors';
 import { MyApolloModule } from '+apollo/apollo.module';
-import { SharedModule } from '#shared/shared.module';
-import { CartModule } from '=cart/cart.module';
-import { HeaderComponent } from '$core/components/header/header.component';
-import { FooterComponent } from '$core/components/footer/footer.component';
+import { SharedModule } from '+shared/shared.module';
+import { AuthModule } from '-auth/auth.module';
+import { CartModule } from '-cart/cart.module';
+import { HeaderComponent } from '-core/components/header/header.component';
+import { FooterComponent } from '-core/components/footer/footer.component';
 
 export const metaReducers: MetaReducer<any>[] = !environment.production
   ? [storeFreeze]

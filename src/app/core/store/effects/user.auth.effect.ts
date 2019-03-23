@@ -12,12 +12,12 @@ import {
   tap
 } from 'rxjs/operators';
 
-import { AuthService } from '$core/services/auth.service';
+import { AuthService } from '-core/services/auth.service';
 import {
   Access,
   CatchPhraseConfig,
   User
-} from '$core/shared/interfaces/user.interface';
+} from '-core/shared/interfaces/user.interface';
 import { ApolloService } from '+apollo/services/apollo.service';
 import {
   AuthActionTypes,
@@ -35,7 +35,7 @@ import {
   SignUpSuccess
 } from '+store/actions/user.auth.action';
 import { Go } from '+store/actions/router.action';
-import { appSlice } from '$routing/hub/app.slice';
+import { appSlice } from '-routing/hub/app.slice';
 
 @Injectable({ providedIn: 'root' })
 export class UserEffect {

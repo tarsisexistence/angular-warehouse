@@ -8,7 +8,7 @@ import {
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { Access, User } from '$core/shared/interfaces/user.interface';
+import { Access, User } from '-core/shared/interfaces/user.interface';
 
 @Component({
   selector: 'auth-sign-in',

@@ -1,5 +1,5 @@
 import * as UserAuthActions from '+store/actions/user.auth.action';
-import { User } from '$core/shared/interfaces/user.interface';
+import { User } from '-core/shared/interfaces/user.interface';
 
 export interface UserState {
   user: User | null;

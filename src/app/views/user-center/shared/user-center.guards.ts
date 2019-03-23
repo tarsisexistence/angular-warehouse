@@ -6,7 +6,7 @@ import { Observable, of } from 'rxjs';
 import { filter, take, tap } from 'rxjs/operators';
 
 import * as fromStore from '+store';
-import { AuthService } from '$core/services/auth.service';
+import { AuthService } from '-core/services/auth.service';
 
 @Injectable({ providedIn: 'root' })
 export class UserCenterGuard implements CanActivate {

@@ -5,7 +5,7 @@ import { combineReducers, Store, StoreModule } from '@ngrx/store';
 
 import * as fromStore from '+store';
 import * as fromAuth from '+store/reducers';
-import { SharedTestingModule } from '#shared/shared.testing.module';
+import { SharedTestingModule } from '+shared/shared.testing.module';
 import { HeaderComponent } from './header.component';
 
 describe('HeaderComponent', () => {

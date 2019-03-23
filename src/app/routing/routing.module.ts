@@ -6,13 +6,13 @@ import {
   RouterStateSerializer,
   StoreRouterConnectingModule
 } from '@ngrx/router-store';
-
 import { routes } from './hub/app.routes';
 import { CustomSerializer } from '+store';
 import {
   ErrorHandlerInterceptor,
   ServerErrorInterceptor
-} from '$routing/interceptors';
+} from '-routing/interceptors';
+import { Preloading } from '-routing/preloading';
 
 /**
  * Routing configuration
@@ -46,7 +46,8 @@ export const routing: ModuleWithProviders = RouterModule.forRoot(routes, {
     {
       provide: RouterStateSerializer,
       useClass: CustomSerializer
-    }
+    },
+    Preloading
   ]
 })
 export class RoutingModule {}

@@ -37,17 +37,14 @@
       "~test/*": [
         "test/*"
       ],
-      "#shared/*": [
+      "+shared/*": [
         "app/shared/*"
       ],
-      "$core/*": [
+      "-core/*": [
         "app/core/*"
       ],
-      "$routing/*": [
+      "-routing/*": [
         "app/routing/*"
-      ],
-      "$routes-entity/*": [
-        "app/core/routes-entity/*"
       ],
       "+material/*": [
         "app/shared/material/*"
@@ -61,10 +58,10 @@
       "+store/*": [
         "app/core/store/*"
       ],
-      "=auth/*": [
+      "-auth/*": [
         "app/views/auth/*"
       ],
-      "=cart/*": [
+      "-cart/*": [
         "app/views/cart/*"
       ],
       "-home/*": [
@@ -84,16 +81,10 @@
 }
 
 /**
-
  Imports:
-
  '' <> 3-rd party
  @  <> 3-rd party
- +  <> external resource
- -  <> lazy module
- =  <> simple feature module
- #  <> shared resource
- $  <> core module
- ~  <> boilerplate
-
+ +  <> external / shared resources
+ -  <> modules
+ ~  <> main
 */

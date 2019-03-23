@@ -4,7 +4,7 @@ import { Actions, Effect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { catchError, finalize, map, switchMap } from 'rxjs/operators';
 
-import { CartService } from '$core/services/cart.service';
+import { CartService } from '-core/services/cart.service';
 import {
   AddApparel,
   AddApparelFailure,

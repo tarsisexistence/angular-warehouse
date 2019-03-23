@@ -18,15 +18,15 @@ import {
   takeUntil
 } from 'rxjs/operators';
 
-import { InfoComponent } from '#shared/dialogs/info/info.component';
-import { getToggleAnimation } from '$core/shared/animations/toggle.animation';
+import { InfoComponent } from '+shared/dialogs/info/info.component';
+import { getToggleAnimation } from '-core/shared/animations/toggle.animation';
 import {
   direction,
   returnPolicy,
   shippingHandling,
   visibility
-} from '$core/shared/constants';
-import { DirectionState, VisibilityState } from '$core/shared/interfaces';
+} from '-core/shared/constants';
+import { DirectionState, VisibilityState } from '-core/shared/interfaces';
 
 const toggleAnimationTrigger = 'toggleFooter';
 const toggleAnimation = getToggleAnimation(toggleAnimationTrigger);

@@ -13,9 +13,9 @@ import { Store } from '@ngrx/store';
 
 import * as fromStore from '+store';
 import { ApolloService } from '+apollo/services/apollo.service';
-import { PaymentComponent } from '#shared/dialogs/payment/payment.component';
-import { appSlice } from '$routing/hub/app.slice';
-import { Order } from '$core/shared/interfaces/order.interface';
+import { PaymentComponent } from '+shared/dialogs/payment/payment.component';
+import { appSlice } from '-routing/hub/app.slice';
+import { Order } from '-core/shared/interfaces/order.interface';
 import { Apparel } from '-shop/shared/interfaces/apparel.interface';
 
 @Component({

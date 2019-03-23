@@ -14,12 +14,12 @@ import {
   signUp,
   user
 } from '+apollo/queries';
-import { Order } from '$core/shared/interfaces/order.interface';
+import { Order } from '-core/shared/interfaces/order.interface';
 import {
   Access,
   CatchPhraseConfig,
   User
-} from '$core/shared/interfaces/user.interface';
+} from '-core/shared/interfaces/user.interface';
 import { Apparel } from '-shop/shared/interfaces/apparel.interface';
 
 @Injectable({ providedIn: MyApolloModule })

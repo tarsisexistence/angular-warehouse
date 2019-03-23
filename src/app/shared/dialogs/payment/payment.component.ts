@@ -7,7 +7,7 @@ import {
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material';
 
-import { Order } from '$core/shared/interfaces/order.interface';
+import { Order } from '-core/shared/interfaces/order.interface';
 
 type Subtotal = number;
 

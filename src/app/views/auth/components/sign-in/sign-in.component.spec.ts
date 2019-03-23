@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SharedTestingModule } from '#shared/shared.testing.module';
+import { SharedTestingModule } from '+shared/shared.testing.module';
 import { SignInComponent } from './sign-in.component';
 
 describe('SignInComponent', () => {

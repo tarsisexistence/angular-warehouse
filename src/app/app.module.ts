@@ -7,8 +7,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 
 import { environment } from '~env/environment';
 import { AppComponent } from '~app/app.component';
-import { CoreModule } from '$core/core.module';
-import { AppPreload } from '~app/app.preload';
+import { CoreModule } from '-core/core.module';
 
 @NgModule({
   imports: [
@@ -19,7 +18,6 @@ import { AppPreload } from '~app/app.preload';
       enabled: environment.production
     })
   ],
-  providers: [AppPreload],
   declarations: [AppComponent],
   bootstrap: [AppComponent]
 })

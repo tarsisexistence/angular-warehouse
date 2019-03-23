@@ -4,9 +4,9 @@ import { combineReducers, Store, StoreModule } from '@ngrx/store';
 
 import * as fromStore from '+store';
 import * as fromAuth from '+store/reducers';
+import { SharedTestingModule } from '+shared/shared.testing.module';
 import { AppComponent } from '~app/app.component';
-import { SharedTestingModule } from '#shared/shared.testing.module';
-import { HeaderComponent } from '$core/components/header/header.component';
+import { HeaderComponent } from '-core/components/header/header.component';
 
 describe('AppComponent', () => {
   let component: AppComponent;

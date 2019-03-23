@@ -6,6 +6,7 @@
 - https://auth0.com/blog/full-stack-typescript-apps-part-1-developing-backend-apis-with-nestjs/
 - https://auth0.com/blog/full-stack-typescript-apps-part-2-developing-frontend-angular-apps/
 - a11y https://blog.angularindepth.com/test-for-accessibility-and-help-millions-of-people-97d86f72e2c4
+- tdd https://medium.com/@utukku/test-driven-development-in-an-angular-world-92c0c42a54d0
 - required props https://netbasal.com/how-to-add-angular-component-input-validation-b078a30af97f
 - error state matcher https://itnext.io/materror-cross-field-validators-in-angular-material-7-97053b2ed0cf
 - digitonly directive https://codeburst.io/digit-only-directive-in-angular-3db8a94d80c3

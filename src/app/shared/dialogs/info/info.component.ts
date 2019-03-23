@@ -1,11 +1,7 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  Inject
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material';
 
-import { ShopRules } from '$core/shared/interfaces/shop-rules.interface';
+import { ShopRules } from '-core/shared/interfaces/shop-rules.interface';
 
 @Component({
   selector: 'app-info-dialog',
@@ -14,11 +10,7 @@ import { ShopRules } from '$core/shared/interfaces/shop-rules.interface';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class InfoComponent {
-
-  constructor(
-      @Inject(MAT_DIALOG_DATA) public data: ShopRules
-  ) {
-  }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: ShopRules) {}
 
   public identify(index: number): number {
     return index;

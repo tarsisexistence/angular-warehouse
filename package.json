@@ -98,7 +98,7 @@
     "perfume.js": "2.1.2",
     "prettier": "1.16.4",
     "pretty-quick": "1.10.0",
-    "protractor": "5.4.1",
+    "protractor": "6.0.0",
     "snyk": "1.143.1",
     "ts-node": "7.0.1",
     "tslint": "5.12.0",

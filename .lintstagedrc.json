@@ -4,6 +4,6 @@
       "prettier --write",
       "git add"
     ],
-    ".*{rc,json}": "jsonlint"
+    ".*{json}": "jsonlint"
   }
 }

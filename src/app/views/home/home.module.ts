@@ -5,9 +5,10 @@ import { homeRouting } from '-home/hub';
 import { HomeComponent } from '-home/containers/home/home.component';
 import { HomeWallpaperComponent } from '-home/components/home-wallpaper/home-wallpaper.component';
 import { HomeActionComponent } from '-home/components/home-action/home-action.component';
+import { SharedModule } from '+shared/shared.module';
 
 @NgModule({
-  imports: [CommonModule, homeRouting],
+  imports: [CommonModule, SharedModule, homeRouting],
   declarations: [HomeComponent, HomeWallpaperComponent, HomeActionComponent]
 })
 export class HomeModule {}

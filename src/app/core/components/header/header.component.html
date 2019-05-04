@@ -4,7 +4,7 @@
     <a class="header__brandname"
        accesskey="1"
         title="Logo"
-       [routerLink]="hub.app.home.state">
+       [navLink]="hub.app.home.state">
       Reignarr
     </a>
 
@@ -20,17 +20,17 @@
     <nav class="header__nav-main">
       <a accesskey="h"
          title="Home"
-         [routerLink]="hub.app.home.state">
+         [navLink]="hub.app.home.state">
         Home
       </a>
       <a accesskey="s"
          title="Shop"
-         [routerLink]="hub.app.shop.state">
+         [navLink]="hub.app.shop.state">
         Shop
       </a>
       <a accesskey="c"
          title="Shopping cart"
-         [routerLink]="hub.app.cart.state">
+         [navLink]="hub.app.cart.state">
         <mat-icon class="header__icon header__icon-cart">
           shopping_cart
         </mat-icon>
@@ -40,12 +40,12 @@
     <nav class="header__nav-main">
       <a accesskey="l"
          title="Store location"
-         [routerLink]="hub.location.map.state">
+         [navLink]="hub.location.map.state">
         Store Location
       </a>
       <a accesskey="k"
          title="Stocklist"
-         [routerLink]="hub.location.stocklist.state">
+         [navLink]="hub.location.stocklist.state">
         Stocklist
       </a>
     </nav>

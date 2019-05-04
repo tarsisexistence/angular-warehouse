@@ -9,7 +9,7 @@ import {
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 
-import { Slices } from 'routeshub';
+import { forwardParams, Slices } from 'routeshub';
 import { BehaviorSubject, fromEvent, Subject } from 'rxjs';
 import {
   debounceTime,
@@ -94,9 +94,10 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
 
   public auth(): void {
     if (this.user && this.user.catchPhrase) {
-      this.router
-        .navigate(this.hub.userCenter.id.stateFn({ id: this.user.id }))
-        .catch(console.error);
+      const state = forwardParams(this.hub.userCenter.id.state, {
+        id: this.user.id
+      });
+      this.router.navigate(state).catch(console.error);
 
       return;
     }

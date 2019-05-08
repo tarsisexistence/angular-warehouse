@@ -26,3 +26,6 @@
 - ux rules https://uxplanet.org/18-ux-design-tips-for-registration-and-login-forms-f897557358ba
 - cursors  http://femmebot.github.io/google-type/images/the-fox-and-the-grapes/grapes.png http://femmebot.github.io/google-type/images/the-fox-and-the-grapes/fox@2x.png
 - checklist https://angular-checklist.io/default/checklist/architecture/Z2guUQd
+- lazy loading 3rd parties - https://codeburst.io/lazy-loading-external-javascript-libraries-in-angular-3d86ada54ec7
+- differential loading
+- tslint angular https://www.npmjs.com/package/tslint-angular

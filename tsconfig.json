@@ -19,6 +19,9 @@
       "esnext.asynciterable"
     ],
     "paths": {
+      "routeshub-lib": [
+        "../dist/routeshub/esm2015/routeshub"
+      ],
       "~app/*": [
         "app/*"
       ],

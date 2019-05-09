@@ -17,7 +17,6 @@
 - connection aware https://netbasal.com/connection-aware-components-in-angular-3a66bb0bab6f
 - storybook https://storybook.js.org/basics/guide-angular/ https://blog.angularindepth.com/mixing-storybook-with-angular-with-a-sprinkle-of-applitools-8413bb950cf8
 - socials https://www.youtube.com/watch?v=fDm0WJ_66d0
-- perfume https://github.com/Zizzamia/perfume.js#angular
 - scss https://medium.com/@aaronverones/using-the-7-1-sass-scss-pattern-with-angular-7-bb210c015dcc
 - onChange decorator https://blog.angularindepth.com/creatively-decouple-ngonchanges-fab95395cc6e
 - build https://github.com/manfredsteyer/ngx-build-plus/tree/master/ngx-build-modern
@@ -28,4 +27,5 @@
 - checklist https://angular-checklist.io/default/checklist/architecture/Z2guUQd
 - lazy loading 3rd parties - https://codeburst.io/lazy-loading-external-javascript-libraries-in-angular-3d86ada54ec7
 - differential loading
-- tslint angular https://www.npmjs.com/package/tslint-angular
+- architect https://dev.to/steveblue/build-angular-like-an-architect-part-1-3ph2
+- builders https://blog.angular.io/introducing-cli-builders-d012d4489f1b

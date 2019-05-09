@@ -1,7 +1,7 @@
 {
   "extends": [
-    "angular-tslint-rules",
     "tslint:latest",
+    "tslint-angular",
     "tslint-config-prettier",
     "tslint-config-security",
     "tslint-immutable"

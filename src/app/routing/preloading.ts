@@ -5,7 +5,7 @@ import { mergeMap } from 'rxjs/operators';
 
 export class Preloading implements PreloadingStrategy {
   public preload(route: Route, load: () => Observable<any>): Observable<any> {
-    const loadRoute = (delay) =>
+    const loadRoute = (delay: boolean) =>
       delay === false ? load() : timer(300).pipe(mergeMap(load));
 
     return route.data && route.data['preload']

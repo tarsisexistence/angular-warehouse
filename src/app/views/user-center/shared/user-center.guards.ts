@@ -10,13 +10,10 @@ import { AuthService } from '-core/services/auth.service';
 
 @Injectable({ providedIn: 'root' })
 export class UserCenterGuard implements CanActivate {
-  constructor(
-    private readonly authService: AuthService,
-    private readonly store: Store<fromStore.ShopState>
-  ) {}
+  constructor(private readonly store: Store<fromStore.ShopState>) {}
 
   public canActivate(): Observable<boolean> {
-    const user = this.authService.fetchStorageUser();
+    const user = AuthService.fetchStorageUser();
     const isUserExist = Boolean(user);
 
     return of(isUserExist);

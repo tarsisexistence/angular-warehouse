@@ -31,13 +31,12 @@ import { NgPerfume, PerfumeAfterViewInit } from 'perfume.js/angular';
 @PerfumeAfterViewInit('AppComponent')
 export class AppComponent implements OnInit, AfterViewInit {
   constructor(
-    private readonly authService: AuthService,
     private readonly store: Store<fromStore.ShopState>,
     private readonly perfume: NgPerfume
   ) {}
 
   public ngOnInit(): void {
-    const user: StorageUser = this.authService.fetchStorageUser();
+    const user: StorageUser = AuthService.fetchStorageUser();
 
     if (user !== null) {
       this.store.dispatch(new fromStore.FetchUser(user.token));

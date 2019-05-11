@@ -6,15 +6,15 @@ const storageKey = 'cspr';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  public fetchStorageUser(): StorageUser {
+  public static fetchStorageUser(): StorageUser {
     return JSON.parse(localStorage.getItem(storageKey));
   }
 
-  public removeStorageUser(): void {
+  public static removeStorageUser(): void {
     localStorage.removeItem(storageKey);
   }
 
-  public updateStorageUser(token: StorageUser): void {
+  public static updateStorageUser(token: StorageUser): void {
     localStorage.setItem(storageKey, JSON.stringify(token));
   }
 }

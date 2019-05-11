@@ -18,11 +18,6 @@ export interface Hub {
   userCenter: UserCenterNotes;
 }
 
-/**
- * Declares hub which contains
- * all possible routes in the project
- * and those routes are already stateful
- */
 export const hub: Slices<Hub> = {
   app,
   home,

@@ -1,9 +1,9 @@
 import { Directive, ElementRef, HostListener } from '@angular/core';
 
 @Directive({
-  selector: '[onlyStrings]'
+  selector: '[appStringOnly]'
 })
-export class OnlyStringsDirective {
+export class StringOnlyDirective {
   private readonly regex: RegExp = new RegExp(
     /^-?[a-zA-Z ]+(\.[a-zA-Z ]*){0,1}$/g
   );
@@ -19,8 +19,7 @@ export class OnlyStringsDirective {
 
   @HostListener('keydown', ['$event'])
   public onKeydown(event: KeyboardEvent): any {
-    // Allow Backspace, tab, end, and home keys
-    if (this.specialKeys.indexOf(event.key) !== -1) {
+    if (this.specialKeys.includes(event.key)) {
       return;
     }
 

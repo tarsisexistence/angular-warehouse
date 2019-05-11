@@ -4,15 +4,13 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { APOLLO_BOOST_CONFIG, ApolloBoostModule } from 'apollo-angular-boost';
 
-const uri = 'http://localhost:4000/graphql';
-
 @NgModule({
   imports: [CommonModule, HttpClientModule, ApolloBoostModule],
   providers: [
     {
       provide: APOLLO_BOOST_CONFIG,
       useValue: {
-        uri
+        uri: 'http://localhost:4000/graphql'
       }
     }
   ]

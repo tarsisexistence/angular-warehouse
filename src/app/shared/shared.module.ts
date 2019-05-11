@@ -4,11 +4,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { NavigationModule } from 'routeshub';
 
-import { InfoComponent } from '+shared/dialogs/info/info.component';
-import { PaymentComponent } from '+shared/dialogs/payment/payment.component';
-import { OnlyNumbersDirective } from '+shared/directives/only-numbers.directive';
-import { OnlyStringsDirective } from '+shared/directives/only-strings.directive';
-import { MaterialModule } from '+material/material.module';
+import { InfoComponent } from './dialogs/info/info.component';
+import { PaymentComponent } from './dialogs/payment/payment.component';
+import { NumericOnlyDirective } from './directives/numeric-only.directive';
+import { StringOnlyDirective } from './directives/string-only.directive';
+import { MaterialModule } from './modules/material.module';
 
 const sharedModules = [ReactiveFormsModule, MaterialModule, NavigationModule];
 
@@ -18,8 +18,8 @@ const sharedModules = [ReactiveFormsModule, MaterialModule, NavigationModule];
   declarations: [
     InfoComponent,
     PaymentComponent,
-    OnlyNumbersDirective,
-    OnlyStringsDirective
+    NumericOnlyDirective,
+    StringOnlyDirective
   ],
   entryComponents: [InfoComponent, PaymentComponent]
 })

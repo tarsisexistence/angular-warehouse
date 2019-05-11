@@ -4,7 +4,7 @@ import { Actions, Effect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { catchError, exhaustMap, map, take } from 'rxjs/operators';
 
-import { ApolloService } from '+apollo/services/apollo.service';
+import { ApolloService } from '+apollo/apollo.service';
 import {
   ApparelShopActionTypes,
   LoadApparel,

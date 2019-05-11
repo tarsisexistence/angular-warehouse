@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
 
-import { MaterialModule } from '+material/material.module';
+import { MaterialModule } from './modules/material.module';
 
 const sharedModules = [
   BrowserAnimationsModule,
@@ -11,12 +11,7 @@ const sharedModules = [
 ];
 
 @NgModule({
-  imports: [
-    ...sharedModules
-  ],
-  exports: [
-    ...sharedModules
-  ]
+  imports: [...sharedModules],
+  exports: [...sharedModules]
 })
-export class SharedTestingModule {
-}
+export class SharedTestingModule {}

@@ -18,7 +18,7 @@ import {
   CatchPhraseConfig,
   User
 } from '-core/shared/interfaces/user.interface';
-import { ApolloService } from '+apollo/services/apollo.service';
+import { ApolloService } from '+apollo/apollo.service';
 import {
   AuthActionTypes,
   FetchUser,

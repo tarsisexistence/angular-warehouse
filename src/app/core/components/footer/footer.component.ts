@@ -105,7 +105,6 @@ export class FooterComponent implements OnInit, AfterViewInit, OnDestroy {
 
   public ngOnDestroy(): void {
     this.isVisible.complete();
-
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
   }

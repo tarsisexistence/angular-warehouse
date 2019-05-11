@@ -1,9 +1,5 @@
 import { RouteNote, RoutesNotes } from 'routeshub';
 
-/**
- * Declares a type which contains
- * root and notFound routes
- */
 export interface AppNotes {
   cart: RouteNote;
   home: RouteNote;
@@ -13,9 +9,6 @@ export interface AppNotes {
   notFound: RouteNote;
 }
 
-/**
- * Declares App' notes
- */
 export const appNotes: RoutesNotes<AppNotes> = {
   cart: {
     path: 'cart'

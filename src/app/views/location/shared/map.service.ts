@@ -1,16 +1,17 @@
 import { Injectable } from '@angular/core';
 
+import { noop, of } from 'rxjs';
+import { delay, first, tap } from 'rxjs/operators';
+
 @Injectable({ providedIn: 'root' })
 export class MapService {
   private map: google.maps.Map;
   private markers: google.maps.Marker[] = [];
 
-  // Creates a new map inside of the given HTML container.
   public initMap(el: HTMLElement, mapOptions: any): void {
     this.map = new google.maps.Map(el, mapOptions);
     this.resize();
-    // Adds event listener resize when the window changes size.
-    google.maps.event.addDomListener(window, 'resize', () => this.resize());
+    google.maps.event.addDomListener(window, 'resize', this.resize);
   }
 
   public setCenter(latLng: google.maps.LatLng): void {
@@ -35,49 +36,44 @@ export class MapService {
     contentString?: string
   ): void {
     if (this.map != null && latLng != null) {
-      // Creates the marker.
       const marker: google.maps.Marker = new google.maps.Marker({
         position: latLng,
         title
       });
-      // Adds the marker to the map.
       marker.setMap(this.map);
-      // Creates the info window if required.
-      if (contentString != null) {
-        // Sets the max width of the info window to the width of the map element.
-        const width: number = this.map.getDiv().clientWidth;
+      if (contentString !== null) {
         const infoWindow: google.maps.InfoWindow = new google.maps.InfoWindow({
           content: contentString,
-          maxWidth: width
+          maxWidth: this.map.getDiv().clientWidth
         });
-        // Makes the info window visible.
         marker.addListener('click', () => {
           infoWindow.open(this.map, marker);
         });
       }
 
-      // Pushes it to the markers array.
       this.markers.push(marker);
     }
   }
 
   public deleteMarkers(): void {
-    // Removes the markers from the map.
-    for (let i = 0; i < this.markers.length; i++) {
-      this.markers[i].setMap(null);
-    }
-    // Removes references to them.
-    this.markers = [];
+    this.markers = this.markers.filter((marker) => {
+      marker.setMap(null);
+      return false;
+    });
   }
 
   public resize(): void {
-    // Saves the center.
-    const latLng: google.maps.LatLng = this.map.getCenter();
-    // Triggers resize event.
-    setTimeout(() => {
-      google.maps.event.trigger(this.map, 'resize');
-      // Restores the center.
-      this.map.setCenter(latLng);
-    });
+    const center: google.maps.LatLng = this.map.getCenter();
+
+    of(true)
+      .pipe(
+        first(),
+        delay(0),
+        tap(() => {
+          google.maps.event.trigger(this.map, 'resize');
+          this.map.setCenter(center);
+        })
+      )
+      .subscribe(noop);
   }
 }

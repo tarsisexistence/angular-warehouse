@@ -10,13 +10,11 @@ export class GeocodingService {
     this.geocoder = new google.maps.Geocoder();
   }
 
-  // Reverse geocoding by location. Wraps the Google Maps API geocoding service into an observable.
   public geocode(
     latLng: google.maps.LatLng
   ): Observable<google.maps.GeocoderResult[]> {
     return Observable.create(
       (observer: Observer<google.maps.GeocoderResult[]>) => {
-        // Invokes geocode method of Google Maps API geocoding.
         this.geocoder.geocode(
           { location: latLng },
           (
@@ -27,9 +25,6 @@ export class GeocodingService {
               observer.next(results);
               observer.complete();
             } else {
-              console.log(
-                'Geocoding service: geocoder failed due to: ' + status
-              );
               observer.error(status);
             }
           }
@@ -38,13 +33,11 @@ export class GeocodingService {
     );
   }
 
-  // Geocoding service. Wraps the Google Maps API geocoding service into an observable.
   public codeAddress(
     address: string
   ): Observable<google.maps.GeocoderResult[]> {
     return Observable.create(
       (observer: Observer<google.maps.GeocoderResult[]>) => {
-        // Invokes geocode method of Google Maps API geocoding.
         this.geocoder.geocode(
           { address },
           (
@@ -54,12 +47,9 @@ export class GeocodingService {
             if (status === google.maps.GeocoderStatus.OK) {
               observer.next(results);
               observer.complete();
-              return;
+            } else {
+              observer.error(status);
             }
-
-            const message = `Geocoding service: geocode was not successful for the following reason: ${status}`;
-            console.log(message);
-            observer.error(status);
           }
         );
       }

@@ -94,7 +94,7 @@
         ]
       }
     ],
-    "newline-before-return": true,
+    "newline-before-return": false,
     "newline-per-chained-call": false,
     "new-parens": true,
     "no-arg": true,

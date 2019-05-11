@@ -15,18 +15,12 @@ import { MapService } from '-location/shared/map.service';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LocationMapComponent implements OnInit {
-  @Input()
-  public disableDefaultUI: boolean; // Enables/disables all default UI.
-  @Input()
-  public mapTypeId: google.maps.MapTypeId; // The initial location-map mapTypeId. Defaults to ROADMAP.
-  @Input()
-  public maxZoom: number; // The maximum zoom level which will be displayed on the location-map.
-  @Input()
-  public minZoom: number; // The minimum zoom level which will be displayed on the location-map.
-  @Input()
-  public styles: google.maps.MapTypeStyle[]; // Styles to apply to each of the default location-map types.
-  @Input()
-  public disableDoubleClickZoom: boolean; // Enables/disables zoom and center on double click. Enabled by def.
+  @Input() public mapTypeId: google.maps.MapTypeId;
+  @Input() public maxZoom: number;
+  @Input() public minZoom: number;
+  @Input() public styles: google.maps.MapTypeStyle[];
+  @Input() public disableDefaultUI: boolean;
+  @Input() public disableDoubleClickZoom: boolean;
 
   @Input()
   public set center(center: google.maps.LatLng) {
@@ -38,7 +32,7 @@ export class LocationMapComponent implements OnInit {
     return this._center;
   }
 
-  private _center: google.maps.LatLng; // Center location-map. Required.
+  private _center: google.maps.LatLng;
 
   @Input()
   public set zoom(zoom: number) {
@@ -50,7 +44,7 @@ export class LocationMapComponent implements OnInit {
     return this._zoom;
   }
 
-  private _zoom: number; // The initial location-map zoom level. Required.
+  private _zoom: number;
 
   constructor(
     public map: MapService,

@@ -1,7 +1,7 @@
 import { Directive, ElementRef, HostListener } from '@angular/core';
 
 @Directive({
-  selector: '[appStringOnly]'
+  selector: '[stringOnly]'
 })
 export class StringOnlyDirective {
   private readonly regex: RegExp = new RegExp(

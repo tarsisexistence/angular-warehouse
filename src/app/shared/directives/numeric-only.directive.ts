@@ -1,7 +1,7 @@
 import { Directive, ElementRef, HostListener } from '@angular/core';
 
 @Directive({
-  selector: '[appNumericOnly]'
+  selector: '[numericOnly]'
 })
 export class NumericOnlyDirective {
   private readonly regex: RegExp = new RegExp(/^-?[0-9 ]+(\.[0-9 ]*){0,1}$/g);

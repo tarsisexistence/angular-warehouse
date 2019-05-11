@@ -6,10 +6,8 @@ import { MapService } from '-location/shared/map.service';
   selector: '[googleMapMarker]'
 })
 export class MarkerDirective {
-  @Input()
-  public title: string;
-  @Input()
-  public content: string;
+  @Input() public title: string;
+  @Input() public content: string;
 
   @Input()
   public set position(position: google.maps.LatLng) {

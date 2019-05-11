@@ -2,8 +2,8 @@ import { ModuleWithProviders } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { shopNotes as shop } from './shop.notes';
-import { ShopComponent } from 'app/views/shop/containers/shop/shop.component';
-import { ShopResolver } from 'app/views/shop/shared/guards-and-resolvers/shop.resolver';
+import { ShopComponent } from '../containers/shop/shop.component';
+import { ShopResolver } from '../shared/guards-and-resolvers/shop.resolver';
 
 export const routes: Routes = [
   {

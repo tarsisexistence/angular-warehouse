@@ -1,11 +1,8 @@
 import { Apparel } from '-shop/shared/interfaces/apparel.interface';
 import { ApparelType } from '-shop/shared/enums/apparel-type.enum';
 
-export function filterApparelType(
+export const filterApparelType = (
   apparel: Apparel[],
   type: ApparelType
-): Apparel[] {
-  return (
-    apparel.filter((apparel: Apparel) => apparel.type === String(type)) || []
-  );
-}
+): Apparel[] =>
+  apparel.filter((aprl: Apparel) => aprl.type === String(type)) || [];

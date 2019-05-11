@@ -87,7 +87,6 @@ export class ShopComponent implements OnInit, OnDestroy {
 
   public ngOnDestroy(): void {
     this.apparels.complete();
-
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
   }

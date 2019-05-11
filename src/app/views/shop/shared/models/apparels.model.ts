@@ -1,6 +1,6 @@
-import { Apparel } from '-shop/shared/interfaces/apparel.interface';
-import { ApparelType } from '-shop/shared/enums/apparel-type.enum';
-import { filterApparelType } from '-shop/shared/functions/filter-apparel-type.function';
+import { Apparel } from '../interfaces/apparel.interface';
+import { ApparelType } from '../enums/apparel-type.enum';
+import { filterApparelType } from '../functions/filter-apparel-type.function';
 
 export class Apparels {
   public all: Apparel[];

@@ -1,13 +1,13 @@
 import { ModuleWithProviders } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { userCenterNotes as UC } from './user-center.notes';
-import { UserCenterComponent } from 'app/views/user-center/containers/user-center/user-center.component';
-import { UserCenterGuard } from 'app/views/user-center/shared/user-center.guards';
+import { userCenterNotes as notes } from './user-center.notes';
+import { UserCenterComponent } from '../containers/user-center/user-center.component';
+import { UserCenterGuard } from '../shared/user-center.guards';
 
 export const routes: Routes = [
   {
-    path: UC.id.path,
+    path: notes.id.path,
     component: UserCenterComponent,
     canActivate: [UserCenterGuard]
   }

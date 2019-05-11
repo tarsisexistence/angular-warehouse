@@ -13,14 +13,6 @@ const getApparelCartState = createSelector(
   (state: CartState) => state.apparels
 );
 
-export const getCartApparelLoading = createSelector(
-  getApparelCartState,
-  fromCartReducer.getCartLoading
-);
-export const getCartApparelLoaded = createSelector(
-  getApparelCartState,
-  fromCartReducer.getCartLoaded
-);
 export const getCartApparelEntities = createSelector(
   getApparelCartState,
   fromCartReducer.getCartEntities

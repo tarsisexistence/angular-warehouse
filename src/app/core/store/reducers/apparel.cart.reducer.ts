@@ -187,5 +187,3 @@ export function reducer(
 }
 
 export const getCartEntities = (state: CartApparelState) => state.entities;
-export const getCartLoading = (state: CartApparelState) => state.loading;
-export const getCartLoaded = (state: CartApparelState) => state.loaded;

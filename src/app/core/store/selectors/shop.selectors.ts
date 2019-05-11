@@ -13,10 +13,6 @@ const getApparelsState = createSelector(
   (state: ShopState) => state.apparels
 );
 
-export const getShopApparelLoading = createSelector(
-  getApparelsState,
-  fromApparelReducer.getApparelLoading
-);
 export const getShopApparelLoaded = createSelector(
   getApparelsState,
   fromApparelReducer.getApparelLoaded

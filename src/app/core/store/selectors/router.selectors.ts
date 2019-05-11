@@ -23,10 +23,6 @@ export interface State {
 
 export const reducers: ActionReducerMap<State> = { routerReducer };
 
-export const getRouterState = createFeatureSelector<
-  RouterReducerState<RouterStateUrl>
->('router');
-
 export class CustomSerializer implements RouterStateSerializer<RouterStateUrl> {
   public serialize(routerState: RouterStateSnapshot): RouterStateUrl {
     const { url } = routerState;

@@ -5,26 +5,27 @@ import {
   RouterStateSerializer,
   StoreRouterConnectingModule
 } from '@ngrx/router-store';
-import { routes } from './hub/app.routes';
 import { CustomSerializer } from '+store';
-import { Preloading } from '-routing/preloading';
+import { CustomPreloadingStrategy } from './preloading';
+import { routes } from './hub/app.routes';
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(routes, {
   enableTracing: false,
   initialNavigation: 'enabled',
   onSameUrlNavigation: 'reload',
-  scrollPositionRestoration: 'top'
+  scrollPositionRestoration: 'top',
+  preloadingStrategy: CustomPreloadingStrategy
 });
 
 @NgModule({
   imports: [routing],
   exports: [RouterModule, StoreRouterConnectingModule],
   providers: [
+    CustomPreloadingStrategy,
     {
       provide: RouterStateSerializer,
       useClass: CustomSerializer
-    },
-    Preloading
+    }
   ]
 })
 export class RoutingModule {}

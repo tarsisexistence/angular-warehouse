@@ -40,4 +40,4 @@ Concept Store Platform - Online store as a platform for consumers who loves conc
 - SCSS
 - Server Side Rendering (Universal)
 - Scripts, analyzers, explorers, linters, hooks etc
-- ... animations, accessibility, interceptors
+- ... animations, accessibility, decorators

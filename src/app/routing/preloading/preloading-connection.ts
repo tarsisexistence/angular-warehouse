@@ -1,4 +1,4 @@
-export function preloadConnection(): boolean {
+export function preloadingConnection(): boolean {
   const connection = navigator['connection'];
 
   if (connection) {

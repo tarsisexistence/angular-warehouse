@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 
 import { MapService } from '-location/shared/map.service';
+import { OnChange } from '+shared/decorators/onChange.decorator';
 
 @Component({
   selector: 'location-map',
@@ -23,28 +24,16 @@ export class LocationMapComponent implements OnInit {
   @Input() public disableDoubleClickZoom: boolean;
 
   @Input()
-  public set center(center: google.maps.LatLng) {
+  @OnChange<google.maps.LatLng>(function(center: google.maps.LatLng): void {
     this.map.setCenter(center);
-    this._center = center;
-  }
-
-  public get center(): google.maps.LatLng {
-    return this._center;
-  }
-
-  private _center: google.maps.LatLng;
+  })
+  public center: google.maps.LatLng;
 
   @Input()
-  public set zoom(zoom: number) {
+  @OnChange<number>(function(zoom: number): void {
     this.map.setZoom(zoom);
-    this._zoom = zoom;
-  }
-
-  public get zoom(): number {
-    return this._zoom;
-  }
-
-  private _zoom: number;
+  })
+  public zoom: number;
 
   constructor(
     public map: MapService,

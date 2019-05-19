@@ -1,39 +1,55 @@
-// tslint:disable-next-line:file-name-casing
-import { SimpleChange } from '@angular/core';
-
-export interface SimpleTypedChange<T> extends SimpleChange {
+export interface SimpleTypedChange<T> {
+  firstChange: boolean;
   previousValue: T;
   currentValue: T;
+  isFirstChange(): boolean;
 }
+
+const components: Component[] = [];
 
 export function OnChange<T = any>(
   callback: (value: T, simpleChange?: SimpleTypedChange<T>) => void
 ): (target: any, key: PropertyKey) => void {
-  let cachedValue: T;
-  let isFirstChange: boolean;
-
   return (target: any, key: PropertyKey) => {
     Object.defineProperty(target, key, {
-      get: (): T => cachedValue,
+      get(): T {
+        const component = components.find(({ instance }) => instance === this);
+        return component && component.inputs[key];
+      },
       set(nextValue: T): void {
-        isFirstChange = isFirstChange === undefined;
+        const component: Component | undefined =
+          components.find(({ instance }) => instance === this) ||
+          setDefaultComponent.call(this);
 
-        if (cachedValue === nextValue) {
+        component.isFirstChange = component.isFirstChange === undefined;
+
+        if (component.inputs[key] === nextValue) {
           return;
         }
 
         const simpleChange: SimpleTypedChange<T> = {
-          firstChange: isFirstChange,
-          previousValue: cachedValue,
+          firstChange: component.isFirstChange,
+          previousValue: component.inputs[key],
           currentValue: nextValue,
-          isFirstChange: () => isFirstChange
+          isFirstChange: () => component.isFirstChange as boolean
         };
 
-        cachedValue = nextValue;
+        component.inputs[key] = nextValue;
 
-        // tslint:disable-next-line:no-invalid-this
-        callback.call(this, cachedValue, simpleChange);
+        callback.call(this, nextValue, simpleChange);
       }
     });
   };
+}
+
+interface Component {
+  instance: any;
+  inputs: any;
+  isFirstChange?: boolean;
+}
+
+function setDefaultComponent(): Component {
+  const component: Component = { instance: this, inputs: {} };
+  components.push(component);
+  return component;
 }

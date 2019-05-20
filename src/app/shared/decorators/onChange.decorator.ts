@@ -2,39 +2,41 @@ export interface SimpleTypedChange<T> {
   firstChange: boolean;
   previousValue: T;
   currentValue: T;
+
   isFirstChange(): boolean;
 }
 
-const components: Component[] = [];
+const components = new WeakSet();
 
+// tslint:disable:no-invalid-this
 export function OnChange<T = any>(
   callback: (value: T, simpleChange?: SimpleTypedChange<T>) => void
 ): (target: any, key: PropertyKey) => void {
-  return (target: any, key: PropertyKey) => {
+  return (target: any, key: any) => {
     Object.defineProperty(target, key, {
       get(): T {
-        const component = components.find(({ instance }) => instance === this);
-        return component && component.inputs[key];
+        return this[prvt(key)];
       },
       set(nextValue: T): void {
-        const component: Component | undefined =
-          components.find(({ instance }) => instance === this) ||
-          setDefaultComponent.call(this);
+        const isFirstChange = !components.has(this);
+        const value = this[prvt(key)];
 
-        component.isFirstChange = component.isFirstChange === undefined;
+        if (isFirstChange) {
+          components.add(this);
+        }
 
-        if (component.inputs[key] === nextValue) {
+        if (value === nextValue) {
           return;
         }
 
         const simpleChange: SimpleTypedChange<T> = {
-          firstChange: component.isFirstChange,
-          previousValue: component.inputs[key],
+          previousValue: value,
           currentValue: nextValue,
-          isFirstChange: () => component.isFirstChange as boolean
+          firstChange: isFirstChange,
+          isFirstChange: () => isFirstChange
         };
 
-        component.inputs[key] = nextValue;
+        this[prvt(key)] = nextValue;
 
         callback.call(this, nextValue, simpleChange);
       }
@@ -42,14 +44,6 @@ export function OnChange<T = any>(
   };
 }
 
-interface Component {
-  instance: any;
-  inputs: any;
-  isFirstChange?: boolean;
-}
-
-function setDefaultComponent(): Component {
-  const component: Component = { instance: this, inputs: {} };
-  components.push(component);
-  return component;
+function prvt(key: string | number): string {
+  return `_${key}`;
 }

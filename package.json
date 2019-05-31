@@ -101,7 +101,7 @@
     "protractor": "5.4.1",
     "snyk": "1.170.0",
     "ts-node": "7.0.1",
-    "tslint": "5.16.0",
+    "tslint": "5.17.0",
     "tslint-angular": "~2.0.2",
     "tslint-config-prettier": "1.18.0",
     "tslint-config-security": "1.16.0",

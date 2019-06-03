@@ -31,3 +31,4 @@
 - builders https://blog.angular.io/introducing-cli-builders-d012d4489f1b
 - subsink https://www.npmjs.com/package/subsink
 - favicon https://www.favicon.cc/
+- router modal outlet https://www.bennadel.com/blog/3620-most-of-your-modal-windows-should-be-directly-accessible-by-route-in-angular-7-2-15.htm

@@ -148,7 +148,7 @@
     }
   },
   "cli": {
-    "packageManager": "yarn"
+    "packageManager": "npm"
   },
   "defaultProject": "concept-store-platform"
 }

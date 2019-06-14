@@ -99,7 +99,7 @@
     "prettier": "1.17.0",
     "pretty-quick": "1.11.0",
     "protractor": "5.4.1",
-    "snyk": "1.170.0",
+    "snyk": "1.179.0",
     "ts-node": "7.0.1",
     "tslint": "5.17.0",
     "tslint-angular": "~2.0.2",

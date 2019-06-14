@@ -97,7 +97,7 @@
     "lint-staged": "8.1.5",
     "perfume.js": "2.1.2",
     "prettier": "1.17.0",
-    "pretty-quick": "1.11.0",
+    "pretty-quick": "1.11.1",
     "protractor": "5.4.1",
     "snyk": "1.179.0",
     "ts-node": "7.0.1",

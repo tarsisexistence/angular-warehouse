@@ -7,7 +7,7 @@ import { EffectsModule } from '@ngrx/effects';
 
 import { shopEffects, shopReducers, States } from '+store';
 import { SharedModule } from '+shared/shared.module';
-import { shopRouting } from './hub';
+import { shopRouting } from './hub/shop.routes';
 import { ShopComponent } from './containers/shop/shop.component';
 import { ShopBarComponent } from './components/shop-bar/shop-bar.component';
 import { ShopApparelsComponent } from './components/shop-apparels/shop-apparels.component';

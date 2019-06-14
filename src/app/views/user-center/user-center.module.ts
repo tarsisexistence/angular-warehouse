@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { userCenterRouting } from '-user-center/hub';
+import { userCenterRouting } from '-user-center/hub/user-center.routes';
 import { UserCenterComponent } from './containers/user-center/user-center.component';
 
 @NgModule({

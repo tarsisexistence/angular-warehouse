@@ -11,12 +11,15 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 
-import * as fromStore from '+store';
 import { ApolloService } from '+apollo/apollo.service';
 import { PaymentComponent } from '+shared/dialogs/payment/payment.component';
-import { appSlice } from '-routing/hub/app.slice';
 import { Order } from '-core/shared/interfaces/order.interface';
 import { Apparel } from '-shop/shared/interfaces/apparel.interface';
+// tslint:disable-next-line:max-line-length
+import { CartState, getCartApparel } from '+store/selectors/cart.selectors';
+import { ClearApparel, RemoveApparel } from '+store/actions';
+import { APP_HUB_KEY, AppNotes } from '-routing/hub/app.notes';
+import { Slice, Sliced } from 'routeshub';
 
 @Component({
   selector: 'cart-feat',
@@ -27,6 +30,8 @@ import { Apparel } from '-shop/shared/interfaces/apparel.interface';
 export class CartComponent implements OnInit, OnDestroy {
   public cartApparels: Apparel[];
   public subtotal: number;
+  @Sliced(APP_HUB_KEY)
+  private app: Slice<AppNotes>;
   private unsubscribe$: Subject<boolean>;
 
   private static calcSubtotal(apparels: Apparel[]): number {
@@ -40,14 +45,14 @@ export class CartComponent implements OnInit, OnDestroy {
     private readonly apolloService: ApolloService,
     private readonly dialog: MatDialog,
     private readonly router: Router,
-    private readonly store: Store<fromStore.CartState>
+    private readonly store: Store<CartState>
   ) {}
 
   public ngOnInit(): void {
     this.unsubscribe$ = new Subject<boolean>();
 
     this.store
-      .select(fromStore.getCartApparel)
+      .select(getCartApparel)
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe((apparels: Apparel[]) => {
         this.cartApparels = apparels ? apparels : [];
@@ -56,7 +61,7 @@ export class CartComponent implements OnInit, OnDestroy {
   }
 
   public removeCartApparel(id: string): void {
-    this.store.dispatch(new fromStore.RemoveApparel(id));
+    this.store.dispatch(new RemoveApparel(id));
   }
 
   public checkout(): void {
@@ -74,9 +79,8 @@ export class CartComponent implements OnInit, OnDestroy {
       this.apolloService.addOrder(order).subscribe(() => {
         alert('Your order is confirmed. We will contact you soon');
 
-        this.store.dispatch(new fromStore.ClearApparel());
-
-        this.router.navigate(appSlice.home.state).catch(console.error);
+        this.store.dispatch(new ClearApparel());
+        this.router.navigate(this.app.home.state).catch(console.error);
       });
     });
   }

@@ -1,13 +1,15 @@
 import { ModuleWithProviders } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { userCenterNotes as notes } from './user-center.notes';
 import { UserCenterComponent } from '../containers/user-center/user-center.component';
 import { UserCenterGuard } from '../shared/user-center.guards';
+import { createFeature, Slice } from 'routeshub';
+import { appSlice } from '-routing/hub/app.routes';
+import { UC_HUB_KEY, UserCenterNotes } from './user-center.notes';
 
 export const routes: Routes = [
   {
-    path: notes.id.path,
+    path: ':id',
     component: UserCenterComponent,
     canActivate: [UserCenterGuard]
   }
@@ -16,3 +18,7 @@ export const routes: Routes = [
 export const userCenterRouting: ModuleWithProviders = RouterModule.forChild(
   routes
 );
+
+export const userCenterSlice: Slice<UserCenterNotes> = createFeature<
+  UserCenterNotes
+>(appSlice.userCenter, routes, UC_HUB_KEY);

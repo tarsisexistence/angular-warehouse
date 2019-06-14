@@ -1,35 +1,12 @@
-import { RouteNote, RoutesNotes } from 'routeshub';
+import { Note } from 'routeshub';
 
 export interface AppNotes {
-  cart: RouteNote;
-  home: RouteNote;
-  shop: RouteNote;
-  location: RouteNote;
-  userCenter: RouteNote;
-  notFound: RouteNote;
+  cart: Note;
+  home: Note;
+  shop: Note;
+  location: Note;
+  userCenter: Note;
+  notFound: Note;
 }
 
-export const appNotes: RoutesNotes<AppNotes> = {
-  cart: {
-    path: 'cart'
-  },
-  home: {
-    path: '',
-    lazy: '-home/home.module#HomeModule'
-  },
-  shop: {
-    path: 'shop',
-    lazy: '-shop/shop.module#ShopModule'
-  },
-  location: {
-    path: 'location',
-    lazy: '-location/location.module#LocationModule'
-  },
-  userCenter: {
-    path: 'user-center',
-    lazy: '-user-center/user-center.module#UserCenterModule'
-  },
-  notFound: {
-    path: '**'
-  }
-};
+export const APP_HUB_KEY = Symbol();

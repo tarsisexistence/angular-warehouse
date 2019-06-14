@@ -29,33 +29,33 @@
   }
 }
 
-/deep/ .mat-dialog-container {
+:host::ng-deep .mat-dialog-container {
   padding: 0;
   border: 2px solid white;
   border-radius: 15%;
 }
 
-/deep/ .mat-form-field.mat-focused .mat-form-field-ripple {
+:host::ng-deep .mat-form-field.mat-focused .mat-form-field-ripple {
   background: black;
 }
 
-/deep/ .mat-form-field.mat-focused.mat-form-field-invalid .mat-form-field-ripple {
+:host::ng-deep .mat-form-field.mat-focused.mat-form-field-invalid .mat-form-field-ripple {
   background: red;
 }
 
-/deep/ .mat-form-field.mat-focused .mat-form-field-label {
+:host::ng-deep .mat-form-field.mat-focused .mat-form-field-label {
   color: black;
 }
 
-/deep/ .mat-form-field.mat-focused.mat-form-field-invalid .mat-form-field-label,
+:host::ng-deep .mat-form-field.mat-focused.mat-form-field-invalid .mat-form-field-label,
 .mat-form-field-invalid .mat-input-element {
   color: red;
 }
 
-/deep/ .mat-form-field.mat-focused .mat-input-element {
+:host::ng-deep .mat-form-field.mat-focused .mat-input-element {
   caret-color: black;
 }
 
-/deep/ .mat-form-field.mat-focused.mat-form-field-invalid .mat-input-element {
+:host::ng-deep .mat-form-field.mat-focused.mat-form-field-invalid .mat-input-element {
   caret-color: red;
 }

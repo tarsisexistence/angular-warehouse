@@ -1,14 +1,7 @@
-import { RootRoute, RouteNote, RoutesNotes } from 'routeshub';
+import { Note } from 'routeshub';
 
-export interface UserCenterNotes extends RootRoute {
-  id: RouteNote;
+export interface UserCenterNotes {
+  id: Note;
 }
 
-export const userCenterNotes: RoutesNotes<UserCenterNotes> = {
-  root: {
-    path: ''
-  },
-  id: {
-    path: ':id'
-  }
-};
+export const UC_HUB_KEY = Symbol();

@@ -35,7 +35,7 @@ import {
   SignUpSuccess
 } from '+store/actions/user.auth.action';
 import { Go } from '+store/actions/router.action';
-import { appSlice } from '-routing/hub/app.slice';
+import { appSlice } from '-routing/hub/app.routes';
 
 @Injectable({ providedIn: 'root' })
 export class UserEffect {

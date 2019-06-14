@@ -2,7 +2,8 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 import { Slice } from 'routeshub';
 
-import { ShopNotes, shopSlice } from '-shop/hub';
+import { ShopNotes } from '-shop/hub/shop.notes';
+import { shopSlice } from '-shop/hub/shop.routes';
 
 @Component({
   selector: 'home-action',

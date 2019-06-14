@@ -1,5 +1,5 @@
-import { rootNote, RootRoute, RoutesNotes } from 'routeshub';
+import { Root } from 'routeshub';
 
-export type HomeNotes = RootRoute;
+export type HomeNotes = Root;
 
-export const homeNotes: RoutesNotes<HomeNotes> = rootNote;
+export const HOME_HUB_KEY = Symbol();

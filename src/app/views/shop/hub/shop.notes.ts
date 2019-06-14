@@ -1,18 +1,8 @@
-import { RootRoute, RouteNote, RoutesNotes } from 'routeshub';
+import { Note, Root } from 'routeshub';
 
-export interface ShopNotes extends RootRoute {
-  all: RouteNote;
-  category: RouteNote;
+export interface ShopNotes extends Root {
+  all: Note;
+  category: Note;
 }
 
-export const shopNotes: RoutesNotes<ShopNotes> = {
-  root: {
-    path: ''
-  },
-  all: {
-    path: 'all'
-  },
-  category: {
-    path: ':category'
-  }
-};
+export const SHOP_HUB_KEY = Symbol();

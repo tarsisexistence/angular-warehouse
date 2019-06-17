@@ -63,7 +63,7 @@
     "graphql": "14.1.1",
     "hammerjs": "2.0.8",
     "ngrx-store-freeze": "0.2.4",
-    "raven-js": "3.27.0",
+    "raven-js": "3.27.2",
     "routeshub": "2.1.1",
     "rxjs": "6.5.2",
     "zone.js": "0.9.1"

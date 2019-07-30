@@ -106,7 +106,7 @@
     "tslint-config-security": "1.16.0",
     "tslint-immutable": "5.5.2",
     "typescript": "3.4.5",
-    "webpack-bundle-analyzer": "3.3.2",
+    "webpack-bundle-analyzer": "3.4.1",
     "webpack-node-externals": "1.7.2"
   },
   "keywords": [

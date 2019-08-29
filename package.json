@@ -101,7 +101,7 @@
     "snyk": "1.208.0",
     "ts-node": "7.0.1",
     "tslint": "5.18.0",
-    "tslint-angular": "~2.0.2",
+    "tslint-angular": "2.0.2",
     "tslint-config-prettier": "1.18.0",
     "tslint-config-security": "1.16.0",
     "tslint-immutable": "5.5.2",

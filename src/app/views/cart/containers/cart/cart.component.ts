@@ -7,6 +7,7 @@ import {
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 
+import { Slice, Sliced } from 'routeshub';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
@@ -19,7 +20,6 @@ import { Apparel } from '-shop/shared/interfaces/apparel.interface';
 import { CartState, getCartApparel } from '+store/selectors/cart.selectors';
 import { ClearApparel, RemoveApparel } from '+store/actions';
 import { APP_HUB_KEY, AppNotes } from '-routing/hub/app.notes';
-import { Slice, Sliced } from 'routeshub';
 
 @Component({
   selector: 'cart-feat',

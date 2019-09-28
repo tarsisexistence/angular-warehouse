@@ -5,4 +5,4 @@ export interface LocationNotes extends Root {
   stocklist: Note;
 }
 
-export const LOCATION_HUB_KEY = Symbol();
+export const LOCATION_UNIT_KEY = Symbol();

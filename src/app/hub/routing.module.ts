@@ -1,4 +1,4 @@
-import { ModuleWithProviders, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 import {
@@ -7,18 +7,10 @@ import {
 } from '@ngrx/router-store';
 import { CustomSerializer } from '+store';
 import { CustomPreloadingStrategy } from './preloading';
-import { routes } from './hub/app.routes';
-
-export const routing: ModuleWithProviders = RouterModule.forRoot(routes, {
-  enableTracing: false,
-  initialNavigation: 'enabled',
-  onSameUrlNavigation: 'reload',
-  scrollPositionRestoration: 'top',
-  preloadingStrategy: CustomPreloadingStrategy
-});
+import { AppHub } from '~app/hub/app.hub';
 
 @NgModule({
-  imports: [routing],
+  imports: [AppHub],
   exports: [RouterModule, StoreRouterConnectingModule],
   providers: [
     CustomPreloadingStrategy,

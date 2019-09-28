@@ -10,7 +10,7 @@ import { storeFreeze } from 'ngrx-store-freeze';
 import { PerfumeModule } from 'perfume.js/angular';
 
 import { environment } from '~env/environment';
-import { RoutingModule } from '~app/routing/routing.module';
+import { RoutingModule } from '~app/hub/routing.module';
 import { routerEffects } from '+store';
 import { reducers } from '+store/selectors/router.selectors';
 import { MyApolloModule } from '+apollo/apollo.module';

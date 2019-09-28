@@ -9,7 +9,7 @@ import {
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 
-import { forwardParams, Slices } from 'routeshub';
+import { forwardParams, getRegisteredUnits, Units } from 'routeshub';
 import { BehaviorSubject, fromEvent, Subject } from 'rxjs';
 import {
   debounceTime,
@@ -21,11 +21,11 @@ import {
 import { Store } from '@ngrx/store';
 
 import * as fromStore from '+store';
-import { Hub, hub } from '-routing/routing.hub';
 import { AuthComponent } from '-auth/containers/auth/auth.component';
 import { getToggleAnimation } from '-core/shared/animations/toggle.animation';
 import { direction, visibility } from '-core/shared/constants';
 import { DirectionState, User, VisibilityState } from '-core/shared/interfaces';
+import { Hub } from '~app/hub/routing.hub';
 
 const toggleAnimationTrigger = 'toggleHeader';
 const toggleAnimation = getToggleAnimation(toggleAnimationTrigger);
@@ -38,7 +38,7 @@ const toggleAnimation = getToggleAnimation(toggleAnimationTrigger);
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
-  public hub: Slices<Hub>;
+  public hub: Units<Hub>;
   private user: User;
   private unsubscribe$: Subject<void>;
   private isVisible: BehaviorSubject<boolean>;
@@ -55,7 +55,7 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   ) {}
 
   public ngOnInit(): void {
-    this.hub = hub;
+    this.hub = getRegisteredUnits<Hub>();
     this.isVisible = new BehaviorSubject<boolean>(true);
     this.unsubscribe$ = new Subject<void>();
 

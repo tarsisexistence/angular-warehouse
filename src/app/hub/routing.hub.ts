@@ -1,5 +1,4 @@
-import { getHubSlices, Slices } from 'routeshub';
-import { AppNotes } from './hub/app.notes';
+import { AppNotes } from './app.notes';
 import { HomeNotes } from '-home/hub/home.notes';
 import { LocationNotes } from '-location/hub/location.notes';
 import { ShopNotes } from '-shop/hub/shop.notes';
@@ -12,5 +11,3 @@ export interface Hub {
   shop: ShopNotes;
   userCenter: UserCenterNotes;
 }
-
-export const hub: Slices<Hub> = getHubSlices<Hub>();

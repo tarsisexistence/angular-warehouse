@@ -7,7 +7,7 @@ import { EffectsModule } from '@ngrx/effects';
 
 import { shopEffects, shopReducers, States } from '+store';
 import { SharedModule } from '+shared/shared.module';
-import { shopRouting } from './hub/shop.routes';
+import { ShopHub } from './hub/shop.hub';
 import { ShopComponent } from './containers/shop/shop.component';
 import { ShopBarComponent } from './components/shop-bar/shop-bar.component';
 import { ShopApparelsComponent } from './components/shop-apparels/shop-apparels.component';
@@ -19,7 +19,7 @@ import { ShopCartBubbleComponent } from './components/shop-cart-bubble/shop-cart
   imports: [
     CommonModule,
     RouterModule,
-    shopRouting,
+    ShopHub,
     SharedModule,
     StoreModule.forFeature(States.Shop, shopReducers),
     EffectsModule.forFeature(shopEffects)

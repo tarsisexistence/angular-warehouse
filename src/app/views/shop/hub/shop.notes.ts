@@ -5,4 +5,4 @@ export interface ShopNotes extends Root {
   category: Note;
 }
 
-export const SHOP_HUB_KEY = Symbol();
+export const SHOP_UNIT_KEY = Symbol();

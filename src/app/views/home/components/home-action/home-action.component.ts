@@ -1,9 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
-import { Slice } from 'routeshub';
-
-import { ShopNotes } from '-shop/hub/shop.notes';
-import { shopSlice } from '-shop/hub/shop.routes';
+import { Secluded, Unit } from 'routeshub';
+import { SHOP_UNIT_KEY, ShopNotes } from '-shop/hub/shop.notes';
 
 @Component({
   selector: 'home-action',
@@ -12,9 +10,8 @@ import { shopSlice } from '-shop/hub/shop.routes';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeActionComponent implements OnInit {
-  public slice: Slice<ShopNotes>;
+  @Secluded(SHOP_UNIT_KEY)
+  public shopUnit: Unit<ShopNotes>;
 
-  public ngOnInit(): void {
-    this.slice = shopSlice;
-  }
+  public ngOnInit(): void {}
 }

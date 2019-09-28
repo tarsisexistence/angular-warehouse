@@ -9,4 +9,4 @@ export interface AppNotes {
   notFound: Note;
 }
 
-export const APP_HUB_KEY = Symbol();
+export const APP_UNIT_KEY = Symbol();

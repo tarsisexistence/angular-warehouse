@@ -1,10 +1,8 @@
 import { Routes } from '@angular/router';
 
-import { CartComponent } from 'app/views/cart/containers/cart/cart.component';
-import { createRoot, Slice } from 'routeshub';
-import { APP_HUB_KEY, AppNotes } from './app.notes';
+import { CartComponent } from '-cart/containers/cart/cart.component';
 
-export const routes: Routes = [
+export const appRoutes: Routes = [
   {
     path: '',
     pathMatch: 'full',
@@ -37,9 +35,3 @@ export const routes: Routes = [
     redirectTo: ''
   }
 ];
-
-export const appSlice: Slice<AppNotes> = createRoot<AppNotes>(
-  routes,
-  { root: 'home', wildcard: 'notFound' },
-  APP_HUB_KEY
-);

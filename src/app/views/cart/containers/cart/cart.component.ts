@@ -7,7 +7,7 @@ import {
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 
-import { Slice, Sliced } from 'routeshub';
+import { Secluded, Unit } from 'routeshub';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
@@ -19,7 +19,7 @@ import { Apparel } from '-shop/shared/interfaces/apparel.interface';
 // tslint:disable-next-line:max-line-length
 import { CartState, getCartApparel } from '+store/selectors/cart.selectors';
 import { ClearApparel, RemoveApparel } from '+store/actions';
-import { APP_HUB_KEY, AppNotes } from '-routing/hub/app.notes';
+import { APP_UNIT_KEY, AppNotes } from '~app/hub/app.notes';
 
 @Component({
   selector: 'cart-feat',
@@ -30,8 +30,9 @@ import { APP_HUB_KEY, AppNotes } from '-routing/hub/app.notes';
 export class CartComponent implements OnInit, OnDestroy {
   public cartApparels: Apparel[];
   public subtotal: number;
-  @Sliced(APP_HUB_KEY)
-  private app: Slice<AppNotes>;
+
+  @Secluded(APP_UNIT_KEY)
+  private app: Unit<AppNotes>;
   private unsubscribe$: Subject<boolean>;
 
   private static calcSubtotal(apparels: Apparel[]): number {

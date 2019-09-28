@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
-import { Slice, Sliced } from 'routeshub';
-import { SHOP_HUB_KEY, ShopNotes } from '-shop/hub/shop.notes';
+import { Secluded, Unit } from 'routeshub';
+import { SHOP_UNIT_KEY, ShopNotes } from '-shop/hub/shop.notes';
 
 @Component({
   selector: 'shop-bar',
@@ -12,8 +12,8 @@ import { SHOP_HUB_KEY, ShopNotes } from '-shop/hub/shop.notes';
 export class ShopBarComponent {
   @Input() public categories: string[];
 
-  @Sliced(SHOP_HUB_KEY)
-  public slice: Slice<ShopNotes>;
+  @Secluded(SHOP_UNIT_KEY)
+  public shopUnit: Unit<ShopNotes>;
 
   public identify(index: number): number {
     return index;

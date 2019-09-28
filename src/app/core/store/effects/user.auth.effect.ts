@@ -11,6 +11,7 @@ import {
   switchMap,
   tap
 } from 'rxjs/operators';
+import { Secluded, Unit } from 'routeshub';
 
 import { AuthService } from '-core/services/auth.service';
 import {
@@ -35,10 +36,13 @@ import {
   SignUpSuccess
 } from '+store/actions/user.auth.action';
 import { Go } from '+store/actions/router.action';
-import { appSlice } from '-routing/hub/app.routes';
+import { APP_UNIT_KEY, AppNotes } from '~app/hub/app.notes';
 
 @Injectable({ providedIn: 'root' })
 export class UserEffect {
+  @Secluded(APP_UNIT_KEY)
+  private appUnit: Unit<AppNotes>;
+
   @Effect()
   public signUp$ = this.actions$.pipe(
     ofType<SignUp>(AuthActionTypes.SignUp),
@@ -109,7 +113,7 @@ export class UserEffect {
   public signOut$ = this.actions$.pipe(
     ofType(AuthActionTypes.SignOut, AuthActionTypes.Redirect),
     tap(() => AuthService.removeStorageUser()),
-    tap(() => this.router.navigate(appSlice.home.state))
+    tap(() => this.router.navigate(this.appUnit.home.state))
   );
 
   constructor(

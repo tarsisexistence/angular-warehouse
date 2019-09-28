@@ -2,7 +2,7 @@
 
   <ng-container *ngFor="let category of categories; trackBy: identify">
     <a class="bar__category"
-       [navLink]="slice.category.state"
+       [navLink]="shopUnit.category.state"
        [navParams]="{ category: category.toLowerCase() }"
        navLinkActive="active"
     >

@@ -3,7 +3,7 @@ import { enableProdMode, NgModuleRef } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
 import { environment } from 'env/environment';
-import { bootstrapWithHmr } from 'main/main.hmr';
+import { bootstrapWithHmr } from './main.hmr';
 import { setupNgProfiler } from 'helpers/profiler';
 import { AppModule } from 'app/app.module';
 

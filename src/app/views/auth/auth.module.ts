@@ -17,7 +17,6 @@ import { AuthComponent } from './containers/auth/auth.component';
     StoreModule.forFeature(States.Auth, authReducers),
     EffectsModule.forFeature(authEffects)
   ],
-  declarations: [AuthComponent, SignUpComponent, SignInComponent],
-  entryComponents: [AuthComponent]
+  declarations: [AuthComponent, SignUpComponent, SignInComponent]
 })
 export class AuthModule {}

@@ -20,7 +20,6 @@ const sharedModules = [ReactiveFormsModule, MaterialModule, NavigationModule];
     PaymentComponent,
     NumericOnlyDirective,
     StringOnlyDirective
-  ],
-  entryComponents: [InfoComponent, PaymentComponent]
+  ]
 })
 export class SharedModule {}

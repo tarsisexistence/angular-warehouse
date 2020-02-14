@@ -7,7 +7,7 @@ import {
   OnInit
 } from '@angular/core';
 import { Router } from '@angular/router';
-import { MatDialog } from '@angular/material';
+import { MatDialog } from '@angular/material/dialog';
 
 import { forwardParams, getRegisteredUnits, Units } from 'routeshub';
 import { BehaviorSubject, fromEvent, Subject } from 'rxjs';

@@ -1,11 +1,9 @@
 import { NgModule } from '@angular/core';
-import {
-  MatButtonModule,
-  MatDialogModule,
-  MatIconModule,
-  MatInputModule,
-  MatTooltipModule
-} from '@angular/material';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 const modules = [
   MatIconModule,

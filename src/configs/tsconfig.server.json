@@ -4,8 +4,15 @@
     "outDir": "../../out-tsc/app",
     "baseUrl": "../",
     "module": "commonjs",
-    "types": []
+    "types": [],
+    "typeRoots": [
+      "../typings"
+    ]
   },
+  "files": [
+    "../app/app.server.module.ts",
+    "../main/main.server.ts"
+  ],
   "exclude": [
     "../test/test.ts",
     "../**/*.spec.ts"

@@ -3,16 +3,19 @@
   "compilerOptions": {
     "outDir": "../../out-tsc/spec",
     "baseUrl": "../",
-    "module": "commonjs",
     "target": "es5",
     "types": [
       "jasmine",
       "node"
+    ],
+    "typeRoots": [
+      "../typings"
     ]
   },
   "files": [
     "../test/test.ts",
-    "../helpers/polyfills.ts"
+    "../helpers/polyfills.ts",
+    "../app/shared/shared.testing.module.ts"
   ],
   "include": [
     "../**/*.spec.ts",

@@ -6,24 +6,26 @@ export const appRoutes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    loadChildren: 'home/home.module#HomeModule',
+    loadChildren: () => import('home/home.module').then((m) => m.HomeModule),
     data: { preload: true }
   },
   {
     path: 'shop',
     pathMatch: 'prefix',
-    loadChildren: 'shop/shop.module#ShopModule',
+    loadChildren: () => import('shop/shop.module').then((m) => m.ShopModule),
     runGuardsAndResolvers: 'paramsOrQueryParamsChange'
   },
   {
     path: 'location',
     pathMatch: 'prefix',
-    loadChildren: 'location/location.module#LocationModule'
+    loadChildren: () =>
+      import('location/location.module').then((m) => m.LocationModule)
   },
   {
     path: 'user-center',
     pathMatch: 'full',
-    loadChildren: 'user-center/user-center.module#UserCenterModule'
+    loadChildren: () =>
+      import('user-center/user-center.module').then((m) => m.UserCenterModule)
   },
   {
     path: 'cart',

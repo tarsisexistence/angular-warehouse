@@ -3,17 +3,23 @@
   "compilerOptions": {
     "outDir": "../../out-tsc/app",
     "baseUrl": "../",
-    "module": "es2015",
     "types": [
       "node",
       "googlemaps"
     ]
   },
+  "files": [
+    "../main/main.ts",
+    "../main/main.server.ts",
+    "../helpers/polyfills.ts",
+    "../app/app.server.module.ts",
+    "../app/shared/shared.testing.module.ts",
+    "../test/test.ts",
+    "../environments/environment.hmr.ts",
+    "../environments/environment.prod.ts",
+    "../environments/environment.ts"
+  ],
   "include": [
     "../**/*"
-  ],
-  "exclude": [
-    "../test/test.ts",
-    "../**/*.spec.ts"
   ]
 }

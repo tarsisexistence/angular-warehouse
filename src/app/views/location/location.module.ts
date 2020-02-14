@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
-import { SharedModule } from '+shared/shared.module';
+import { SharedModule } from 'shared/shared.module';
 import { MarkerDirective } from './shared/marker.directive';
 import { LocationHub } from './hub/location.hub';
 import { LocationComponent } from './containers/location/location.component';

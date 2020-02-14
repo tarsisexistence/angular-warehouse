@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { createFeature } from 'routeshub';
 
-import { userCenterRoutes } from '-user-center/hub/user-center.routes';
+import { userCenterRoutes } from 'user-center/hub/user-center.routes';
 import {
   UC_UNIT_KEY,
   UserCenterNotes
-} from '-user-center/hub/user-center.notes';
+} from 'user-center/hub/user-center.notes';
 
 export const userCenterConnector = createFeature<UserCenterNotes>(
   userCenterRoutes,

@@ -1,7 +1,7 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 
-import { States } from '+store/states';
-import * as fromCartReducer from '+store/reducers/apparel.cart.reducer';
+import { States } from 'store/states';
+import * as fromCartReducer from 'store/reducers/apparel.cart.reducer';
 
 export interface CartState {
   apparels: fromCartReducer.CartApparelState;

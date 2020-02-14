@@ -10,11 +10,11 @@ import { BehaviorSubject, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 
-import * as fromStore from '+store';
-import { Apparel } from '-shop/shared/interfaces/apparel.interface';
-import { Apparels } from '-shop/shared/models/apparels.model';
-import { categories } from '-shop/shared/models/categories.model';
-import { mixArray } from '-shop/shared/functions/mix-array.function';
+import * as fromStore from 'store';
+import { Apparel } from 'shop/shared/interfaces/apparel.interface';
+import { Apparels } from 'shop/shared/models/apparels.model';
+import { categories } from 'shop/shared/models/categories.model';
+import { mixArray } from 'shop/shared/functions/mix-array.function';
 
 @Component({
   selector: 'shop-feat',

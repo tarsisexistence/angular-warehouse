@@ -1,7 +1,7 @@
 import { Action } from '@ngrx/store';
 
-import { Apparel } from '-shop/shared/interfaces/apparel.interface';
-import { CartApparel } from '-shop/shared/interfaces/cart-apparel.interface';
+import { Apparel } from 'shop/shared/interfaces/apparel.interface';
+import { CartApparel } from 'shop/shared/interfaces/cart-apparel.interface';
 
 export enum ApparelCartActionTypes {
   AddApparel = '[Cart - Apparel] Add',

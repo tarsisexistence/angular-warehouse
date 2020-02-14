@@ -1,9 +1,9 @@
-import * as ApparelCartActions from '+store/actions/apparel.cart.action';
+import * as ApparelCartActions from 'store/actions/apparel.cart.action';
 import {
   CartApparel,
   CartApparelEntities
-} from '-shop/shared/interfaces/cart-apparel.interface';
-import { Apparel } from '-shop/shared/interfaces/apparel.interface';
+} from 'shop/shared/interfaces/cart-apparel.interface';
+import { Apparel } from 'shop/shared/interfaces/apparel.interface';
 
 export interface CartApparelState {
   entities: CartApparelEntities;

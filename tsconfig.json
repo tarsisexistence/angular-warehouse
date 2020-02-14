@@ -22,72 +22,63 @@
       "routeshub-lib": [
         "../dist/routeshub/esm2015/routeshub"
       ],
-      "~app/*": [
-        "app/*"
-      ],
-      "~assets/*": [
+      "assets/*": [
         "assets/*"
       ],
-      "~env/*": [
+      "env/*": [
         "environments/*"
       ],
-      "~helpers/*": [
+      "helpers/*": [
         "helpers/*"
       ],
-      "~main/*": [
+      "main/*": [
         "main/*"
       ],
-      "~test/*": [
+      "test/*": [
         "test/*"
       ],
-      "+shared/*": [
+      "hub/*": [
+        "app/hub/*"
+      ],
+      "shared/*": [
         "app/shared/*"
       ],
-      "-core/*": [
+      "core/*": [
         "app/core/*"
       ],
-      "-routing/*": [
+      "routing/*": [
         "app/routing/*"
       ],
-      "+material/*": [
+      "material/*": [
         "app/shared/material/*"
       ],
-      "+apollo/*": [
+      "apollo/*": [
         "app/core/apollo/*"
       ],
-      "+store": [
+      "store": [
         "app/core/store"
       ],
-      "+store/*": [
+      "store/*": [
         "app/core/store/*"
       ],
-      "-auth/*": [
+      "auth/*": [
         "app/views/auth/*"
       ],
-      "-cart/*": [
+      "cart/*": [
         "app/views/cart/*"
       ],
-      "-home/*": [
+      "home/*": [
         "app/views/home/*"
       ],
-      "-shop/*": [
+      "shop/*": [
         "app/views/shop/*"
       ],
-      "-location/*": [
+      "location/*": [
         "app/views/location/*"
       ],
-      "-user-center/*": [
+      "user-center/*": [
         "app/views/user-center/*"
       ]
     }
   }
 }
-
-/**
- Imports:
- '' <> 3-rd party
- @  <> 3-rd party
- +  <> external / shared resources
- -  <> modules
- ~  <> main
-*/

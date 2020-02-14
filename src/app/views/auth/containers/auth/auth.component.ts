@@ -10,12 +10,12 @@ import { BehaviorSubject, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 
-import * as fromStore from '+store';
+import * as fromStore from 'store';
 import {
   Access,
   CatchPhraseConfig,
   User
-} from '-core/shared/interfaces/user.interface';
+} from 'core/shared/interfaces/user.interface';
 
 @Component({
   selector: 'auth-feat',

@@ -2,13 +2,13 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { connectFeatures, createRoot } from 'routeshub';
 
-import { APP_UNIT_KEY, AppNotes } from './app.notes';
+import { shopConnector } from 'shop/hub/shop.hub';
+import { userCenterConnector } from 'user-center/hub/user-center.hub';
+import { locationConnector } from 'location/hub/location.hub';
+import { homeConnector } from 'home/hub/home.hub';
+import { CustomPreloadingStrategy } from 'hub/preloading';
 import { appRoutes } from './app.routes';
-import { shopConnector } from '-shop/hub/shop.hub';
-import { userCenterConnector } from '-user-center/hub/user-center.hub';
-import { CustomPreloadingStrategy } from '~app/hub/preloading';
-import { locationConnector } from '-location/hub/location.hub';
-import { homeConnector } from '-home/hub/home.hub';
+import { APP_UNIT_KEY, AppNotes } from './app.notes';
 
 createRoot<AppNotes>(appRoutes, {
   key: APP_UNIT_KEY,

@@ -5,8 +5,8 @@ import { RouterModule } from '@angular/router';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
-import { shopEffects, shopReducers, States } from '+store';
-import { SharedModule } from '+shared/shared.module';
+import { shopEffects, shopReducers, States } from 'store';
+import { SharedModule } from 'shared/shared.module';
 import { ShopHub } from './hub/shop.hub';
 import { ShopComponent } from './containers/shop/shop.component';
 import { ShopBarComponent } from './components/shop-bar/shop-bar.component';

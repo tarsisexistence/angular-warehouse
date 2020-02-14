@@ -5,9 +5,10 @@ import {
   RouterStateSerializer,
   StoreRouterConnectingModule
 } from '@ngrx/router-store';
-import { CustomSerializer } from '+store';
+
+import { CustomSerializer } from 'store';
 import { CustomPreloadingStrategy } from './preloading';
-import { AppHub } from '~app/hub/app.hub';
+import { AppHub } from 'hub/app.hub';
 
 @NgModule({
   imports: [AppHub],

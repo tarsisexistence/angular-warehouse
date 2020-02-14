@@ -4,7 +4,7 @@ import { Apollo } from 'apollo-angular';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { MyApolloModule } from '+apollo/apollo.module';
+import { MyApolloModule } from 'apollo/apollo.module';
 import {
   addOrder,
   allApparel,
@@ -13,14 +13,14 @@ import {
   signIn,
   signUp,
   user
-} from '+apollo/queries';
-import { Order } from '-core/shared/interfaces/order.interface';
+} from 'apollo/queries';
+import { Order } from 'core/shared/interfaces/order.interface';
 import {
   Access,
   CatchPhraseConfig,
   User
-} from '-core/shared/interfaces/user.interface';
-import { Apparel } from '-shop/shared/interfaces/apparel.interface';
+} from 'core/shared/interfaces/user.interface';
+import { Apparel } from 'shop/shared/interfaces/apparel.interface';
 
 @Injectable({ providedIn: MyApolloModule })
 export class ApolloService {

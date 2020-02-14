@@ -7,9 +7,9 @@ import {
 
 import { Store } from '@ngrx/store';
 
-import * as fromStore from '+store';
-import { AuthService } from '-core/services/auth.service';
-import { StorageUser } from '-core/shared/interfaces/user.interface';
+import * as fromStore from 'store';
+import { AuthService } from 'core/services/auth.service';
+import { StorageUser } from 'core/shared/interfaces/user.interface';
 import { NgPerfume, PerfumeAfterViewInit } from 'perfume.js/angular';
 
 @Component({

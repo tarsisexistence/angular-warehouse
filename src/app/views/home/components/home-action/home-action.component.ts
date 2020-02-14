@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 import { Secluded, Unit } from 'routeshub';
-import { SHOP_UNIT_KEY, ShopNotes } from '-shop/hub/shop.notes';
+import { SHOP_UNIT_KEY, ShopNotes } from 'shop/hub/shop.notes';
 
 @Component({
   selector: 'home-action',

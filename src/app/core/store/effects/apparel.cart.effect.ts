@@ -4,7 +4,7 @@ import { Actions, Effect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { catchError, finalize, map, switchMap } from 'rxjs/operators';
 
-import { CartService } from '-core/services/cart.service';
+import { CartService } from 'core/services/cart.service';
 import {
   AddApparel,
   AddApparelFailure,
@@ -19,9 +19,9 @@ import {
   RemoveApparel,
   RemoveApparelFailure,
   RemoveApparelSuccess
-} from '+store/actions/apparel.cart.action';
-import { CartApparel } from '-shop/shared/interfaces/cart-apparel.interface';
-import { Apparel } from '-shop/shared/interfaces/apparel.interface';
+} from 'store/actions/apparel.cart.action';
+import { CartApparel } from 'shop/shared/interfaces/cart-apparel.interface';
+import { Apparel } from 'shop/shared/interfaces/apparel.interface';
 
 @Injectable({ providedIn: 'root' })
 export class CartEffect {

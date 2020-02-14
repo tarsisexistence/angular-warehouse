@@ -5,9 +5,9 @@ import {
 } from '@angular/platform-browser';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
-import { environment } from '~env/environment';
-import { AppComponent } from '~app/app.component';
-import { CoreModule } from '-core/core.module';
+import { environment } from 'env/environment';
+import { AppComponent } from 'app/app.component';
+import { CoreModule } from 'core/core.module';
 
 @NgModule({
   imports: [

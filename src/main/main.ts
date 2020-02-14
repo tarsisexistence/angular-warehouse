@@ -1,11 +1,11 @@
 import 'hammerjs';
 import { enableProdMode, NgModuleRef } from '@angular/core';
-
-import { environment } from '~env/environment';
-import { bootstrapWithHmr } from '~main/main.hmr';
-import { setupNgProfiler } from '~helpers/profiler';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { AppModule } from '~app/app.module';
+
+import { environment } from 'env/environment';
+import { bootstrapWithHmr } from 'main/main.hmr';
+import { setupNgProfiler } from 'helpers/profiler';
+import { AppModule } from 'app/app.module';
 
 if (environment.production) {
   window.console.log = () => {};

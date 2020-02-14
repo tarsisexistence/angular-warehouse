@@ -6,7 +6,7 @@ import {
   trigger
 } from '@angular/animations';
 
-import { visibility } from '-core/shared/constants/visibility';
+import { visibility } from 'core/shared/constants/visibility';
 
 export function getToggleAnimation(type: string): any {
   return trigger(type, [

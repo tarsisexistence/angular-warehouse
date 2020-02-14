@@ -1,7 +1,7 @@
 import { transition, trigger, useAnimation } from '@angular/animations';
 
-import { slideInAnimation } from '-shop/shared/animations/slide-in.animation';
-import { slideOutAnimation } from '-shop/shared/animations/slide-out.animation';
+import { slideInAnimation } from 'shop/shared/animations/slide-in.animation';
+import { slideOutAnimation } from 'shop/shared/animations/slide-out.animation';
 
 export const visibilityChange = trigger('visibilityChange', [
   transition(':enter', [

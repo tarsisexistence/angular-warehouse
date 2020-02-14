@@ -4,8 +4,8 @@ import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
-import { authEffects, authReducers, States } from '+store';
-import { SharedModule } from '+shared/shared.module';
+import { authEffects, authReducers, States } from 'store';
+import { SharedModule } from 'shared/shared.module';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { AuthComponent } from './containers/auth/auth.component';

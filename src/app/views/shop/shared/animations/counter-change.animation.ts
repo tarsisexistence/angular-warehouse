@@ -1,6 +1,6 @@
 import { transition, trigger, useAnimation } from '@angular/animations';
 
-import { pulseAnimation } from '-shop/shared/animations/pulse.animation';
+import { pulseAnimation } from 'shop/shared/animations/pulse.animation';
 
 export const counterChange = trigger('counterChange', [
   transition(

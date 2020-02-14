@@ -1,7 +1,7 @@
 import { Directive, Input } from '@angular/core';
 
-import { MapService } from '-location/shared/map.service';
-import { OnChange } from '+shared/decorators/onChange.decorator';
+import { MapService } from 'location/shared/map.service';
+import { OnChange } from 'shared/decorators/onChange.decorator';
 
 @Directive({
   selector: '[googleMapMarker]'

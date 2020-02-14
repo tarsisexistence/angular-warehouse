@@ -6,8 +6,8 @@ import {
   OnInit
 } from '@angular/core';
 
-import { MapService } from '-location/shared/map.service';
-import { OnChange } from '+shared/decorators/onChange.decorator';
+import { MapService } from 'location/shared/map.service';
+import { OnChange } from 'shared/decorators/onChange.decorator';
 
 @Component({
   selector: 'location-map',

@@ -4,14 +4,14 @@ import { Actions, Effect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { catchError, exhaustMap, map, take } from 'rxjs/operators';
 
-import { ApolloService } from '+apollo/apollo.service';
+import { ApolloService } from 'apollo/apollo.service';
 import {
   ApparelShopActionTypes,
   LoadApparel,
   LoadApparelFailure,
   LoadApparelSuccess
-} from '+store/actions/apparel.shop.action';
-import { Apparel } from '-shop/shared/interfaces/apparel.interface';
+} from 'store/actions/apparel.shop.action';
+import { Apparel } from 'shop/shared/interfaces/apparel.interface';
 
 @Injectable({ providedIn: 'root' })
 export class ApparelEffect {

@@ -12,14 +12,13 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 
-import { ApolloService } from '+apollo/apollo.service';
-import { PaymentComponent } from '+shared/dialogs/payment/payment.component';
-import { Order } from '-core/shared/interfaces/order.interface';
-import { Apparel } from '-shop/shared/interfaces/apparel.interface';
-// tslint:disable-next-line:max-line-length
-import { CartState, getCartApparel } from '+store/selectors/cart.selectors';
-import { ClearApparel, RemoveApparel } from '+store/actions';
-import { APP_UNIT_KEY, AppNotes } from '~app/hub/app.notes';
+import { ApolloService } from 'apollo/apollo.service';
+import { CartState, getCartApparel } from 'store/selectors/cart.selectors';
+import { ClearApparel, RemoveApparel } from 'store/actions';
+import { PaymentComponent } from 'shared/dialogs/payment/payment.component';
+import { Order } from 'core/shared/interfaces/order.interface';
+import { Apparel } from 'shop/shared/interfaces/apparel.interface';
+import { APP_UNIT_KEY, AppNotes } from 'hub/app.notes';
 
 @Component({
   selector: 'cart-feat',

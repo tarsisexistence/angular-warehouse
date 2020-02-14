@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material';
 
-import { ShopRules } from '-core/shared/interfaces/shop-rules.interface';
+import { ShopRules } from 'core/shared/interfaces/shop-rules.interface';
 
 @Component({
   selector: 'app-info-dialog',

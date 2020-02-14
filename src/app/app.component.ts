@@ -1,16 +1,10 @@
-import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  Component,
-  OnInit
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 import { Store } from '@ngrx/store';
 
 import * as fromStore from 'store';
 import { AuthService } from 'core/services/auth.service';
 import { StorageUser } from 'core/shared/interfaces/user.interface';
-import { NgPerfume, PerfumeAfterViewInit } from 'perfume.js/angular';
 
 @Component({
   selector: 'app-root',
@@ -28,12 +22,8 @@ import { NgPerfume, PerfumeAfterViewInit } from 'perfume.js/angular';
     `
   ]
 })
-@PerfumeAfterViewInit('AppComponent')
-export class AppComponent implements OnInit, AfterViewInit {
-  constructor(
-    private readonly store: Store<fromStore.ShopState>,
-    private readonly perfume: NgPerfume
-  ) {}
+export class AppComponent implements OnInit {
+  constructor(private readonly store: Store<fromStore.ShopState>) {}
 
   public ngOnInit(): void {
     const user: StorageUser = AuthService.fetchStorageUser();
@@ -44,6 +34,4 @@ export class AppComponent implements OnInit, AfterViewInit {
 
     this.store.dispatch(new fromStore.FetchApparel());
   }
-
-  public ngAfterViewInit(): void {}
 }

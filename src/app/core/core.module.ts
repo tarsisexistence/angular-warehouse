@@ -7,7 +7,6 @@ import { MetaReducer, StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { storeFreeze } from 'ngrx-store-freeze';
-import { PerfumeModule } from 'perfume.js/angular';
 
 import { environment } from 'env/environment';
 import { RoutingModule } from 'hub/routing.module';
@@ -24,11 +23,6 @@ export const metaReducers: MetaReducer<any>[] = !environment.production
   ? [storeFreeze]
   : [];
 
-export const perfumeConfig = {
-  firstContentfulPaint: true,
-  firstInputDelay: true
-};
-
 @NgModule({
   imports: [
     BrowserAnimationsModule,
@@ -40,7 +34,6 @@ export const perfumeConfig = {
       name: 'Concept Store Platform',
       logOnly: !environment.production
     }),
-    PerfumeModule.forRoot(perfumeConfig),
     RoutingModule,
     MyApolloModule,
     SharedModule,

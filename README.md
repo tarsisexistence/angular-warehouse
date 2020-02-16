@@ -36,7 +36,7 @@ Concept Store Platform - Online store as a platform for consumers who loves conc
 - Preloading Strategy
 - Progressive Web Application (Service Worker)
 - Project Structure
-- Routes Hub
+- Route management (routeshub)
 - SCSS
 - Server Side Rendering (Universal)
 - Scripts, analyzers, explorers, linters, hooks etc

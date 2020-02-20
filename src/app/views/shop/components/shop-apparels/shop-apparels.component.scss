@@ -6,7 +6,7 @@
 .apparels {
   &__apparel {
     position: relative;
-    height: 250px;
+    height: 350px;
     width: calc(100% / 3);
     display: flex;
     align-items: center;
@@ -14,8 +14,8 @@
   }
 
   &__image {
-    width: 150px;
-    height: 225px;
+    max-width: 225px;
+    max-height: 225px;
   }
 
   &__name {

@@ -5,12 +5,12 @@
     "dev": "babel-watch src"
   },
   "dependencies": {
-    "apollo-server-express": "2.0.6",
+    "apollo-server-express": "2.10.1",
     "cors": "2.8.4",
     "crypto": "1.0.1",
     "express": "4.17.1",
     "graphql": "14.0.2",
-    "graphql-tools": "4.0.3",
+    "graphql-tools": "4.0.7",
     "mongoose": "5.7.5",
     "uuid": "3.4.0"
   },

@@ -11,13 +11,11 @@ export const apparelResolver = {
     // }
   },
   Mutation: {
-    addApparel: (root, { title, color, attribute, description, price, image, type }) => {
+    addApparel: (root, { title, collection, colors, price, image, type }) => {
       const apparel = new apparelModel({
         title,
-        attribute,
-        color,
-
-        description,
+        collection,
+        colors,
         price,
         image,
         type

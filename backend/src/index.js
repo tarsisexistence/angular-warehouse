@@ -2,8 +2,9 @@ import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import server from './apollo-server';
+import db from '../secret/db';
 
-const databasePath = 'mongodb://localhost:27017/conceptStorePlatform';
+const databasePath = `mongodb+srv://${db.username}:${db.password}@cluster0-rtasa.gcp.mongodb.net/CSP`;
 const graphqlPath = '/graphql';
 const port = 4000;
 
@@ -15,7 +16,14 @@ app.listen({ port }, () =>
 
 server.applyMiddleware({ app, path: graphqlPath });
 
-mongoose.connect(databasePath).catch(console.error);
+mongoose
+  .connect(databasePath, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true
+  })
+  .catch(console.error);
+
 mongoose.connection.once('open', () => {
   console.log('mongodb database connection established successfully');
 });

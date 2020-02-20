@@ -1,0 +1,62 @@
+[
+  {
+    "type": "accessories",
+    "collection": "FW17-18",
+    "colors": [
+      "Black"
+    ],
+    "title": "Winter Hat",
+    "price": 19.99,
+    "image": "https://static1.squarespace.com/static/590f23022994cac296d0b74a/592527f937c581ebeda537a8/59df90acd55b41672e731f23/1507823979476/DSC_0003.jpg?format=1500w"
+  },
+  {
+    "type": "accessories",
+    "collection": "FW17-18",
+    "colors": [
+      "Blue"
+    ],
+    "title": "Winter Hat",
+    "price": 19.99,
+    "image": "https://static1.squarespace.com/static/590f23022994cac296d0b74a/592527f937c581ebeda537a8/59df90acd55b41672e731f23/1507823979476/DSC_0003.jpg?format=1500w"
+  },
+  {
+    "type": "sneakers",
+    "collection": "SS17",
+    "colors": [
+      "Black"
+    ],
+    "title": "Angularity High",
+    "price": 200.00,
+    "image": "https://static1.squarespace.com/static/590f23022994cac296d0b74a/592527f937c581ebeda537a8/59e3714bb1ffb6cc78da2c3d/1524490166390/DSC_0119.jpg?format=1500w"
+  },
+  {
+    "type": "tShirts",
+    "collection": "SS17",
+    "colors": [
+      "Black"
+    ],
+    "title": "Error 1312",
+    "price": 40.00,
+    "image": "https://static1.squarespace.com/static/590f23022994cac296d0b74a/592527f937c581ebeda537a8/5ad3c8670e2e7224de42cf1c/1523828851914/DSC_1495.jpg?format=1500w"
+  },
+  {
+    "type": "tShirts",
+    "collection": "AW17",
+    "colors": [
+      "Red, Black"
+    ],
+    "title": "Martian Camo",
+    "price": 39.99,
+    "image": "https://static1.squarespace.com/static/590f23022994cac296d0b74a/592527f937c581ebeda537a8/59c14138268b969d6e7edfe0/1506077364998/DSC_7901.jpg?format=1500w"
+  },
+  {
+    "type": "tShirts",
+    "collection": "AW16",
+    "colors": [
+      "White"
+    ],
+    "title": "Liberty",
+    "price": 19.99,
+    "image": "https://static1.squarespace.com/static/590f23022994cac296d0b74a/592527f937c581ebeda537a8/59bc0217e9bfdf77aeec9fcf/1507461970963/DSC_5358.jpg?format=1500w"
+  }
+]

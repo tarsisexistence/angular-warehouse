@@ -8,24 +8,20 @@ export default gql`
 
   extend type Mutation {
     addApparel(
-      title: String!,
-      attribute: String!,
-      color: String!,
-      description: String,
-      price: Float!,
-      image: String,
       type: String!
+      title: String!
+      colors: [String]
+      price: Float!
+      image: String
     ): Apparel
   }
 
   type Apparel {
     id: String
+    type: String
     title: String
-    attribute: String
-    color: String
-    description: String
+    colors: [String]
     price: Float
     image: String
-    type: String
   }
 `;

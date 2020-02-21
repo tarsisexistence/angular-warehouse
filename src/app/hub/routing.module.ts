@@ -11,7 +11,7 @@ import { CustomPreloadingStrategy } from './preloading';
 import { AppHub } from 'hub/app.hub';
 
 @NgModule({
-  imports: [AppHub],
+  imports: [AppHub, StoreRouterConnectingModule.forRoot()],
   exports: [RouterModule, StoreRouterConnectingModule],
   providers: [
     CustomPreloadingStrategy,

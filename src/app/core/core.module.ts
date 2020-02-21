@@ -3,10 +3,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
-import { MetaReducer, StoreModule } from '@ngrx/store';
+import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { storeFreeze } from 'ngrx-store-freeze';
 
 import { environment } from 'env/environment';
 import { RoutingModule } from 'hub/routing.module';
@@ -19,17 +18,13 @@ import { CartModule } from 'cart/cart.module';
 import { HeaderComponent } from 'core/components/header/header.component';
 import { FooterComponent } from 'core/components/footer/footer.component';
 
-export const metaReducers: MetaReducer<any>[] = !environment.production
-  ? [storeFreeze]
-  : [];
-
 @NgModule({
   imports: [
     BrowserAnimationsModule,
     CommonModule,
     HttpClientModule,
     EffectsModule.forRoot(routerEffects),
-    StoreModule.forRoot(reducers, { metaReducers }),
+    StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument({
       name: 'Concept Store Platform',
       logOnly: !environment.production

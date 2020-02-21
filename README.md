@@ -19,7 +19,6 @@ Concept Store Platform - Online store as a platform for consumers who loves conc
 - NodeJS
 - Express
 - MongoDB
-- Ravenjs
 - Compodoc
 - GoogleMaps
 

@@ -5,7 +5,6 @@ export const allApparel = gql`
     allApparel {
       id
       title
-      collection
       colors
       price
       image

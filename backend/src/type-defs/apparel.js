@@ -10,7 +10,6 @@ export default gql`
     addApparel(
       type: String!
       title: String!
-      collection: String!
       colors: [String]
       price: Float!
       image: String
@@ -20,9 +19,8 @@ export default gql`
   type Apparel {
     id: String
     type: String
-    collection: String
-    colors: [String]
     title: String
+    colors: [String]
     price: Float
     image: String
   }

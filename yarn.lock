@@ -1995,13 +1995,13 @@ apache-md5@^1.0.6:
   resolved "https://registry.yarnpkg.com/apache-md5/-/apache-md5-1.1.5.tgz#5d6365ece2ccc32b612f886b2b292e1c96ff3ffb"
   integrity sha512-sbLEIMQrkV7RkIruqTPXxeCMkAAycv4yzTkBzRgOR1BrR5UB7qZtupqxkersTJSf0HZ3sbaNRrNV80TnnM7cUw==
 
-apollo-angular-boost@1.8.0-alpha.0:
-  version "1.8.0-alpha.0"
-  resolved "https://registry.yarnpkg.com/apollo-angular-boost/-/apollo-angular-boost-1.8.0-alpha.0.tgz#3158ea7f08262529ef86ff25eed9949f5282b249"
-  integrity sha512-cvaYdlzjutHt1aBiXoOk8WjNpmG1His2mnH4LkXOQoeo0KsYD2wUCRzlIYBcuoUL0YfrwIgWqBSwMU9kvCarPA==
+apollo-angular-boost@1.8.0:
+  version "1.8.0"
+  resolved "https://registry.yarnpkg.com/apollo-angular-boost/-/apollo-angular-boost-1.8.0.tgz#a9b2081bb2c4f1bd8af99a89df5205c9dbb32120"
+  integrity sha512-o6BbiIfG9G+HkbF5np8omVnjedWPIbhVkqTFcykrPXPc8prL9QH8YVtQCsFH/cqyGX/gzyGC2K3wY6ajZlOwgg==
   dependencies:
-    apollo-angular "~1.9.0-alpha.0"
-    apollo-angular-link-http "~1.10.0-alpha.0"
+    apollo-angular "~1.9.0"
+    apollo-angular-link-http "~1.10.0"
     apollo-cache-inmemory "~1.6.0"
     apollo-client "^2.6.0"
     apollo-link "~1.2.2"
@@ -2010,26 +2010,26 @@ apollo-angular-boost@1.8.0-alpha.0:
     graphql-tag "~2.10.0"
     tslib "^1.11.0"
 
-apollo-angular-link-http-common@~1.9.0-alpha.0:
-  version "1.9.0-alpha.0"
-  resolved "https://registry.yarnpkg.com/apollo-angular-link-http-common/-/apollo-angular-link-http-common-1.9.0-alpha.0.tgz#48a5dccfcd172e3693c3b9ec38cb014243755653"
-  integrity sha512-HNwsHWWcXyGtNUHTTu/o1LbSdaadAVFyvQMEWpSqmLNhqbcPxeqAaINLVelmuQyytomDWOSctJCCcdOsoZ+kkQ==
+apollo-angular-link-http-common@~1.9.0:
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/apollo-angular-link-http-common/-/apollo-angular-link-http-common-1.9.0.tgz#d3162509d73d6c3c070c6a69fa30ceec9d6a1179"
+  integrity sha512-71jtDYaWyADyVUhNmrWjamJG0ZA/Vcztjc9d8TO7Eea7puIxYlJjGc+u1wBNSdvhLosFCq40kv7BYIPohnGE0A==
   dependencies:
     tslib "^1.11.0"
 
-apollo-angular-link-http@~1.10.0-alpha.0:
-  version "1.10.0-alpha.0"
-  resolved "https://registry.yarnpkg.com/apollo-angular-link-http/-/apollo-angular-link-http-1.10.0-alpha.0.tgz#7e5c4dd7718c5f7ea3ba39828220a2c2b02b6bd5"
-  integrity sha512-TXlce3Gswy/K9Ozx2INXPc7A5+rOBYgwAgWLDzExw3I2pJxyFpbRt/4NuTC+V7bDoPPyBNsTXvoziPcF3JlrhA==
+apollo-angular-link-http@~1.10.0:
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/apollo-angular-link-http/-/apollo-angular-link-http-1.10.0.tgz#7d85cb63a805f163faab7a3617d572a5cdc83c72"
+  integrity sha512-psxo4QmjM0efw8m0gz4pbA/paXbyEvaj/0tw7T8HkyCqPZeQBBhQaahFtpHVfTyYdkDn5LwCZyhDDxO/IzjUzA==
   dependencies:
-    apollo-angular-link-http-common "~1.9.0-alpha.0"
+    apollo-angular-link-http-common "~1.9.0"
     extract-files "6.0.0"
     tslib "^1.11.0"
 
-apollo-angular@~1.9.0-alpha.0:
-  version "1.9.0-alpha.0"
-  resolved "https://registry.yarnpkg.com/apollo-angular/-/apollo-angular-1.9.0-alpha.0.tgz#fb3492b3e2fa7333e3ed8fda58a11a71c03b05f6"
-  integrity sha512-c+wtfz5PzFRtoJx+KVvG545+s/9tFYr723YKdEC8kkMzjvkS/SgZ3NgxA4wrErXCNFDBYXEDu39ttuEZUum4Aw==
+apollo-angular@~1.9.0:
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/apollo-angular/-/apollo-angular-1.9.0.tgz#e73deca81faa509b50ded555dd43b412c58b7906"
+  integrity sha512-QkfdrzGiuspv/Ho55kVbMAQ4EgtfBQKAlQHBNkv+596ioyKPHOXf1pmJFvybnJ2XcGroimL2SVxmjLhJPbnGIQ==
   dependencies:
     semver "^7.0.0"
     tslib "^1.11.0"

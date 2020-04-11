@@ -57,7 +57,7 @@
     "@ngrx/store": "8.6.0",
     "@ngrx/store-devtools": "8.6.0",
     "@nguniversal/module-map-ngfactory-loader": "9.0.0-next.9",
-    "apollo-angular-boost": "1.8.0-alpha.0",
+    "apollo-angular-boost": "1.8.0",
     "graphql": "14.6.0",
     "hammerjs": "2.0.8",
     "routeshub": "4.1.0",

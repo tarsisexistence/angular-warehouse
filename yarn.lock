@@ -9938,10 +9938,10 @@ rollup@2.1.0:
   optionalDependencies:
     fsevents "~2.1.2"
 
-routeshub@4.1.1:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/routeshub/-/routeshub-4.1.1.tgz#a5b6e3ea81f28b056a9843be1ccd106ee8d9be83"
-  integrity sha512-gU2nHFEmAJcB7bWopSpH8bGv1PzGf+rFyYktPdd5h60xItcEy+SCDUWZYQJCUuZ+TsdfmYBk7vXgU8kh1Whk6Q==
+routeshub@4.1.2:
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/routeshub/-/routeshub-4.1.2.tgz#db9f2a30b3243ab774edcf08d6cbd6b29616e410"
+  integrity sha512-rzNlfxFlsmZWFzhXoG7LHrjPZMGkU105SCLzzx/0EEOwlGzGbWgzq//7rKIeXfPYtV24f/qrnVw05Ecr8wg8VQ==
 
 run-async@^2.2.0, run-async@^2.4.0:
   version "2.4.0"

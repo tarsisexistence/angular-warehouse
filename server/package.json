@@ -11,7 +11,7 @@
     "crypto": "1.0.1",
     "express": "4.17.1",
     "graphql": "14.6.0",
-    "graphql-tools": "4.0.8",
+    "graphql-tools": "6.0.8",
     "mongoose": "5.9.16",
     "uuid": "8.1.0"
   },

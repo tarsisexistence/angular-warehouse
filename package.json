@@ -89,7 +89,7 @@
     "karma-jasmine-html-reporter": "1.5.3",
     "lint-staged": "10.2.6",
     "prettier": "2.0.5",
-    "protractor": "5.4.3",
+    "protractor": "7.0.0",
     "snyk": "1.330.3",
     "ts-node": "8.10.1",
     "tslint": "6.1.2",

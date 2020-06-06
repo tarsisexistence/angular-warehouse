@@ -86,7 +86,7 @@
     "karma-chrome-launcher": "2.2.0",
     "karma-coverage-istanbul-reporter": "2.1.1",
     "karma-jasmine": "3.3.1",
-    "karma-jasmine-html-reporter": "1.5.3",
+    "karma-jasmine-html-reporter": "1.5.4",
     "lint-staged": "10.2.9",
     "prettier": "2.0.5",
     "protractor": "7.0.0",

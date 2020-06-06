@@ -4,19 +4,11 @@ import {
   ServerTransferStateModule
 } from '@angular/platform-server';
 
-// tslint:disable-next-line:max-line-length
-import { ModuleMapLoaderModule } from '@nguniversal/module-map-ngfactory-loader';
-
 import { AppModule } from 'app/app.module';
 import { AppComponent } from 'app/app.component';
 
 @NgModule({
-  imports: [
-    AppModule,
-    ServerModule,
-    ServerTransferStateModule,
-    ModuleMapLoaderModule
-  ],
+  imports: [AppModule, ServerModule, ServerTransferStateModule],
 
   bootstrap: [AppComponent]
 })

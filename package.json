@@ -90,7 +90,7 @@
     "lint-staged": "10.2.9",
     "prettier": "2.0.5",
     "protractor": "7.0.0",
-    "snyk": "1.330.3",
+    "snyk": "1.336.0",
     "ts-node": "8.10.1",
     "tslint": "6.1.2",
     "tslint-angular": "3.0.2",

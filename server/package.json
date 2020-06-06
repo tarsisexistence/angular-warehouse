@@ -12,7 +12,7 @@
     "express": "4.17.1",
     "graphql": "15.0.0",
     "graphql-tools": "6.0.8",
-    "mongoose": "5.9.16",
+    "mongoose": "5.9.18",
     "uuid": "8.1.0"
   },
   "devDependencies": {

@@ -18,9 +18,4 @@ const schema = gql`
   }
 `;
 
-export const typeDefs = [
-  schema,
-  apparelSchema,
-  orderSchema,
-  userSchema
-];
+export const typeDefs = [schema, apparelSchema, orderSchema, userSchema];

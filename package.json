@@ -20,7 +20,7 @@
     "// - SERVES - //": "------------------------------",
     "start": "ng serve",
     "start:hmr": "ng serve --configuration hmr",
-    "start:backend": "cd backend && yarn run dev",
+    "start:server": "cd server && yarn start",
     "// - BUILD ANALYZERS & EXPLORERS - //": "------------------------------",
     "build:analyze:dev": "ng build --stats-json && npx webpack-bundle-analyzer dist/concept-store-platform/stats.json",
     "build:analyze:prod": "ng build --prod --stats-json && npx webpack-bundle-analyzer dist/concept-store-platform/stats.json",

@@ -2,9 +2,9 @@ import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import server from './apollo-server';
-import db from '../secret/db';
+import { db } from '../secret';
 
-const databasePath = `mongodb+srv://${db.username}:${db.password}@cluster0-rtasa.gcp.mongodb.net/CSP`;
+const databasePath = `mongodb+srv://${db.username}:${db.password}@cluster0-rtasa.gcp.mongodb.net/${db.name}`;
 const graphqlPath = '/graphql';
 const port = 4000;
 

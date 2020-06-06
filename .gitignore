@@ -4,8 +4,7 @@
 /out-tsc
 
 # dependencies
-/node_modules
-/backend/node_modules
+**/node_modules
 /functions/node_modules
 
 # video_content

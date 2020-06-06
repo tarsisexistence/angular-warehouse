@@ -13,7 +13,7 @@
     "graphql": "14.6.0",
     "graphql-tools": "4.0.8",
     "mongoose": "5.9.16",
-    "uuid": "3.4.0"
+    "uuid": "8.1.0"
   },
   "devDependencies": {
     "@babel/core": "7.10.1",

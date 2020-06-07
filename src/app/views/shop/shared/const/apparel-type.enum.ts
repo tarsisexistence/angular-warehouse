@@ -1,5 +1,6 @@
 export enum ApparelType {
   accessory = 'accessories',
+  jacket = 'jackets',
   sneaker = 'sneakers',
-  tshirt = 't-shirts'
+  tShirt = 'tShirts'
 }

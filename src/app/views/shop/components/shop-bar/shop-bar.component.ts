@@ -1,7 +1,9 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 import { Secluded, Unit } from 'routeshub';
+
 import { SHOP_UNIT_KEY, ShopNotes } from 'shop/hub/shop.notes';
+import { Category } from 'shop/shared/interfaces/category.interface';
 
 @Component({
   selector: 'shop-bar',
@@ -10,7 +12,7 @@ import { SHOP_UNIT_KEY, ShopNotes } from 'shop/hub/shop.notes';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ShopBarComponent {
-  @Input() public categories: string[];
+  @Input() public categories: Category[];
 
   @Secluded(SHOP_UNIT_KEY)
   public shopUnit: Unit<ShopNotes>;

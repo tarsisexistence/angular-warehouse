@@ -1,13 +1,12 @@
 <nav class="bar__categories">
-
   <ng-container *ngFor="let category of categories; trackBy: identify">
-    <a class="bar__category"
-       [navLink]="shopUnit.category.state"
-       [navParams]="{ category: category.toLowerCase() }"
-       navLinkActive="active"
+    <a
+      class="bar__category"
+      [navLink]="shopUnit.category.state"
+      [navParams]="{ category: category.value }"
+      navLinkActive="active"
     >
-      {{ category }}
+      {{ category.title }}
     </a>
   </ng-container>
-
 </nav>

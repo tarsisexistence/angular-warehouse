@@ -1,17 +1,19 @@
 import { Apparel } from '../interfaces/apparel.interface';
-import { ApparelType } from '../enums/apparel-type.enum';
-import { filterApparelType } from '../functions/filter-apparel-type.function';
+import { ApparelType } from '../const/apparel-type.enum';
 
 export class Apparels {
-  public all: Apparel[];
   public accessories: Apparel[];
+  public jackets: Apparel[];
   public sneakers: Apparel[];
-  public ['t-shirts']: Apparel[];
+  public tShirts: Apparel[];
 
-  constructor(apparels?: Apparel[]) {
-    this.all = apparels || [];
-    this.accessories = filterApparelType(this.all, ApparelType.accessory);
-    this.sneakers = filterApparelType(this.all, ApparelType.sneaker);
-    this['t-shirts'] = filterApparelType(this.all, ApparelType.tshirt);
+  constructor(public all: Apparel[] = []) {
+    this.accessories = Apparels.filterByType(all, ApparelType.accessory);
+    this.sneakers = Apparels.filterByType(all, ApparelType.sneaker);
+    this.tShirts = Apparels.filterByType(all, ApparelType.tShirt);
+    this.jackets = Apparels.filterByType(all, ApparelType.jacket);
   }
+
+  static filterByType = (apparel: Apparel[], type: ApparelType): Apparel[] =>
+    apparel.filter((apparel: Apparel) => apparel.type === String(type)) || [];
 }

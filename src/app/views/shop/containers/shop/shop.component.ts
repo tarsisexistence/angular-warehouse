@@ -13,8 +13,9 @@ import { Store } from '@ngrx/store';
 import * as fromStore from 'store';
 import { Apparel } from 'shop/shared/interfaces/apparel.interface';
 import { Apparels } from 'shop/shared/models/apparels.model';
-import { categories } from 'shop/shared/models/categories.model';
-import { mixArray } from 'shop/shared/functions/mix-array.function';
+import { categories } from 'shop/shared/const/categories.const';
+import { mixArray } from 'shop/shared/utils/mix-array.function';
+import { Category } from 'shop/shared/interfaces/category.interface';
 
 @Component({
   selector: 'shop-feat',
@@ -25,7 +26,7 @@ import { mixArray } from 'shop/shared/functions/mix-array.function';
 export class ShopComponent implements OnInit, OnDestroy {
   public apparels: BehaviorSubject<Apparels>;
   public selectedCategory: string;
-  public categories: string[];
+  public categories: Category[];
   public loading: boolean;
   private unsubscribe$: Subject<boolean>;
 
@@ -43,7 +44,7 @@ export class ShopComponent implements OnInit, OnDestroy {
     this.route.data
       .pipe(takeUntil(this.unsubscribe$))
       .subscribe((data: { category: string }) => {
-        this.loading = this.apparels.value === null;
+        this.loading = this.apparels.getValue() === null;
         this.selectedCategory =
           data.category === undefined ? 'all' : data.category;
       });

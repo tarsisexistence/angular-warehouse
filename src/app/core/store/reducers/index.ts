@@ -1,18 +1,18 @@
 import { ActionReducerMap } from '@ngrx/store';
 
-import { reducer as shop } from 'store/reducers/apparel.shop.reducer';
-import { reducer as cart } from 'store/reducers/apparel.cart.reducer';
-import { reducer as user } from 'store/reducers/user.auth.reducer';
+import { shopReducer } from 'store/reducers/apparel.shop.reducer';
+import { cartReducer } from 'store/reducers/apparel.cart.reducer';
+import { userReducer } from 'store/reducers/user.auth.reducer';
 import { AuthState, CartState, ShopState } from 'store/selectors';
 
 export const authReducers: ActionReducerMap<AuthState> = {
-  user
+  user: userReducer
 };
 
 export const cartReducers: ActionReducerMap<CartState> = {
-  apparels: cart
+  apparels: cartReducer
 };
 
 export const shopReducers: ActionReducerMap<ShopState> = {
-  apparels: shop
+  apparels: shopReducer
 };

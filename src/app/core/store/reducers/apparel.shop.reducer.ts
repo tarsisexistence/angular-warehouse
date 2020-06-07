@@ -1,4 +1,7 @@
-import * as ApparelShopActions from 'store/actions/apparel.shop.action';
+import {
+  ApparelShopAction,
+  ApparelShopActionTypes
+} from 'store/actions/apparel.shop.action';
 import { Apparel } from 'shop/shared/interfaces/apparel.interface';
 
 export interface ApparelState {
@@ -13,19 +16,19 @@ export const initialState: ApparelState = {
   loading: false
 };
 
-export function reducer(
+export function shopReducer(
   state = initialState,
-  action: ApparelShopActions.ApparelShopAction
+  action: ApparelShopAction
 ): ApparelState {
   switch (action.type) {
-    case ApparelShopActions.ApparelShopActionTypes.LoadApparel: {
+    case ApparelShopActionTypes.LoadApparel: {
       return {
         ...state,
         loading: true
       };
     }
 
-    case ApparelShopActions.ApparelShopActionTypes.LoadApparelSuccess: {
+    case ApparelShopActionTypes.LoadApparelSuccess: {
       const entities = action.payload.reduce(
         (accEntities: { [id: number]: Apparel }, apparel: Apparel) => ({
           ...accEntities,
@@ -42,7 +45,7 @@ export function reducer(
       };
     }
 
-    case ApparelShopActions.ApparelShopActionTypes.LoadApparelFailure: {
+    case ApparelShopActionTypes.LoadApparelFailure: {
       return {
         loading: false,
         ...state,

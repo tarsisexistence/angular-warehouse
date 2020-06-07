@@ -1,4 +1,7 @@
-import * as ApparelCartActions from 'store/actions/apparel.cart.action';
+import {
+  ApparelCartActionTypes,
+  ApparelCartAction
+} from 'store/actions/apparel.cart.action';
 import {
   CartApparel,
   CartApparelEntities
@@ -17,19 +20,19 @@ export const initialState: CartApparelState = {
   loading: false
 };
 
-export function reducer(
+export function cartReducer(
   state = initialState,
-  action: ApparelCartActions.ApparelCartAction
+  action: ApparelCartAction
 ): CartApparelState {
   switch (action.type) {
-    case ApparelCartActions.ApparelCartActionTypes.AddApparel: {
+    case ApparelCartActionTypes.AddApparel: {
       return {
         ...state,
         loading: true
       } as CartApparelState;
     }
 
-    case ApparelCartActions.ApparelCartActionTypes.AddApparelSuccess: {
+    case ApparelCartActionTypes.AddApparelSuccess: {
       const apparel: CartApparel = action.payload;
       const isExist = Object.keys(state.entities).some(
         (apparelId: string) => apparelId === apparel.id
@@ -62,7 +65,7 @@ export function reducer(
       };
     }
 
-    case ApparelCartActions.ApparelCartActionTypes.AddApparelFailure: {
+    case ApparelCartActionTypes.AddApparelFailure: {
       return {
         ...state,
         loading: false,
@@ -70,14 +73,14 @@ export function reducer(
       } as CartApparelState;
     }
 
-    case ApparelCartActions.ApparelCartActionTypes.ClearApparel: {
+    case ApparelCartActionTypes.ClearApparel: {
       return {
         ...state,
         loading: true
       } as CartApparelState;
     }
 
-    case ApparelCartActions.ApparelCartActionTypes.ClearApparelSuccess: {
+    case ApparelCartActionTypes.ClearApparelSuccess: {
       return {
         ...state,
         loading: false,
@@ -86,7 +89,7 @@ export function reducer(
       } as CartApparelState;
     }
 
-    case ApparelCartActions.ApparelCartActionTypes.ClearApparelFailure: {
+    case ApparelCartActionTypes.ClearApparelFailure: {
       return {
         ...state,
         loading: false,
@@ -94,14 +97,14 @@ export function reducer(
       } as CartApparelState;
     }
 
-    case ApparelCartActions.ApparelCartActionTypes.FetchApparel: {
+    case ApparelCartActionTypes.FetchApparel: {
       return {
         ...state,
         loading: true
       } as CartApparelState;
     }
 
-    case ApparelCartActions.ApparelCartActionTypes.FetchApparelSuccess: {
+    case ApparelCartActionTypes.FetchApparelSuccess: {
       const apparels: Apparel[] = action.payload;
       const entities = apparels.reduce(
         (
@@ -134,7 +137,7 @@ export function reducer(
       };
     }
 
-    case ApparelCartActions.ApparelCartActionTypes.FetchApparelFailure: {
+    case ApparelCartActionTypes.FetchApparelFailure: {
       return {
         ...state,
         loading: false,
@@ -142,14 +145,14 @@ export function reducer(
       } as CartApparelState;
     }
 
-    case ApparelCartActions.ApparelCartActionTypes.RemoveApparel: {
+    case ApparelCartActionTypes.RemoveApparel: {
       return {
         ...state,
         loading: true
       } as CartApparelState;
     }
 
-    case ApparelCartActions.ApparelCartActionTypes.RemoveApparelSuccess: {
+    case ApparelCartActionTypes.RemoveApparelSuccess: {
       const id = action.payload;
       const entities = Object.keys(state.entities).reduce(
         (accEntities: CartApparelEntities, entityId: string) => {
@@ -173,7 +176,7 @@ export function reducer(
       };
     }
 
-    case ApparelCartActions.ApparelCartActionTypes.RemoveApparelFailure: {
+    case ApparelCartActionTypes.RemoveApparelFailure: {
       return {
         ...state,
         loading: false,

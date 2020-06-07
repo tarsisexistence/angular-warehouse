@@ -1,4 +1,7 @@
-import * as UserAuthActions from 'store/actions/user.auth.action';
+import {
+  AuthActionTypes,
+  AuthActionsUnion
+} from 'store/actions/user.auth.action';
 import { User } from 'core/shared/interfaces/user.interface';
 
 export interface UserState {
@@ -15,19 +18,19 @@ export const initialState: UserState = {
   loggedIn: false
 };
 
-export function reducer(
+export function userReducer(
   state = initialState,
-  action: UserAuthActions.AuthActionsUnion
+  action: AuthActionsUnion
 ): UserState {
   switch (action.type) {
-    case UserAuthActions.AuthActionTypes.FetchUser: {
+    case AuthActionTypes.FetchUser: {
       return {
         ...state,
         loading: true
       };
     }
 
-    case UserAuthActions.AuthActionTypes.FetchUserSuccess: {
+    case AuthActionTypes.FetchUserSuccess: {
       return {
         ...state,
         loading: false,
@@ -37,18 +40,18 @@ export function reducer(
       };
     }
 
-    case UserAuthActions.AuthActionTypes.FetchUserFailure: {
+    case AuthActionTypes.FetchUserFailure: {
       return initialState;
     }
 
-    case UserAuthActions.AuthActionTypes.SignIn: {
+    case AuthActionTypes.SignIn: {
       return {
         ...state,
         loading: true
       };
     }
 
-    case UserAuthActions.AuthActionTypes.SignInSuccess: {
+    case AuthActionTypes.SignInSuccess: {
       return {
         ...state,
         loading: false,
@@ -58,7 +61,7 @@ export function reducer(
       };
     }
 
-    case UserAuthActions.AuthActionTypes.SignInFailure: {
+    case AuthActionTypes.SignInFailure: {
       return {
         ...state,
         loading: false,
@@ -66,14 +69,14 @@ export function reducer(
       };
     }
 
-    case UserAuthActions.AuthActionTypes.SignUp: {
+    case AuthActionTypes.SignUp: {
       return {
         ...state,
         loading: true
       };
     }
 
-    case UserAuthActions.AuthActionTypes.SignUpSuccess: {
+    case AuthActionTypes.SignUpSuccess: {
       const user: User = {
         id: action.payload.id,
         email: action.payload.email,
@@ -89,7 +92,7 @@ export function reducer(
       };
     }
 
-    case UserAuthActions.AuthActionTypes.SignUpFailure: {
+    case AuthActionTypes.SignUpFailure: {
       return {
         ...state,
         loading: false,
@@ -97,14 +100,14 @@ export function reducer(
       };
     }
 
-    case UserAuthActions.AuthActionTypes.SignUpCatchPhrase: {
+    case AuthActionTypes.SignUpCatchPhrase: {
       return {
         ...state,
         loading: true
       };
     }
 
-    case UserAuthActions.AuthActionTypes.SignUpCatchPhraseSuccess: {
+    case AuthActionTypes.SignUpCatchPhraseSuccess: {
       const user: User = {
         id: state.user.id,
         email: state.user.email,
@@ -120,7 +123,7 @@ export function reducer(
       };
     }
 
-    case UserAuthActions.AuthActionTypes.SignUpCatchPhraseFailure: {
+    case AuthActionTypes.SignUpCatchPhraseFailure: {
       return {
         ...state,
         loading: false,
@@ -128,7 +131,7 @@ export function reducer(
       };
     }
 
-    case UserAuthActions.AuthActionTypes.SignOut: {
+    case AuthActionTypes.SignOut: {
       return initialState;
     }
 

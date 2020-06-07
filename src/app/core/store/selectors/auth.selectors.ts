@@ -1,10 +1,10 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 
 import { States } from 'store/states';
-import * as fromUserReducer from 'store/reducers/user.auth.reducer';
+import type { UserState } from 'store/reducers/user.auth.reducer';
 
 export interface AuthState {
-  user: fromUserReducer.UserState;
+  user: UserState;
 }
 
 const getAuthState = createFeatureSelector<AuthState>(States.Auth);
@@ -15,5 +15,5 @@ const getUserAuthState = createSelector(
 
 export const getUser = createSelector(
   getUserAuthState,
-  fromUserReducer.getUser
+  (state: UserState) => state.user
 );

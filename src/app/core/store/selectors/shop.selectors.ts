@@ -1,13 +1,14 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 
 import { States } from 'store/states';
-import * as fromApparelReducer from 'store/reducers/apparel.shop.reducer';
+import type { ApparelState } from 'store/reducers/apparel.shop.reducer';
 
 export interface ShopState {
-  apparels: fromApparelReducer.ApparelState;
+  apparels: ApparelState;
 }
 
 const getShopState = createFeatureSelector<ShopState>(States.Shop);
+
 const getApparelsState = createSelector(
   getShopState,
   (state: ShopState) => state.apparels
@@ -15,11 +16,11 @@ const getApparelsState = createSelector(
 
 export const getShopApparelLoaded = createSelector(
   getApparelsState,
-  fromApparelReducer.getApparelLoaded
+  (state: ApparelState) => state.loaded
 );
 export const getShopApparelEntities = createSelector(
   getApparelsState,
-  fromApparelReducer.getApparelEntities
+  (state: ApparelState) => state.entities
 );
 export const getShopApparel = createSelector(
   getShopApparelEntities,

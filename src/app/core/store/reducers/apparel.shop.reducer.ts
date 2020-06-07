@@ -54,6 +54,3 @@ export function reducer(
       return state;
   }
 }
-
-export const getApparelEntities = (state: ApparelState) => state.entities;
-export const getApparelLoaded = (state: ApparelState) => state.loaded;

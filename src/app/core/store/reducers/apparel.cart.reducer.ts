@@ -185,5 +185,3 @@ export function reducer(
       return state;
   }
 }
-
-export const getCartEntities = (state: CartApparelState) => state.entities;

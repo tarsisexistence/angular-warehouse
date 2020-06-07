@@ -136,5 +136,3 @@ export function reducer(
       return state;
   }
 }
-
-export const getUser = (state: UserState) => state.user;

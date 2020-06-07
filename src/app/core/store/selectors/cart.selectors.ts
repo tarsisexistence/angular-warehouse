@@ -1,13 +1,14 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 
 import { States } from 'store/states';
-import * as fromCartReducer from 'store/reducers/apparel.cart.reducer';
+import type { CartApparelState } from 'store/reducers/apparel.cart.reducer';
 
 export interface CartState {
-  apparels: fromCartReducer.CartApparelState;
+  apparels: CartApparelState;
 }
 
 const getCartState = createFeatureSelector<CartState>(States.Cart);
+
 const getApparelCartState = createSelector(
   getCartState,
   (state: CartState) => state.apparels
@@ -15,7 +16,7 @@ const getApparelCartState = createSelector(
 
 export const getCartApparelEntities = createSelector(
   getApparelCartState,
-  fromCartReducer.getCartEntities
+  (state: CartApparelState) => state.entities
 );
 export const getCartApparel = createSelector(
   getCartApparelEntities,

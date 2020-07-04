@@ -58,7 +58,7 @@
     "graphql": "15.1.0",
     "hammerjs": "2.0.8",
     "routeshub": "4.2.0",
-    "rxjs": "6.5.5",
+    "rxjs": "6.6.0",
     "tslib": "1.13.0",
     "zone.js": "0.10.3"
   },

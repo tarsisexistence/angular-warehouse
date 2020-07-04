@@ -72,7 +72,7 @@
     "@commitlint/cli": "9.0.1",
     "@commitlint/config-conventional": "9.0.1",
     "@compodoc/compodoc": "1.1.11",
-    "@types/googlemaps": "3.39.7",
+    "@types/googlemaps": "3.39.8",
     "@types/jasmine": "3.5.5",
     "@types/jasminewd2": "2.0.8",
     "@types/node": "13.13.10",

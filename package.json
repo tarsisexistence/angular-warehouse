@@ -55,7 +55,7 @@
     "@ngrx/store": "9.2.0",
     "@ngrx/store-devtools": "9.2.0",
     "apollo-angular-boost": "1.8.0",
-    "graphql": "15.1.0",
+    "graphql": "15.2.0",
     "hammerjs": "2.0.8",
     "routeshub": "4.2.0",
     "rxjs": "6.5.5",

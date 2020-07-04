@@ -97,7 +97,7 @@
     "tslint-config-prettier": "1.18.0",
     "tslint-config-security": "1.16.0",
     "tslint-immutable": "6.0.1",
-    "typescript": "3.8.3",
+    "typescript": "3.9.6",
     "webpack-bundle-analyzer": "3.8.0",
     "webpack-node-externals": "1.7.2"
   },

@@ -22,13 +22,16 @@ connectFeatures<AppNotes>(APP_UNIT_KEY, {
   location: locationConnector
 });
 
-export const appRouting: ModuleWithProviders = RouterModule.forRoot(appRoutes, {
-  enableTracing: false,
-  initialNavigation: 'enabled',
-  onSameUrlNavigation: 'reload',
-  scrollPositionRestoration: 'top',
-  preloadingStrategy: CustomPreloadingStrategy
-});
+export const appRouting: ModuleWithProviders<AppHub> = RouterModule.forRoot(
+  appRoutes,
+  {
+    enableTracing: false,
+    initialNavigation: 'enabled',
+    onSameUrlNavigation: 'reload',
+    scrollPositionRestoration: 'top',
+    preloadingStrategy: CustomPreloadingStrategy
+  }
+);
 
 @NgModule({
   imports: [appRouting],

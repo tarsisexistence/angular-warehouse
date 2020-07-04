@@ -148,7 +148,6 @@
       true,
       "allow-fast-null-checks"
     ],
-    "no-use-before-declare": true,
     "no-var-keyword": true,
     "no-dynamic-delete": true,
     "no-output-on-prefix": true,

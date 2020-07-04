@@ -1,4 +1,3 @@
-import 'hammerjs';
 import { enableProdMode, NgModuleRef } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
@@ -25,9 +24,7 @@ export function bootstrapApp(): void {
   const boot: () => Promise<NgModuleRef<any>> = () =>
     platformBrowserDynamic().bootstrapModule(AppModule);
 
-  bootstrap(boot)
-    .then(setupNgProfiler)
-    .catch(console.error);
+  bootstrap(boot).then(setupNgProfiler).catch(console.error);
 }
 
 function bootstrap(boot: () => Promise<NgModuleRef<any>>): any {

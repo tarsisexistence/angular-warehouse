@@ -10,7 +10,7 @@
     "cors": "2.8.5",
     "crypto": "1.0.1",
     "express": "4.17.1",
-    "graphql": "15.2.0",
+    "graphql": "15.3.0",
     "graphql-tools": "6.0.12",
     "mongoose": "5.9.21",
     "uuid": "8.2.0"

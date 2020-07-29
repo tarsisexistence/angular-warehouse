@@ -7,10 +7,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/maktarsis/concept-store-platform.git"
+    "url": "git+https://github.com/retarsis/angular-warehouse.git"
   },
-  "bugs": "https://github.com/maktarsis/concept-store-platform/issues",
-  "homepage": "https://github.com/maktarsis/concept-store-platform/blob/master/README.md",
+  "bugs": "https://github.com/retarsis/angular-warehouse/issues",
+  "homepage": "https://github.com/retarsis/angular-warehouse/blob/master/README.md",
   "scripts": {
     "// - NG - //": "------------------------------",
     "ng": "ng",
@@ -22,8 +22,8 @@
     "hmr": "ng serve --configuration hmr",
     "server": "cd server && yarn start",
     "// - BUILD ANALYZERS & EXPLORERS - //": "------------------------------",
-    "build:analyze:dev": "ng build --stats-json && npx webpack-bundle-analyzer dist/concept-store-platform/stats.json",
-    "build:analyze:prod": "ng build --prod --stats-json && npx webpack-bundle-analyzer dist/concept-store-platform/stats.json",
+    "build:analyze:dev": "ng build --stats-json && npx webpack-bundle-analyzer dist/angular-warehouse/stats.json",
+    "build:analyze:prod": "ng build --prod --stats-json && npx webpack-bundle-analyzer dist/angular-warehouse/stats.json",
     "deps-tree": "npx ostap ./package.json",
     "// - DOC - //": "------------------------------",
     "doc:build": "compodoc -p src/tsconfig.app.json --theme=readthedocs",
@@ -106,7 +106,7 @@
     "apollo",
     "compodoc",
     "concept-store",
-    "concept-store-platform",
+    "angular-warehouse",
     "graphql",
     "mean",
     "mongodb",

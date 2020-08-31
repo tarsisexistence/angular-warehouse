@@ -1,62 +1,54 @@
 <div class="sign-up">
-  <p *ngIf="!user"
-     class="sign-up__title">
-    Sign up for free
-  </p>
+  <p *ngIf="!user" class="sign-up__title">Sign up for free</p>
 
-  <form *ngIf="!user?.id"
-        class="sign-up__form"
-        [formGroup]="signUpForm"
-        (ngSubmit)="signUp(signUpForm)">
+  <form *ngIf="!user?.id" class="sign-up__form" [formGroup]="signUpForm" (ngSubmit)="signUp(signUpForm)">
     <mat-form-field>
-      <input matInput
-             type="email"
-             placeholder="E-Mail"
-             aria-label="E-Mail"
-             aria-describedby=""
-             aria-required="true"
-             formControlName="email"/>
+      <input
+        matInput
+        type="email"
+        placeholder="E-Mail"
+        aria-label="E-Mail"
+        aria-describedby=""
+        aria-required="true"
+        formControlName="email"
+      />
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput
-             type="password"
-             autocomplete="password"
-             placeholder="Password"
-             aria-label="Password"
-             aria-describedby=""
-             aria-required="true"
-             formControlName="password"/>
+      <input
+        matInput
+        type="password"
+        autocomplete="password"
+        placeholder="Password"
+        aria-label="Password"
+        aria-describedby=""
+        aria-required="true"
+        formControlName="password"
+      />
     </mat-form-field>
 
-    <button class="sign-up__submit"
-            mat-raised-button>
-      Next
-    </button>
+    <button class="sign-up__submit" mat-raised-button>Next</button>
   </form>
 
-  <form *ngIf="user && !user.catchPhrase"
-        class="sign-up__form"
-        [formGroup]="detailForm"
-        (ngSubmit)="setCatchPhrase(detailForm.value.catchPhrase)">
+  <form
+    *ngIf="user && !user.catchPhrase"
+    class="sign-up__form"
+    [formGroup]="detailForm"
+    (ngSubmit)="setCatchPhrase(detailForm.value.catchPhrase)"
+  >
     <mat-form-field>
-      <input matInput
-             type="text"
-             placeholder="Catch phrase"
-             aria-label="Catch phrase"
-             aria-required="true"
-             formControlName="catchPhrase"/>
+      <input
+        matInput
+        type="text"
+        placeholder="Catch phrase"
+        aria-label="Catch phrase"
+        aria-required="true"
+        formControlName="catchPhrase"
+      />
     </mat-form-field>
 
-    <button class="sign-up__submit"
-            mat-raised-button>
-      Sign up
-    </button>
+    <button class="sign-up__submit" mat-raised-button>Sign up</button>
   </form>
 
-  <a class="sign-up__sign-in-link"
-     (click)="toggleAuthMethod()">
-    Have an account? Sign in now
-  </a>
+  <a class="sign-up__sign-in-link" (click)="toggleAuthMethod()"> Have an account? Sign in now </a>
 </div>
-

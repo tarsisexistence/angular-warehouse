@@ -1,21 +1,12 @@
 {
-    "extends": "../tslint.json",
-    "rules": {
-        "directive-selector": false,
-        "component-selector": [
-            true,
-            "element",
-            [
-              "app",
-              "auth",
-              "cart",
-              "core",
-              "user-center",
-              "shop",
-              "location",
-              "home"
-            ],
-            "kebab-case"
-        ]
-    }
+  "extends": "../tslint.json",
+  "rules": {
+    "directive-selector": false,
+    "component-selector": [
+      true,
+      "element",
+      ["app", "auth", "cart", "core", "user-center", "shop", "location", "home"],
+      "kebab-case"
+    ]
+  }
 }

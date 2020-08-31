@@ -1,10 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  ElementRef,
-  OnInit
-} from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, OnInit } from '@angular/core';
 
 import { GeocodingService } from 'location/shared/geocoding.service';
 import { GeolocationService } from 'location/shared/geolocation.service';
@@ -59,24 +53,16 @@ export class LocationComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    const el: HTMLInputElement = this.elementRef.nativeElement.querySelector(
-      '#input-search'
-    );
-    const autocomplete: google.maps.places.Autocomplete = new google.maps.places.Autocomplete(
-      el,
-      {
-        types: ['address']
-      }
-    );
+    const el: HTMLInputElement = this.elementRef.nativeElement.querySelector('#input-search');
+    const autocomplete: google.maps.places.Autocomplete = new google.maps.places.Autocomplete(el, {
+      types: ['address']
+    });
     autocomplete.addListener('place_changed', () => {
       const place: google.maps.places.PlaceResult = autocomplete.getPlace();
       if (place.geometry === undefined || place.geometry === null) {
         return;
       }
-      this.center = new google.maps.LatLng(
-        place.geometry.location.lat(),
-        place.geometry.location.lng()
-      );
+      this.center = new google.maps.LatLng(place.geometry.location.lat(), place.geometry.location.lng());
       this.zoom = 17;
       this.setMarker(this.center, 'search result', place.formatted_address);
       this.cdr.markForCheck();
@@ -103,24 +89,14 @@ export class LocationComponent implements OnInit {
     if (navigator.geolocation) {
       this.geolocation.getCurrentPosition().subscribe(
         (position: Position) => {
-          if (
-            this.center.lat() !== position.coords.latitude &&
-            this.center.lng() !== position.coords.longitude
-          ) {
-            this.center = new google.maps.LatLng(
-              position.coords.latitude,
-              position.coords.longitude
-            );
+          if (this.center.lat() !== position.coords.latitude && this.center.lng() !== position.coords.longitude) {
+            this.center = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
             this.zoom = 18;
 
             this.geocoding
               .geocode(this.center)
               .forEach((results: google.maps.GeocoderResult[]) => {
-                this.setMarker(
-                  this.center,
-                  'your locality',
-                  results[0].formatted_address
-                );
+                this.setMarker(this.center, 'your locality', results[0].formatted_address);
 
                 this.cdr.markForCheck();
               })
@@ -170,17 +146,10 @@ export class LocationComponent implements OnInit {
       .codeAddress(address)
       .forEach((results: google.maps.GeocoderResult[]) => {
         if (!this.center.equals(results[0].geometry.location)) {
-          this.center = new google.maps.LatLng(
-            results[0].geometry.location.lat(),
-            results[0].geometry.location.lng()
-          );
+          this.center = new google.maps.LatLng(results[0].geometry.location.lat(), results[0].geometry.location.lng());
           this.zoom = 18;
 
-          this.setMarker(
-            this.center,
-            'search result',
-            results[0].formatted_address
-          );
+          this.setMarker(this.center, 'search result', results[0].formatted_address);
         }
       })
       .then(() => {
@@ -195,11 +164,7 @@ export class LocationComponent implements OnInit {
       });
   }
 
-  private setMarker(
-    latLng: google.maps.LatLng,
-    title: string,
-    content: string
-  ): void {
+  private setMarker(latLng: google.maps.LatLng, title: string, content: string): void {
     this.map.deleteMarkers();
     this.position = latLng;
     this.title = title;

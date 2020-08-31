@@ -1,12 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  Input,
-  OnDestroy,
-  OnInit,
-  Output
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
 
 import { merge, Observable, Subject } from 'rxjs';
 import { debounceTime, mapTo, takeUntil } from 'rxjs/operators';
@@ -33,15 +25,8 @@ export class ShopCartComponent implements OnInit, OnDestroy {
     this.unsubscribe$ = new Subject<void>();
 
     const change$ = this.userCounterChangeEmitter.asObservable();
-    const showBubble$ = change$.pipe(
-      takeUntil(this.unsubscribe$),
-      mapTo(true)
-    );
-    const hideBubble$ = change$.pipe(
-      takeUntil(this.unsubscribe$),
-      debounceTime(400),
-      mapTo(false)
-    );
+    const showBubble$ = change$.pipe(takeUntil(this.unsubscribe$), mapTo(true));
+    const hideBubble$ = change$.pipe(takeUntil(this.unsubscribe$), debounceTime(400), mapTo(false));
 
     this.showBubble$ = merge(showBubble$, hideBubble$);
     this.bubbleMessage = 'Added';

@@ -1,23 +1,10 @@
-import {
-  AfterViewInit,
-  ChangeDetectionStrategy,
-  Component,
-  HostBinding,
-  OnDestroy,
-  OnInit
-} from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, HostBinding, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 
 import { forwardParams, getRegisteredUnits, Units } from 'routeshub';
 import { BehaviorSubject, fromEvent, Subject } from 'rxjs';
-import {
-  debounceTime,
-  distinctUntilChanged,
-  map,
-  pairwise,
-  takeUntil
-} from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, map, pairwise, takeUntil } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
 
 import * as fromStore from 'store';
@@ -72,10 +59,7 @@ export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
         debounceTime(5),
         map(() => window.pageYOffset),
         pairwise(),
-        map(
-          ([y1, y2]): DirectionState =>
-            y1 === y2 ? null : y1 > y2 ? direction.up : direction.down
-        ),
+        map(([y1, y2]): DirectionState => (y1 === y2 ? null : y1 > y2 ? direction.up : direction.down)),
         distinctUntilChanged()
       )
       .subscribe((directionState: DirectionState) => {

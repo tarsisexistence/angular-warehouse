@@ -5,21 +5,9 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { MyApolloModule } from 'apollo/apollo.module';
-import {
-  addOrder,
-  allApparel,
-  allOrders,
-  setCatchPhrase,
-  signIn,
-  signUp,
-  user
-} from 'apollo/queries';
+import { addOrder, allApparel, allOrders, setCatchPhrase, signIn, signUp, user } from 'apollo/queries';
 import { Order } from 'core/shared/interfaces/order.interface';
-import {
-  Access,
-  CatchPhraseConfig,
-  User
-} from 'core/shared/interfaces/user.interface';
+import { Access, CatchPhraseConfig, User } from 'core/shared/interfaces/user.interface';
 import { Apparel } from 'shop/shared/interfaces/apparel.interface';
 
 @Injectable({ providedIn: MyApolloModule })
@@ -69,10 +57,7 @@ export class ApolloService {
       .pipe(map((res: any) => res.data.signUp));
   }
 
-  public setCatchPhrase({
-    id,
-    catchPhrase
-  }: CatchPhraseConfig): Observable<User> {
+  public setCatchPhrase({ id, catchPhrase }: CatchPhraseConfig): Observable<User> {
     return this.apollo
       .mutate({
         mutation: setCatchPhrase,

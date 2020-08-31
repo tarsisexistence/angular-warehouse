@@ -1,11 +1,5 @@
-import {
-  ApparelCartActionTypes,
-  ApparelCartAction
-} from 'store/actions/apparel.cart.action';
-import {
-  CartApparel,
-  CartApparelEntities
-} from 'shop/shared/interfaces/cart-apparel.interface';
+import { ApparelCartActionTypes, ApparelCartAction } from 'store/actions/apparel.cart.action';
+import { CartApparel, CartApparelEntities } from 'shop/shared/interfaces/cart-apparel.interface';
 import { Apparel } from 'shop/shared/interfaces/apparel.interface';
 
 export interface CartApparelState {
@@ -20,10 +14,7 @@ export const initialState: CartApparelState = {
   loading: false
 };
 
-export function cartReducer(
-  state = initialState,
-  action: ApparelCartAction
-): CartApparelState {
+export function cartReducer(state = initialState, action: ApparelCartAction): CartApparelState {
   switch (action.type) {
     case ApparelCartActionTypes.AddApparel: {
       return {
@@ -34,9 +25,7 @@ export function cartReducer(
 
     case ApparelCartActionTypes.AddApparelSuccess: {
       const apparel: CartApparel = action.payload;
-      const isExist = Object.keys(state.entities).some(
-        (apparelId: string) => apparelId === apparel.id
-      );
+      const isExist = Object.keys(state.entities).some((apparelId: string) => apparelId === apparel.id);
 
       let entities: CartApparelEntities = null;
 
@@ -106,28 +95,19 @@ export function cartReducer(
 
     case ApparelCartActionTypes.FetchApparelSuccess: {
       const apparels: Apparel[] = action.payload;
-      const entities = apparels.reduce(
-        (
-          accApparels: CartApparelEntities,
-          apparel: Apparel
-        ): CartApparelEntities => {
-          const duplicateApparel = apparels[apparel.id];
-          const quantities =
-            duplicateApparel !== undefined
-              ? duplicateApparel.quantities + 1
-              : 1;
-          const cartApparel = {
-            ...apparel,
-            quantities
-          };
+      const entities = apparels.reduce((accApparels: CartApparelEntities, apparel: Apparel): CartApparelEntities => {
+        const duplicateApparel = apparels[apparel.id];
+        const quantities = duplicateApparel !== undefined ? duplicateApparel.quantities + 1 : 1;
+        const cartApparel = {
+          ...apparel,
+          quantities
+        };
 
-          return {
-            ...accApparels,
-            [apparel.id]: cartApparel
-          };
-        },
-        {} as CartApparelEntities
-      );
+        return {
+          ...accApparels,
+          [apparel.id]: cartApparel
+        };
+      }, {} as CartApparelEntities);
 
       return {
         ...state,
@@ -154,19 +134,16 @@ export function cartReducer(
 
     case ApparelCartActionTypes.RemoveApparelSuccess: {
       const id = action.payload;
-      const entities = Object.keys(state.entities).reduce(
-        (accEntities: CartApparelEntities, entityId: string) => {
-          if (entityId === String(id)) {
-            return entities;
-          }
+      const entities = Object.keys(state.entities).reduce((accEntities: CartApparelEntities, entityId: string) => {
+        if (entityId === String(id)) {
+          return entities;
+        }
 
-          return {
-            ...accEntities,
-            [entityId]: state.entities[entityId]
-          };
-        },
-        {}
-      );
+        return {
+          ...accEntities,
+          [entityId]: state.entities[entityId]
+        };
+      }, {});
 
       return {
         ...state,

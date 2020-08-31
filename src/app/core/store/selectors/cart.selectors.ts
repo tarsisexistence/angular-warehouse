@@ -9,16 +9,9 @@ export interface CartState {
 
 const getCartState = createFeatureSelector<CartState>(States.Cart);
 
-const getApparelCartState = createSelector(
-  getCartState,
-  (state: CartState) => state.apparels
-);
+const getApparelCartState = createSelector(getCartState, (state: CartState) => state.apparels);
 
-export const getCartApparelEntities = createSelector(
-  getApparelCartState,
-  (state: CartApparelState) => state.entities
-);
-export const getCartApparel = createSelector(
-  getCartApparelEntities,
-  (entities) => Object.keys(entities).map((id: string) => entities[id])
+export const getCartApparelEntities = createSelector(getApparelCartState, (state: CartApparelState) => state.entities);
+export const getCartApparel = createSelector(getCartApparelEntities, (entities) =>
+  Object.keys(entities).map((id: string) => entities[id])
 );

@@ -5,13 +5,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
-const modules = [
-  MatIconModule,
-  MatDialogModule,
-  MatButtonModule,
-  MatInputModule,
-  MatTooltipModule
-];
+const modules = [MatIconModule, MatDialogModule, MatButtonModule, MatInputModule, MatTooltipModule];
 
 @NgModule({
   exports: modules

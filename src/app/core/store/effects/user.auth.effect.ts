@@ -3,23 +3,12 @@ import { Router } from '@angular/router';
 
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
-import {
-  catchError,
-  exhaustMap,
-  finalize,
-  map,
-  switchMap,
-  tap
-} from 'rxjs/operators';
+import { catchError, exhaustMap, finalize, map, switchMap, tap } from 'rxjs/operators';
 import { Secluded, Unit } from 'routeshub';
 
 import { ApolloService } from 'apollo/apollo.service';
 import { AuthService } from 'core/services/auth.service';
-import {
-  Access,
-  CatchPhraseConfig,
-  User
-} from 'core/shared/interfaces/user.interface';
+import { Access, CatchPhraseConfig, User } from 'core/shared/interfaces/user.interface';
 import {
   AuthActionTypes,
   FetchUser,
@@ -80,9 +69,7 @@ export class UserEffects {
       map((action: SignIn) => action.payload),
       exhaustMap((credentials: Access) =>
         this.apolloService.signIn(credentials).pipe(
-          tap((user: User) =>
-            AuthService.updateStorageUser({ token: user.id })
-          ),
+          tap((user: User) => AuthService.updateStorageUser({ token: user.id })),
           map((user: User) => new SignInSuccess(user)),
           catchError((error: Error) => of(new SignInFailure(error))),
           finalize(() => console.log('finalize signIn$'))
@@ -93,10 +80,7 @@ export class UserEffects {
 
   public loginSuccess$ = createEffect(() =>
     this.actions$.pipe(
-      ofType(
-        AuthActionTypes.SignUpCatchPhraseSuccess,
-        AuthActionTypes.SignInSuccess
-      ),
+      ofType(AuthActionTypes.SignUpCatchPhraseSuccess, AuthActionTypes.SignInSuccess),
       map((action: SignUpCatchPhraseSuccess) => action.payload),
       map((user: User) => new Go({ path: ['user-center', user.id] }))
     )

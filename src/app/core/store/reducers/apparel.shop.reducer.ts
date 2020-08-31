@@ -1,7 +1,4 @@
-import {
-  ApparelShopAction,
-  ApparelShopActionTypes
-} from 'store/actions/apparel.shop.action';
+import { ApparelShopAction, ApparelShopActionTypes } from 'store/actions/apparel.shop.action';
 import { Apparel } from 'shop/shared/interfaces/apparel.interface';
 
 export interface ApparelState {
@@ -16,10 +13,7 @@ export const initialState: ApparelState = {
   loading: false
 };
 
-export function shopReducer(
-  state = initialState,
-  action: ApparelShopAction
-): ApparelState {
+export function shopReducer(state = initialState, action: ApparelShopAction): ApparelState {
   switch (action.type) {
     case ApparelShopActionTypes.LoadApparel: {
       return {

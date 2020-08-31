@@ -21,8 +21,7 @@ if (isSSR) {
 }
 
 export function bootstrapApp(): void {
-  const boot: () => Promise<NgModuleRef<any>> = () =>
-    platformBrowserDynamic().bootstrapModule(AppModule);
+  const boot: () => Promise<NgModuleRef<any>> = () => platformBrowserDynamic().bootstrapModule(AppModule);
 
   bootstrap(boot).then(setupNgProfiler).catch(console.error);
 }

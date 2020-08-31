@@ -24,7 +24,4 @@ export class LoadApparelSuccess implements Action {
   constructor(public payload: Apparel[]) {}
 }
 
-export type ApparelShopAction =
-  | LoadApparel
-  | LoadApparelFailure
-  | LoadApparelSuccess;
+export type ApparelShopAction = LoadApparel | LoadApparelFailure | LoadApparelSuccess;

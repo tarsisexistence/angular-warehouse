@@ -1,26 +1,20 @@
 <div class="auth">
   <header class="auth__logo-wrapper">
-    <img class="auth__logo"
-         src="/assets/Reignarr.png"
-         alt="logotype"/>
+    <img class="auth__logo" src="/assets/Reignarr.png" alt="logotype" />
   </header>
 
-  <section *ngIf="signUpScreen"
-           class="auth__method">
-    <auth-sign-up [user]="user | async"
-                  (signUpEmitter)="signUp($event)"
-                  (setCatchPhraseEmitter)="setCatchPhrase($event)"
-                  (toggleAuthMethodEmitter)="toggleAuthMethod()">
+  <section *ngIf="signUpScreen" class="auth__method">
+    <auth-sign-up
+      [user]="user | async"
+      (signUpEmitter)="signUp($event)"
+      (setCatchPhraseEmitter)="setCatchPhrase($event)"
+      (toggleAuthMethodEmitter)="toggleAuthMethod()"
+    >
     </auth-sign-up>
   </section>
 
-  <section *ngIf="!signUpScreen"
-           class="auth__method">
-    <auth-sign-in [user]="user | async"
-                  (signInEmitter)="signIn($event)"
-                  (toggleAuthMethodEmitter)="toggleAuthMethod()">
+  <section *ngIf="!signUpScreen" class="auth__method">
+    <auth-sign-in [user]="user | async" (signInEmitter)="signIn($event)" (toggleAuthMethodEmitter)="toggleAuthMethod()">
     </auth-sign-in>
   </section>
-
 </div>
-

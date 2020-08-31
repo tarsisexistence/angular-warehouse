@@ -1,33 +1,19 @@
 <div class="cart">
-  <h2 class="cart__header">
-    Shopping cart
-  </h2>
+  <h2 class="cart__header">Shopping cart</h2>
 
-  <hr class="cart__line"/>
+  <hr class="cart__line" />
 
   <ng-container *ngIf="cartApparels && cartApparels.length > 0; else empty">
-
-    <ng-container *ngFor="let apparel of cartApparels; trackBy:identify">
-      <cart-apparel [apparel]="apparel"
-                    (removeCartApparelEmitter)="removeCartApparel($event)">
-      </cart-apparel>
+    <ng-container *ngFor="let apparel of cartApparels; trackBy: identify">
+      <cart-apparel [apparel]="apparel" (removeCartApparelEmitter)="removeCartApparel($event)"> </cart-apparel>
     </ng-container>
 
-    <p class="cart__subtotal">
-      Subtotal: {{ subtotal | currency }}
-    </p>
+    <p class="cart__subtotal">Subtotal: {{ subtotal | currency }}</p>
 
-    <button class="cart__checkout"
-            mat-button
-            (click)="checkout()">
-      Checkout
-    </button>
-
+    <button class="cart__checkout" mat-button (click)="checkout()">Checkout</button>
   </ng-container>
 
   <ng-template #empty>
-    <span class="cart__empty">
-      YOU HAVE NOTHING IN YOUR SHOPPING CART. CONTINUE SHOPPING
-    </span>
+    <span class="cart__empty"> YOU HAVE NOTHING IN YOUR SHOPPING CART. CONTINUE SHOPPING </span>
   </ng-template>
 </div>

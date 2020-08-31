@@ -11,11 +11,6 @@ import { LocationStocklistComponent } from './components/location-stocklist/loca
 
 @NgModule({
   imports: [CommonModule, FormsModule, LocationHub, SharedModule],
-  declarations: [
-    LocationMapComponent,
-    MarkerDirective,
-    LocationComponent,
-    LocationStocklistComponent
-  ]
+  declarations: [LocationMapComponent, MarkerDirective, LocationComponent, LocationStocklistComponent]
 })
 export class LocationModule {}

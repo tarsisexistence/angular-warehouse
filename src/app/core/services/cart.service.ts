@@ -23,9 +23,7 @@ export class CartService {
 
   public static removeApparelFromCart(id: string): string {
     const apparels = CartService.fetchStorageApparel();
-    const cartApparels: Apparel[] = apparels.filter(
-      (apparel: Apparel) => apparel.id !== id
-    );
+    const cartApparels: Apparel[] = apparels.filter((apparel: Apparel) => apparel.id !== id);
 
     CartService.updateStorage(cartApparels);
 

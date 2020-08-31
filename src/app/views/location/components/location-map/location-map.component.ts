@@ -1,10 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  ElementRef,
-  Input,
-  OnInit
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, Input, OnInit } from '@angular/core';
 
 import { MapService } from 'location/shared/map.service';
 import { OnChange } from 'shared/decorators/onChange.decorator';
@@ -24,26 +18,21 @@ export class LocationMapComponent implements OnInit {
   @Input() public disableDoubleClickZoom: boolean;
 
   @Input()
-  @OnChange<google.maps.LatLng>(function(center: google.maps.LatLng): void {
+  @OnChange<google.maps.LatLng>(function (center: google.maps.LatLng): void {
     this.map.setCenter(center);
   })
   public center: google.maps.LatLng;
 
   @Input()
-  @OnChange<number>(function(zoom: number): void {
+  @OnChange<number>(function (zoom: number): void {
     this.map.setZoom(zoom);
   })
   public zoom: number;
 
-  constructor(
-    public map: MapService,
-    private readonly elementRef: ElementRef
-  ) {}
+  constructor(public map: MapService, private readonly elementRef: ElementRef) {}
 
   public ngOnInit(): void {
-    const el: HTMLElement = this.elementRef.nativeElement.querySelector(
-      '#gmap'
-    );
+    const el: HTMLElement = this.elementRef.nativeElement.querySelector('#gmap');
     this.createMap(el);
   }
 

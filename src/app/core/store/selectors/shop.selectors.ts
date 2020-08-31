@@ -9,20 +9,10 @@ export interface ShopState {
 
 const getShopState = createFeatureSelector<ShopState>(States.Shop);
 
-const getApparelsState = createSelector(
-  getShopState,
-  (state: ShopState) => state.apparels
-);
+const getApparelsState = createSelector(getShopState, (state: ShopState) => state.apparels);
 
-export const getShopApparelLoaded = createSelector(
-  getApparelsState,
-  (state: ApparelState) => state.loaded
-);
-export const getShopApparelEntities = createSelector(
-  getApparelsState,
-  (state: ApparelState) => state.entities
-);
-export const getShopApparel = createSelector(
-  getShopApparelEntities,
-  (entities) => Object.keys(entities).map((id: string) => entities[id])
+export const getShopApparelLoaded = createSelector(getApparelsState, (state: ApparelState) => state.loaded);
+export const getShopApparelEntities = createSelector(getApparelsState, (state: ApparelState) => state.entities);
+export const getShopApparel = createSelector(getShopApparelEntities, (entities) =>
+  Object.keys(entities).map((id: string) => entities[id])
 );

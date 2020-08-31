@@ -5,8 +5,7 @@ const crypto = require('crypto');
 export const userResolver = {
   Query: {
     user: async (root, { id }) => await userModel.findOne({ id }),
-    signIn: async (root, { email, password }) =>
-      await userModel.findOne({ email, password: encryption(password) })
+    signIn: async (root, { email, password }) => await userModel.findOne({ email, password: encryption(password) })
   },
   Mutation: {
     signUp: async (root, { email, password }) => {

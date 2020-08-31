@@ -68,7 +68,7 @@
     "label-position": true,
     "max-line-length": [
       true,
-      80
+      120
     ],
     "max-file-line-count": [
       true,

@@ -16,11 +16,13 @@
     align-items: center;
     margin-bottom: 80px;
 
-    &-search, &-reignarr, &-current {
+    &-search,
+    &-reignarr,
+    &-current {
       width: 35%;
     }
 
-   :host::ng-deep & > .mat-form-field-wrapper {
+    :host::ng-deep & > .mat-form-field-wrapper {
       width: 100%;
     }
 

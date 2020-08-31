@@ -1,9 +1,5 @@
 import { Action } from '@ngrx/store';
-import {
-  Access,
-  CatchPhraseConfig,
-  User
-} from 'core/shared/interfaces/user.interface';
+import { Access, CatchPhraseConfig, User } from 'core/shared/interfaces/user.interface';
 
 export enum AuthActionTypes {
   FetchUser = '[Auth - User] Fetch',

@@ -1,9 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  OnDestroy,
-  OnInit
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 
 import { BehaviorSubject, Subject } from 'rxjs';
@@ -41,13 +36,10 @@ export class ShopComponent implements OnInit, OnDestroy {
     this.unsubscribe$ = new Subject<boolean>();
     this.categories = categories;
 
-    this.route.data
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe((data: { category: string }) => {
-        this.loading = this.apparels.getValue() === null;
-        this.selectedCategory =
-          data.category === undefined ? 'all' : data.category;
-      });
+    this.route.data.pipe(takeUntil(this.unsubscribe$)).subscribe((data: { category: string }) => {
+      this.loading = this.apparels.getValue() === null;
+      this.selectedCategory = data.category === undefined ? 'all' : data.category;
+    });
 
     this.store.dispatch(new fromStore.LoadApparel());
 
@@ -60,26 +52,24 @@ export class ShopComponent implements OnInit, OnDestroy {
         this.loading = false;
       });
 
-    this.router.events
-      .pipe(takeUntil(this.unsubscribe$))
-      .subscribe((e: any) => {
-        if (e instanceof NavigationEnd) {
-          const apparels: Apparels = this.apparels.getValue();
-          const apparel = apparels[this.selectedCategory];
+    this.router.events.pipe(takeUntil(this.unsubscribe$)).subscribe((e: any) => {
+      if (e instanceof NavigationEnd) {
+        const apparels: Apparels = this.apparels.getValue();
+        const apparel = apparels[this.selectedCategory];
 
-          if (apparel === undefined) {
-            return;
-          }
-
-          const mixedApparel = mixArray<Apparel>(apparel);
-          const updatedApparels = {
-            ...apparels,
-            [this.selectedCategory]: mixedApparel
-          } as Apparels;
-
-          this.apparels.next(updatedApparels);
+        if (apparel === undefined) {
+          return;
         }
-      });
+
+        const mixedApparel = mixArray<Apparel>(apparel);
+        const updatedApparels = {
+          ...apparels,
+          [this.selectedCategory]: mixedApparel
+        } as Apparels;
+
+        this.apparels.next(updatedApparels);
+      }
+    });
   }
 
   public addToCart(apparel: Apparel): void {

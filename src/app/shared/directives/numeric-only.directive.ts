@@ -5,13 +5,7 @@ import { Directive, ElementRef, HostListener } from '@angular/core';
 })
 export class NumericOnlyDirective {
   private readonly regex: RegExp = new RegExp(/^-?[0-9 ]+(\.[0-9 ]*){0,1}$/g);
-  private readonly specialKeys: string[] = [
-    'Backspace',
-    'Tab',
-    'End',
-    'Home',
-    '-'
-  ];
+  private readonly specialKeys: string[] = ['Backspace', 'Tab', 'End', 'Home', '-'];
 
   constructor(private readonly el: ElementRef) {}
 

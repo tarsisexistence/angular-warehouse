@@ -4,19 +4,12 @@
       {{ apparel.title }}
     </p>
 
-    <img class="apparels__image"
-         [src]="apparel.image"
-         [alt]="apparel.title"/>
+    <img class="apparels__image" [src]="apparel.image" [alt]="apparel.title" />
 
     <div class="apparels__price">
-        <span>
-          {{ apparel.price }} $
-        </span>
+      <span> {{ apparel.price }} $ </span>
 
-      <a class="apparels__add-cart"
-         matTooltip="Add to cart"
-         matTooltipPosition="after"
-         (click)="addToCart(apparel)">
+      <a class="apparels__add-cart" matTooltip="Add to cart" matTooltipPosition="after" (click)="addToCart(apparel)">
         <shop-cart></shop-cart>
       </a>
     </div>

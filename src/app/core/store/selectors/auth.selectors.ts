@@ -8,12 +8,6 @@ export interface AuthState {
 }
 
 const getAuthState = createFeatureSelector<AuthState>(States.Auth);
-const getUserAuthState = createSelector(
-  getAuthState,
-  (state: AuthState) => state.user
-);
+const getUserAuthState = createSelector(getAuthState, (state: AuthState) => state.user);
 
-export const getUser = createSelector(
-  getUserAuthState,
-  (state: UserState) => state.user
-);
+export const getUser = createSelector(getUserAuthState, (state: UserState) => state.user);

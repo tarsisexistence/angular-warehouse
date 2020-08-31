@@ -1,12 +1,12 @@
 <div class="shop">
-  <shop-bar class="shop__bar"
-            [categories]="categories">
-  </shop-bar>
+  <shop-bar class="shop__bar" [categories]="categories"> </shop-bar>
 
-  <shop-apparels *ngIf="apparels"
-                 class="shop__apparels"
-                 [apparels]="(apparels | async)[selectedCategory]"
-                 (addToCartEmitter)="addToCart($event)">
+  <shop-apparels
+    *ngIf="apparels"
+    class="shop__apparels"
+    [apparels]="(apparels | async)[selectedCategory]"
+    (addToCartEmitter)="addToCart($event)"
+  >
   </shop-apparels>
 
   <div *ngIf="loading">

@@ -1,9 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  OnDestroy,
-  OnInit
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -35,10 +30,7 @@ export class CartComponent implements OnInit, OnDestroy {
   private unsubscribe$: Subject<boolean>;
 
   private static calcSubtotal(apparels: Apparel[]): number {
-    return apparels.reduce(
-      (result: number, apparel: Apparel) => result + apparel.price,
-      0
-    );
+    return apparels.reduce((result: number, apparel: Apparel) => result + apparel.price, 0);
   }
 
   constructor(

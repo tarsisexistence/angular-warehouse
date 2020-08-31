@@ -4,16 +4,8 @@ import { Directive, ElementRef, HostListener } from '@angular/core';
   selector: '[stringOnly]'
 })
 export class StringOnlyDirective {
-  private readonly regex: RegExp = new RegExp(
-    /^-?[a-zA-Z ]+(\.[a-zA-Z ]*){0,1}$/g
-  );
-  private readonly specialKeys: string[] = [
-    'Backspace',
-    'Tab',
-    'End',
-    'Home',
-    '-'
-  ];
+  private readonly regex: RegExp = new RegExp(/^-?[a-zA-Z ]+(\.[a-zA-Z ]*){0,1}$/g);
+  private readonly specialKeys: string[] = ['Backspace', 'Tab', 'End', 'Home', '-'];
 
   constructor(private readonly el: ElementRef) {}
 

@@ -11,7 +11,7 @@ export class MarkerDirective {
   @Input() public content: string;
 
   @Input()
-  @OnChange<google.maps.LatLng>(function(position: google.maps.LatLng): void {
+  @OnChange<google.maps.LatLng>(function (position: google.maps.LatLng): void {
     this.map.addMarker(position, this.title, this.content);
     this.position = position;
   })

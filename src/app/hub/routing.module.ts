@@ -1,10 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
-import {
-  RouterStateSerializer,
-  StoreRouterConnectingModule
-} from '@ngrx/router-store';
+import { RouterStateSerializer, StoreRouterConnectingModule } from '@ngrx/router-store';
 
 import { CustomSerializer } from 'store';
 import { CustomPreloadingStrategy } from './preloading';

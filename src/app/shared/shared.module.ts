@@ -15,11 +15,6 @@ const sharedModules = [ReactiveFormsModule, MaterialModule, NavigationModule];
 @NgModule({
   imports: [CommonModule, ...sharedModules],
   exports: sharedModules,
-  declarations: [
-    InfoComponent,
-    PaymentComponent,
-    NumericOnlyDirective,
-    StringOnlyDirective
-  ]
+  declarations: [InfoComponent, PaymentComponent, NumericOnlyDirective, StringOnlyDirective]
 })
 export class SharedModule {}

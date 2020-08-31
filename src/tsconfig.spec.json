@@ -4,20 +4,9 @@
     "outDir": "../out-tsc/spec",
     "baseUrl": "./",
     "target": "es5",
-    "types": [
-      "jasmine",
-      "node"
-    ],
-    "typeRoots": [
-      "./typings.d.ts"
-    ]
+    "types": ["jasmine", "node"],
+    "typeRoots": ["./typings.d.ts"]
   },
-  "files": [
-    "./test.ts",
-    "./polyfills.ts"
-  ],
-  "include": [
-    "./**/*.spec.ts",
-    "./**/*.d.ts"
-  ]
+  "files": ["./test.ts", "./polyfills.ts"],
+  "include": ["./**/*.spec.ts", "./**/*.d.ts"]
 }

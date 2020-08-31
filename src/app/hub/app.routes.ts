@@ -18,14 +18,12 @@ export const appRoutes: Routes = [
   {
     path: 'location',
     pathMatch: 'prefix',
-    loadChildren: () =>
-      import('location/location.module').then((m) => m.LocationModule)
+    loadChildren: () => import('location/location.module').then((m) => m.LocationModule)
   },
   {
     path: 'user-center',
     pathMatch: 'full',
-    loadChildren: () =>
-      import('user-center/user-center.module').then((m) => m.UserCenterModule)
+    loadChildren: () => import('user-center/user-center.module').then((m) => m.UserCenterModule)
   },
   {
     path: 'cart',

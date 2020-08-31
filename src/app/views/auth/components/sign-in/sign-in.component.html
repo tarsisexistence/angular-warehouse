@@ -1,41 +1,34 @@
 <div class="sign-in">
-  <p class="sign-in__title">
-    Sign in to use more
-  </p>
+  <p class="sign-in__title">Sign in to use more</p>
 
-  <form class="sign-in__form"
-        [formGroup]="signInForm"
-        (ngSubmit)="signIn(signInForm)">
+  <form class="sign-in__form" [formGroup]="signInForm" (ngSubmit)="signIn(signInForm)">
     <mat-form-field>
-      <input matInput
-             type="email"
-             placeholder="E-Mail"
-             aria-label="E-Mail"
-             aria-describedby=""
-             aria-required="true"
-             formControlName="email"/>
+      <input
+        matInput
+        type="email"
+        placeholder="E-Mail"
+        aria-label="E-Mail"
+        aria-describedby=""
+        aria-required="true"
+        formControlName="email"
+      />
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput
-             type="password"
-             autocomplete="password"
-             placeholder="Password"
-             aria-label="Password"
-             aria-describedby=""
-             aria-required="true"
-             formControlName="password"/>
+      <input
+        matInput
+        type="password"
+        autocomplete="password"
+        placeholder="Password"
+        aria-label="Password"
+        aria-describedby=""
+        aria-required="true"
+        formControlName="password"
+      />
     </mat-form-field>
 
-    <button class="sign-in__submit"
-            mat-raised-button>
-      Sign in
-    </button>
+    <button class="sign-in__submit" mat-raised-button>Sign in</button>
   </form>
 
-  <a class="sign-in__sign-up-link"
-     (click)="toggleAuthMethod()">
-    I am new at Reignarr
-  </a>
+  <a class="sign-in__sign-up-link" (click)="toggleAuthMethod()"> I am new at Reignarr </a>
 </div>
-

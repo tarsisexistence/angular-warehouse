@@ -30,11 +30,7 @@ export class MapService {
     this.map.setZoom(zoom);
   }
 
-  public addMarker(
-    latLng: google.maps.LatLng,
-    title?: string,
-    contentString?: string
-  ): void {
+  public addMarker(latLng: google.maps.LatLng, title?: string, contentString?: string): void {
     if (this.map != null && latLng != null) {
       const marker: google.maps.Marker = new google.maps.Marker({
         position: latLng,

@@ -28,8 +28,5 @@ export class ApparelEffects {
     )
   );
 
-  constructor(
-    private readonly actions$: Actions,
-    private readonly apolloService: ApolloService
-  ) {}
+  constructor(private readonly actions$: Actions, private readonly apolloService: ApolloService) {}
 }

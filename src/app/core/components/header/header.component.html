@@ -1,54 +1,24 @@
 <header class="header">
-
   <section class="header__brandline">
-    <a class="header__brandname"
-       accesskey="1"
-        title="Logo"
-       [navLink]="hub.app.home.state">
-      Reignarr
-    </a>
+    <a class="header__brandname" accesskey="1" title="Logo" [navLink]="hub.app.home.state"> Reignarr </a>
 
-    <a accesskey="a"
-       (click)="auth()">
-      <mat-icon class="header__icon header__icon-profile">
-        account_circle
-      </mat-icon>
+    <a accesskey="a" (click)="auth()">
+      <mat-icon class="header__icon header__icon-profile"> account_circle </mat-icon>
     </a>
   </section>
 
   <section class="header__nav" role="navigation">
     <nav class="header__nav-main">
-      <a accesskey="h"
-         title="Home"
-         [navLink]="hub.app.home.state">
-        Home
-      </a>
-      <a accesskey="s"
-         title="Shop"
-         [navLink]="hub.app.shop.state">
-        Shop
-      </a>
-      <a accesskey="c"
-         title="Shopping cart"
-         [navLink]="hub.app.cart.state">
-        <mat-icon class="header__icon header__icon-cart">
-          shopping_cart
-        </mat-icon>
+      <a accesskey="h" title="Home" [navLink]="hub.app.home.state"> Home </a>
+      <a accesskey="s" title="Shop" [navLink]="hub.app.shop.state"> Shop </a>
+      <a accesskey="c" title="Shopping cart" [navLink]="hub.app.cart.state">
+        <mat-icon class="header__icon header__icon-cart"> shopping_cart </mat-icon>
       </a>
     </nav>
 
     <nav class="header__nav-main">
-      <a accesskey="l"
-         title="Store location"
-         [navLink]="hub.location.map.state">
-        Store Location
-      </a>
-      <a accesskey="k"
-         title="Stocklist"
-         [navLink]="hub.location.stocklist.state">
-        Stocklist
-      </a>
+      <a accesskey="l" title="Store location" [navLink]="hub.location.map.state"> Store Location </a>
+      <a accesskey="k" title="Stocklist" [navLink]="hub.location.stocklist.state"> Stocklist </a>
     </nav>
   </section>
-
 </header>

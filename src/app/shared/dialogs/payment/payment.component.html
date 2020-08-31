@@ -1,49 +1,37 @@
 <div class="payment">
   <header>
-    <p class="payment__header">
-      Please, fill the contacts form
-    </p>
+    <p class="payment__header">Please, fill the contacts form</p>
   </header>
 
-  <form class="payment__form"
-        [formGroup]="form"
-        (ngSubmit)="payment(form)">
+  <form class="payment__form" [formGroup]="form" (ngSubmit)="payment(form)">
     <fieldset class="payment__form-controls">
       <mat-form-field>
-        <input matInput
-               placeholder="Full name"
-               aria-label="Full name"
-               aria-required="true"
-               formControlName="name"
-               stringOnly>
+        <input
+          matInput
+          placeholder="Full name"
+          aria-label="Full name"
+          aria-required="true"
+          formControlName="name"
+          stringOnly
+        />
       </mat-form-field>
       <mat-form-field>
-        <input matInput
-               placeholder="Phone number"
-               aria-label="Phone number"
-               aria-required="true"
-               formControlName="phone"
-               numericOnly>
+        <input
+          matInput
+          placeholder="Phone number"
+          aria-label="Phone number"
+          aria-required="true"
+          formControlName="phone"
+          numericOnly
+        />
       </mat-form-field>
       <mat-form-field>
-        <input matInput
-               placeholder="Address"
-               aria-label="Address"
-               aria-required="true"
-               formControlName="address">
+        <input matInput placeholder="Address" aria-label="Address" aria-required="true" formControlName="address" />
       </mat-form-field>
     </fieldset>
 
-    <button class="payment__submit"
-            mat-raised-button
-            color="primary">
-      Order
-    </button>
+    <button class="payment__submit" mat-raised-button color="primary">Order</button>
   </form>
 
-  <p class="payment__information">
-    Total payment: {{ subtotal | currency }}
-  </p>
+  <p class="payment__information">Total payment: {{ subtotal | currency }}</p>
 </div>
-
-

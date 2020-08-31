@@ -10,22 +10,11 @@ import {
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 
 import { BehaviorSubject, fromEvent, Subject } from 'rxjs';
-import {
-  debounceTime,
-  distinctUntilChanged,
-  map,
-  pairwise,
-  takeUntil
-} from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, map, pairwise, takeUntil } from 'rxjs/operators';
 
 import { InfoComponent } from 'shared/dialogs/info/info.component';
 import { getToggleAnimation } from 'core/shared/animations/toggle.animation';
-import {
-  direction,
-  returnPolicy,
-  shippingHandling,
-  visibility
-} from 'core/shared/constants';
+import { direction, returnPolicy, shippingHandling, visibility } from 'core/shared/constants';
 import { DirectionState, VisibilityState } from 'core/shared/interfaces';
 
 const toggleAnimationTrigger = 'toggleFooter';
@@ -47,10 +36,7 @@ export class FooterComponent implements OnInit, AfterViewInit, OnDestroy {
     return this.isVisible.value ? visibility.visible : visibility.hidden;
   }
 
-  constructor(
-    private readonly cdr: ChangeDetectorRef,
-    private readonly dialog: MatDialog
-  ) {}
+  constructor(private readonly cdr: ChangeDetectorRef, private readonly dialog: MatDialog) {}
 
   public ngOnInit(): void {
     this.unsubscribe$ = new Subject<void>();
@@ -64,10 +50,7 @@ export class FooterComponent implements OnInit, AfterViewInit, OnDestroy {
         debounceTime(5),
         map(() => window.pageYOffset),
         pairwise(),
-        map(
-          ([y1, y2]): DirectionState =>
-            y1 === y2 ? null : y1 > y2 ? direction.up : direction.down
-        ),
+        map(([y1, y2]): DirectionState => (y1 === y2 ? null : y1 > y2 ? direction.up : direction.down)),
         distinctUntilChanged()
       )
       .subscribe((directionState: DirectionState) => {

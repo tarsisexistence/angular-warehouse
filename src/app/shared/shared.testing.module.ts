@@ -4,11 +4,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 
 import { MaterialModule } from './modules/material.module';
 
-const sharedModules = [
-  BrowserAnimationsModule,
-  RouterTestingModule,
-  MaterialModule
-];
+const sharedModules = [BrowserAnimationsModule, RouterTestingModule, MaterialModule];
 
 @NgModule({
   imports: [...sharedModules],

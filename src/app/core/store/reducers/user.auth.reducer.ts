@@ -1,7 +1,4 @@
-import {
-  AuthActionTypes,
-  AuthActionsUnion
-} from 'store/actions/user.auth.action';
+import { AuthActionTypes, AuthActionsUnion } from 'store/actions/user.auth.action';
 import { User } from 'core/shared/interfaces/user.interface';
 
 export interface UserState {
@@ -18,10 +15,7 @@ export const initialState: UserState = {
   loggedIn: false
 };
 
-export function userReducer(
-  state = initialState,
-  action: AuthActionsUnion
-): UserState {
+export function userReducer(state = initialState, action: AuthActionsUnion): UserState {
   switch (action.type) {
     case AuthActionTypes.FetchUser: {
       return {

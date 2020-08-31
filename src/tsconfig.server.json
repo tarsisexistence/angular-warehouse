@@ -5,14 +5,9 @@
     "baseUrl": "./",
     "module": "commonjs",
     "types": [],
-    "typeRoots": [
-      "../typings"
-    ]
+    "typeRoots": ["../typings"]
   },
-  "exclude": [
-    "./test.ts",
-    "./**/*.spec.ts"
-  ],
+  "exclude": ["./test.ts", "./**/*.spec.ts"],
   "angularCompilerOptions": {
     "entryModule": "app/app.server.module#AppServerModule"
   }

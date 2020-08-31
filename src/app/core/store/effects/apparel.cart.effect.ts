@@ -71,9 +71,7 @@ export class CartEffects {
       map((action: RemoveApparel) => action.payload),
       switchMap((id: string) =>
         of(CartService.removeApparelFromCart(id)).pipe(
-          map(
-            (sequenceNumber: string) => new RemoveApparelSuccess(sequenceNumber)
-          ),
+          map((sequenceNumber: string) => new RemoveApparelSuccess(sequenceNumber)),
           catchError((error: Error) => of(new RemoveApparelFailure(error))),
           finalize(() => console.log('finalize removeApparel$'))
         )

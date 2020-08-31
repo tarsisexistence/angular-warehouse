@@ -16,9 +16,9 @@
     "uuid": "8.3.0"
   },
   "devDependencies": {
-    "@babel/core": "7.11.4",
-    "@babel/cli": "7.10.5",
-    "@babel/preset-env": "7.11.0",
+    "@babel/core": "7.11.5",
+    "@babel/cli": "7.11.5",
+    "@babel/preset-env": "7.11.5",
     "babel-watch": "7.0.0"
   }
 }

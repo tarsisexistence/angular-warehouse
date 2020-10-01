@@ -59,7 +59,7 @@
     "apollo-angular-boost": "1.9.0",
     "graphql": "15.3.0",
     "routeshub": "4.2.1",
-    "rxjs": "6.6.2",
+    "rxjs": "6.6.3",
     "tslib": "2.0.1",
     "zone.js": "0.11.1"
   },
@@ -78,7 +78,7 @@
     "@types/jasminewd2": "2.0.8",
     "@types/node": "13.13.15",
     "codelyzer": "6.0.0",
-    "husky": "4.2.5",
+    "husky": "4.3.0",
     "jasmine-core": "3.6.0",
     "jasmine-marbles": "0.6.0",
     "jasmine-spec-reporter": "5.0.2",

@@ -6,6 +6,8 @@ import { forwardParams, getRegisteredUnits, Units } from 'routeshub';
 import { BehaviorSubject, fromEvent, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map, pairwise, takeUntil } from 'rxjs/operators';
 import { Store } from '@ngrx/store';
+import { getRoutes } from '@routerkit/core';
+import { TypedRoutes } from '../../../../../angular-warehouse.routes';
 
 import * as fromStore from 'store';
 import { AuthComponent } from 'auth/containers/auth/auth.component';
@@ -26,6 +28,7 @@ const toggleAnimation = getToggleAnimation(toggleAnimationTrigger);
 })
 export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   public hub: Units<Hub>;
+  public routes = getRoutes<TypedRoutes>();
   private user: User;
   private unsubscribe$: Subject<void>;
   private isVisible: BehaviorSubject<boolean>;

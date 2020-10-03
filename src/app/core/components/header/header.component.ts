@@ -28,7 +28,7 @@ const toggleAnimation = getToggleAnimation(toggleAnimationTrigger);
 })
 export class HeaderComponent implements OnInit, AfterViewInit, OnDestroy {
   public hub: Units<Hub>;
-  public routes = getRoutes<TypedRoutes>();
+  public routes: TypedRoutes = getRoutes<TypedRoutes>();
   private user: User;
   private unsubscribe$: Subject<void>;
   private isVisible: BehaviorSubject<boolean>;

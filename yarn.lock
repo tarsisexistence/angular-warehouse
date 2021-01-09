@@ -1811,10 +1811,10 @@
     "@types/minimatch" "*"
     "@types/node" "*"
 
-"@types/googlemaps@3.39.13":
-  version "3.39.13"
-  resolved "https://registry.yarnpkg.com/@types/googlemaps/-/googlemaps-3.39.13.tgz#a2649ac618cb15bd04ad8700c41693c8c1f90e21"
-  integrity sha512-R/k5WKe8zQHo9oFRINuX/1haKYRkKEfItnBGrSjspbXXITakRdsj6daQIdL1+Pt84lnzduWurxNA5k0fgPMQUg==
+"@types/googlemaps@3.43.1":
+  version "3.43.1"
+  resolved "https://registry.yarnpkg.com/@types/googlemaps/-/googlemaps-3.43.1.tgz#ce8ff7a6fb5db6fa4d46cfda00cc8144a9fbede3"
+  integrity sha512-0fLZrXDMx/spPbn0YVae0YVxwd2tAdWvA4RrjIy4s4k77DEGUJJYks7AAEW8fHGAoTwu0LmGvO3NsJAPjXRAJw==
 
 "@types/hosted-git-info@^2.7.0":
   version "2.7.0"

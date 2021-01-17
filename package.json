@@ -36,8 +36,8 @@
     "lint": "ng lint",
     "lint-staged": "lint-staged",
     "prettier": "prettier",
-    "// - NPM - //": "------------------------------",
-    "postinstall": "cd server && yarn"
+    "// - OTHER - //": "------------------------------",
+    "postinstall": "cd server && yarn && ngcc"
   },
   "dependencies": {
     "@angular/animations": "11.0.9",

@@ -27,7 +27,8 @@ export const appRouting: ModuleWithProviders<AppHub> = RouterModule.forRoot(appR
   initialNavigation: 'enabled',
   onSameUrlNavigation: 'reload',
   scrollPositionRestoration: 'top',
-  preloadingStrategy: CustomPreloadingStrategy
+  preloadingStrategy: CustomPreloadingStrategy,
+  relativeLinkResolution: 'legacy'
 });
 
 @NgModule({

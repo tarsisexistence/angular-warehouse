@@ -8,7 +8,7 @@ import { locationConnector } from 'location/hub/location.hub';
 import { homeConnector } from 'home/hub/home.hub';
 import { CustomPreloadingStrategy } from 'hub/preloading';
 import { appRoutes } from './app.routes';
-import { APP_UNIT_KEY, AppNotes } from './app.notes';
+import { AppNotes, APP_UNIT_KEY } from './app.notes';
 
 createRoot<AppNotes>(appRoutes, {
   key: APP_UNIT_KEY,

@@ -25,13 +25,10 @@ import {
   SignUpSuccess
 } from 'store/actions/user.auth.action';
 import { Go } from 'store/actions/router.action';
-import { APP_UNIT_KEY, AppNotes } from 'hub/app.notes';
+import { AppNotes, APP_UNIT_KEY } from 'hub/app.notes';
 
 @Injectable({ providedIn: 'root' })
 export class UserEffects {
-  @Secluded(APP_UNIT_KEY)
-  private appUnit: Unit<AppNotes>;
-
   public signUp$ = createEffect(() =>
     this.actions$.pipe(
       ofType<SignUp>(AuthActionTypes.SignUp),
@@ -109,6 +106,8 @@ export class UserEffects {
       ),
     { dispatch: false }
   );
+  @Secluded(APP_UNIT_KEY)
+  private appUnit: Unit<AppNotes>;
 
   constructor(
     private readonly actions$: Actions,

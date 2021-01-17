@@ -13,7 +13,7 @@ import { ClearApparel, RemoveApparel } from 'store/actions';
 import { PaymentComponent } from 'shared/dialogs/payment/payment.component';
 import { Order } from 'core/shared/interfaces/order.interface';
 import { Apparel } from 'shop/shared/interfaces/apparel.interface';
-import { APP_UNIT_KEY, AppNotes } from 'hub/app.notes';
+import { AppNotes, APP_UNIT_KEY } from 'hub/app.notes';
 
 @Component({
   selector: 'cart-feat',

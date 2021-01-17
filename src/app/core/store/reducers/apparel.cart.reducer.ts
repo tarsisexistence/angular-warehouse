@@ -1,4 +1,4 @@
-import { ApparelCartActionTypes, ApparelCartAction } from 'store/actions/apparel.cart.action';
+import { ApparelCartAction, ApparelCartActionTypes } from 'store/actions/apparel.cart.action';
 import { CartApparel, CartApparelEntities } from 'shop/shared/interfaces/cart-apparel.interface';
 import { Apparel } from 'shop/shared/interfaces/apparel.interface';
 

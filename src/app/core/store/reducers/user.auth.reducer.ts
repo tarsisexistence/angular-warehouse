@@ -1,4 +1,4 @@
-import { AuthActionTypes, AuthActionsUnion } from 'store/actions/user.auth.action';
+import { AuthActionsUnion, AuthActionTypes } from 'store/actions/user.auth.action';
 import { User } from 'core/shared/interfaces/user.interface';
 
 export interface UserState {

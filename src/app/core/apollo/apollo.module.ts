@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
-import { APOLLO_BOOST_CONFIG, ApolloBoostModule } from 'apollo-angular-boost';
+import { ApolloBoostModule, APOLLO_BOOST_CONFIG } from 'apollo-angular-boost';
 
 @NgModule({
   imports: [CommonModule, HttpClientModule, ApolloBoostModule],

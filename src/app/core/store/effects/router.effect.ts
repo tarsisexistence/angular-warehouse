@@ -5,7 +5,7 @@ import { Location } from '@angular/common';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { map, tap } from 'rxjs/operators';
 
-import { RouterActionsTypes, Go } from '../actions/router.action';
+import { Go, RouterActionsTypes } from '../actions/router.action';
 
 @Injectable({ providedIn: 'root' })
 export class RouterEffects {

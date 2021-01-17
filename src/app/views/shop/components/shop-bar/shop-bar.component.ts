@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 
 import { Secluded, Unit } from 'routeshub';
 
-import { SHOP_UNIT_KEY, ShopNotes } from 'shop/hub/shop.notes';
+import { ShopNotes, SHOP_UNIT_KEY } from 'shop/hub/shop.notes';
 import { Category } from 'shop/shared/interfaces/category.interface';
 
 @Component({

@@ -6,11 +6,11 @@ import { db } from '../secret';
 
 const databasePath = `mongodb+srv://${db.username}:${db.password}@cluster0-rtasa.gcp.mongodb.net/${db.name}`;
 const graphqlPath = '/graphql';
-const port = 4000;
+const port = 4201;
 
 const app = express();
 app.use(cors());
-app.listen({ port }, () => console.log(`🚀 Server ready at http://localhost:4000${graphqlPath}`));
+app.listen({ port }, () => console.log(`🚀 Server ready at http://localhost:${port}${graphqlPath}`));
 
 server.applyMiddleware({ app, path: graphqlPath });
 

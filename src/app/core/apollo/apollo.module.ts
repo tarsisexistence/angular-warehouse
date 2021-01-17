@@ -10,7 +10,7 @@ import { ApolloBoostModule, APOLLO_BOOST_CONFIG } from 'apollo-angular-boost';
     {
       provide: APOLLO_BOOST_CONFIG,
       useValue: {
-        uri: 'http://localhost:4000/graphql'
+        uri: 'http://localhost:4201/graphql'
       }
     }
   ]

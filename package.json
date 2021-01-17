@@ -74,7 +74,7 @@
     "@commitlint/config-conventional": "11.0.0",
     "@compodoc/compodoc": "1.1.11",
     "@types/googlemaps": "3.43.1",
-    "@types/jasmine": "3.5.14",
+    "@types/jasmine": "3.6.2",
     "@types/jasminewd2": "2.0.8",
     "@types/node": "13.13.15",
     "codelyzer": "6.0.1",

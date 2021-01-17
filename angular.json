@@ -140,7 +140,7 @@
     }
   },
   "cli": {
-    "packageManager": "npm"
+    "packageManager": "yarn"
   },
   "defaultProject": "angular-warehouse"
 }

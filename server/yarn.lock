@@ -2438,10 +2438,10 @@ babel-preset-fbjs@^3.3.0:
     "@babel/plugin-transform-template-literals" "^7.0.0"
     babel-plugin-syntax-trailing-function-commas "^7.0.0-beta.0"
 
-babel-watch@7.3.0:
-  version "7.3.0"
-  resolved "https://registry.yarnpkg.com/babel-watch/-/babel-watch-7.3.0.tgz#5864c04de3c7860e284e07d070c99753dbb71044"
-  integrity sha512-cDz+3gyJhfLV9JRBaHuxSzeuZ+BHLCqOCViOn2LwCCfgH8O0BciWtOaFJA+s69+Y3ZOiA8/fCd4gfMzGl0Pgiw==
+babel-watch@7.4.0:
+  version "7.4.0"
+  resolved "https://registry.yarnpkg.com/babel-watch/-/babel-watch-7.4.0.tgz#ddcfcb774d7132f3432bca58438fdc82581ae66d"
+  integrity sha512-Ig7Mz0JmPCvs1Tao5ko4Dg/YXaywf9duUhPQUAt0UzSZtuxtYwYmdu4Gf6uaG0zg5vf5qOYpDrzPpG96OQoHkg==
   dependencies:
     chalk "^4.1.0"
     chokidar "^3.4.3"
@@ -2451,6 +2451,7 @@ babel-watch@7.3.0:
     lodash.isregexp "^4.0.1"
     lodash.isstring "^4.0.1"
     source-map-support "^0.5.19"
+    string-argv "^0.3.1"
 
 backo2@^1.0.2:
   version "1.0.2"
@@ -4822,6 +4823,11 @@ streamsearch@0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/streamsearch/-/streamsearch-0.1.2.tgz#808b9d0e56fc273d809ba57338e929919a1a9f1a"
   integrity sha1-gIudDlb8Jz2Am6VzOOkpkZoanxo=
+
+string-argv@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/string-argv/-/string-argv-0.3.1.tgz#95e2fbec0427ae19184935f816d74aaa4c5c19da"
+  integrity sha512-a1uQGz7IyVy9YwhqjZIZu1c8JO8dNIe20xBmSS6qu9kv++k3JGzCVmprbNN5Kn+BgzD5E7YYwg1CcjuJMRNsvg==
 
 string-width@^4.1.0, string-width@^4.2.0:
   version "4.2.0"
